@@ -6,7 +6,7 @@
     local routerSrc = resource.."/web/img/topograph/".."router_"..hardware.."_".. color..".png"
 %>
 <%include ("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link rel="stylesheet" href="<%=resource%>/web/css/bc.css?v=<%=ver%>">
 <link rel="stylesheet" href="<%=resource%>/web/css/syslock.css?v=<%=ver%>">
@@ -23,12 +23,12 @@
                     <b id="persent" class="value">0</b><i>%</i>
                 </span>
             </div>
-            <p class="loading-text"><%:Redmi路由器正在下载升级包%></p>
+            <p class="loading-text"><%:Маршрутизатор загружает пакет обновления%></p>
             <div class="progress">
                 <div class="bar" id="persentWidth" style="width: 0%;"></div>
             </div>
             <div class="btn-box">
-                <a href="#" class="btn btn-primary" id="btnCancel" style="display:none;"><span><%:取消升级%></span></a>
+                <a href="#" class="btn btn-primary" id="btnCancel" style="display:none;"><span><%:Отменить%></span></a>
             </div>
         </div>
     </div>
@@ -41,11 +41,13 @@
             <div class="loading-bar"></div>
         </div>
         <div class="flash-tips">
-            <h3><%:正在升级中%></h3>
+            <h3><%:ОБНОВЛЕНИЕ%></h3>
             <ul>
-                <li><span class="n">1</span> <span class="t"><%:升级过程中请勿断开路由器电源，避免对路由器造成永久性损坏%></span></li>
-                <li><span class="n">2</span> <span class="t"><%:升级过程大约需要5-8分钟，路由器指示灯重新变蓝后，可以通过miwifi.com进入管理后台%></span></li>
-            </ul>
+                <li><span class="n">1</span> <span class="t"><%:Не отключайте питание маршрутизатора во время процесса обновления.%></span></li>
+                <li><span class="n">2</span> <span class="t"><%:Процесс обновления занимает около 5-8 минут.%></span></li>
+				<li><span class="n">3</span> <span class="t"><%:После того, как индикатор роутера снова станет синим, вы можете войти в панель управления по адресу miwifi.com.%></span></li>
+
+			</ul>
         </div>
     </div>
     <div class="mod-step mod-upgrade mod-reset" id="mod-reset" style="display:none;">
@@ -54,10 +56,10 @@
             <img class="upgradeimg" src="<%=resource%>/web/img/ico_resetwarn.png">
         </div>
         <div class="reset-tips">
-            <h3><%:升级注意%></h3>
-            <p><%:当刷回较低版本时，建议您同时清除掉用户配置，以防止版本兼容性引起的异常故障%></p>
-            <p class="label"><label><input type="checkbox" name="isreset" id="isreset"> <span><%:清除当前所有用户配置%></span></label></p>
-            <button id="btnFlashrom" class="btn btn-primary btn-l"><span><%:确定%></span></button>
+            <h3><%:Информация об обновлении%></h3>
+            <p><%:При переходе на более низкую версию рекомендуется одновременно очистить конфигурацию пользователя, чтобы предотвратить аномальные сбои, вызванные совместимостью версий.%></p>
+            <p class="label"><label><input type="checkbox" name="isreset" id="isreset"> <span><%:Очистить все текущие пользовательские конфигурации%></span></label></p>
+            <button id="btnFlashrom" class="btn btn-primary btn-l"><span><%:Подтвердить%></span></button>
         </div>
     </div>
 </div>
@@ -100,9 +102,9 @@ $(function(){
             openRefresh();
             $.dialog({
                 width: 390,
-                title: '<%:升级失败%>',
+                title: '<%:Ошибка обновления%>',
                 content: msg,
-                okValue: '<%:确认%>',
+                okValue: '<%:Подвердить%>',
                 cancel: false,
                 ok: function() {
                     window.location.href = homeUrl;
@@ -151,11 +153,11 @@ $(function(){
                             if( /(6|7|8|9|10)/.test( status ) ){
                                 window.clearInterval( timer );
                                 var msg = {
-                                    6: '<%:下载失败%>',
-                                    7: '<%:没有磁盘空间%>',
-                                    8: '<%:下载失败%>',
-                                    9: '<%:升级包校验失败%>',
-                                    10: '<%:刷写失败%>'
+                                    6: '<%:Ошибка загрузки%>',
+                                    7: '<%:Недостаточно места%>',
+                                    8: '<%:Ошибка загрузки%>',
+                                    9: '<%:Ошибка пакета обновления%>',
+                                    10: '<%:Ошибка прошивки%>'
                                 };
                                 downError( msg[status] );
                             }
@@ -240,7 +242,7 @@ $(function(){
         },
         stopRefresh = function() {
             window.onbeforeunload = function() {
-              return "<%:正在进行系统升级，请不要离开页面%>";
+              return "<%:Производится обновление системы, пожалуйста, не покидайте страницу.%>";
             }
         },
         openRefresh = function() {

@@ -36,7 +36,7 @@
     local lang = XQSysUtil.getLang()
 %>
 <%include("web/inc/head")%>
-    <title><%:Redmi路由器%></title>
+    <title><%:Redmi Xiaomi AX5%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
     <link href="<%=resource%>/web/css/login.css?v=<%=ver%>" rel="stylesheet">
@@ -96,7 +96,7 @@
     <div id="bd">
         <div class="mod-login" id="admin-PC"style="display:none;">
             <div class="title">
-                <%:欢迎使用Redmi路由器%>
+                <%:Redmi Xiaomi AX5%>
             </div>
             <!-- <div class="pic">
                 <img src="<%=routerSrc %>" >
@@ -105,17 +105,17 @@
                 <%=router_name%>
             </div> -->
             <div class="detail">
-                <%:下载小米WiFi APP管理路由器%>
+                <%:Используйте приложение Xiaomi WiFi для управления маршрутизатором%>
             </div>
             <div class="download">
                 <div class="code"></div>
                 </div>
             <div class="tip">
-                <%:使用小米WiFi APP免除记密码烦恼%>
+                <%:Отсканируйте QR код, чтобы скачать приложение Xiaomi WiFi%>
             </div>
             <form id="rtloginform" name="rtloginform" method="post" class="form-login">
                 <div class="form-item">
-                    <span class="v"><input id="password" class="ipt-text" type="password" name="router_password" autocomplete="off" placeholder="<%:请输入路由器管理密码%>" reqMsg="<%:请输入路由器管理密码%>"></span>
+                    <span class="v"><input id="password" class="ipt-text" type="password" name="router_password" autocomplete="off" placeholder="<%:Введите пароль%>" reqMsg="<%:Введите пароль%>"></span>
                     <em class="t"></em>
                 </div>
                 <div class="form-contral">
@@ -124,42 +124,42 @@
             </form>
             <div class="mobile-ft">
                 <p>
-                    <a target="_blank" href="http://www1.miwifi.com"><%:官方网站%></a>
+                    <a target="_blank" href="http://www1.miwifi.com"><%:Сайт%></a>
                 </p>
             </div>
         </div>
 
         <div class="mod-guide mod-guide-admin mod-guide-phone" id="admin-mob" style="display:none;">
-                    <p class="tit font18"><%:使用小米WiFi APP管理您的路由器%></p>
+                    <p class="tit font18"><%:Используйте приложение Xiaomi WiFi для управления маршрутизатором%></p>
                     <div class="hr"></div>
                     <ul class="info pic-line clearfix">
                         <li>
                             <div class="ico wifi"></div>
-                            <div>易用</div>
-                            <div class="des">全新小米WiFi APP 极简操作，享受生活</div>
+                            <div>Простота</div>
+                            <div class="des">Новое приложение Xiaomi WiFi - это минималистичный интерфейс.</div>
                         </li>
                         <li>
                             <div class="ico safe"></div>
-                             <div>安全</div>
-                            <div class="des">7x24小时安全防护 一键拉黑蹭网老王</div>
+                             <div>Безопасность</div>
+                            <div class="des">Безукоризненная безопасность.</div>
                         </li>
                         <li>
                             <div class="ico gamespeedup"></div>
-                            <div>加速</div>
-                            <div class="des">提高带宽，游戏加速 团战胜人一筹</div>
+                            <div>Скорость</div>
+                            <div class="des">Увеличивайте пропускную способность, ускоряйте игры, побеждайте в командных сражениях.</div>
                         </li>
                         <li>
 
                             <div class="ico money"></div>
-                            <div>赚钱</div>
-                            <div class="des">分享WiFi赚点钱 欢迎老王来蹭网</div>
+                            <div>Заработок</div>
+                            <div class="des">Делитесь Wi-Fi, и зарабатывайте деньги.</div>
                         </li>
                     </ul>
 
-                    <a href="" id="install" class="btn btn-primary btn-block mgtp"><span><%:现在安装%></span></a>
-                    <a href="miwifi://tab?tab=0&subtab=0" id="open" class="btn btn-primary btn-block"><span><%:我已安装，现在打开%></span></a>
-                    <!-- <div class="notice"><span><i></i><%:不支持手机端网页管理路由器4%></span></div> -->
-                    <div class="notice"><span><%:本地管理Redmi路由器%></span></div>
+                    <a href="" id="install" class="btn btn-primary btn-block mgtp"><span><%:Установить%></span></a>
+                    <a href="miwifi://tab?tab=0&subtab=0" id="open" class="btn btn-primary btn-block"><span><%:Открыть%></span></a>
+                    <!-- <div class="notice"><span><i></i><%:Маршрутизатор не поддерживает управление мобильным телефоном.%></span></div> -->
+                    <div class="notice"><span><%:Локальное управление маршрутизатором%></span></div>
                 </div>
     </div>
     <%include("web/inc/footermini")%>
@@ -231,9 +231,9 @@ $(function(){
                     window.location.reload();
                 } else {
                     pwdErrorCount ++;
-                    var errMsg = '<%:密码错误%>';
+                    var errMsg = '<%:Неверный пароль%>';
                     if (pwdErrorCount >= 4) {
-                        errMsg = '<%:多次密码错误，将禁止继续尝试%>';
+                        errMsg = '<%:Если следующий пароль будет введен неверно, доступ будет заблокирован.%>';
                     }
                     Valid.fail( document.getElementById('password'), errMsg, false);
                     $( formObj )
