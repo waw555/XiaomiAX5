@@ -1,0 +1,340 @@
+<%
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local xqlanwanutil = require "xiaoqiang.util.XQLanWanUtil"
+local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
+local romVersion = XQSysUtil.getRomVersion()
+local _romChannel = XQSysUtil.getChannel()
+local romChannel = _("Бета-версия")
+if _romChannel == "current" then
+	romChannel = _("Бета-версия")
+end
+if _romChannel == "release" then
+	romChannel = _("Стабильная версия")
+end
+local misc = XQSysUtil.getMiscHardwareInfo()
+local bbsUrl = misc.bbs
+
+local hardware = string.lower( XQSysUtil.getHardware() )
+local color = XQSysUtil.getColor()
+local routerSrc = resource.."/web/img/topograph/".."router_"..hardware.."_".. color..".png"
+%>
+<%include("web/inc/head")%>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
+<title><%:Redmi Xiaomi AX5%></title>
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/diagnosis/css/diagnosis.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body class="diagnosis">
+<div id="doc">
+	<div id="hd">
+		<h1 class="diagnosis-status" id="nettbstatus"><%:Диагностика сети маршрутизатора...%></h1>
+		<div class="netmap">
+			<ul class="clearfix">
+				<li class="devices">
+					<img src="<%=resource%>/diagnosis/img/ico_devices.png">
+					<p><%:Терминальное оборудование%></p>
+				</li>
+				<li id="devline" class="line line-scaning"></li>
+				<li class="router">
+					<img src="<%=routerSrc%>">
+					<p><%:Redmi Xiaomi AX5%></p>
+				</li>
+				<li id="netline" class="line line-scaning"></li>
+				<li class="internet">
+					<img src="<%=resource%>/diagnosis/img/ico_internet.png">
+					<p><%:Интернет%></p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="bd" class="mod-giagnosis-step">
+		<div class="item scaning">
+			<%:Идет диагностика сети, подождите%>
+			<div class="loading-bar" style="width:300px;"></div>
+		</div>
+		<div class="item result-ok" style="display:none;">
+			<img src="<%=resource%>/diagnosis/img/ico_succ.png">
+			<p><%:Поздравляю! Сетевое соединение в норме%></p>
+			<a href="" class="btn btn-dft2 btn-s"><span><%:Диагностировать повторно%></span></a>
+			<a href="/" class="btn btn-dft2 btn-s" style="margin-left:20px;"><span>Вернуться на главную</span></a>
+		</div>
+		<div class="item result-err" style="display:none;">
+			<div id="giagnosisresult"></div>
+			<div class="btns">
+				<a href="" class="btn btn-dft2 btn-s"><span><%:Диагностировать повторно%></span></a>
+				<a href="/" class="btn btn-dft2 btn-s" style="margin-left:20px;"><span>Вернуться на главную</span></a>
+			</div>
+		</div>
+	</div>
+	<div id="ft">
+		<p><%:系统版本%>: MiWiFi Rom <%=romVersion%> <%=romChannel%>&nbsp;&nbsp;&nbsp;&nbsp;<%:MAC-Адрес%>: <%=macdefault%></p>
+		<p>&copy; 2020 <%:Redmi Xiaomi AX5%> <span class="split">|</span> <a href="http://miwifi.com" target="_blank"><%:Адрес маршрутизатора Redmi Xiaomi AX5%></a></p>
+	</div>
+</div>
+<script type="text/tmpl" id="tplnettdres">
+<table>
+	<thead>
+		<tr>
+			<th class="s0"><%:Результат диагностики%></th>
+			<th class="s1"><%:Возможная причина%></th>
+			<th class="s2"><%:Возможные решения%></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="s0 wrap">{$title}</td>
+			<td class="s3 wrap" colspan="2">
+				<table class="resolvetb">
+				{for(var i=0, len=$reason.length;i<len;i++)}
+				<tr {if(i==0)}class="first"{/if}>
+				<td class="ss0">{$reason[i]}</td>
+				<td class="ss1">{$resolve[i]['text']}</td>
+				<td class="ss2">{$resolve[i]['action']}</td>
+				</tr>
+				{/for}
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</script>
+<script type="text/tmpl" id="tplnettdresMobile">
+<table>
+    <thead>
+        <tr>
+            <th class="gray"><%:Диагностирована проблема%></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <table class="resolvetb">
+                    <tr class="first">
+                        <td class="wrap">{$title}</td>
+                    </tr>
+                    {for(var i=0, len=$reason.length;i<len;i++)}
+                    <tr>
+                        <td class="wrap">
+                            <div class="clearfix"><span class="label gray"><%:Возможная причина%>:</span>  <div class="oh">{$reason[i]}</div> </div>
+                            <div class="clearfix"><span class="label gray"><%:Возможное решение%>: </span> <div class="oh">{$resolve[i]['text']} </div> </div>
+                            <div class="btn-div">{$resolve[i]['action']}</div>
+                        </td>
+                    </tr>
+                    {/for}
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</script>
+<%include("web/inc/g.js")%>
+<script>
+$(function(){
+	if (!window.location.origin){
+		window.location.origin = window.location.protocol+"//"+window.location.host;
+	}
+	function buildUrl( s, token ){
+		return window.location.origin + '/cgi-bin/luci/;stok=' + token+ '/web/setting/' + s;
+	}
+	function buildAction( action ){
+		var url;
+		if ( /;stok=/.test(location.href)) {
+			var token = location.href.match(/;stok=([^/]*)\//)[1];
+			url = buildUrl(action, token);
+
+		} else {
+			url = window.location.origin + '/cgi-bin/luci/web/login?action=' + action;
+		}
+		return '<a class="btn btn-dft3 btn-s" href="' + url + '"><span><%:Исправить сейчас%></span></a>';
+	}
+    var isMobile = function(){
+        return navigator.userAgent.match( /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile/i )
+    };
+	var apiNettb = '<%=luci.dispatcher.build_url("api", "xqnetdetect", "nettb")%>';
+	var mapResults = {
+		'1': {
+			title: '<%:Маршрутизатор не определяет доступ к сетевому кабелю порта WAN%>',
+			reason: ['<%:Сетевой кабель не подключен к порту WAN маршрутизатора%>','<%:Сетевой кабель подключенный к роутеру поврежден%>','<%:Сетевой интерфейс роутера поврежден%>'],
+			resolve: [
+				{ text: '<%:Убедитесь, что маршрутизатор подключен к сетевому кабелю.%>', action: ''},
+				{ text: '<%:Поменяйте сетевой кабель и попробуйте подключиться снова%>', action: ''},
+				{ text: '<%:Обратитесь в службу поддержки клиентов для обслуживания%>', action: ''}
+			]
+		},
+		'2': {
+			title: '<%:Служба DHCP не отвечает%>',
+			reason: ['<%:Текущая подключенная сеть может не поддерживать режим подключения DHCP.%>','<%:Служба DHCP работает неправильно.%>'],
+			resolve: [
+				{ text: '<%:Пожалуйста, проверьте, нужно ли вам изменить способ подключения к внешней сети.%>', action: buildAction('wan')},
+				{ text: '<%:Пожалуйста, свяжитесь с провайдером для решения проблемы.%>', action: ''}
+			]
+		},
+		'3': {
+			title: '<%:Служба широкополосного коммутируемого доступа не отвечает%>',
+			reason: ['<%:Модем ненормально набирает номер%>'],
+			resolve: [
+				{ text: '<%:Попробуйте перезагрузить модем перед набором номера%>', action: ''}
+			]
+		},
+		'4': {
+			title: '<%:Сетевой IP-адрес верхнего уровня конфликтует с IP-адресом LAN маршрутизатора.%>',
+			reason: ['<%:Сетевой IP-адрес верхнего уровня конфликтует с IP-адресом LAN маршрутизатора.%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте настройки IP-адреса LAN маршрутизатора%>', action: '<a href="#" id="ripconflict" class="btn btn-dft3 btn-s"><span><%:Исправить сейчас%></span></a>'}]
+		},
+		'5': {
+			title: '<%:Шлюз недоступен%>',
+			reason: ['<%:Шлюз недоступен%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте правильность подключения и соответствующих настроек сети верхнего уровня маршрутизатора.%>', action: ''}]
+		},
+		'6': {
+			title: '<%:DNS-сервер не отвечает%>',
+			reason: ['<%:DNS-сервер может быть настроен неправильно%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте правильность настроек DNS. Если нет особых требований, рекомендуется использовать рекомендуемые по умолчанию настройки.%>', action: buildAction('wan')}]
+		},
+		'7': {
+			title: '<%:Пользовательская служба DNS не отвечает%>',
+			reason: ['<%:DNS-сервер может быть настроен неправильно%>'],
+			resolve: [{ text: '<%:Измените настройки DNS, если нет особых требований, рекомендуется использовать рекомендуемые настройки по умолчанию.%>', action: buildAction('wan')}]
+		},
+		'8': {
+			title: '<%:Ошибка подключения сети%>',
+			reason: ['<%:Ошибка службы сети%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте правильность настроек сети и попробуйте установить сеть снова.%>', action: ''}]
+		},
+		'9': {
+			title: '<%:Ошибка подключения сети%>',
+			reason: ['<%:Ошибка службы сети%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте правильность настроек сети и попробуйте установить сеть снова.%>', action: ''}]
+		},
+		'10': {
+			title: '<%:Некорректный доступ к сети%>',
+			reason: ['<%:Некорректный доступ к сети%>'],
+			resolve: [{ text: '<%:Пожалуйста, проверьте, верны ли статический IP и другие настройки%>', action: ''}]
+		},
+		'31': {
+			title: '<%:Исключение широкополосного коммутируемого многоадресного вещания%>',
+			reason: ['<%:Может быть проблема с широкополосной многоадресной рассылкой того же аккаунта%>'],
+			resolve: [{ text: '<%:Рекомендуется перезапустить роутер и попытаться подключиться еще раз.%>', action: ''}]
+		},
+		'32': {
+			title: '<%:Ошибка набора PPPoE (код ошибки 691).)%>',
+			reason: ['<%:Ошибка ввода пароля учетной записи широкополосного набора%>','<%:Широкополосный доступ не может быть использован из-за задолженности%>'],
+			resolve: [
+				{ text: '<%:Пожалуйста, проверьте, правильно ли введен пароль учетной записи%>', action: buildAction('wan')},
+				{ text: '<%:Свяжитесь с оператором для решения проблемы%>', action: ''}
+			]
+		},
+		'33': {
+			title: '<%:Ошибка набора PPPoE (код ошибки 691).)%>',
+			reason: ['<%:Ошибка ввода пароля учетной записи широкополосного набора%>','<%:Широкополосный доступ не может быть использован из-за задолженности%>'],
+			resolve: [
+				{ text: '<%:Пожалуйста, проверьте, правильно ли введен пароль учетной записи%>', action: buildAction('wan')},
+				{ text: '<%:Свяжитесь с оператором, чтобы проверить, есть ли задолженность за широкополосный доступ.%>', action: ''}
+			]
+		},
+		'34': {
+			title: '<%:Ошибка набора PPPoE (код ошибки 691).%>',
+			reason: ['<%:Широкополосный доступ не может быть использован из-за задолженности%>','<%:Отказ от оператора в широкополосной связи%>'],
+			resolve: [
+				{ text: '<%:Свяжитесь с оператором, чтобы проверить, есть ли задолженность за широкополосный доступ.%>', action: ''},
+				{ text: '<%:Свяжитесь с оператором, чтобы узнать, есть ли сбой на местной линии%>', action: ''}
+			]
+		},
+		'35': {
+			title: '<%:Ошибка набора PPPoE (код ошибки 678)%>',
+			reason: ['<%:Статус набора - ошибка%>','<%:Статус набора - ошибка%>','<%:Статус набора - ошибка%>','<%:Статус набора - ошибка%>','<%:Набор номера PPPoE отключен (код ошибки 250)%>'],
+			resolve: [
+				{ text: '<%:Метод 1: Попробуйте перезагрузить роутер, затем снова включите питание через несколько минут и попробуйте снова набрать номер%>', action: ''},
+				{ text: '<%:Метод 2: Используйте компьютер или другой маршрутизатор для завершения удаленного доступа, затем вручную выберите «Завершить соединение» или «Закрыть соединение», а затем попробуйте использовать маршрутизатор Redmi Xiaomi AX5 для набора номера.%>', action: ''},
+				{ text: '<%:Метод 3: Попробуйте клонировать mac-адрес в интернет-настройках роутера, а затем снова наберите номер%>', action: buildAction('wan')},
+				{ text: '<%:Метод 4: Попробуйте настроить согласованную скорость порта WAN, а затем повторно наберите номер%>', action: buildAction('wan')},
+				{ text: '<%:Метод 5: Перейдите на страницу управления маршрутизатором miwifi.com и нажмите «Переподключить вручную» или перезапустите маршрутизатор для автоматического переподключения.%>', action: ''}
+			]
+		},
+		'36': {
+			title: '<%:Ошибка набора PPPoE (код ошибки 678)%>',
+			reason: ['<%:Широкополосный доступ не может быть использован из-за задолженности%>','<%:Изменен доступ к широкополосной связи%>'],
+			resolve: [
+				{ text: '<%:Свяжитесь с оператором, чтобы проверить, есть ли задолженность за широкополосный доступ.%>', action: ''},
+				{ text: '<%:Проверьте, был ли изменен широкополосный доступ к порту WAN%>', action: ''}
+			]
+		}
+	};
+	var $nettbContainer = $('.mod-giagnosis-step');
+	var devline = document.getElementById('devline');
+	var netline = document.getElementById('netline');
+	var netstatus = document.getElementById('nettbstatus');
+	$.getJSON(apiNettb, function( rsp ){
+		if ( rsp.code == 0 ) {
+			if ( rsp.error == 0 ) {
+				devline.className = 'line line-ok';
+				netline.className = 'line line-ok';
+				netstatus.innerHTML = '<%:Диагностика сети завершена, ошибок не обнаружено%>';
+				$nettbContainer.find('.item').hide();
+				$nettbContainer.find('.result-ok').show();
+			} else {
+				devline.className = 'line line-ok';
+				netline.className = 'line line-err';
+				netstatus.innerHTML = '<%:Диагностика сети завершена, обнаружены ошибки%>';
+				$nettbContainer.find('.item').hide();
+				var tpl = isMobile() ? $('#tplnettdresMobile').html() : $('#tplnettdres').html();
+				var res = tpl.tmpl(mapResults[rsp.error]);
+				$('#giagnosisresult').html(res);
+				$nettbContainer.find('.result-err').show();
+			}
+		} else {
+			alert('<%:Система работает не правильно, обновите настройки и попробуйте еще раз%>');
+		}
+	});
+
+	$('.btn-retry').click(function(e){
+		e.preventDefault();
+		location.reload(1);
+	});
+
+	$( 'body' ).delegate( '#ripconflict', 'click', function(e){
+		e.preventDefault();
+		var requestURL = '<%=luci.dispatcher.build_url("api", "misystem","r_ip_conflict")%>';
+		var requestData = {};
+		if( isMobile() ){
+	        if( window.confirm('<%:Чтобы эта операция вступила в силу, необходимо перезагрузить роутер. Продолжить?%>') ){
+				$.getJSON( requestURL, requestData, function(res){
+					if( res.code == 0 ){
+						//等待后端重启
+						rebootWait({
+							action: '<%:Перезагрузить роутер%>',
+							refresh: true
+						});
+					}else {
+						window.alert( res.msg );
+					}
+				});
+	        }
+		}else{
+			$.confirm('<%:Чтобы эта операция вступила в силу, необходимо перезагрузить роутер. Продолжить?%>',
+			function(){
+				$.getJSON( requestURL, requestData, function(res){
+					if( res.code == 0 ){
+						//等待后端重启
+						rebootWait({
+							action: '<%:Перезагрузить роутер%>',
+							refresh: true
+						});
+					}else {
+						$.alert( res.msg );
+					}
+				});
+			});
+		}
+	});
+});
+</script>
+</body>
+</html>
