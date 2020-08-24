@@ -1,6 +1,6 @@
 <%
     --[[
-        Info    网络拓扑图
+        Схема топологии сети маршрутизатора
     ]]--
     local XQVersion = require "xiaoqiang.XQVersion"
     local ver = XQVersion.webVersion
@@ -8,7 +8,7 @@
     local hardware = string.lower( XQSysUtil.getHardware() )
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/topograph.css?v=<%=ver%>" rel="stylesheet">
@@ -18,8 +18,8 @@
     <div id="hd">
         <div class="inner">
             <div class="mod-head clearfix">
-                <h1 id="logo"><img alt="<%:Redmi路由器%>" src="<%=resource%>/web/img/logo.png"></h1>
-                <h2><%:Redmi路由器网络拓扑图%></h2>
+                <h1 id="logo"><img alt="<%:Redmi Xiaomi AX5%>" src="<%=resource%>/web/img/logo.png"></h1>
+                <h2><%:Топология сети%></h2>
             </div>
         </div>
     </div>
@@ -31,7 +31,7 @@
                         <li id="root" class="root-li">
                              <div class="net">
                                 <img data-hover-src="<%=resource%>/web/img/icons/icon_internet_on.png" src="<%=resource%>/web/img/icons/icon_internet.png" />
-                                <p><%:互联网%></p>
+                                <p><%:Интернет%></p>
                              </div>
                              <div>
                                 <span class="line-net"></span>
@@ -40,7 +40,7 @@
                                 <a href=""><img src="img/ico_r1d.png" /></a>
                                 <div class="clearfix root-name">
                                     <span class="name"><em>shlegn(home)</em></span>
-                                    <span class="info"><em>主路由器</em></span>
+                                    <span class="info"><em>Основной маршрутизатор</em></span>
                                 </div>
                                 <span class="wifi"><i class="ico ico-wifi-on"></i>Wi-Fi:<em>xiaomixxx</em></span>
                              </div> -->
@@ -67,7 +67,7 @@
         <a target="_blank" href="{$link}"><img data-hover-src="{$hoverpic}" src="{$pic}" /></a>
         <div class="clearfix root-name">
             <span class="name"><em>{$name}{$locale}</em></span>
-            <span class="info"><em><%:网关%></em></span>
+            <span class="info"><em><%:Шлюз%></em></span>
         </div>
         <span class="wifi"><em>{$ip}</em></span>
     </div>
@@ -87,7 +87,7 @@
                 </div>
             {else}
                 <div class="clearfix">
-                    <%:小米Wi-Fi放大器%>
+                    <%:Усилитель Wi-Fi%>
                 </div>
             {/if}
         {/if}
@@ -104,12 +104,12 @@ $(function(){
     //存储路由器节点字符
     var html = [];
     var routerColor = {
-        "100":"黑色",
-        "101":"白色",
-        "102":"橘色",
-        "103":"绿色",
-        "104":"蓝色",
-        "105":"粉色"
+        "100":"Черный",
+        "101":"Белый",
+        "102":"Оранжевый",
+        "103":"Зеленый",
+        "104":"Синий",
+        "105":"Розовый"
     };
     // get data
     var getTopoGraph = function( callback ){
@@ -158,7 +158,7 @@ $(function(){
         //修改d01名称
         hardware = '<%=hardware%>';
         if(hardware == 'd01'){
-            $('.info em').html('网关')
+            $('.info em').html('Шлюз')
         }
     };
     //创建路由器单节点
@@ -221,7 +221,7 @@ $(function(){
 
         $( 'body' ).delegate( '.link-r01', 'click', function(e) {
             e.preventDefault();
-            $.alert( '<%:请使用Redmi路由器App进行管理%>' );
+            $.alert( '<%:Используйте приложение Xiaomi WiFI для управления маршрутизатором.%>' );
         });
     };
 
