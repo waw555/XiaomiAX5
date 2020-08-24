@@ -101,24 +101,24 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <script type="text/tmpl" id="tplRoam50">
     <input type="hidden" value="2" name="wifiIndex">
         <div class="item">
-            <span class="bsd-ground"><%:5G 漫游%></span>
+            <span class="bsd-ground"><%:Роуминг 5G%></span>
             <span class="v">
-                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:开启%></span></label>
-                <label><input type="radio" name="on" value="0"{if ($weakenable == 0)} checked{/if}> <span><%:关闭%></span></label>
+                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:Включить%></span></label>
+                <label><input type="radio" name="on" value="0"{if ($weakenable == 0)} checked{/if}> <span><%:Выключить%></span></label>
             </span>
         </div>
         <div class="form-item">
-            <label class="k"><%:拒绝阈值%></label>
-            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-85" maxvalue="-55" reqMsg="<%:需在-85~-55范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-85~-55)</em>
+            <label class="k"><%:Порог отклонения%></label>
+            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-85" maxvalue="-55" reqMsg="<%:Необходимо использовать значение в диапазоне -85 ~ -55.%>" /></span>
+            <em class="t">дБм (диапазон значений -85 ~ -55)</em>
         </div>
         <div class="form-item">
-            <label class="k"><%:踢除阈值%></label>
-            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-90" maxvalue="-60" reqMsg="<%:需在-90~-60范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-90~-60)</em>
+            <label class="k"><%:Порог отключения%></label>
+            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-90" maxvalue="-60" reqMsg="<%:Необходимо использовать значение в диапазоне -90 ~ -60.%>" /></span>
+            <em class="t">дБм (диапазон значений -90 ~ -60)</em>
         </div>
          <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
         </div>
     </script>
 <script>
@@ -142,7 +142,7 @@ var modelUpnp = (function(){
                     };
                     listUpnp.html(list.join(''));
                 }else{
-                    var empty = rsp.status == 1 ? '<%:没有UPnP设备%>' : '<%:UPnP未开启%>';
+                    var empty = rsp.status == 1 ? '<%:Нет устройств UPnP%>' : '<%:UPnP отключен%>';
                     listUpnp.html('<tr><td colspan="5" class="center">'+ empty +'</td></tr>');
                 }
             }
@@ -301,8 +301,8 @@ $(function(){
 
     $.sub( 'wifi:success', function( evt, data ){
         $.loadingDialog({
-            title : '<%:修改 Wi-Fi 设置%>',
-            content : '<%:设置成功正在重启，需要30秒请等待...%>',
+            title : '<%:Изменить настройки Wi-Fi%>',
+            content : '<%:Настройка выполнена успешно, выполняется перезагрузка, подождите 30 секунд...%>',
             cancel: false
         }).lock().time( 30*1000 );
         setTimeout( function(){
@@ -317,8 +317,8 @@ $(function(){
         $.dialog({
             id : "confirm",
             width: 390,
-            title : "<%:修改Wi-Fi设置%>",
-            content : '<%:该操作将重启 Wi-Fi 并导致 Wi-Fi 下的所有设备失去连接，是否确认修改？%>',
+            title : "<%:Изменить настройки Wi-Fi%>",
+            content : '<%:Эта операция перезапустит Wi-Fi и приведет к потере соединения на всех устройствах с Wi-Fi. Вы действительно хотите внести изменения?%>',
             ok: function(){
                 ok();
             },
@@ -348,7 +348,7 @@ $(function(){
                 }
             },
             error: function() {
-                $.alert( '<%:网络异常，请检查是否联网%>' );
+                $.alert( '<%:Ошибка сети%>' );
             }
         });
     });
