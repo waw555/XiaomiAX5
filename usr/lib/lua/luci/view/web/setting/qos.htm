@@ -1,6 +1,6 @@
 <%
 --[[
-    Info    QoS
+    Информация о QoS
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local sys = require "xiaoqiang.util.XQSysUtil"
@@ -13,7 +13,7 @@ local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
 local hardware = string.lower( XQSysUtil.getHardware() )
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/qos.css?v=<%=ver%>" rel="stylesheet">
@@ -24,7 +24,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <div id="bd">
         <div class="mod-set mod-bandwidth">
             <div class="hd">
-                <h3><%:最高速度设置%></h3>
+                <h3><%:Настройка скорости%></h3>
             </div>
             <div class="bd">
                 <div class="speed-needtest nospeed" style="display:none;">
@@ -35,21 +35,21 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                                     <li class="first">
                                         <span class="num" id="outband-up">--</span>
                                         <span class="con">
-                                            MB/s<br>
-                                            <%:最高上传速度%>
+                                            Мб/Сек<br>
+                                            <%:Максимальная скорость загрузки%>
                                         </span>
                                     </li>
                                     <li>
                                         <span class="num" id="outband-down">--</span>
                                         <span class="con">
-                                            MB/s<br>
-                                            <%:最高下载速度%>
+                                            Mб/Сек<br>
+                                            <%:Максимальная скорость отдачи%>
                                         </span>
                                     </li>
                                 </ul>
                                 <div class="btns">
-                                    <a href="#" id="btnBandset" class="btn btn-dft btn-m" data-upband="" data-downband=""><span><%:限速设置%></span></a>
-                                     <div class="result-tip" style="display:none"><%:无限速阈值，请先进行限速设置%></div>
+                                    <a href="#" id="btnBandset" class="btn btn-dft btn-m" data-upband="" data-downband=""><span><%:Настроить%></span></a>
+                                     <div class="result-tip" style="display:none"><%:Ограничения скорости не установлены.%></div>
                                 </div>
                             </div>
                         </div>
@@ -63,98 +63,98 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                     </div>
                 </div>
                 <div class="mod-qos-alert" style="display:none">
-                    <p><%:当外网下载带宽超过50Mbps时，建议无需开启QoS功能%></p>
+                    <p><%:Не рекомендуется включать функцию QoS, когда скорость Интернета превышает 50 Мбит/сек.%></p>
                 </div>
             </div>
         </div>
         <!--  -->
         <div class="mod-set mod-qos">
             <div class="hd" style="margin-bottom:0px;">
-                <h3><%:QoS智能分配%></h3>
+                <h3><%:QoS%></h3>
                 <div class="switch">
                     <a data-enable="1" class="btn-switch btn-switch-on" id="btnqos" href="#"></a>
                 </div>
             </div>
             <div class="bd">
                 <div class="mod-qos-set hasspeed">
-                    <div class="isoff" id="qosoff" style="display:none;"><%:当前QoS服务暂未开启%></div>
+                    <div class="isoff" id="qosoff" style="display:none;"><%:Служба интеллектуального распределения скорости - отключена%></div>
                     <div class="ison" id="qosset" style="display:none;">
                         <%if hardware ~= "d01" then%>
                         <div class="models settings" style="padding-top:40px;">
-                            <h4 class="tit"><%:根据应用优先级分配网速%></h4>
+                            <h4 class="tit"><%:Установите приоритет скорости сети в зависимости от потребности%></h4>
                             <div id="qosmode" class="tab clearfix">
                                 <ul>
-                                    <li data-value="0" style="display:none;"><%:自动模式%></li>
-                                    <li data-value="1" style="display:none;"><%:优先级模式%></li>
-                                    <li data-value="2" style="display:none;"><%:手工限速模式%></li>
-                                    <li data-value="3" class="first active"><%:自动模式%></li>
-                                    <li data-value="4"><%:游戏优先%></li>
-                                    <li data-value="5"><%:网页优先%></li>
-                                    <li data-value="6"><%:视频优先%></li>
+                                    <li data-value="0" style="display:none;"><%:Автоматический режим%></li>
+                                    <li data-value="1" style="display:none;"><%:Приоритетный режим%></li>
+                                    <li data-value="2" style="display:none;"><%:Ручной режим%></li>
+                                    <li data-value="3" class="first active"><%:Авто%></li>
+                                    <li data-value="4"><%:Игры%></li>
+                                    <li data-value="5"><%:Интернет%></li>
+                                    <li data-value="6"><%:Видео%></li>
                                 </ul>
                             </div>
                             <div id="qosmodedesc" class="tab-content" style="margin-bottom:25px;">
-                                <p><%:自动模式下路由器会根据当前网络使用情况动态调整带宽分配，保证网络体验流畅%></p>
-                                <p><%:优先级模式下路由器会动态调整带宽分配，保证优先级较高的设备网络体验流畅%></p>
-                                <p><%:手工模式下路由器会根据您设置的速度调整带宽分配%></p>
-                                <p><%:系统根据设备需要自动调配网速%></p>
-                                <p><%:优先保证打游戏的网速，不卡顿不掉线%></p>
-                                <p><%:优先保证浏览网页的网速，大图秒打开%></p>
-                                <p><%:优先保证看视频的网速，高清也流畅%></p>
+                                <p><%:В автоматическом режиме маршрутизатор будет динамически корректировать распределение полосы пропускания в соответствии с текущим использованием сети, чтобы обеспечить бесперебойную работу сети.%></p>
+                                <p><%:В режиме приоритета маршрутизатор будет динамически регулировать распределение полосы пропускания, чтобы обеспечить бесперебойную работу в сети для устройств с более высоким приоритетом.%></p>
+                                <p><%:В ручном режиме маршрутизатор настроит распределение полосы пропускания в соответствии с установленной вами скоростью.%></p>
+                                <p><%:Система автоматически регулирует скорость сети в соответствии с потребностями оборудования.%></p>
+                                <p><%:Приоритет скорости для игровых устроствам..%></p>
+                                <p><%:Приоритет скорости для устройств просмотра веб-страниц.%></p>
+                                <p><%:Приоритет скорости для устройств просмотра видео.%></p>
                             </div>
                             <hr></hr>
                         </div>
                         <%end%>
 
                         <div class="settings">
-                            <h4><%:家庭WiFi限速%> <i class="ico ico-refresh" id="refresh"></i></h4>
+                            <h4><%:Ограничение скорости WiFi%> <i class="ico ico-refresh" id="refresh"></i></h4>
                             <div class="table-devices" id="tableauto" style="display:none">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th width="270"><%:设备名称%></th>
-                                            <th width="270"><%:设备信息%></th>
-                                            <th><%:当前网速%></th>
-                                            <!--<th width="180" class="center"><%:限速模式%></th>-->
-                                            <th width="180"><%:最大速度%></th>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <!--<th width="180" class="center"><%:Ограничение%></th>-->
+                                            <th width="180"><%:Ограничения%></th>
                                         </tr>
                                     </thead>
                                     <tbody id="devlistauto"></tbody>
                                 </table>
                                 <div class="btns-edit">
-                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="0"><span><%:编辑%></span></a>
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="0"><span><%:Изменить%></span></a>
                                 </div>
                             </div>
                             <div id="tablepriority" class="table-devices" style="display:none">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th width="270"><%:设备名称%></th>
-                                            <th width="270"><%:设备信息%></th>
-                                            <th><%:当前网速%></th>
-                                            <th width="180" class="center"><%:优先级%></th>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <th width="180" class="center"><%:Приоритет%></th>
                                         </tr>
                                     </thead>
                                     <tbody id="devlistpriority"></tbody>
                                 </table>
                                 <div class="btns-edit">
-                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="1"><span><%:编辑%></span></a>
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="1"><span><%:Изменить%></span></a>
                                 </div>
                             </div>
                             <div class="table-devices" id="tablecustom" style="display:none">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th width="270"><%:设备名称%></th>
-                                            <th width="270"><%:设备信息%></th>
-                                            <th><%:当前网速%></th>
-                                            <th width="180"><%:最大速度%></th>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <th width="180"><%:Ограничения%></th>
                                         </tr>
                                     </thead>
                                     <tbody id="devlistcustom"></tbody>
                                 </table>
                                 <div class="btns-edit">
-                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="2"><span><%:编辑%></span></a>
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="2"><span><%:Изменить%></span></a>
                                 </div>
                             </div>
                             <hr></hr>
@@ -164,27 +164,27 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                         <div id="guest-limit" >
                             <script type="tmpl/html" id="guest-limit-script">
                             <div class="mod-qos-speedtest settings">
-                                <h4 class="tit"><%:访客WiFi限速%>:</h4>
+                                <h4 class="tit"><%:Ограничение скорости гостевого WiFi%></h4>
                                 <div class="mod-speed-result" style="padding-top:0px;">
                                     <ul class="clearfix">
                                         <li class="first">
                                             <span class="num">{$up}</span>
                                             <span class="con">
-                                                KB/S<br>
-                                                <%:上传限速%>
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость загрузки%>
                                             </span>
                                         </li>
                                         <li>
                                             <span class="num">{$down}</span>
                                             <span class="con">
-                                                KB/S<br>
-                                                <%:下载限速%>
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость отдачи%>
                                             </span>
                                         </li>
                                     </ul>
                                     <div class="btns-edit">
                                         <a href="#" class="btn-limit btn btn-dft" data-mode="guest" data-up="{$up}" data-down="{$down}">
-                                            <span><%:编辑%></span>
+                                            <span><%:Изменить%></span>
                                         </a>
                                     </div>
                                 </div>
@@ -200,27 +200,27 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                         <%if (hardware ~= "r4" and hardware ~= "r1cl" and hardware ~= "r4c" and hardware ~= "r4cm" and hardware ~= "r3a" and hardware ~= "r3l" and hardware ~= "r4ac") then%>
 
                             <div class="mod-qos-speedtest settings">
-                                <h4 class="tit"><%:路由器自身上传下载限速%>:</h4>
+                                <h4 class="tit"><%:Ограничение скорости маршрутизатора%>:</h4>
                                 <div class="mod-speed-result" style="padding-top:0px;">
                                     <ul class="clearfix">
                                         <li class="first">
                                             <span class="num">{$up}</span>
                                             <span class="con">
-                                                KB/S<br>
-                                                <%:上传限速%>
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость загрузки%>
                                             </span>
                                         </li>
                                         <li>
                                             <span class="num">{$down}</span>
                                             <span class="con">
-                                                KB/S<br>
-                                                <%:下载限速%>
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость отдачи%>
                                             </span>
                                         </li>
                                     </ul>
                                     <div class="btns-edit">
                                         <a href="#" class="btn-limit btn btn-dft" data-mode="local" data-up="{$up}" data-down="{$down}">
-                                            <span><%:编辑%></span>
+                                            <span><%:Изменить%></span>
                                         </a>
                                     </div>
                                 </div>
@@ -245,21 +245,21 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <div class="speedset" id="customset">
         <form class="form form-horizontal form-qos" name="bandwidth" id="limit-form">
             <div class="form-item form-item-input">
-                <label class="k"><%:上传%></label>
+                <label class="k"><%:Загрузка%></label>
                 <span class="v">
-                    <input type="text" id="limit-up-input" reqMsg="<%:上传带宽%>" datatype="n-6.2" minValue="0.01" maxValue="" class="ipt-text" value="{$up}">
+                    <input type="text" id="limit-up-input" reqMsg="<%:Максимальная скорость загрузки%>" datatype="n-6.2" minValue="0.01" maxValue="" class="ipt-text" value="{$up}">
                 </span>
-                <em class="t">KB/S</em>
+                <em class="t"> КБ/Сек</em>
             </div>
             <div class="form-item form-item-input">
-                <label class="k"><%:下载%></label>
+                <label class="k"><%:Отдача%></label>
                 <span class="v">
-                    <input type="text" id="limit-down-input" reqMsg="<%:下载带宽%>" datatype="n-6.2" minValue="8" maxValue="" class="ipt-text" value="{$down}">
+                    <input type="text" id="limit-down-input" reqMsg="<%:Максимальная скорость отдачи%>" datatype="n-6.2" minValue="8" maxValue="" class="ipt-text" value="{$down}">
                 </span>
-                <em class="t">KB/S</em>
+                <em class="t"> КБ/Сек</em>
             </div>
             <div class="form-contral">
-                <button type="button" id="limit-submit-button" class="btn btn-primary btn-l"><span><%:确定%></span></button>
+                <button type="button" id="limit-submit-button" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
             </div>
         </form>
     </div>
@@ -268,23 +268,23 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <tr>
     <td>{$devname}</td>
     <td class="con">{$ip} <br> {$mac}</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/S <br><i class="ico ico-downspeed"></i> {$downspeed}/S</td>
-    <td class="con center"><%:系统自动%></td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con center"><%:Автоматически%></td>
 </tr>
 </script>
 <script type="tmpl/html" id="tpldevlist">
 <tr data-mac="{$mac}">
     <td>{$devname}</td>
     <td class="con">{$ip} <br> {$mac}</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/S <br><i class="ico ico-downspeed"></i> {$downspeed}/S</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:无限制%>{else}{$upmax}KB/S{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:无限制%>{else}{$downmax}KB/S{/if}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:Нет%>{else}{$upmax} КБ/Сек{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:Нет%>{else}{$downmax} КБ/Сек{/if}</td>
 </tr>
 </script>
 <script type="tmpl/html" id="tpldevlist2">
 <tr data-mac="{$mac}">
     <td>{$devname}</td>
     <td class="con">{$ip} <br> {$mac}</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/S <br><i class="ico ico-downspeed"></i> {$downspeed}/S</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
     <td class="center">
         {$levelvalue}
     </td>
@@ -294,8 +294,8 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <tr data-mac="{$mac}">
     <td>{$devname}</td>
     <td class="con">{$ip} <br> {$mac}</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/S <br><i class="ico ico-downspeed"></i> {$downspeed}/S</td>
-    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:无限制%>{else}{$upmax}KB/S{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:无限制%>{else}{$downmax}KB/S{/if}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:Нет%>{else}{$upmax} КБ/Сек{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:Нет%>{else}{$downmax} КБ/Сек{/if}</td>
 </tr>
 </script>
 <script type="tmpl/html" id="tplqoseditform0">
@@ -304,11 +304,11 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <table class="table table-devices form-table">
         <thead>
             <tr>
-                <th width="270"><%:设备名称%></th>
-                <th width="200"><%:设备信息%></th>
-                <th width="110"><%:当前网速%></th>
-                <th class="center"><%:上传速度%></th>
-                <th class="center"><%:下载速度%></th>
+                <th width="270"><%:Устройство%></th>
+                <th width="200"><%:Адрес%></th>
+                <th width="110"><%:Скорость%></th>
+                <th class="center"><%:Загрузка%></th>
+                <th class="center"><%:Отдача%></th>
             </tr>
         </thead>
         <tbody>
@@ -316,19 +316,19 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             <tr data-mac="{$devlist[i].mac}">
                 <td>{$devlist[i].devname}</td>
                 <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
-                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/S <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/S</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
                 <td class="center form-item">
-                    <input class="ipt-text" reqMsg="<%:上传速度%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> KB/S <em></em>
+                    <input class="ipt-text" reqMsg="<%:Загрузка%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> КБ/Сек <em></em>
                 </td>
                 <td class="center form-item">
-                    <input class="ipt-text" reqMsg="<%:下载速度%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> KB/S <em></em>
+                    <input class="ipt-text" reqMsg="<%:Отдача%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> КБ/Сек <em></em>
                 </td>
             </tr>
         {/for}
         </tbody>
     </table>
     <div class="btns">
-        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:确定%></span></button>
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
     </div>
     </form>
 </div>
@@ -339,10 +339,10 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <table class="table table-devices form-table">
         <thead>
             <tr>
-                <th width="270"><%:名称%></th>
-                <th width="270"><%:IP和MAC%></th>
-                <th width="250"><%:当前网速%></th>
-                <th class="center"><%:优先级%></th>
+                <th width="270"><%:Устройство%></th>
+                <th width="270"><%:Адрес%></th>
+                <th width="250"><%:Скорость%></th>
+                <th class="center"><%:Приоритет%></th>
             </tr>
         </thead>
         <tbody>
@@ -350,12 +350,12 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             <tr class="form-item" data-mac="{$devlist[i].mac}">
                 <td>{$devlist[i].devname}</td>
                 <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
-                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/S <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/S</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
                 <td class="center">
                     <select name="level">
-                        <option value="1" {if($devlist[i].level == 1)}selected="selected"{/if}><%:低%></option>
-                        <option value="2" {if($devlist[i].level == 2 || $level == 0)}selected="selected"{/if}><%:中%></option>
-                        <option value="3" {if($devlist[i].level == 3)}selected="selected"{/if}><%:高%></option>
+                        <option value="1" {if($devlist[i].level == 1)}selected="selected"{/if}><%:Низкий%></option>
+                        <option value="2" {if($devlist[i].level == 2 || $level == 0)}selected="selected"{/if}><%:Средний%></option>
+                        <option value="3" {if($devlist[i].level == 3)}selected="selected"{/if}><%:Высокий%></option>
                     </select>
                 </td>
             </tr>
@@ -363,7 +363,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         </tbody>
     </table>
     <div class="btns">
-        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:确定%></span></button>
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
     </div>
     </form>
 </div>
@@ -374,11 +374,11 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <table class="table table-devices form-table">
         <thead>
             <tr>
-                <th width="270"><%:设备名称%></th>
-                <th width="200"><%:设备信息%></th>
-                <th width="110"><%:当前网速%></th>
-                <th class="center"><%:上传速度%></th>
-                <th class="center"><%:下载速度%></th>
+                <th width="270"><%:Устройство%></th>
+                <th width="200"><%:Адрес%></th>
+                <th width="110"><%:Скорость%></th>
+                <th class="center"><%:Загрузка%></th>
+                <th class="center"><%:Отдача%></th>
             </tr>
         </thead>
         <tbody>
@@ -386,19 +386,19 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             <tr data-mac="{$devlist[i].mac}">
                 <td>{$devlist[i].devname}</td>
                 <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
-                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/S <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/S</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
                 <td class="center form-item">
-                    <input class="ipt-text" reqMsg="<%:上传速度%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> KB/S <em></em>
+                    <input class="ipt-text" reqMsg="<%:Загрузка%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> КБ/Сек <em></em>
                 </td>
                 <td class="center form-item">
-                    <input class="ipt-text" reqMsg="<%:下载速度%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> KB/S <em></em>
+                    <input class="ipt-text" reqMsg="<%:Отдача%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> КБ/Сек <em></em>
                 </td>
             </tr>
         {/for}
         </tbody>
     </table>
     <div class="btns">
-        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:确定%></span></button>
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
     </div>
     </form>
 </div>
@@ -480,7 +480,7 @@ var modelQos = (function(){
                     var st = cookie.get("qosbtn");
                     if( st == 1){
                         dlgSpeed = $.dialog({
-                            title: '<%:手工设置外网带宽%>',
+                            title: '<%:Ручная установка пропускной способности внешней сети%>',
                             content: $('#tplbandsetform').html().tmpl({
                                 upband: '',
                                 downband: ''
@@ -546,19 +546,19 @@ var modelQos = (function(){
             $('#local-limit').hide();
 
             if(rsp.guest.percent_up == 0){
-                $('#guest-limit li:first .num').text('无限制').addClass('txt');
+                $('#guest-limit li:first .num').text('Нет').addClass('txt');
                 $('#guest-limit li:first .con').hide();
             }
             if(rsp.guest.percent == 0){
-                $('#guest-limit li:last .num').text('无限制').addClass('txt');
+                $('#guest-limit li:last .num').text('Нет').addClass('txt');
                 $('#guest-limit li:last .con').hide();
             }
             if(rsp.local.percent_up == 0){
-                $('#local-limit li:first .num').text('无限制').addClass('txt');
+                $('#local-limit li:first .num').text('Нет').addClass('txt');
                 $('#local-limit li:first .con').hide();
             }
             if(rsp.local.percent == 0){
-                $('#local-limit li:last .num').text('无限制').addClass('txt');
+                $('#local-limit li:last .num').text('Нет').addClass('txt');
                 $('#local-limit li:last .con').hide();
             }
             $('body').delegate( '.btn-limit', 'click', function( e ){
@@ -566,9 +566,9 @@ var modelQos = (function(){
                 var self = this;
                 var mode = $(self).data('mode');
                 if(mode == 'local'){
-                    var title = '<%:路由器自身上传下载限速%>';
+                    var title = '<%:Ограничение скорости маршрутизатора%>';
                 }else{
-                    title = '<%:访客WiFi限速%>';
+                    title = '<%:Ограничение скорости гостевого WiFi%>';
                 }
                 var up = $(this).data('up'),
                     down = $(this).data('down');
@@ -607,7 +607,7 @@ var modelQos = (function(){
                         if(rsp.code == 0){
                             window.location.reload();
                         }else{
-                            $.alert('<%:系统错误，请重试%>');
+                            $.alert('<%:Системная ошибка%>');
                         }
                     });
                 });
@@ -623,7 +623,7 @@ var modelQos = (function(){
         var tpl = $('#tpldevlist1').html();
         var arrHtml = [];
         if ( tpldata.length == 0 ) {
-            $('#devlistcustom').html( '<tr><td colspan="4"><%:暂无设备接入%></td></tr>' );
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
             return;
         }
         for (var i = 0; i < tpldata.length; i++) {
@@ -638,7 +638,7 @@ var modelQos = (function(){
         var tpl = $('#tpldevlist2').html();
         var arrHtml = [];
         if ( tpldata.length == 0 ) {
-            $('#devlistcustom').html( '<tr><td colspan="4"><%:暂无设备接入%></td></tr>' );
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
             return;
         }
         for (var i = 0; i < tpldata.length; i++) {
@@ -653,7 +653,7 @@ var modelQos = (function(){
         var tpl = $('#tpldevlist3').html();
         var arrHtml = [];
         if ( tpldata.length == 0 ) {
-            $('#devlistcustom').html( '<tr><td colspan="4"><%:暂无设备接入%></td></tr>' );
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
             return;
         }
         for (var i = 0; i < tpldata.length; i++) {
@@ -669,7 +669,7 @@ var modelQos = (function(){
         var tpl = $('#tpldevlist').html();
         var arrHtml = [];
         if ( tpldata.length == 0 ) {
-            $('#devlistcustom').html( '<tr><td colspan="4"><%:暂无设备接入%></td></tr>' );
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
             return;
         }
         for (var i = 0; i < tpldata.length; i++) {
@@ -715,7 +715,7 @@ var modelQos = (function(){
                     upmaxper: upmaxper,
                     downmaxper: maxdownper,
                     level: level,
-                    levelvalue: ['<%:未设置%>','<%:低%>','<%:中%>','<%:高%>'][level]
+                    levelvalue: ['<%:Нет%>','<%:Иизкий%>','<%:Средний%>','<%:Высокий%>'][level]
                 };
             devdata.push( tpldata );
             }
@@ -804,7 +804,7 @@ var modelQos = (function(){
                 }
             })( e );
 
-            $.confirm( '<%:你确定要清除这个设备的QoS配置？%>', delqos );
+            $.confirm( '<%:Вы уверены, что хотите очистить конфигурацию QoS?%>', delqos );
 
         } );
 
@@ -824,7 +824,7 @@ var modelQos = (function(){
                 var tpldata = randerDevlist( rsp );
                 var deveditform = randerModeEdit( tpldata, mode );
                 $.dialog({
-                    title: '<%:设置QoS%>',
+                    title: '<%:Настройка скорости%>',
                     content : deveditform,
                     width: 930,
                     lock: true,
@@ -878,7 +878,7 @@ var modelQos = (function(){
                         $.alert( rsp.msg );
                     }
                 }).fail(function(){
-                    $.alert( '<%:系统错误，请重试%>' );
+                    $.alert( '<%:Системная ошибка%>' );
                     setTimeout(function(){
                         location.reload( 1 );
                     }, 1000);
