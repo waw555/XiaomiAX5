@@ -15,16 +15,16 @@ local netmod = XQFunction.getnetmode()
 --0 router
 %>
 <div class="mod-upgrade">
-    <div class="hd"><h3><%:升级检测%></h3></div>
+    <div class="hd"><h3><%:Проверка обновлений%></h3></div>
 
 
     <div class="bd">
-            <h4><%:系统版本%></h4>
+            <h4><%:Версия прошивки%></h4>
             <p id="upgradeinfo"></p>
-            <p class="hasnewver" style="display:none;"><a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btn btn-primary btn-l" id="btnUpgread"><span><%:立即升级%></span></a></p>
-            <p><a href="#" id="btnUpload" class="btn btn-dft btn-l"><span><%:手动升级%></span></a></p>
+            <p class="hasnewver" style="display:none;"><a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btn btn-primary btn-l" id="btnUpgread"><span><%:Обновить%></span></a></p>
+            <p><a href="#" id="btnUpload" class="btn btn-dft btn-l"><span><%:Ручное обновление%></span></a></p>
             <div class="logs" style="display:none;">
-                <h4><%:更新日志%></h4>
+                <h4><%:Журнал обновлений%></h4>
                 <div id="changelog" style="display:none;">
                     <iframe name="setting" id="changelogUrl" style="width:100%; border:0;background:none;" src="about:blank" frameborder="0" height="500" scrolling="yes"></iframe>
                 </div>
@@ -35,35 +35,35 @@ local netmod = XQFunction.getnetmode()
 
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:上传日志%></h3>
+        <h3><%:Журнал%></h3>
     </div>
     <div class="bd">
-        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:上传日志%></span></button></div>
+        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:Загрузить%></span></button></div>
         <%if features["system"]["downloadlogs"] == "1" then%>
-        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:下载日志%></span></button></div>
+        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:Скачать%></span></button></div>
         <%end%>
     </div>
 </div>
 
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:恢复出厂设置%></h3>
+        <h3><%:Сброс настроек%></h3>
     </div>
     <div class="bd">
-        <button type="button" id="btnReset" class="btn btn-primary btn-l"><span><%:立即恢复%></span></button>
+        <button type="button" id="btnReset" class="btn btn-primary btn-l"><span><%:Сбросить%></span></button>
     </div>
 </div>
 
 <div class="mod-set mod-backupconfig" style="display:none">
     <div class="hd">
-        <h3><%:备份与恢复%></h3>
+        <h3><%:Резервное копирование и восстановление%></h3>
     </div>
     <div class="bd">
-        <p><%:备份路由器的配置，重新刷机或重置路由器后可以用来恢复。%></p>
+        <p><%:Резервную копию настроек маршрутизатора можно использовать для восстановления после прошивки или восстановления маршрутизатора.%></p>
         <div class="btns">
             <a href="#" id="btnBackupconfig" class="btn btn-dft btn-m"
-            ><span><%:新建备份%></span></a>
-            <a href="#" id="btnUploadconfig" class="btn btn-dft btn-m"><span><%:立即恢复%></span></a>
+            ><span><%:Сохранить%></span></a>
+            <a href="#" id="btnUploadconfig" class="btn btn-dft btn-m"><span><%:Загрузить%></span></a>
         </div>
     </div>
 </div>
@@ -72,12 +72,12 @@ local netmod = XQFunction.getnetmode()
 <%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:设置系统语言%></h3>
+        <h3><%:Язык системы%></h3>
     </div>
     <div class="bd">
         <div class="clearfix">
             <div class="form-item-select">
-                <label class="k"><%:系统语言%></label>
+                <label class="k"><%:Выбрать%></label>
                 <span class="v"><select name="lang" id="lang" class="beautify"></select></span>
             </div>
         </div>
@@ -87,18 +87,18 @@ local netmod = XQFunction.getnetmode()
 
 <div class="mod-set mod-systime">
     <div class="hd">
-        <h3><%:时区设置%></h3>
+        <h3><%:Часовой пояс%></h3>
     </div>
 
     <%if netmod == 4 then%>
      <!-- 主mesh -->
     <div class="bd" id="zhumesh"  style="display:none">
         <div class="group" >
-            当前系统时间：<span id="datetiemval"></span>
+            Текущее системное время:<span id="datetiemval"></span>
         </div>
         <div class="group">
             <p id="timezoneval"></p>
-            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:更改时区%></span></button>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
         
     </div>
@@ -106,9 +106,9 @@ local netmod = XQFunction.getnetmode()
     <!-- 子mesh -->
     <div class="bd" id="zimesh" style="display:none">
         <div class="group">
-            <p>当前系统时间：<span id="datetiemval2"></span></p>
-            <p>当前系统时区：<span id="timezoneval2"></span></p>
-            <p>*如需修改时区，请切换到主Mesh路由进行修改，会自动同步到子Mesh路由</p>
+            <p>Время:<span id="datetiemval2"></span></p>
+            <p>Часовой пояс：<span id="timezoneval2"></span></p>
+            <p>* Если вам нужно изменить часовой пояс, переключитесь на основной маршрутизатор Mesh, он автоматически синхронизируется и изменит часовой пояс на других маршрутизаторах Mesh</p>
         </div>
        
     </div>
@@ -117,11 +117,11 @@ local netmod = XQFunction.getnetmode()
     <div class="bd">
         <div class="group">
             <p id="timezoneval"></p>
-            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:更改时区%></span></button>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
         <div class="group">
             <p id="datetiemval"></p>
-            <button type="button" id="btnDatetime" class="btn btn-dft btn-m"><span><%:更改时间%></span></button>
+            <button type="button" id="btnDatetime" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
     </div>
 
