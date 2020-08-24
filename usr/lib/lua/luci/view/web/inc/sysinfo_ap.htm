@@ -8,10 +8,10 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---2 有线中继
---1 无线中继
---4 mesh主设备  whc_cap
---3 mesh从设备  whc_re
+--2 Сетевое подключение
+--1 Беспроводное подключение
+--4 Подключение mesh  whc_cap
+--3 Подключение mesh  whc_re
 --0 router
 %>
 <div class="mod-upgrade">
