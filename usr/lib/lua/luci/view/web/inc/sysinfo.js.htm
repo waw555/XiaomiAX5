@@ -10,16 +10,16 @@ local backupKeys = XQBackup.defaultKeys()
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---2 有线中继
---1 无线中继
---4 mesh主设备  whc_cap
---3 mesh从设备  whc_re
+--2 Сетевое подключение
+--1 Беспроводное подключение
+--4 Подключение mesh  whc_cap
+--3 Подключение mesh  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 %>
 
 <script type="tmpl/text" id="uploadform">
-<p><%:路由器正常工作情况下建议使用系统升级检测进行升级，在当系统无法升级或需要降级到前一版本时使用手动上传rom包进行升级。%></p>
+<p><%:Во время работы маршрутизатора, система автоматически проверяет наличие обновлений. Если система не находит обновления ​​или прошивку необходимо понизить до предыдущей версии, загрузите файл прошивки в ручную.%></p>
 <div class="uploadprogress" id="uploadprogress" style="display:none;">
     <div class="progress-text">0%</div>
     <div class="progress"><div class="value"></div></div>
@@ -29,14 +29,14 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 </div>
 <form class="form form-upload" name="uploadForm" id="uploadForm" method="post" enctype="multipart/form-data" >
     <div class="item">
-        <label class="k"><%:请选择固件:%></label>
+        <label class="k"><%:Выберите файл прошивки:%></label>
         <span class="v">
             <input type="file" name="image" id="image" />
         </span>
         <em class="t"></em>
     </div>
     <div class="item item-contral">
-        <button type="button" class="btn btn-block btn-primary-disabled" id="uploadFormBtn" disabled><span><%:开始升级%></span></button>
+        <button type="button" class="btn btn-block btn-primary-disabled" id="uploadFormBtn" disabled><span><%:Обновить%></span></button>
     </div>
 </form>
 </script>
