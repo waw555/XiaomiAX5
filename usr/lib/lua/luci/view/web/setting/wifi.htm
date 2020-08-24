@@ -1,6 +1,6 @@
 <%
 --[[
-    Info    路由器Wi-Fi设置
+    Информация о настройках Wi-Fi маршрутизатора
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
@@ -23,8 +23,8 @@ local romChannel = XQSysUtil.getChannel()
 
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---4 mesh主设备  whc_cap
---3 mesh从设备  whc_re
+--4 meshГлавное устройство  whc_cap
+--3 meshВедомое устройство  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 local uci = require("luci.model.uci").cursor()
@@ -32,7 +32,7 @@ local features = require("xiaoqiang.XQFeatures").FEATURES
 local hardware = string.lower( XQSysUtil.getHardware() )
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/wifi.css?v=<%=ver%>" rel="stylesheet">
@@ -44,13 +44,13 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 
         <div class="mod-set mod-wifi">
             <div class="hd">
-                <h3><%:Wi-Fi双频合一%></h3>
+                <h3><%:Двухчастотный Wi-Fi в одном%></h3>
                 <div class="switch">
                     <a href="#" id="bsdswitch" class="btn-switch btn-switch-off" data-on="0"></a>
                 </div>
             </div>
             <div class="bd">
-                <p><%:开启后，2.4G和5G会使用同一名称，路由器会自动为终端选择最佳WiFi网络，如离路由器较近，会切换至5G网络，反之会切换至2.4G网络。但由于终端设备存在差异，可能存在：自动切换信号源时网络会短暂中断，甚至频繁掉线等问题。%></p>
+                <p><%:После включения, сети WiFi 2.4G и WiFi 5G, будут использовать одно и то же имя, и маршрутизатор будет автоматически выбирать лучшую сеть WiFi, для подключенных устройств. Если устройство находится близко к маршрутизатору, устройство переключится на сеть WiFi 5G, в противном случае устройство переключится на сеть WiFi 2.4G. Обратите внимание: Из-за различий в оборудовании устройств, могут возникнуть такие проблемы, как кратковременное прерывание сети или частое отключение при автоматическом переключении источников сигнала.%></p>
             </div>
         </div>
 
@@ -63,7 +63,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             <%if features["wifi"]["wifi50"] == "1" then%>
                 <h3><%:2.4G Wi-Fi%></h3>
             <%else%>
-                <h3><%:Wi-Fi设置%></h3>
+                <h3><%:Настройки Wi-Fi%></h3>
             <%end%>
             </div>
             <div class="bd">
@@ -90,10 +90,10 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <%if romChannel == "release" and features["system"]["i18n"] == "1" and ccode ~= "US" then%>
         <div class="mod-set mod-countrycode">
             <div class="hd">
-                <h3><%:无线网络所在区域%></h3>
+                <h3><%:Зона беспроводной сети%></h3>
             </div>
             <div class="bd">
-                <p><%:请选择Redmi路由器当前工作的国家/地区%></p>
+                <p><%:Выберите страну или регион, где в настоящее время работает маршрутизатор.%></p>
                 <br>
                 <div class="clearfix">
                     <div class="form-item-select">
@@ -111,15 +111,15 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 
          <div class="mod-set mod-wifi">
             <div class="hd">
-                <h3><%:Wi-Fi 5 兼容模式%></h3>
+                <h3><%:Режим совместимости Wi-Fi 5G%></h3>
                 <div class="switch">
                     <a href="#WIFI6switch" id="WIFI6switch" class="btn-switch btn-switch-off" data-on="0"></a>
                 </div>
             </div>
             <div class="bd">
-                <p><%:某些老设备对Wi-Fi6支持不好，可能扫描不到信号或者连接不上等。 %><br>
+                <p><%:Некоторые устройства плохо поддерживают Wi-Fi 6 и могут быть не в состоянии найти сеть или подключиться к сети.%><br>
 
-                    <%:开启此开关后，将会切换到Wi-Fi5模式，解决兼容问题。但同时会关闭Wi-Fi6的相关功能，如OFDMA，BSS Coloring等。
+                    <%:После включения, маршрутизатор переключится в режим Wi-Fi 5 для решения проблемы совместимости. Но при этом функции, связанные с Wi-Fi 6, такие как OFDMA, BSS Coloring и т.д., будут отключены.
                 %></p>
             </div>
         </div>
@@ -132,7 +132,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 </div>
             </div>
             <div class="bd">
-                <p><%:MU-MIMO“多用户多入多出”技术，可以让路由器与多台终端同时通信，极大改善无线资源利用效率，提升Wi-Fi体验。该功能生效需要路由器和终端同时支持。
+                <p><%:Технология MU-MIMO: «Многопользовательский доступ», позволяет маршрутизатору обмениваться данными с несколькими устройствами одновременно, значительно повышая эффективность использования беспроводных сетей и улучшая возможности Wi-Fi. Чтобы данная функция работала корректно, эта функция должна поддерживаться как маршрутизатором, так и устройством.
                 %></p>
             </div>
         </div>
