@@ -58,28 +58,28 @@ var Modelupgrade = (function(){
                         return;
                     }
                     isoffline();
-                    $( '#flashstatus' ).html( '正在安装固件， <span style="color:red">请不要切断路由器电源</span>' );
+                    $( '#flashstatus' ).html( 'Устанавливается прошивка. <span style="color:red">Пожалуйста, не отключайте питание маршрутизатора</span>' );
                 });
 
             }, 1500);
         },
         flashstart = function(){
-            $( '#flashstatus' ).html( '正在安装固件， <span style="color:red">请不要切断路由器电源</span>' );
+            $( '#flashstatus' ).html( 'Устанавливается прошивка. <span style="color:red">Пожалуйста, не отключайте питание маршрутизатора</span>' );
         },
         flashfail = function( status ){
             var msg = {
-                7: '没有磁盘空间',
-                8: '下载失败',
-                9: '升级包校验失败',
-                10: '刷写失败'
+                7: 'Недостаточно памяти',
+                8: 'Ошибка загрузки',
+                9: 'Ошибка пакета обновления',
+                10: 'Ошибка прошивки'
             };
-            $( '#flashstatus' ).html( msg[status] + ',固件安装失败,请刷新重试' );
-            alert( '升级失败，请重试' );
+            $( '#flashstatus' ).html( msg[status] + 'Не удалось установить прошивку.' );
+            alert( 'Ошибка обновления' );
             window.setTimeout('self.location.reload(1)', 2 * 1000);
         },
         flashdone = function(){
             rebootWait({
-                action : '升级路由器固件',
+                action : 'Обновить',
                 refresh : true
             });
         };
