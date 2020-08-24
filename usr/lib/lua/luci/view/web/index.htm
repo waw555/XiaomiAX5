@@ -42,7 +42,7 @@
     local ccode = xqCountryCode.getBDataCountryCode()
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/qos.css?v=<%=ver%>" rel="stylesheet">
@@ -55,8 +55,8 @@
         <div class="inner clearfix">
             <div class="devices nav-tab">
                 <div class="img"></div>
-                <p><%:终端设备%></p>
-                <div class="status status-devices" id="statusDevices"><b class="devcountonline devcountonline1">--</b><%:台%></div>
+                <p><%:Устройства%></p>
+                <div class="status status-devices" id="statusDevices"><b class="devcountonline devcountonline1">--</b><%: шт.%></div>
             </div>
             <div id="devline" class="line line-scaning"></div>
             <div class="router nav-tab active">
@@ -73,14 +73,14 @@
                         </td>
                         <td class="c">|</td>
                         <td class="r">
-                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%else%>
                     <tr>
                         <td style="border-radius:24px;" colspan="3">
-                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi:</span><b id="ssid24val">--</b></div>
-                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi: </span><b id="ssid24val">--</b></div>
+                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%end%>
@@ -89,7 +89,7 @@
             <div id="netline" class="line line-scaning"></div>
             <div class="internet nav-tab active">
                 <div class="img"></div>
-                <p><%:互联网%></p>
+                <p><%:Интернет%></p>
                 <div class="status status-internet" id="statusInternet"></div>
             </div>
         </div>
@@ -101,45 +101,45 @@
         <div class="mod-routerstatus nav-tab-content clearfix">
             <div class="routerinfo">
                 <!-- <div class="hd">
-                    <h3><%:路由器信息%></h3>
+                    <h3><%:Информация о маршрутизаторе%></h3>
                 </div> -->
 
                 <div class="wifi_set">
                     <div class="wifi_2g">
                         <ul>
-                             <li> <b>2.4G</b><span>Hz</span></li>
-                            <li class="wifi_2g_name">Wi-Fi名称</li>
-                            <li class="passwd_2g">Wi-Fi密码：
+                             <li> <b>2.4G </b><span>Hz</span></li>
+                            <li class="wifi_2g_name">Имя Wi-Fi:</li>
+                            <li class="passwd_2g">Пароль Wi-Fi：
                                 <input type="text" class="wifi_2g_pssswd wifi_2g_pssswd_txt" style="padding-bottom:10px;" value="">
                                 <input type="password" class="wifi_2g_pssswd" value="">
                                  <span class="eye2"></span>
                             </li>
-                            <li class="wifi_2g_online">连接设备数量 --</li>
+                            <li class="wifi_2g_online">Подключено устройств:</li>
                         </ul>
-                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>" >设置</a>
+                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>" >Настроить</a>
                     </div>
 
                     <div class="wifi_5g">
                         <ul>
-                            <li> <b>5G</b><span>Hz</span></li>
-                             <li class="wifi_5g_name">Wi-Fi名称</li>
-                            <li class="passwd_5g">Wi-Fi密码：
+                            <li> <b>5G </b><span>Hz</span></li>
+                             <li class="wifi_5g_name">Имя Wi-Fi:</li>
+                            <li class="passwd_5g">Пароль Wi-Fi：
                                 <input type="text" class="wifi_5g_pssswd wifi_5g_pssswd_txt" style="padding-bottom:10px;"  value="">
                                 <input type="password" class="wifi_5g_pssswd" value="">
                                 <span class="eye2"></span>
                             </li>
-                            <li class="wifi_5g_online">连接设备数量 --</li>
+                            <li class="wifi_5g_online">Подключено устройств:</li>
                         </ul>
-                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>" >设置</a>
+                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>" >Настроить</a>
                     </div>
                 </div>
                 <div class="bd">
                     <table>
                         <tr>
-                            <th><%:路由器型号%></th>
-                            <th><%:系统ROM版本%></th>
-                            <th><%:MAC地址%></th>
-                            <th><%:SN%></th>
+                            <th><%:Модель маршрутизатора%></th>
+                            <th><%:Версия прошивки%></th>
+                            <th><%:MAC адрес%></th>
+                            <th><%:Серийный номер%></th>
                         </tr>
                         <tr>
                             <td id="routermodel">--</td>
@@ -156,7 +156,7 @@
         <div class="mod-internetstatus nav-tab-content" style="display:none;">
             <div class="internet-panel first">
                 <div class="hd">
-                    <h3><%:外网状态%></h3>
+                    <h3><%:Настройки сети%></h3>
                 </div>
                 <div class="bd">
                     <table id="wanStatusContent"></table>
@@ -165,28 +165,28 @@
 
             <div class="internet-panel">
                 <div class="hd">
-                    <h3><%:外网带宽%></h3>
+                    <h3><%:Скорость сети%></h3>
                 </div>
                 <div class="bd">
                     <table>
                         <tr class="first">
                             <td>
                                 <dl>
-                                    <dt><%:下载带宽%></dt>
-                                    <dd><span id="banddownload">--</span>Mbps</dd>
+                                    <dt><%:Входящая скорость%></dt>
+                                    <dd><span id="banddownload">--</span> Мбит/сек</dd>
                                 </dl>
                             </td>
                             <td>
                                 <dl>
-                                    <dt><%:上传带宽%></dt>
-                                    <dd><span id="bandupload">--</span>Mbps</dd>
+                                    <dt><%:Исходящая скорость%></dt>
+                                    <dd><span id="bandupload">--</span> Мбит/сек</dd>
                                 </dl>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <a id="btnSpeedTest"  href="#" class="btn btn-primary btn-m"><span id="retestSpeed"><%:重新测速%></span></a>
-                                <a id="btnBandset" href="#" class="btn btn-dft btn-m"><span id="manualSetting"><%:手工设置%></span></a>
+                                <a id="btnSpeedTest"  href="#" class="btn btn-primary btn-m"><span id="retestSpeed"><%:Проверить%></span></a>
+                                <a id="btnBandset" href="#" class="btn btn-dft btn-m"><span id="manualSetting"><%:Установить%></span></a>
                             </td>
                         </tr>
                     </table>
@@ -207,9 +207,9 @@
         <tr>
             <th class="s0">{$devtype}</th>
         {if($devlen > 0 )}
-            <th class="s1"><%:访问外网%></th>
+            <th class="s1"><%:Доступ к внешней сети%></th>
             {if($hasDisk)}
-            <th class="s2"><%:全盘访问%></th>
+            <th class="s2"><%:Полный доступ%></th>
             {/if}
         {/if}
         </tr>
@@ -224,15 +224,15 @@
     <td>
        <!--  <img class="dev-icon" width="60" src="{$devices_icon}" onerror="this.src='/img/device_list_error.png'"> -->
         <div class="dev-info">
-            <div class="name">{$name} &nbsp;&nbsp;{if($isself)}<span class="muted">|&nbsp;<%:本机%></span>{/if}</div>
+            <div class="name">{$name} &nbsp;&nbsp;{if($isself)}<span class="muted">|&nbsp;<%:Ваше устройство%></span>{/if}</div>
             <ul class="devnetinfo clearfix">
-               <!--  <li><span class="k"><%:已连接%>:</span> <span class="v">{$online}</span></li> -->
+                <li><span class="k"><%:Время работы%>:</span> <span class="v">{$online}</span></li>
                 <li>
                     {for(var i=0, len=$ip.length; i<len; i++)}
-                    <p><span class="k"><%:IP地址%>:</span> <span class="v">{$ip[i]}</span></p>
+                    <p><span class="k"><%:IP адрес%>:</span> <span class="v">{$ip[i]}</span></p>
                     {/for}
                 </li>
-                <li><span class="k"><%:MAC地址%>:</span> <span class="v">{$mac}</span></li>
+                <li><span class="k"><%:MAC адрес%>:</span> <span class="v">{$mac}</span></li>
             </ul>
         </div>
     </td>
@@ -259,13 +259,13 @@
 <tr class="first">
     <td>
         <dl>
-            <dt><%:连接类型%></dt>
+            <dt><%:Тип соединения%></dt>
             <dd>{$wantype}</dd>
         </dl>
     </td>
     <td>
         <dl>
-            <dt><%:IP地址%></dt>
+            <dt><%:IP адрес%></dt>
             <dd>{$ip}</dd>
         </dl>
     </td>
@@ -273,13 +273,13 @@
 <tr>
     <td>
         <dl>
-            <dt><%:DNS%></dt>
+            <dt><%:DNS сервер%></dt>
             <dd>{$dns}</dd>
         </dl>
     </td>
     <td>
         <dl>
-            <dt><%:网关地址%></dt>
+            <dt><%:Основной шлюз%></dt>
             <dd>{$gateway}</dd>
         </dl>
     </td>
@@ -287,7 +287,7 @@
 </script>
 <script type="text/tmpl" id="tmpldevicesempty">
 <tr class="empty">
-    <td colspan="3"><%:暂无设备接入%></td>
+    <td colspan="3"><%:Нет доступа к устройству%></td>
 </tr>
 </script>
 <script type="text/tmpl" id="tmpldevices5gempty">
@@ -295,10 +295,10 @@
     <td colspan="3">
         <div class="devices5gempty">
             <i class="ico-wifi-5g"></i>
-            <h4><%:当前未有5G连网设备%></h4>
-            <p><%:5G Wi-Fi是运行在5GHz以上的高频段的独立Wi-Fi比较2.4G Wi-Fi速度更快更稳定，适合电视、盒子包括距离路由器较近的设备%></p>
+            <h4><%:В настоящее время нет подключенных устройств 5G%></h4>
+            <p><%:5G Wi-Fi - это независимый Wi-Fi, который работает в высокочастотном диапазоне выше 5 ГГц. По сравнению с Wi-Fi 2,4 ГГц он быстрее и стабильнее. Он подходит для телевизоров и устройств, расположенных ближе к маршрутизатору.%></p>
             <%if ccode == "CN" then%>
-                <a href="http://www.mi.com" class="btn btn-dft btn-l" target="_blank"><span><%:去小米网购买5G智能设备%></span></a>
+                <a href="http://www.mi.com" class="btn btn-dft btn-l" target="_blank"><span><%:Перейдите на сайт Xiaomi, чтобы купить устройства 5G%></span></a>
             <%end%>
         </div>
     </td>
@@ -311,14 +311,14 @@
         <%if (wifiGuestStatus == 0) then%>
         <div class="devicesguestempty">
             <i class="ico-wifi-guest"></i>
-            <h4><%:当前未开启访客模式%></h4>
-            <p><%:开启后会自动生成一个独立的WiFi，这样在亲朋到好友到来时，独立的WiFi账号和家庭网络彼此隔离，也不用担心家庭网络中的任何隐私会泄露出去%></p>
-            <a href="<%=luci.dispatcher.build_url('web','setting','wifi')%>" class="btn btn-dft btn-l"><span><%:开启访客Wi-Fi%></span></a>
+            <h4><%:Гостевой режим отключен%></h4>
+            <p><%:При включении независимый Wi-Fi будет автоматически сгенерирован, так что, когда приедут родственники и друзья, независимая учетная запись WiFi и домашняя сеть будут изолированы друг от друга, и нет необходимости беспокоиться о какой-либо утечке конфиденциальности в домашней сети.%></p>
+            <a href="<%=luci.dispatcher.build_url('web','setting','wifi')%>" class="btn btn-dft btn-l"><span><%:Включить гостевой Wi-Fi%></span></a>
         </div>
         <%else%>
         <div class="devicesguestempty">
             <i class="ico-wifi-guest"></i>
-            <h4><%:当前没有访客设备连入%></h4>
+            <h4><%:В настоящее время гостевые устройства не подключены%></h4>
         </div>
         <%end%>
     </td>
@@ -556,9 +556,9 @@ $.sub( 'devices:getlist', function( evt, data ){
                 }
 
                 var containerList = [],
-                    containerTitle = ['Mesh组网设备','<%:网线连网设备%>','<%:2.4G连网设备%>','<%:5G连网设备%>','<%:访客连网设备%>'];
+                    containerTitle = ['Mesh устройства','<%:Устройства подключенные сетевым кабелем%>','<%:Устройства подключенные к Wi-Fi 2.4G%>','<%:Устройства подключенные к Wi-Fi 5G%>','<%:Гостевые устройства%>'];
                 if (!isWifi5G) {
-                    containerTitle = ['Mesh组网设备','<%:网线连网设备%>','<%:Wi-Fi连网设备%>','<%:5G连网设备%>','<%:访客连网设备%>'];
+                    containerTitle = ['Mesh устройства','<%:Устройства подключенные сетевым кабелем%>','<%:Устройства подключенные к Wi-Fi%>','<%:Устройства подключенные к Wi-Fi 5G%>','<%:Гостевые устройства%>'];
                 }
 
 
@@ -657,7 +657,7 @@ $.sub('devices:addevent', function(){
         var type = $(this).attr('data-type');
         var self = $(this).attr('data-self') === '1';
         if ( self ) {
-            var cfm = window.confirm('<%:你确认要关闭自己？%>');
+            var cfm = window.confirm('<%:Вы уверены, что хотите отключить Ваше устройство от доступа к внешней сети?%>');
             if ( cfm ) {
                 $(this).removeClass('btn-switch-on').addClass('btn-switch-off');
                 $.pub( 'devices:kick_out', {'mac' : mac, 'type': type} );
@@ -727,34 +727,34 @@ $.sub('status:newget', function(){
 
     var mapChannel, mapModel;
     mapChannel = {
-        'current': '<%:内测版%>',
-        'release': '<%:稳定版%>',
-        'stable': '<%:开发版%>'
+        'current': '<%:Бета%>',
+        'release': '<%:Релиз%>',
+        'stable': '<%:Альфа%>'
     },
     mapModel = {
-        'R1D': '<%:小米路由器%>',
-        'R2D': '<%:小米路由器2%>',
-        'R3D': '<%:小米路由器HD%>',
-        'R1CM': '<%:小米路由器MINI%>',
-        'R1CL': '<%:小米路由器青春版%>',
-        'R3': '<%:小米路由器3%>',
-        'R3L': '<%:小米路由器3C%>',
-        'R3P': '<%:小米路由器3 Pro%>',
-        'R3A': '<%:小米路由器3A%>',
-        'R3G': '<%:小米路由器3G%>',
-        'R4': '<%:小米路由器4%>',
-        'R4C': '<%:小米路由器4Q%>',
-        'R4CM': '<%:小米路由器4C%>',
-        'D01': '<%:小米路由器Mesh%>',
-        'R4AC': '<%:小米路由器4A%>',
-        'R4A': '<%:小米路由器4 v2%>',
-        'R3Gv2': '<%:小米路由器3G%>',
-        'R2600': '<%:小米路由器2600%>',
-        'R2100': '<%:小米路由器AC2100%>',
-        'R1500': '<%:小米路由器1500%>',
-        'R3600': '<%:小米AIoT路由器AX3600%>',
-        'RM1800': '<%:小米路由器AX1800%>',
-        'RA67': '<%:Redmi路由器 AX5%>'
+        'R1D': '<%:Router Xiaomi%>',
+        'R2D': '<%:Mi Router 2%>',
+        'R3D': '<%:Mi Router HD%>',
+        'R1CM': '<%:Router Xiaomi MINI%>',
+        'R1CL': '<%:Mi Router Youth Edition%>',
+        'R3': '<%:Mi Router 3%>',
+        'R3L': '<%:Mi Router 3C%>',
+        'R3P': '<%:Mi Router 3 Pro%>',
+        'R3A': '<%:Mi Router 3A%>',
+        'R3G': '<%:Mi Router 3G%>',
+        'R4': '<%:Mi Router 4%>',
+        'R4C': '<%:Mi Router 4Q%>',
+        'R4CM': '<%:Mi Router 4C%>',
+        'D01': '<%:Xiaomi router Mesh%>',
+        'R4AC': '<%:Mi Router 4A%>',
+        'R4A': '<%:Mi Router 4 v2%>',
+        'R3Gv2': '<%:Mi Router 3G%>',
+        'R2600': '<%:Mi Router 2600%>',
+        'R2100': '<%:Mi Router AC2100%>',
+        'R1500': '<%:Mi Router 1500%>',
+        'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+        'RM1800': '<%:Router Xiaomi AX1800%>',
+        'RA67': '<%:Redmi Xiaomi AX5%>'
     };
     var apiNewStatus = '<%=luci.dispatcher.build_url("api","misystem","newstatus")%>';
     $.ajax({
@@ -765,21 +765,21 @@ $.sub('status:newget', function(){
                     res =  $.parseJSON(res);
                     if(res.code == 0){
                         //2.4g
-                        $('.wifi_2g_name').html('Wi-Fi名称：'+res['2g'].ssid);
+                        $('.wifi_2g_name').html('Имя Wi-Fi：'+res['2g'].ssid);
                         if(res['2g'].pssswd != ''){
                             $('.wifi_2g_pssswd').val(res['2g'].pssswd);
                         }else{
-                            $('.passwd_2g').html('Wi-Fi密码: 未设置');
+                            $('.passwd_2g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_2g_online').html('连接设备数量：'+res['2g'].online_sta_count);
+                        $('.wifi_2g_online').html('Подключенные устройства：'+res['2g'].online_sta_count);
                         //5g
-                        $('.wifi_5g_name').html('Wi-Fi名称：'+res['5g'].ssid);
+                        $('.wifi_5g_name').html('Имя Wi-Fi：'+res['5g'].ssid);
                         if(res['5g'].passwd != ''){
                             $('.wifi_5g_pssswd').val(res['5g'].passwd);
                         }else{
-                            $('.passwd_5g').html('Wi-Fi密码: 未设置');
+                            $('.passwd_5g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_5g_online').html('连接设备数量：'+res['5g'].online_sta_count);
+                        $('.wifi_5g_online').html('Подключенные устройства：'+res['5g'].online_sta_count);
                         //信息
 
                         if(res.hardware.platform == 'RA67'){
@@ -840,35 +840,35 @@ $.sub('status:get', function(){
 
         var mapChannel, mapModel;
         mapChannel = {
-            'current': '<%:内测版%>',
-            'release': '<%:稳定版%>',
-            'stable': '<%:开发版%>'
+            'current': '<%:Бета%>',
+            'release': '<%:Релиз%>',
+            'stable': '<%:Альфа%>'
         },
-        mapModel = {
-            'R1D': '<%:小米路由器%>',
-            'R2D': '<%:小米路由器2%>',
-            'R3D': '<%:小米路由器HD%>',
-            'R1CM': '<%:小米路由器MINI%>',
-            'R1CL': '<%:小米路由器青春版%>',
-            'R3': '<%:小米路由器3%>',
-            'R3L': '<%:小米路由器3C%>',
-            'R3P': '<%:小米路由器3 Pro%>',
-            'R3A': '<%:小米路由器3A%>',
-            'R3G': '<%:小米路由器3G%>',
-            'R4': '<%:小米路由器4%>',
-            'R4C': '<%:小米路由器4Q%>',
-            'R4CM': '<%:小米路由器4C%>',
-            'D01': '<%:小米路由器Mesh%>',
-            'R4AC': '<%:小米路由器4A%>',
-            'R4A': '<%:小米路由器4 v2%>',
-            'R3Gv2': '<%:小米路由器3G%>',
-            'R2600': '<%:小米路由器2600%>',
-            'R2100': '<%:小米路由器AC2100%>',
-            'R1500': '<%:小米路由器1500%>',
-            'R3600': '<%:小米AIoT路由器AX3600%>',
-            'RM1800': '<%:小米路由器AX1800%>',
-            'RA67': '<%:Redmi路由器 AX5%>'
-        };
+		mapModel = {
+        'R1D': '<%:Router Xiaomi%>',
+        'R2D': '<%:Mi Router 2%>',
+        'R3D': '<%:Mi Router HD%>',
+        'R1CM': '<%:Router Xiaomi MINI%>',
+        'R1CL': '<%:Mi Router Youth Edition%>',
+        'R3': '<%:Mi Router 3%>',
+        'R3L': '<%:Mi Router 3C%>',
+        'R3P': '<%:Mi Router 3 Pro%>',
+        'R3A': '<%:Mi Router 3A%>',
+        'R3G': '<%:Mi Router 3G%>',
+        'R4': '<%:Mi Router 4%>',
+        'R4C': '<%:Mi Router 4Q%>',
+        'R4CM': '<%:Mi Router 4C%>',
+        'D01': '<%:Xiaomi router Mesh%>',
+        'R4AC': '<%:Mi Router 4A%>',
+        'R4A': '<%:Mi Router 4 v2%>',
+        'R3Gv2': '<%:Mi Router 3G%>',
+        'R2600': '<%:Mi Router 2600%>',
+        'R2100': '<%:Mi Router AC2100%>',
+        'R1500': '<%:Mi Router 1500%>',
+        'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+        'RM1800': '<%:Router Xiaomi AX1800%>',
+        'RA67': '<%:Redmi Xiaomi AX5%>'
+		};
         if(res.hardware.platform == 'RA67'){
             $('#routermodel').text(mapModel[res.hardware.platform]);
         }else{
@@ -937,25 +937,25 @@ $.sub('pppoeStatus', function(evt, data){
                 if(rsp.proto == 'pppoe'){
                     switch(rsp.status){
                         case 1 :
-                            msg = '<%:正在拨号...%>';
+                            msg = '<%:Соединение...%>';
                             timer = setTimeout(ask, 2000);
                             break;
                         case 2 :
-                            msg = '拨号成功';
+                            msg = 'Подключен';
                             ip = rsp.ip['address'];
                             mask = rsp.ip['mask'];
                             gateway = rsp.gw;
                             dns = rsp.dns;
-                            action = '<a id="pppoeStop" href="#">断开</a>';
+                            action = '<a id="pppoeStop" href="#">Отключить</a>';
                             break;
                         case 3 :
-                            msg = rsp.msg || '<%:拨号失败%>';
-                            msg = msg + '<%:，正在尝试特殊拨号模式...%>';
+                            msg = rsp.msg || '<%:Ошибка соединения%>';
+                            msg = msg + '<%:，попробовать специальный режим соединения...%>';
                             timer = setTimeout(ask, 2000);
                             break;
                         case 4 :
-                            msg = '<%:已断开%>';
-                            action = '<a id="pppoeStart" href="#"><%:立即连接%></a>';
+                            msg = '<%:Отключен%>';
+                            action = '<a id="pppoeStart" href="#"><%:Подключить%></a>';
                             // 断开后重新连接查询3次，防止拿不到底层新数据
                             if ( askcount < 4 ) {
                                 timer = setTimeout(ask, 2000);
@@ -1011,7 +1011,7 @@ $.sub('pppoeStatus', function(evt, data){
                             dns = dns.join('<br>');
                         }
                         var statusHTML = StringH.tmpl( $('#tmplWaninfo').html(), {
-                            wantype: '<%:静态IP%>',
+                            wantype: '<%:Статический IP%>',
                             ip: ip,
                             mask: mask,
                             gateway: gateway,
@@ -1174,7 +1174,7 @@ $.sub( 'taskquery', function(){
 
                     if (!$.dialogTask) {
                         $.dialogTask = $.dialog({
-                            title: '<%:任务管理器%>',
+                            title: '<%:Диспетчер задач%>',
                             content: tplTask.tmpl({appInfos: appInfos, order: 'orderbycpu-up'}),
                             lock: true,
                             beforeunload: function(){
@@ -1250,14 +1250,14 @@ $.sub( 'taskinit', function(){
             pname = $(self).attr('data-pname');
         if (status === '5') {
             if (appid !== 'xunlei') {
-                $.confirm('<%:结束 {$pname} 后，相关功能将无法使用。如要再次使用，你需要在当前界面开启该任务。 你确认要结束 {$pname} 吗？%>'.tmpl({pname: pname}), function(){
+                $.confirm('<%:Завершить {$pname} После этого связанные функции будут недоступны. Если вы хотите использовать его снова, вам нужно запустить задачу в текущем интерфейсе. Вы подтверждаете завершение {$pname} ？%>'.tmpl({pname: pname}), function(){
                     taskkill(appid, 7);
                 });
             } else {
                 $.dialogTaskXunlei = $.dialog({
                     width: 400,
-                    title: '<%:提示%>',
-                    content: '<p style="text-align:left;"><%:如果因为下载导致路由器卡慢，建议你点击 “暂停所有下载” 来解决。若使用结束任务，路由下载功能将被停用，下次使用时你需要在当前界面再次开启%></p><div style="padding:30px 0;"><button type="button" class="btn btn-dft btn-l" id="stopdowntask"><span><%:暂停所有下载%></span></button><button type="button" class="btn btn-dft btn-l" id="killxunlei" data-id="'+appid+'" style="margin-top:15px;"><span><%:结束任务%></span></button></div>'
+                    title: '<%:Подсказка%>',
+                    content: '<p style="text-align:left;"><%:Если карта маршрутизатора работает медленно из-за загрузки, рекомендуется нажать «Приостановить все загрузки», чтобы решить эту проблему. Если используется конечная задача, функция загрузки маршрутизации будет отключена, и вам нужно будет снова открыть ее в текущем интерфейсе в следующий раз, когда вы ее используете.%></p><div style="padding:30px 0;"><button type="button" class="btn btn-dft btn-l" id="stopdowntask"><span><%:Приостановить все загрузки%></span></button><button type="button" class="btn btn-dft btn-l" id="killxunlei" data-id="'+appid+'" style="margin-top:15px;"><span><%:Завершить задачу%></span></button></div>'
                 });
             }
         }
