@@ -28,10 +28,10 @@
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---2 有线中继
---1 无线中继
---4 mesh主设备  whc_cap
---3 mesh从设备  whc_re
+--2 Точка доступа
+--1 Усилитель
+--4 Ведущий Mesh  whc_cap
+--3 Ведомый Mesh  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and "true" or "false"
 %>
@@ -44,18 +44,18 @@ try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
      style="position:fixed;left:0;top:0; width:100%; height:100%; z-index:2; display:none;"></div>
 <div id="dropmenu" class="dropmenu" style="z-index:3; display:none;">
     <ul>
-        <li><a href="#" id="toRename"><%:修改路由器名称%></a></li>
+        <li><a href="#" id="toRename"><%:Устройство%></a></li>
         <%if netmod == 0 then%>
-        <li><a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:系统升级%></a></li>
+        <li><a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Обновление%></a></li>
         <%else%>
-        <li><a href="<%=luci.dispatcher.build_url("web","apsetting","upgrade")%>"><%:系统升级%></a></li>
+        <li><a href="<%=luci.dispatcher.build_url("web","apsetting","upgrade")%>"><%:Обновление%></a></li>
         <%end%>
-        <li><a href="#" id="toDownloadClient"><%:下载客户端%></a></li>
-        <li><a href="#" id="toReboot"><%:重启%></a></li>
+        <li><a href="#" id="toDownloadClient"><%:Приложения%></a></li>
+        <li><a href="#" id="toReboot"><%:Перезагрузка%></a></li>
         <%if features["system"]["shutdown"] == '1' then%>
-        <li><a href="#" id="toShutdown"><%:关机%></a></li>
+        <li><a href="#" id="toShutdown"><%:Выключить%></a></li>
         <%end%>
-        <li class="last"><a href="<%=luci.dispatcher.build_url("web","logout")%>"><%:注销%></a></li>
+        <li class="last"><a href="<%=luci.dispatcher.build_url("web","logout")%>"><%:Выход%></a></li>
     </ul>
 </div>
 <div id="noticebar" class="noticebar" style="z-index:3; display:none;">
@@ -86,21 +86,21 @@ try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
     <div class="form-rename">
         <form action="#" class="form" id="routerNameEdit">
             <div class="form-item">
-                <label class="k"><%:路由器名称%></label>
+                <label class="k"><%:Имя%></label>
                 <span class="v">
-                    <input type="text" name="routername" id="routername" class="ipt-text" autocomplete="off" datatype="bytetext" maxlength="24" reqMsg="<%:路由器名称%>" value="{$name}">
+                    <input type="text" name="routername" id="routername" class="ipt-text" autocomplete="off" datatype="bytetext" maxlength="24" reqMsg="<%:Введите имя маршрутизатора%>" value="{$name}">
                 </span>
                 <em class="t"></em>
             </div>
             <div class="form-item">
-                <label class="k"><%:位置%></label>
+                <label class="k"><%:Помещение%></label>
                 <span class="v">
-                    <input type="text" name="locale" id="locale" class="ipt-text" autocomplete="off" datatype="bytetext" maxlength="24" reqMsg="<%:路由器位置%>" value="{$locale}">
+                    <input type="text" name="locale" id="locale" class="ipt-text" autocomplete="off" datatype="bytetext" maxlength="24" reqMsg="<%:Введите помещение%>" value="{$locale}">
                 </span>
                 <em class="t"></em>
             </div>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary btn-l"><span><%:保存%></span></button>
+                <button type="submit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
             </div>
         </form>
     </div>
@@ -109,15 +109,15 @@ try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
 <script type="text/tmpl" id="tplshutdown">
 <div class="mod-reboot-dlg">
     <p class="img"><img src="<%=resource%>/web/img/ico_shutdown.png"></p>
-    <p class="text"><%:关闭路由器将断开其他设备的数据访问和网络连接，之后便可以安全的断开电源。（再次启动需要手工连接电源）%></p>
-    <button id="shutdownAction" type="button" class="btn btn-primary btn-l"><span><%:关闭路由器%></span></button>
+    <p class="text"><%:Выключение маршрутизатора приведет к отключению доступа к сети и отключение от сети других устройств, после чего вы сможете безопасно отключить питание. (Вам нужно вручную подключить блок питания, чтобы включить маршрутизатор.)%></p>
+    <button id="shutdownAction" type="button" class="btn btn-primary btn-l"><span><%:Выключить%></span></button>
 </div>
 </script>
 <script type="text/tmpl" id="tplreboot">
 <div class="mod-shutdown-dlg">
     <p class="img"><img src="<%=resource%>/web/img/ico_reboot.png"></p>
-    <p class="text"><%:路由器重启需要等待十几秒或更多时间，重启过程中将会断开网络连接，稍后将自动重新连接网络。%></p>
-    <button type="button" id="rebootAction" class="btn btn-primary btn-l"><span><%:重启路由器%></span></button>
+    <p class="text"><%:Маршрутизатору необходимо некоторое время для перезагрузки, обычно не более 2 минут. Во время перезагрузки сетевое соединение будет отключено. Все устройства подключенные к маршрутизатору, будут автоматически отключены от маршрутизатора. После перезагрузки сеть будет автоматически включена.%></p>
+    <button type="button" id="rebootAction" class="btn btn-primary btn-l"><span><%:Перезагрузить%></span></button>
 </div>
 </script>
 <script type="text/tmpl" id="tpldowncn">
@@ -126,19 +126,19 @@ try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
         <tr>
             <td>
                 <i class="ico-down-client ico-down-pc"></i>
-                <a href="http://bigota.miwifi.com/xiaoqiang/client/xqpc_client.exe"><%:PC客户端%></a>
+                <a href="http://bigota.miwifi.com/xiaoqiang/client/xqpc_client.exe"><%:Windows%></a>
             </td>
             <td class="c1"></td>
             <td class="c2"></td>
             <td>
                 <i class="ico-down-client ico-down-mac"></i>
-                <a href="http://bigota.miwifi.com/xiaoqiang/client/xqmac_client.dmg"><%:MAC客户端%></a>
+                <a href="http://bigota.miwifi.com/xiaoqiang/client/xqmac_client.dmg"><%:MAC%></a>
             </td>
         </tr>
         <tr class="last">
             <td>
                 <i class="ico-down-client ico-down-andriod"></i>
-                <a href="http://www1.miwifi.com/pc2app_download.html"><%:手机客户端%></a>
+                <a href="http://www1.miwifi.com/pc2app_download.html"><%:Android%></a>
             </td>
             <td class="c1"></td>
             <td class="c2"></td>
@@ -151,7 +151,7 @@ try{ document.execCommand("BackgroundImageCache",false,true);} catch(e){}
 </script>
 <script type="text/tmpl" id="tpldownintl">
     <img class="onlineimg" src-local="/xiaoqiang/web/img/2dcode.png" src="/xiaoqiang/web/img/code.png">
-    <p><%:手机扫描二维码安装客户端%></p>
+    <p><%:Отсканируйте QR-код, чтобы установить приложение%></p>
 </script>
 <script>
 var DEBUG = false;
@@ -253,11 +253,11 @@ var rebootWait = function ( opt ) {
         tStart = ( +new Date() ),
         tUse,
         dlgRebootWait = $.loadingDialog({
-            title : '<%:重启中...%>',
-            content : '<%:操作生效，等待设备重启...%>'
+            title : '<%:Перезагрузка%>',
+            content : '<%:Выполняется перезагрузка маршрутизатора%>'
         }),
         online = function(){
-            dlgRebootWait.content( '<%:操作生效,重启成功！%>' );
+            dlgRebootWait.content( '<%:Перезагрузка маршрутизатора выполнена%>' );
             dlgRebootWait.time( 3*1000 );
             if( refresh ){
                 window.setTimeout( 'window.top.location.href="http://'+ip+'";',3000 );
@@ -266,10 +266,10 @@ var rebootWait = function ( opt ) {
         offline = function(){
             tUse = Math.round( ( ( +new Date() ) - tStart ) / 1000 );
             if ( tUse > 150 ) {
-                dlgRebootWait.content( '<%:自动连接路由器失败，请检查无线或者网线是否连接正确。%>' );
+                dlgRebootWait.content( '<%:Не удалось автоматически подключиться к маршрутизатору, проверьте, правильно ли подключена беспроводная сеть или сетевой кабель.%>' );
                 return;
             }
-            dlgRebootWait.content( action + '<%:, 等待自动跳转... 用时{$time}秒%>'.tmpl({time: tUse}) );
+            dlgRebootWait.content( action + '<%:Ожидается автоматическое перенаправление, осталось {$time} сек.%>'.tmpl({time: tUse}) );
         };
 
     window.setTimeout( function(){
@@ -433,13 +433,13 @@ function byteFormat(number, precision, isarray){
     isarray = isarray || false;
     if (number > 1024 * 1024 * 1024) {
         val = Math.floor( number / 1024 / 1024 / 1024 * precision ) / precision;
-        label = 'GB';
+        label = ' Гб';
     } else if (number > 1024 * 1024 && number < 1024 * 1024 * 1024){
         val = Math.floor( number / 1024 / 1024 * precision ) / precision;
-        label = 'MB';
+        label = ' Мб';
     }else{
         val = Math.floor( number / 1024 * precision ) / precision;
-        label = 'KB';
+        label = ' КБ';
     }
 
     if (isarray) {
@@ -459,7 +459,7 @@ function secondToHour(time){
         hour = pint(time / 3600.0),
         minute = pint((parseFloat(time / 3600.0) - hour) * 60),
         second = pint(time) - hour * 3600 - minute * 60,
-        format = hour + '<%:小时%>' + minute + '<%:分%>' + second + '<%:秒%>';
+        format = hour + '<%: ч %>' + minute + '<%: м %>' + second + '<%: с %>';
     return format;
 }
 
@@ -471,15 +471,15 @@ function secondToDate(second) {
         day;
     if (time !== null && time !== "") {
         if (time > 60 && time < 60 * 60) {
-            time = pint(time / 60.0) + '<%:分%>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%:秒%>';
+            time = pint(time / 60.0) + '<%: м %>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%: с %>';
             } else if (time >= 60 * 60 && time < 60 * 60 * 24) {
             time = secondToHour(time);
         }else if (time >= 24* 60 * 60 ) {
             day = pint(time  / (3600.0 * 24) );
             time = time - (day * 3600 * 24);
-            time =  day + '<%:天 %>' + secondToHour(time);
+            time =  day + '<%: д %>' + secondToHour(time);
             } else {
-            time = pint(time) + '<%:秒%>';
+            time = pint(time) + '<%: с %>';
         }
     }
     return time;
@@ -494,7 +494,7 @@ function secondToDate(second) {
         var hour = pint(time / 3600.0),
             minute = pint((parseFloat(time / 3600.0) - hour) * 60),
             second = pint(time) - hour * 3600 - minute * 60,
-            format = hour + '<%:小时%>' + minute + '<%:分%>' + second + '<%:秒%>';
+            format = hour + '<%: ч %>' + minute + '<%: м %>' + second + '<%: с %>';
         return format;
     }
 
@@ -503,15 +503,15 @@ function secondToDate(second) {
             day;
         if (time !== null && time !== "") {
             if (time > 60 && time < 60 * 60) {
-                time = pint(time / 60.0) + '<%:分%>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%:秒%>';
+                time = pint(time / 60.0) + '<%: м %>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%: с %>';
                 } else if (time >= 60 * 60 && time < 60 * 60 * 24) {
                 time = secondToHour(time);
             }else if (time >= 24* 60 * 60 ) {
                 day = pint(time  / (3600.0 * 24) );
                 time = time - (day * 3600 * 24);
-                time =  day + '<%:天%>' + secondToHour(time);
+                time =  day + '<%: д %>' + secondToHour(time);
                 } else {
-                time = pint(time) + '<%:秒%>';
+                time = pint(time) + '<%: с %>';
             }
         }
         return time;
@@ -520,21 +520,21 @@ function secondToDate(second) {
     function secondToDate2(second) {
         var time = parseFloat(second),
             num = 0,
-            unit = '<%:天%>';
+            unit = '<%: д %>';
         console.log( second, time );
         if (!isNaN(time)) {
             if (time > 60 && time < 60 * 60) {
                 num = Math.floor(time / 60.0);
-                unit = '<%:分钟%>';
+                unit = '<%: м %>';
             } else if (time >= 60 * 60 && time < 60 * 60 * 24) {
                 num = Math.floor(time / 3600.0);
-                unit = '<%:小时%>'
+                unit = '<%: ч %>'
             } else if (time >= 24 * 60 * 60 ) {
                 num = Math.floor( time  / (3600.0 * 24) );
-                unit =  '<%:天%>';
+                unit =  '<%: д %>';
             } else {
                 num = Math.floor(time);
-                unit = '<%:秒%>';
+                unit = '<%: с %>';
             }
         }
         return {
@@ -575,7 +575,7 @@ $.sub( 'wait', function( evt, data ){
         $.waitStatus = {};
     }
     $.waitStatus[selector] = $( selector ).text();
-    $( selector ).addClass('btn-primary-disabled').prop( 'disabled' , true ).find('span').text( '<%:处理中%>...' );
+    $( selector ).addClass('btn-primary-disabled').prop( 'disabled' , true ).find('span').text( '<%:Подождите%>...' );
 } );
 
 $.sub( 'done', function( evt, data ){
@@ -647,7 +647,7 @@ $.sub( 'loading:stop', function(){
         return $.dialog({
             width: 390,
             padding:'25px 30px',
-            title: '<%:提示信息%>',
+            title: '<%:Информация%>',
             content: content,
             ok: ok,
             cancel: false
@@ -663,7 +663,7 @@ $.sub( 'loading:stop', function(){
         return $.dialog({
             width: 390,
             padding:'25px 30px',
-            title: '<%:确认信息%>',
+            title: '<%:Подтверждение%>',
             content: content,
             ok: ok,
             cancel: _cancel,
@@ -679,7 +679,7 @@ $(function(){
         var $this = $( this ),
             href = $this.attr( 'href' );
         $.dialog({
-            title: '<%:官方微信%>',
+            title: '<%:WeChat%>',
             content: '<img width="200" src="'+ href +'">',
             width: 250,
             lock: true
@@ -752,15 +752,15 @@ $(function(){
                 }
                 $('#sysnotice')[0].className = classname;
                 var msgMap = {
-                    '1': '<p><%:检测到最新版本为{$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:点击此处立即升级%></a>。</p>',
-                    '3': '<p><%:5G Wi-Fi启动失败，%><a target="_blank" href="http://www.mi.com/service/contact/"><%:请联系小米客服解决%></a></p>',
-                     '4': '<p><%:检测到与上级路由器存在IP冲突，建议切换到%><a href="<%=luci.dispatcher.build_url("web","setting","wan")%>#netmode"><%:有线中继模式%></a><%:或者%><a href="#" id="ipconflict" data-ip="{$ip}"><%:避让IP冲突%></p>'
+                    '1': '<p><%:Обнаружена новая версия прошивки {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите "Обновить", чтобы обновить сейчас%></a>。</p>',
+                    '3': '<p><%:Не удалось запустить 5G Wi-Fi. %><a target="_blank" href="http://www.mi.com/service/contact/"><%:Обратитесь в службу поддержки Xiaomi.%></a></p>',
+                     '4': '<p><%:Обнаружен конфликт IP адресов с другим устройством, рекомендуется переключиться на%><a href="<%=luci.dispatcher.build_url("web","setting","wan")%>#netmode"><%:Режим точки доступа%></a><%:или%><a href="#" id="ipconflict" data-ip="{$ip}"><%:Избегайте конфликтов IP адресов%></p>'
                 };
 
                 var msgMapD01 = {
-                    '1': '<p><%:检测到最新版本为{$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:点击此处立即升级%></a>。</p>',
-                    '3': '<p><%:5G Wi-Fi启动失败，%><a target="_blank" href="http://www.mi.com/service/contact/"><%:请联系小米客服解决%></a></p>',
-                    '4': '<p><%:检测到与上级路由器存在IP冲突，请%><a href="<%=luci.dispatcher.build_url("web","setting","lannetset")%>"><%:修改局域网IP地址网段%></a></p>'
+                    '1': '<p><%:Обнаружена новая версия прошивки  {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите "Обновить", чтобы обновить сейчас%></a>。</p>',
+                    '3': '<p><%:Не удалось запустить 5G Wi-Fi. %><a target="_blank" href="http://www.mi.com/service/contact/"><%:Обратитесь в службу поддержки Xiaomi.%></a></p>',
+                    '4': '<p><%:Обнаружен конфликт IP адресов с другим устройством. %><a href="<%=luci.dispatcher.build_url("web","setting","lannetset")%>"><%:Измените IP адрес LAN%></a></p>'
                 };
 
                 var msgHTML = [];
@@ -798,7 +798,7 @@ $(function(){
                 });
                 dlgRouterName = $.dialog({
                     width: 390,
-                    title: '<%:修改路由器名称%>',
+                    title: '<%:Сведения о маршрутизаторе%>',
                     content: html,
                     lock: true
                 });
@@ -819,7 +819,7 @@ $(function(){
         }
         $.dialog({
             width: 390,
-            title: '<%:下载客户端%>',
+            title: '<%:Загрузка приложений%>',
             content: content,
             lock: true
         });
@@ -840,7 +840,7 @@ $(function(){
         e.preventDefault();
         dlgReboot = $.dialog({
             width: 390,
-            title: '<%:重启路由器%>',
+            title: '<%:Перезагрузка маршрутизатора%>',
             content: $('#tplreboot').html(),
             lock: true
         });
@@ -849,7 +849,7 @@ $(function(){
         e.preventDefault();
         dlgShutdown = $.dialog({
             width: 390,
-            title: '<%:路由器关机%>',
+            title: '<%:Выключение маршрутизатора%>',
             content: $('#tplshutdown').html(),
             lock: true
         });
@@ -953,8 +953,8 @@ $(function(){
             var api = '<%=luci.dispatcher.build_url("api", "misystem", "r_ip_conflict")%>',
                 ip = $(this).attr('data-ip');
             $.dialog({
-                title: '<%:避让IP冲突%>',
-                content: '<%:执行此操作，局域网IP将会变更为%>' + ip + '<br>' +'<%:该过程无线网络会重启，将出现短暂掉线。%>',
+                title: '<%:Избегайте конфликтов IP адресов%>',
+                content: '<%:Выполните эту операцию, IP-адрес LAN будет изменен на %>' + ip + '<br>' +'<%: Во время этого процесса беспроводная сеть перезапустится, и произойдет короткое отключение от сети.%>',
                 lock: true,
                 ok: function(){
                     $.post(api, function(rsp){
@@ -981,7 +981,7 @@ $(function(){
 // isClick = false;
                         if (rsp.code == 0) {
                             if (rsp.info[1].status == 0) {
-                                // console.log('此时5G网络已关闭');
+                                // console.log('Сеть 5G WiFi выключена');
                                 // debugger;
                                 meshModeDialog = $.dialog({
                                     title: false,
@@ -993,7 +993,7 @@ $(function(){
                                 $('#mesh-Off-5G').siblings('.switch-step').hide();
                                 $('#mesh-Off-5G').show();
                             } else {
-                                //console.log('此时5G网络已打开');
+                                //console.log('Включена сеть 5G WiFi');
                                 $.ajax({
                                     url: apiDevicesGet,
                                     type: 'GET',
@@ -1012,36 +1012,36 @@ $(function(){
                                         //         {"mac":"C6:53:77:ED:5A:51","oname":"MiWiFi-RM1800","isap":8,"parent":"","authority":{"wan":1,"pridisk":0,"admin":1,"lan":1},"push":0,"online":1,"name":"MiWiFi-RM1800","times":0,"ip":[{"downspeed":"0","online":"88932","active":1,"upspeed":"0","ip":"192.168.31.31"}],"statistics":{"downspeed":"0","online":"88932","upspeed":"0"},"icon":"","type":0}],"code":0}
                                         //
                                         // rsp = {"show":0,
-                                        //     "graph":{"locale":"家","ssid":"Redmi_9452_FBAD","name":"Redmi_9452_FBAD","channel":"release","hardware":"RM1800","mode":0,"color":100,"ip":"192.168.31.1"},"code":0}
+                                        //     "graph":{"locale":"Дом","ssid":"Redmi_Xiaomi_AX5","name":"Redmi_Xiaomi_AX5","channel":"release","hardware":"RM1800","mode":0,"color":100,"ip":"192.168.31.1"},"code":0}
                                         // rsp = {
                                         //     "show": 1,
                                         //     "graph": {
-                                        //         "ssid": "Redmi_9452_FBAD",
+                                        //         "ssid": "Redmi_Xiaomi_AX5",
                                         //         "color": 100,
                                         //         "ip": "192.168.31.1",
-                                        //         "locale": "家",
-                                        //         "name": "Redmi_9452_FBAD",
+                                        //         "locale": "Дом",
+                                        //         "name": "Redmi_Xiaomi_AX5",
                                         //         "channel": "release",
                                         //         "hardware": "RM1800",
                                         //         "mode": 0,
                                         //         "leafs": [
                                         //             {
-                                        //             "ssid": "Redmi_9452_FBAD_5G",
+                                        //             "ssid": "Redmi_Xiaomi_AX5_5G",
                                         //             "color": 100,
                                         //             "ip": "192.168.31.6",
-                                        //             "locale": "客厅",
-                                        //             "name": "Redmi_9459_FBA6",
+                                        //             "locale": "Гостинная",
+                                        //             "name": "Redmi_Xiaomi_AX5",
                                         //             "channel": "release",
                                         //             "hardware": "RM1800",
                                         //             "mode": 8,
                                         //             "version": ""
                                         //         },
                                         //             {
-                                        //                 "ssid": "Redmi_9452_FBAD_5G",
+                                        //                 "ssid": "Redmi_Xiaomi_AX5_5G",
                                         //                 "color": 100,
                                         //                 "ip": "192.168.31.6",
-                                        //                 "locale": "客厅",
-                                        //                 "name": "Redmi_9459_FBA6",
+                                        //                 "locale": "Гостинная",
+                                        //                 "name": "Redmi_Xiaomi_AX5",
                                         //                 "channel": "release",
                                         //                 "hardware": "RM1800",
                                         //                 "mode": 8,
@@ -1118,7 +1118,7 @@ $(function(){
                     $('#mesh-local').siblings('.switch-step').hide();
                     $('#mesh-local').show();
                 } else {
-                    $.alert('请选择要添加的设备');
+                    $.alert('Пожалуйста, выберите устройство для добавления');
                 }
             });
             var timeout ;
@@ -1164,9 +1164,9 @@ $(function(){
                             $('#mesh-add-failer').show();
                         } else {
                             if (rsp.status === 3) {
-                                $('#mesh-add-loading').find('p').html('正在扩展Mesh节点(1-2分钟)...')
+                                $('#mesh-add-loading').find('p').html('Расширение сети Mesh')
                             } else if (rsp.status === 2) {
-                                $('#mesh-add-loading').find('p').html('正在同步Mesh节点配置...')
+                                $('#mesh-add-loading').find('p').html('Синхронизация конфигурации сети Mesh')
                             }
                             timeout =  setTimeout(function () {
                                 getMeshStatus(iteValue);
@@ -1185,7 +1185,7 @@ $(function(){
                 $('#mesh-search-loading').siblings('.switch-step').hide();
                 $('#mesh-search-loading').show();
                 // $('#mesh_list_length0').hide();
-                $('.d-hd').html('搜索并添加Mesh节点');
+                $('.d-hd').html('Поиск и добавление устройств сети Mesh');
                 //获取可添加的Mesh子节点 /api/xqnetwork/scan_mesh_node
                 var api = '<%=luci.dispatcher.build_url("api", "xqnetwork", "scan_mesh_node")%>';
                 // debugger;
@@ -1223,7 +1223,7 @@ $(function(){
                                 div.attr('data-mac', StringH.encode4Html(item.mac));
                                 var rssi = item.rssi < -60 ? '<div class="rssi small"></div>' : '<div class="rssi"></div>';
                                 var name = '<div class="name">' + StringH.encode4Html(item.ssid) + '</div>';
-                                var mac = '<div class="mac">' + StringH.encode4Html(item.mac) + (item.rssi < -60 ? '<span>请靠近主路由</span>' : '') + '</div>';
+                                var mac = '<div class="mac">' + StringH.encode4Html(item.mac) + (item.rssi < -60 ? '<span>Устройство должно находиться в зоне действия беспроводной сети основного маршрутизатора.</span>' : '') + '</div>';
                                 div.on('click', function () {
                                     $('.list_box').find('.mesh_item').removeClass('selected')
                                     $(this).addClass('selected');
@@ -1238,7 +1238,7 @@ $(function(){
                             //  debugger;
                             $('#mesh_list_length0').siblings('.switch-step').hide();
                             $('#mesh_list_length0').show();
-                            $('.d-hd').html('没有搜索到可用的mesh节点');
+                            $('.d-hd').html('не найдено доступных сетей Mesh');
 
                         }
 

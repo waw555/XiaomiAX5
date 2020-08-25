@@ -5,7 +5,7 @@ $(function(){
     $( '#btnApRouterSwitch' ).on( 'click', function( e ){
         e.preventDefault();
         aprouterChangeDialog = $.dialog({
-            title:'<%:中继目标切换%>',
+            title:'<%:Переключение режима%>',
             content: $('#tmplApRouterSwitch').html(),
             padding: '30px 30px',
             lock: true
@@ -135,7 +135,7 @@ $(function(){
                         select.next('.dummy').show();
                         showHideWifiInput();
                     }else{
-                        $.alert('<%:未能扫描到Wi-Fi,请确保射频开启%>');
+                        $.alert('<%:Не удалось просканировать сеть Wi-Fi.%>');
                     }
                 }
             }
@@ -147,10 +147,10 @@ $(function(){
             e.preventDefault();
             $('#wdsAprouter .toggle-element').toggle();
             $('#ssidSelectDiv').toggleClass('flag-is-select');
-            if( /<%:输入%>/.test( $(this).text() ) ){
-                $(this).html('<%:选择已有网络%>');
+            if( /<%:Войти%>/.test( $(this).text() ) ){
+                $(this).html('<%:Выберите существующую сеть%>');
             }else{
-                $(this).html('<%:手工输入网络名称%>');
+                $(this).html('<%:Введите имя сети вручную%>');
             }
         });
         $('body').delegate('#wdsAprouter', 'submit', function(e){
@@ -211,7 +211,7 @@ $(function(){
                             $('.panel .close').show();
                         }else{
                             aprouterChangeDialog.close();
-                            $.alert('<%:尝试无线中继失败了%>');
+                            $.alert('<%:Попытка включения единой сети не удалась.%>');
                         }
                     }
                 });
@@ -222,7 +222,7 @@ $(function(){
             aprouterChangeDialog.close();
         });
         $('body').delegate('#btnFreshenWIFIAprouter', 'click', function(e){
-            $('#ssidselect').next('.dummy').html('<%:正在扫描附近的无线网络%>');
+            $('#ssidselect').next('.dummy').html('<%:Поиск беспроводных сетей%>');
             updateWifiList();
         });
         $('body').delegate('#dummydata .wds-wifi-option', 'click', function(e){
