@@ -1,6 +1,6 @@
 <%
 --[[
-    Info    路由器DDNS设置
+    Информация о настройках DDNS маршрутизатора
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local xqlanwanutil = require "xiaoqiang.util.XQLanWanUtil"
@@ -9,7 +9,7 @@ local mac = string.upper(luci.sys.net.ip4mac(remote_addr))
 local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/ddns.css?v=<%=ver%>" rel="stylesheet">
@@ -34,9 +34,9 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                     <div class="help-cont">
                         <span class="help-close"></span>
                         <div class="what">
-                            <h3><%:什么是DDNS？%></h3>
-                            <p><%:DDNS（Dynamic Domain Name Server）是动态域名服务的缩写。%></p>
-                            <p><%:目前路由器拨号上网获得的多半都是动态IP，DDNS可以将路由器变化的外网IP和固定的域名绑定，从而用户可以在外网通过该固定域名来访问路由器。%></p>
+                            <h3><%:Что такое DDNS?%></h3>
+                            <p><%:DDNS（Dynamic Domain Name Server） Это - сервер динамический доменных имен.%></p>
+                            <p><%:В настоящее время, большая часть коммутируемого доступа в Интернет маршрутизатором, представляет собой динамический IP-адрес. DDNS может привязать динамический IP-адрес внешней сети маршрутизатора к фиксированному имени домена, чтобы пользователи могли получить доступ к маршрутизатору из внешней сети через фиксированное доменное имя.%></p>
                         </div>
                         <div class="qa">
                             <h3><%:常见问题%></h3>
