@@ -1,6 +1,6 @@
 <%
 --[[
-    Info    路由器Wi-Fi设置
+    Информация о настройках Wi-Fi маршрутизатора
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
@@ -23,7 +23,7 @@ local features = require("xiaoqiang.XQFeatures").FEATURES
 local hardware = string.lower( XQSysUtil.getHardware() )
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/wifi.css?v=<%=ver%>" rel="stylesheet">
@@ -35,13 +35,13 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     <%if features["wifi"]["wifimerge"] == "1" and hardware ~= "r1cl" then%>
         <div class="mod-set mod-wifi">
             <div class="hd">
-                <h3><%:Wi-Fi双频合一%></h3>
+                <h3><%:Двухчастотный Wi-Fi в одном%></h3>
                 <div class="switch">
                     <a href="#" id="bsdswitch" class="btn-switch btn-switch-off" data-on="0"></a>
                 </div>
             </div>
             <div class="bd">
-                <p><%:开启后，2.4G和5G会使用同一名称，路由器会自动为终端选择最佳WiFi网络，如离路由器较近，会切换至5G网络，反之会切换至2.4G网络。但由于终端设备存在差异，可能存在：自动切换信号源时网络会短暂中断，甚至频繁掉线等问题。%></p>
+                <p><%:После включения, сети WiFi 2.4G и WiFi 5G, будут использовать одно и то же имя, и маршрутизатор будет автоматически выбирать лучшую сеть WiFi, для подключенных устройств. Если устройство находится близко к маршрутизатору, устройство переключится на сеть WiFi 5G, в противном случае устройство переключится на сеть WiFi 2.4G. Обратите внимание: Из-за различий в оборудовании устройств, могут возникнуть такие проблемы, как кратковременное прерывание сети или частое отключение при автоматическом переключении источников сигнала.%></p>
             </div>
         </div>
     <%end%>
@@ -67,13 +67,13 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <%end%>
         <div class="mod-set mod-wifi">
             <div class="hd">
-                <h3><%:Wi-Fi6 (802.11ax)模式%></h3>
+                <h3><%:Режим Wi-Fi6 (802.11ax)%></h3>
                 <div class="switch">
                     <a href="#WIFI6switch" id="WIFI6switch" class="btn-switch btn-switch-on" data-on="1"></a>
                 </div>
             </div>
             <div class="bd">
-                <p><%:Wi-Fi 6是新一代的Wi-Fi技术，支持OFDMA等多种新功能，可使所连接的Wi-Fi终端体验更佳。但开启该功能后，某些老终端可能出现扫描不到Wi-Fi信号或者连接不上Wi-Fi等兼容性问题。
+                <p><%:Wi-Fi 6 - это новое поколение технологии Wi-Fi, которая поддерживает несколько новых функций, таких как OFDMA, которые могут улучшить работу Wi-Fi. Однако после включения этой функции, некоторые старые устройства могут не обнаружить сеть Wi-Fi или подключиться к сети Wi-Fi.
                 %></p>
             </div>
         </div>
@@ -86,7 +86,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 </div>
             </div>
             <div class="bd">
-                <p><%:MU-MIMO“多用户多入多出”技术，可以让路由器与多台终端同时通信，极大改善无线资源利用效率，提升Wi-Fi体验。该功能生效需要路由器和终端同时支持。
+                <p><%:Технология MU-MIMO: «Многопользовательский доступ», позволяет маршрутизатору обмениваться данными с несколькими устройствами одновременно, значительно повышая эффективность использования беспроводных сетей и улучшая возможности Wi-Fi. Чтобы данная функция работала корректно, эта функция должна поддерживаться как маршрутизатором, так и устройством.
                 %></p>
             </div>
         </div>
@@ -108,41 +108,41 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 </script>
 <script type="text/tmpl" id="tplWifiBsdTop">
     <div class="item">
-        <span class="k"><%:开关%></span>
+        <span class="k"><%:Выключить%></span>
         <span class="v">
-            <%:中继模式下不允许关闭%>
+            <%:Не выключать в режиме WiFi%>
         </span>
     </div>
     <div class="form-item">
-        <label class="k"><%:名称%></label>
-        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Wi-Fi名称%>" /></span>
+        <label class="k"><%:Имя%></label>
+        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Имя Wi-Fi%>" /></span>
         <em class="t"></em>
     </div>
     <div class="form-item">
-        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:隐藏网络不被发现%></span></label>
+        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:Скрытая сеть%></span></label>
     </div>
     <div class="form-item-select">
-        <label class="k"><%:加密方式%></label>
+        <label class="k"><%:Защита сети%></label>
         <span class="v">
             <select name="encryption" class="beautify encryption" >
-                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:超强加密(WPA3个人版)%></option>
-                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:强混合加密(WPA3/WPA2个人版)%></option>
-                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:强加密(WPA2个人版)%></option>
-                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:混合加密(WPA/WPA2个人版)%></option>
-                <option value="none"{if ($encryption == "none")} selected{/if}><%:无加密(允许所有人连接)%></option>
+                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:WPA3%></option>
+                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:WPA3/WPA2%></option>
+                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:WPA2%></option>
+                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:WPA/WPA2%></option>
+                <option value="none"{if ($encryption == "none")} selected{/if}><%:Без защиты%></option>
             </select>
         </span>
         <em class="t0">
-           {if ($encryption == "ccmp")} <%:WPA3为新一代加密技术，可使安全性大大加强，但选择该选项后部分旧设备会存在兼容性问题而无法接入%>
+           {if ($encryption == "ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
            {/if}
-           {if ($encryption == "psk2+ccmp")} <%:WPA3为新一代加密技术，可使安全性大大加强，但选择该选项后部分旧设备会存在兼容性问题而无法接入%>
+           {if ($encryption == "psk2+ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
            {/if}
         </em>
     </div>
     <div class="form-item" {if($encryption == "none")} style="display:none;"{/if}>
-        <label class="k"><%:密码%></label>
+        <label class="k"><%:Пароль%></label>
         <span class="v">
-            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Wi-Fi密码%>" />
+            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Пароль Wi-Fi%>" />
         </span>
         <em class="t"></em>
     </div>
@@ -154,12 +154,12 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <input type="hidden" name="txpwr" value="{$txpwr}">
     <!-- {else} -->
   <!--   <div class="form-item-select">
-        <label class="k"><%:无线信道%></label>
+        <label class="k"><%:Канал%></label>
         <span class="v">
         <select name="channel" class="beautify channel"  data-id="{$wifitype}">
             {for(var i=0, len=$channels.length; i<len; i++)}
                 <option value="{$channels[i]['c']}" {if ($channel==$channels[i]['c'])}selected{/if}>
-                {if ($channels[i]['c']==0)}<%:自动%>
+                {if ($channels[i]['c']==0)}<%:Автоматический%>
                     {if ($channelInfo["channel"] != "0")}
                         ({$channelInfo["channel"]})
                     {/if}
@@ -173,15 +173,15 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <em class="t"></em>
     </div>
     <div class="form-item-select itemBandwidth" {if ($channel == "0")}style="display:none;"{/if}>
-        <label class="k"><%:频段带宽%></label>
+        <label class="k"><%:Пропускная способность%></label>
         <span class="v">
             {if ($channel == "0")}
             <select name="bandwidth" class="beautify" id="bandwidth" >
-                <option value="0"><%:自动%></option>
+                <option value="0"><%:Автоматический%></option>
             </select>
             {else}
             <select name="bandwidth" class="beautify" >
-                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:自动%></option>
+                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:Автоматический%></option>
                 {for(var i=0, len=$channelInfo["bandList"].length; i<len; i++)}
                     <option value="{$channelInfo["bandList"][i]}" {if ($channelInfo["bandList"][i] == $bandwidth)}selected="selected"{/if}>{$channelInfo["bandList"][i]}M</option>
                 {/for}
@@ -191,65 +191,65 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <em class="t"></em>
     </div>
     <div class="form-item-select">
-        <label class="k"><%:信号强度%></label>
+        <label class="k"><%:Уровень сигнала%></label>
         <span class="v">
             <select name="txpwr" class="beautify txpwr">
-                <option value="max"{if ($txpwr == "max")} selected{/if}><%:穿墙%></option>
-                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:标准%></option>
-                <option value="min"{if ($txpwr == "min")} selected{/if}><%:节能%></option>
+                <option value="max"{if ($txpwr == "max")} selected{/if}><%:Высокий%></option>
+                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:Средний%></option>
+                <option value="min"{if ($txpwr == "min")} selected{/if}><%:Низкий%></option>
             </select>
         </span>
         <em class="t"></em>
     </div> -->
     <div class="form-contral">
-        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
     </div>
     <!-- {/if} -->
 </script>
 <script type="text/tmpl" id="tplWifi">
     <input type="hidden" value="{$wifiIndex}" name="wifiIndex">
     <div class="item">
-        <span class="k"><%:开关%></span>
+        <span class="k"><%:Выключить%></span>
         <span class="v">
         {if ($relayWifi == 0)}
-            <%:中继模式下不允许关闭%>
+            <%:Не закрывать в сетевом режиме%>
         {else}
-            <label><input type="radio" name="on" value="1"{if ($status == 1)} checked{/if}> <span><%:开启%></span></label>
-            <label><input type="radio" name="on" value="0"{if ($status == 0)} checked{/if}> <span><%:关闭%></span></label>
+            <label><input type="radio" name="on" value="1"{if ($status == 1)} checked{/if}> <span><%:Включить%></span></label>
+            <label><input type="radio" name="on" value="0"{if ($status == 0)} checked{/if}> <span><%:Выключить%></span></label>
         {/if}
         </span>
     </div>
     <div class="form-item">
-        <label class="k"><%:名称%></label>
-        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Wi-Fi名称%>" /></span>
+        <label class="k"><%:Имя%></label>
+        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Имя Wi-Fi%>" /></span>
         <em class="t"></em>
     </div>
     <div class="form-item">
-        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:隐藏网络不被发现%></span></label>
+        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:Скрыть сеть%></span></label>
     </div>
     <div class="form-item-select">
-        <label class="k"><%:加密方式%></label>
+        <label class="k"><%:Защита сети%></label>
         <span class="v">
             <select name="encryption" class="beautify encryption" >
-                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:超强加密(WPA3个人版)%></option>
-                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:强混合加密(WPA3/WPA2个人版)%></option>
+                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:WPA3%></option>
+                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:WPA3/WPA2%></option>
 
-                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:强加密(WPA2个人版)%></option>
-                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:混合加密(WPA/WPA2个人版)%></option>
-                <option value="none"{if ($encryption == "none")} selected{/if}><%:无加密(允许所有人连接)%></option>
+                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:WPA2%></option>
+                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:WPA/WPA2%></option>
+                <option value="none"{if ($encryption == "none")} selected{/if}><%:Без защиты%></option>
             </select>
         </span>
         <em class="t0">
-        {if ($encryption == "ccmp")} <%:WPA3为新一代加密技术，可使安全性大大加强，但选择该选项后部分旧设备会存在兼容性问题而无法接入%>
+        {if ($encryption == "ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
         {/if}
-        {if ($encryption == "psk2+ccmp")} <%:WPA3为新一代加密技术，可使安全性大大加强，但选择该选项后部分旧设备会存在兼容性问题而无法接入%>
+        {if ($encryption == "psk2+ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
         {/if}
         </em>
     </div>
     <div class="form-item" {if($encryption == "none")} style="display:none;"{/if}>
-        <label class="k"><%:密码%></label>
+        <label class="k"><%:Пароль%></label>
         <span class="v">
-            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Wi-Fi密码%>" />
+            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Пароль Wi-Fi%>" />
         </span>
         <em class="t"></em>
     </div>
@@ -259,12 +259,12 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <input type="hidden" name="txpwr" value="{$txpwr}">
     {else}
     <div  class="form-item-select">
-        <label class="k"><%:无线信道%></label>
+        <label class="k"><%:Канал%></label>
         <span class="v">
         <select name="channel" class="beautify channel"  data-id="{$wifitype}">
             {for(var i=0, len=$channels.length; i<len; i++)}
                 <option value="{$channels[i]['c']}" {if ($channel==$channels[i]['c'])}selected{/if}>
-                {if ($channels[i]['c']==0)}<%:自动%>
+                {if ($channels[i]['c']==0)}<%:Автоматически%>
                     {if ($channelInfo["channel"] != "0")}
                         ({$channelInfo["channel"]})
                     {/if}
@@ -278,15 +278,15 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <em class="t"></em>
     </div>
     <div class="form-item-select itemBandwidth" {if ($channel == "0")}style="display:none;"{/if}>
-        <label class="k"><%:频段带宽%></label>
+        <label class="k"><%:Пропускная способность%></label>
         <span class="v">
             {if ($channel == "0")}
             <select name="bandwidth" class="beautify" id="bandwidth" >
-                <option value="0"><%:自动%></option>
+                <option value="0"><%:Автоматически%></option>
             </select>
             {else}
             <select name="bandwidth" class="beautify" >
-                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:自动%></option>
+                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:Автоматически%></option>
                 {for(var i=0, len=$channelInfo["bandList"].length; i<len; i++)}
                     <option value="{$channelInfo["bandList"][i]}" {if ($channelInfo["bandList"][i] == $bandwidth)}selected="selected"{/if}>{$channelInfo["bandList"][i]}M</option>
                 {/for}
@@ -297,20 +297,20 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     </div>
     {/if}
     <div class="form-item-select">
-        <label class="k"><%:信号强度%></label>
+        <label class="k"><%:Уровень сигнала%></label>
         <span class="v">
 
             <select name="txpwr" class="beautify txpwr" >
-                <option value="max"{if ($txpwr == "max")} selected{/if}><%:穿墙%></option>
-                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:标准%></option>
-                <option value="min"{if ($txpwr == "min")} selected{/if}><%:节能%></option>
+                <option value="max"{if ($txpwr == "max")} selected{/if}><%:Высокий%></option>
+                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:Средний%></option>
+                <option value="min"{if ($txpwr == "min")} selected{/if}><%:Низкий%></option>
             </select>
         </span>
         <em class="t"></em>
     </div>
 
     <div class="form-contral">
-        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
     </div>
 </script>
 
@@ -441,9 +441,9 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 pwd.show();
             }
             if (val === 'psk2') {
-                tips.html('<%:仅支持WPA加密方式的设备将无法连接%>').show();
+                tips.html('<%:Устройства, поддерживающие только шифрование WPA, не смогут подключиться%>').show();
             }else if(val == 'ccmp'||val == 'psk2+ccmp'){
-                tips.html('<%:WPA3为新一代加密技术，可使安全性大大加强，但选择该选项后部分旧设备会存在兼容性问题而无法接入%>').show();
+                tips.html('<%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>').show();
             }else{
                 tips.html('');
             }
@@ -462,7 +462,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 $itemBandwidth = $( this ).closest('.form').find('.itemBandwidth'),
                 tips = $(this.parentNode).next('.t'),
                 pddk,
-                item = '<option value="0"><%:自动%></option>',
+                item = '<option value="0"><%:Автоматически%></option>',
                 bdlist = [];
                 var wifiname = $( this ).closest('.form').attr('id');
 
@@ -488,12 +488,12 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 $bandwidth.html( item ).val( '20' );
                 $itemBandwidth
                     .find( '.dummy' )
-                    .text("<%:20M%>");
+                    .text("<%:20 M%>");
             }else{
                  $bandwidth.html( item );
                  $itemBandwidth
                     .find( '.dummy' )
-                    .text("<%:自动%>");
+                    .text("<%:Автоматически%>");
             }
 
             $itemBandwidth.show();
@@ -501,7 +501,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             var channelIsBad = /36|40|44|48|52|56|60|64/.test( channelVal );
 
             if ( channelIsBad ) {
-                tips.html('<%:你手工选择的当前信道有可能造成部分机型较旧的设备无法连接%>');
+                tips.html('<%:Текущий канал, который вы выбрали вручную, может привести к тому, что некоторые старые устройства не смогут подключиться.%>');
             } else {
                 tips.html('');
             }
@@ -568,7 +568,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 
                 var ssid24 = global.wifi.configs[1].ssid;
                 if ( ssid == ssid24 ) {
-                    Valid.fail( $( 'input[name=ssid]', formOjb )[0], '<%:访客SSID和2.4G SSID不能相同%>', true);
+                    Valid.fail( $( 'input[name=ssid]', formOjb )[0], '<%:Гостевой SSID и SSID 2.4G не могут совпадать%>', true);
                     return;
                 }
                 var requestData = {
@@ -651,7 +651,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                     }
                 },
                 error: function() {
-                    $.alert( '<%:网络异常，请检查是否联网%>' );
+                    $.alert( '<%:Ошибка сети%>' );
                 }
             });
         }
@@ -663,7 +663,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 var netModeType = parseInt('<%=XQFunction.getNetModeType()%>');
                 if ( val != wifigueststatus) {
                     if ( val == 0 && netModeType !== 2) {
-                        $.alert('<%:关闭2.4 Wi-Fi会同时关闭访客Wi-Fi%>').time(3000);
+                        $.alert('<%:Отключение 2.4G Wi-Fi также отключит гостевой Wi-Fi.%>').time(3000);
                     }
                 }
             }
@@ -676,7 +676,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 var netModeType = parseInt('<%=XQFunction.getNetModeType()%>');
                 if ( val != wifigueststatus) {
                     if ( val == 0 && netModeType !== 2) {
-                        $.alert('<%:关闭Wi-Fi会同时关闭访客Wi-Fi%>').time(3000);
+                        $.alert('<%:Отключение Wi-Fi также отключит гостевой Wi-Fi.%>').time(3000);
                     }
                 }
             }
@@ -687,7 +687,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             var wifi24status = global.wifi.configs[1].status;
             if ( val != wifi24status ) {
                 if ( val == 1 ) {
-                    $.alert('<%:打开访客Wi-Fi会同时打开2.4 Wi-Fi%>').time(3000);
+                    $.alert('<%:При включении гостевого Wi-Fi также включается Wi-Fi 2,4G.%>').time(3000);
                 }
             }
         });
@@ -700,7 +700,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         $('body').delegate('input[name=ssid]' ,'blur', function(e){
             var tar = e.currentTarget;
             if ( escape(tar.value).indexOf("%u") >= 0 ) {
-                $(tar.parentNode).next('.t').text('<%:此SSID会导致某些设备支持不佳%>').show();
+                $(tar.parentNode).next('.t').text('<%:Этот SSID приведет к плохой поддержке некоторых устройств.%>').show();
             }
         });
 
@@ -744,7 +744,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                     }
                 },
                 error: function() {
-                    $.alert( '<%:网络异常，请检查是否联网%>' );
+                    $.alert( '<%:Ошибка сети%>' );
                 }
             });
 
@@ -790,7 +790,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                                     }
                                 },
                                 error: function() {
-                                    $.alert( '<%:网络异常，请检查是否联网%>' );
+                                    $.alert( '<%:Ошибка сети%>' );
                                 }
                             });
                     },
@@ -847,14 +847,14 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                         }
                     },
                     error: function() {
-                        $.alert( '<%:网络异常，请检查是否联网%>' );
+                        $.alert( '<%:Ошибка сети%>' );
                     }
                 });
             }else{
                 $.dialog({
                     width: 390,
-                    title : "<%:提示信息%>",
-                    content : '<%:WiFi双频合一关闭，5G会默认使用2.4G相同的网络名称（加后缀_5G）和密码，如需设成不一样，请进行修改。%>',
+                    title : "<%:Примечание%>",
+                    content : '<%:Когда двухдиапазонный Wi-Fi отключен, 5G будет использовать то же имя сети 2.4G (плюс суффикс _5G) и пароль по умолчанию. Если вам нужно установить другое значение, измените его.%>',
                     ok: function(){
                         $(self)
                         .removeClass('btn-switch-on')
@@ -871,8 +871,8 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 
     $.sub( 'wifi:success', function( evt, data ){
         $.loadingDialog({
-            title : '<%:修改 Wi-Fi 设置%>',
-            content : '<%:设置成功正在重启，需要30秒请等待...%>',
+            title : '<%:Настройка Wi-Fi%>',
+            content : '<%:Настройка выполнена успешно, выполняется перезагрузка, подождите 30 секунд...%>',
             cancel: false
         }).lock().time( 30*1000 );
         setTimeout( function(){
@@ -887,8 +887,8 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         $.dialog({
             id : "confirm",
             width: 390,
-            title : "<%:修改Wi-Fi设置%>",
-            content : '<%:该操作将重启 Wi-Fi 并导致 Wi-Fi 下的所有设备失去连接，是否确认修改？%>',
+            title : "<%:Настройка Wi-Fi%>",
+            content : '<%:Эта операция перезапустит Wi-Fi и приведет к потере соединения на всех устройствах с Wi-Fi. Вы действительно хотите внести изменения?%>',
             ok: function(){
                 ok();
             },
@@ -918,7 +918,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 }
             },
             error: function() {
-                $.alert( '<%:网络异常，请检查是否联网%>' );
+                $.alert( '<%:Ошибка сети%>' );
             }
         });
     });
