@@ -20,12 +20,12 @@
 			var self = this;
 			if( $(this).hasClass( 'btn-switch-off' ) ){
 				requestData.on = 1;
-				$.confirm('<%:此操作需要重启才能生效，是否提交?%>',
+				$.confirm('<%:Чтобы изменения вступили в силу, необходимо перезагрузить маршрутизатор.%>',
 				function(){
 					$.getJSON( requestURL, requestData, function(res){
 						if( res.code == 0 ){
 							rebootWait({
-								action: '<%:重启路由器%>',
+								action: '<%:Перезагрузить%>',
 								refresh: true
 							});
 						}else {

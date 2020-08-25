@@ -1,34 +1,34 @@
 <script type="tmpl/text" id="tmplSpeedTesting">
 <div class="mod-speed-testing">
     <i class="ico-speed-testing"></i>
-    <p><%:正在测速...%></p>
+    <p><%:Измерение скорости%></p>
     <div class="loading"></div>
 </div>
 </script>
 <script type="tmpl/text" id="tmplSpeedTestNorst">
 <div class="mod-speed-testing">
     <i class="ico-speed-test"></i>
-    <p><%:还没有进行测速%></p>
+    <p><%:Скорость не измерялась%></p>
     <div class="btns">
-        <a href="#" class="btn btn-primary" id="btnSpeedReTest"><span><%:立即测速%></span></a>
+        <a href="#" class="btn btn-primary" id="btnSpeedReTest"><span><%:Измерить%></span></a>
     </div>
 </div>
 </script>
 <script type="tmpl/text" id="tmplSpeedTestErr">
 <div class="mod-speed-testing">
     <i class="ico-speed-test-err"></i>
-    <p><%:发生未知错误，测速失败%></p>
+    <p><%:Произошла неизвестная ошибка.%></p>
     <div class="btns">
-        <a href="#" class="btn btn-primary" id="btnSpeedReTest"><span><%:重新测速%></span></a>
+        <a href="#" class="btn btn-primary" id="btnSpeedReTest"><span><%:Повторить%></span></a>
     </div>
 </div>
 </script>
 <script type="tmpl/text" id="tmplBandTestErr">
 <div class="mod-speed-testing">
     <i class="ico-speed-test-err"></i>
-    <p><%:发生未知错误，测速失败%></p>
+    <p><%:Произошла неизвестная ошибка.%></p>
     <div class="btns">
-        <a href="#" class="btn btn-primary" id="btnBandReTest"><span><%:重新测速%></span></a>
+        <a href="#" class="btn btn-primary" id="btnBandReTest"><span><%:Повторить%></span></a>
     </div>
 </div>
 </script>
@@ -46,15 +46,15 @@
         <li>
             <span class="num">{$bandwidth}</span>
             <span class="con">
-                Mbps<br>
-                <%:外网带宽%>
+                Мбит/Сек<br>
+                <%:Скорость%>
             </span>
         </li>
     </ul>
     <div class="btns">
-        <a id="btnSpeedReTest" href="#" class="btn btn-primary"><span><%:重新测速%></span></a>
-        <a href="#" class="btn btn-primary" id="btnSpeedClose"><span><%:完成%></span></a>
-        <div class="manual"><%:测速不准？%><a id="manSet" href="#"  data-upband="{$upband}" data-downband="{$downband}"><%:手工设置%></a></div>
+        <a id="btnSpeedReTest" href="#" class="btn btn-primary"><span><%:Повторить%></span></a>
+        <a href="#" class="btn btn-primary" id="btnSpeedClose"><span><%:Закрыть%></span></a>
+        <div class="manual"><%:Неточное измерение скорости?%><a id="manSet" href="#"  data-upband="{$upband}" data-downband="{$downband}"><%:Установить%></a></div>
     </div>
 </div>
 </script>
@@ -64,22 +64,22 @@
         <li class="first">
             <span class="num">{$upband}</span>
             <span class="con">
-                Mbps<br>
-                <%:上传带宽%>
+                Мбит/Сек<br>
+                <%:Входящая скорость%>
             </span>
         </li>
         <li>
             <span class="num">{$downband}</span>
             <span class="con">
-                Mbps<br>
-                <%:下载带宽%>
+                Мбит/Сек<br>
+                <%:Исходящая скорость%>
             </span>
         </li>
     </ul>
     <div class="btns">
-        <a href="#" class="btn btn-primary btn-m" id="btnBandClose"><span><%:完成%></span></a>
-        <a id="btnBandReTest" href="#" class="btn btn-primary btn-m"><span><%:重新测速%></span></a>
-        <div class="manual"><%:测速不准？%><a id="manSet" href="#"  data-upband="{$upband}" data-downband="{$downband}"><%:手工设置%></a></div>
+        <a href="#" class="btn btn-primary btn-m" id="btnBandClose"><span><%:Сохранить%></span></a>
+        <a id="btnBandReTest" href="#" class="btn btn-primary btn-m"><span><%:Повторить%></span></a>
+        <div class="manual"><%:Неточное измерение скорости? %><a id="manSet" href="#"  data-upband="{$upband}" data-downband="{$downband}"><%:Указать вручную%></a></div>
 
     </div>
 </div>
@@ -90,20 +90,20 @@
         <li class="first">
             <span class="num" id="outband-up">{$upband}</span>
             <span class="con">
-                MB/s<br>
-                <%:最高上传速度%>
+                МБайт/Сек<br>
+                <%:Скорость загрузки%>
             </span>
         </li>
         <li>
             <span class="num" id="outband-down">{$downband}</span>
             <span class="con">
-               MB/s<br>
-                <%:最高下载速度%>
+               МБайт/Сек<br>
+                <%:Скорость отдачи%>
             </span>
         </li>
     </ul>
     <div class="btns">
-         <a href="#" id="btnBandset" class="btn btn-dft btn-m" data-upband="{$upband*8}" data-downband="{$downband*8}"><span><%:限速设置%></span></a>
+         <a href="#" id="btnBandset" class="btn btn-dft btn-m" data-upband="{$upband*8}" data-downband="{$downband*8}"><span><%:Установить ограничение%></span></a>
     </div>
 </div>
 </script>
@@ -113,17 +113,17 @@
     <form action="<%=luci.dispatcher.build_url("api","misystem","set_band")%>" class="form form-horizontal form-qos" name="bandwidth" id="bandwidth" method="post">
         <input type="hidden" name="manual" value="1">
         <div class="form-item">
-            <label class="k"><%:上传%></label>
-            <span class="v"><input type="text" name="upload" reqMsg="<%:上传带宽%>" datatype="n-6.2" minValue="0.01" maxValue="1024" class="ipt-text" value="{$upband}"></span>
-            <em class="t">Mbps</em>
+            <label class="k"><%:Загрузка%></label>
+            <span class="v"><input type="text" name="upload" reqMsg="<%:Скорость загрузки%>" datatype="n-6.2" minValue="0.01" maxValue="1024" class="ipt-text" value="{$upband}"></span>
+            <em class="t">Мбит/Сек</em>
         </div>
         <div class="form-item">
-            <label class="k"><%:下载%></label>
-            <span class="v"><input type="text" name="download" reqMsg="<%:下载带宽%>" datatype="n-6.2" minValue="8" maxValue="2048" class="ipt-text" value="{$downband}"></span>
-            <em class="t">Mbps</em>
+            <label class="k"><%:Отдача%></label>
+            <span class="v"><input type="text" name="download" reqMsg="<%:Скорость отдачи%>" datatype="n-6.2" minValue="8" maxValue="2048" class="ipt-text" value="{$downband}"></span>
+            <em class="t">Мбит/Сек</em>
         </div>
         <div class="form-contral">
-            <button type="submit" id="submitbandwirdh" class="btn btn-primary btn-l"><span><%:确定%></span></button>
+            <button type="submit" id="submitbandwirdh" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
         </div>
     </form>
 </div>
@@ -237,7 +237,7 @@
             bandwidth,
             speedresult,
             tpl = $( '#tmplSpeedResult' ).html(),
-            testType = ishistory ? '<%:上次测速%>': '<%:外网速度%>';
+            testType = ishistory ? '<%:Последний тест скорости%>': '<%:Скорость интернета%>';
         dlgSpeed.testPadding = true;
 
         var showErr = function(){
@@ -291,7 +291,7 @@
                     downband == "--";
                     downspeed = "--";
                     upspeed = "--";
-                    $('#testBand').text("<%:开始测速%>");
+                    $('#testBand').text("<%:Начать тест скорости%>");
                 }
                 showRsp.call( null , {
                     code: 0,
@@ -346,7 +346,7 @@
                     if ( rsp.code == 0 ) {
                             if (rsp.manual === 0) {
                                 dlgSpeed = $.dialog({
-                                    title: '<%:手工设置外网带宽%>',
+                                    title: '<%:Ручная установка пропускной способности внешней сети%>',
                                     content: $('#tplbandsetform').html().tmpl({
                                         upband: "",
                                         downband: ""
@@ -409,7 +409,7 @@
             requestData = { history: 1 };
         $.getJSON( requestURL, requestData, function( rsp ){
             if ( rsp.code == 0 ) {
-                var unit = 'KB/S';
+                var unit = 'КБит/Сек';
                 var speed = parseFloat( rsp.download );
                 var bandwidth = parseFloat( rsp.bandwidth );
                 var bandwidth2 = parseFloat( rsp.bandwidth2 );
@@ -418,18 +418,18 @@
                     strbw = '--';
                     bandwidthval = "--";
                     bandwidth2val = "--";
-                     statusInternet = "<%:点击测速%>";
-                    $('#retestSpeed').text("<%:开始测速%>");
-                    $('#manualSetting').text("<%:手工设置%>");
+                     statusInternet = "<%:Результат измерения пропускной способности сети%>";
+                    $('#retestSpeed').text("<%:Измерить%>");
+                    $('#manualSetting').text("<%:Установить%>");
                 } else {
                     isSpeedTest = 1;
                     strbw = bandwidth.toFixed(2);
                     bandwidthval = bandwidth.toFixed(2);
-                    statusInternet = "<%:带宽%><b class=bandwidthval>"+bandwidthval+"</b>M";
+                    statusInternet = "<%:Скорость - %><b class=bandwidthval>"+bandwidthval+"</b> Мбит/Сек";
                     bandwidth2val = bandwidth2.toFixed(2);
                 }
                 if ( speed > 1024 ) {
-                    unit = 'MB/S';
+                    unit = 'МБайт/Сек';
                     speed = speed / 1024;
                 }
                 // $( '#maxSpeed' ).html( speed );
@@ -449,14 +449,14 @@
         $( '#btnSpeedTest' ).on( 'click', function( e ){
             e.preventDefault();
             dlgSpeed = $.dialog({
-                title: '<%:网络速度%>',
+                title: '<%:Измерение пропускной способности сети%>',
                 width: 800,
                 content: $( '#tmplSpeedTesting' ).html(),
                 lock: true,
                 padding: 0,
                 beforeunload: function(){
                     if ( dlgSpeed.testPadding ) {
-                        alert('<%:正在测速，请等待。%>');
+                        alert('<%:Скорость тестируется, подождите.%>');
                         return false;
                     }
                     if ( dlgSpeed.needreload ) {
@@ -473,14 +473,14 @@
         $( 'body' ).delegate( '.btnBandTest', 'click', function( e ){
             e.preventDefault();
             dlgSpeed = $.dialog({
-                title: '<%:外网带宽检测%>',
+                title: '<%:Измерение пропускной способности сети%>',
                 width: 740,
                 content: $( '#tmplSpeedTesting' ).html(),
                 lock: true,
                 padding: 0,
                 beforeunload: function(){
                     if ( dlgSpeed.testPadding ) {
-                        alert('<%:正在测速，请等待。%>');
+                        alert('<%:Скорость тестируется, подождите.%>');
                         return false;
                     }
                     if ( dlgSpeed.needreload ) {
@@ -521,14 +521,14 @@
         $( 'body' ).delegate( '.get-history-speed', 'click', function( e ){
             e.preventDefault();
             dlgSpeed = $.dialog({
-                title: '<%:网络速度%>',
+                title: '<%:Пропускная способности сети%>',
                 width: 740,
-                content: '<div class="mod-speed-testing"><%:处理中...%></div>',
+                content: '<div class="mod-speed-testing"><%:Обработка ...%></div>',
                 lock: true,
                 padding: 0,
                 beforeunload: function(){
                     if ( dlgSpeed.testPadding ) {
-                        alert('<%:正在测速，请等待。%>');
+                        alert('<%:Скорость тестируется, подождите.%>');
                         return false;
                     }
                     if ( dlgSpeed.needreload ) {
@@ -544,7 +544,7 @@
             var upband = $(this).attr('data-upband'),
                 downband = $(this).attr('data-downband');
             dlgSpeed = $.dialog({
-                title: '<%:手工设置外网带宽%>',
+                title: '<%:Ручная установка пропускной способности сети%>',
                 content: $('#tplbandsetform').html().tmpl({
                     upband: upband,
                     downband: downband
@@ -570,7 +570,7 @@
                     downbandTxt = downband;
                 }
             $.dialog({
-                title: '<%:手工设置外网带宽%>',
+                title: '<%:Ручная установка пропускной способности сети%>',
                 content: $('#tplbandsetform').html().tmpl({
                     upband: upbandTxt,
                     downband: downbandTxt

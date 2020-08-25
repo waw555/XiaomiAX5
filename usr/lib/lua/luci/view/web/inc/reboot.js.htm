@@ -17,7 +17,7 @@ function reboot_window( needconfirm ) {
 					var ip = rsp.lanIp[0].ip;
 					rebootWait( {
 						lanIp : ip,
-						action : '<%:重启路由器%>',
+						action : '<%:Перезагрузка маршрутизатора%>',
 						refresh : true
 					} );
 				}
@@ -27,7 +27,7 @@ function reboot_window( needconfirm ) {
 		reboot();
 		return;
 	}
-	$.confirm('<%:确定重启路由器，重启将断开和Redmi路由器的连接。%>',function () {
+	$.confirm('<%:Обязательно перезагрузите маршрутизатор. При перезапуске маршрутизатор отключится.%>',function () {
 			var dlg = this;
 			reboot();
 			dlg.close();
@@ -36,14 +36,14 @@ function reboot_window( needconfirm ) {
 }
 // shutdown
 function shutdown_window(){
-	$.confirm('<%:是否确定关闭路由器，操作将断开和Redmi路由器的连接。%>', function () {
+	$.confirm('<%:Если вы выключите маршрутизатор, соединение с маршрутизатором будет потеряно.%>', function () {
 			$.getJSON( '<%=luci.dispatcher.build_url("api", "xqsystem","shutdown")%>', {}, function( rsp ){
 				if( rsp.code !== 0 ){
 					$.alert(rsp.msg).time( 1.5*1000 );
 				} else {
 					$.loadingDialog({
-						title: '<%:关闭路由器%>',
-						content: '<%:关机中，请等待路由器指示灯熄灭后再断开电源%>'
+						title: '<%:Выключить%>',
+						content: '<%:Во время выключения дождитесь, пока индикаторы маршрутизатора погаснут, прежде чем отключать питание.%>'
 					});
 				}
 			});
