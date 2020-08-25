@@ -1,13 +1,13 @@
 <%
 --[[
-    Info    roam
+    Информация о маршруте
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local XQSysUtil = require("xiaoqiang.util.XQSysUtil")
 local hardware = string.lower( XQSysUtil.getHardware() )
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/wifi.css?v=<%=ver%>" rel="stylesheet">
@@ -20,7 +20,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <%if hardware == "r3a" or hardware == "r3g" or hardware == "r4ac" then%>
         <div class="mod-set mod-wifi mod-wifi-roam">
             <div class="hd">
-                <h3>漫游</h3>
+                <h3>Маршрут</h3>
             </div>
             <div class="bd">
                <form class="form form-horizontal" id="roam24" name="roam24"  action="<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi_weak")%>" autocomplete="off">
@@ -32,13 +32,13 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                     </div>
                 </form>
 
-                <p style="margin-top:30px;">*拒绝阈值：路由器检测到移动设备信号强度小于此值时，拒绝设备接入路由器;</p>
-              <p>踢除阈值：路由器检测到移动设备信号强度小于此值时，将强制已上线的设备下线;</p>
-              <p>设置”拒绝阈值”和”踢除阈值”，可引导弱信号设备漫游，”拒绝阈值”通常比”踢除阈值”高3-5dBm，适用于以下三种场景：</p>
-               <p>1.家中有多台路由器时，将弱信号接入设备引导到信号较好的路由器，达到良好上线体验;</p>
-               <p> 2.家中有单台路由器时，接入设备在某些位置因为Wi-Fi信号太弱而上网体验差，引导设备切换到3G/4G以保证上网体验;</p>
-                <p>3.路由器上接入用户较多时，踢除弱信号接入设备，减轻路由器压力，让信号好的设备有更好上网体验;</p>
-                <p>警告：开启此功能后，可能会导致某些设备无法接入路由器，影响用户的正常上网体验，建议非专业人士请勿开启。</p>
+                <p style="margin-top:30px;">* Порог отклонения: когда маршрутизатор обнаруживает, что уровень сигнала устройства меньше этого значения, он отказывает устройству в доступе к маршрутизатору.</p>
+              <p>Порог отключения: когда маршрутизатор обнаруживает, что уровень сигнала устройства меньше этого значения, он заставляет устройство перейти в автономный режим.</p>
+              <p>Установка порога отклонения и порога отключения, может направить устройства со слабым сигналом в автономный режим. Порог отклонения обычно на 3-5 дБм выше, чем порог отключения, что подходит для следующих трех сценариев:</p>
+               <p> 1. Если в доме несколько маршрутизаторов, направьте устройство доступа со слабым сигналом к ​​маршрутизатору с наилучшим сигналом, чтобы добиться лучшей связи с Интернетом;</p>
+               <p> 2. Когда в доме только один маршрутизатор, и утройство работает плохо, из-за слишком слабого сигнала WiFi, переключите устройство на сеть 3G / 4G, чтобы обеспечить работу в Интернете;</p>
+                <p> 3. Если к маршрутизатору подключено много пользователей, удалите устройства со слабым сигналом, чтобы снизить нагрузку на маршрутизатор, чтобы устройства с хорошим сигналом лучше работали в Интернете;</p>
+                <p> Предупреждение: после включения этой функции некоторые устройства могут не иметь доступа к маршрутизатору, что повлияет на нормальную работу устройств в Интернете.</p>
             </div>
 
         </div>
@@ -52,47 +52,47 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <script type="text/tmpl" id="tplRoam24">
     <input type="hidden" value="1" name="wifiIndex">
         <div class="item">
-            <span class="bsd-ground"><%:2.4G 漫游%></span>
+            <span class="bsd-ground"><%:Роуминг 2.4G%></span>
             <span class="v">
-                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:开启%></span></label>
-                <label><input type="radio" name="on" value="0"{if ($weakenable == 0 )} checked{/if}> <span><%:关闭%></span></label>
+                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:Включить%></span></label>
+                <label><input type="radio" name="on" value="0"{if ($weakenable == 0 )} checked{/if}> <span><%:Выключить%></span></label>
             </span>
         </div>
         <div class="form-item">
-            <label class="k"><%:拒绝阈值%></label>
-            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative"  minvalue="-95" maxvalue="-65" reqMsg="<%:需在-95~-65范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-95~-65)</em>
+            <label class="k"><%:Порог отклонения%></label>
+            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative"  minvalue="-95" maxvalue="-65" reqMsg="<%:Необходимо использовать значение в диапазоне -95 ~ -65.%>" /></span>
+            <em class="t">дБм (диапазон значений -95 ~ -65)</em>
         </div>
         <div class="form-item">
-            <label class="k"><%:踢除阈值%></label>
-            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-100" maxvalue="-70" reqMsg="<%:需在-100~-70范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-100~-70)</em>
+            <label class="k"><%:Порог отключения%></label>
+            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-100" maxvalue="-70" reqMsg="<%:Необходимо использовать значение в диапазоне -100 ~ -70.%>" /></span>
+            <em class="t">дБм (диапазон значений -100 ~ -70)</em>
         </div>
          <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
         </div>
     </script>
     <script type="text/tmpl" id="tplRoam50">
     <input type="hidden" value="2" name="wifiIndex">
         <div class="item">
-            <span class="bsd-ground"><%:5G 漫游%></span>
+            <span class="bsd-ground"><%:Роуминг 5G%></span>
             <span class="v">
-                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:开启%></span></label>
-                <label><input type="radio" name="on" value="0"{if ($weakenable == 0)} checked{/if}> <span><%:关闭%></span></label>
+                <label><input type="radio" name="on" value="1"{if ($weakenable == 1 )} checked{/if}> <span><%:Включить%></span></label>
+                <label><input type="radio" name="on" value="0"{if ($weakenable == 0)} checked{/if}> <span><%:Выключить%></span></label>
             </span>
         </div>
         <div class="form-item">
-            <label class="k"><%:拒绝阈值%></label>
-            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-85" maxvalue="-55" reqMsg="<%:需在-85~-55范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-85~-55)</em>
+            <label class="k"><%:Порог отклонения%></label>
+            <span class="v"><input type="text" name="weakthreshold" value="{$weakthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-85" maxvalue="-55" reqMsg="<%:Необходимо использовать значение в диапазоне -85 ~ -55.%>" /></span>
+            <em class="t">дБм (диапазон значений -85 ~ -55)</em>
         </div>
         <div class="form-item">
-            <label class="k"><%:踢除阈值%></label>
-            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-90" maxvalue="-60" reqMsg="<%:需在-90~-60范围内取值%>" /></span>
-            <em class="t">dBm(取值范围-90~-60)</em>
+            <label class="k"><%:Порог отключения%></label>
+            <span class="v"><input type="text" name="kickthreshold" value="{$kickthreshold}" class="ipt-text" autocomplete="off" datatype="negative" minvalue="-90" maxvalue="-60" reqMsg="<%:Необходимо использовать значение в диапазоне -90 ~ -60.%>" /></span>
+            <em class="t">дБм (диапазон значений -90 ~ -60)</em>
         </div>
          <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+            <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
         </div>
     </script>
 <script>
@@ -222,8 +222,8 @@ $(function(){
 
     $.sub( 'wifi:success', function( evt, data ){
         $.loadingDialog({
-            title : '<%:修改 Wi-Fi 设置%>',
-            content : '<%:设置成功正在重启，需要30秒请等待...%>',
+            title : '<%:Настройка Wi-Fi%>',
+            content : '<%:Настройка выполнена успешно, выполняется перезагрузка, подождите 30 секунд...%>',
             cancel: false
         }).lock().time( 30*1000 );
         setTimeout( function(){
@@ -238,8 +238,8 @@ $(function(){
         $.dialog({
             id : "confirm",
             width: 390,
-            title : "<%:修改Wi-Fi设置%>",
-            content : '<%:该操作将重启 Wi-Fi 并导致 Wi-Fi 下的所有设备失去连接，是否确认修改？%>',
+            title : "<%:Настройка Wi-Fi%>",
+            content : '<%:Эта операция перезапустит Wi-Fi и приведет к потере соединения на всех устройствах с Wi-Fi. Вы действительно хотите внести изменения?%>',
             ok: function(){
                 ok();
             },
@@ -269,7 +269,7 @@ $(function(){
                 }
             },
             error: function() {
-                $.alert( '<%:网络异常，请检查是否联网%>' );
+                $.alert( '<%:Ошибка сети%>' );
             }
         });
     });
