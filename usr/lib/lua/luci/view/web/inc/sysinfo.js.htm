@@ -43,20 +43,20 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 
 <script type="tmpl/text" id="selectBackupList">
 <div class="dialog-select-list">
-    <p class="gray"><%:可选备份%></p>
+    <p class="gray"><%:Выберите необходимые настройки:%></p>
     <ul>
     <%for k,v in pairs(backupKeys) do%>
         <li><label><input type="checkbox" name="item" data-key="<%=k%>" checked="true" /> <span class="name"><%=v%></span></label></li>
     <%end%>
     </ul>
-    <a href="#" id="btnstartbackup" class="btn btn-primary btn-l"><span><%:开始备份%></span></a>
+    <a href="#" id="btnstartbackup" class="btn btn-primary btn-l"><span><%:Сохранить%></span></a>
 </div>
 </script>
 <script type="tmpl/text" id="backupFail">
 <div class="dialog-backup-tips">
     <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
-    <p ><%:由于%> <span></span> <%:原因，路由器设置备份失败！%></p>
-    <a href="#" class="btn btn-primary btn-l"><span><%:重试%></span></a>
+    <p ><%:Из-за %> <span></span> <%:не удалось выполнить резервное копирование настроек роутера!%></p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Повторить%></span></a>
 </div>
 </script>
 <script type="tmpl/text" id="configUpload">
@@ -64,49 +64,49 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
     <img src="<%=resource%>/web/img/ico_back.png?v=<%=ver%>">
     <form class="form form-upload" name="configuploadForm" id="configuploadForm" method="post" enctype="multipart/form-data" >
     <div class="item">
-        <label class="k"><%:请选择备份文件%></label>
+        <label class="k"><%:Пожалуйста, выберите файл резервной копии%></label>
         <span class="v">
             <input type="file" name="image" id="configimage" />
         </span>
         <em class="t"></em>
     </div>
     <div class="item item-contral">
-        <button type="button" class="btn btn-block btn-primary-disabled" id="configuploadFormBtn" disabled><span><%:开始恢复%></span></button>
+        <button type="button" class="btn btn-block btn-primary-disabled" id="configuploadFormBtn" disabled><span><%:Восстановить%></span></button>
     </div>
     </form>
 </div>
 </script>
 <script type="tmpl/text" id="selectRestoreList">
 <div class="dialog-select-list">
-    <p class="gray"><%:可选恢复的项目%></p>
+    <p class="gray"><%:Восстановлены следующие настройки%></p>
     <ul>
 
     </ul>
-    <a href="#" id="btnstartrestore" class="btn btn-primary btn-l"><span><%:恢复%></span></a>
+    <a href="#" id="btnstartrestore" class="btn btn-primary btn-l"><span><%:Восстановить%></span></a>
 </div>
 </script>
 <script type="tmpl/text" id="restoresucc">
 <div class="dialog-backup-tips">
     <img src="<%=resource%>/web/img/ico_ok.png?v=<%=ver%>">
-    <p ><%:路由器设置恢复成功，重启路由器即可生效！%> </p>
-    <a href="#" class="btn btn-primary btn-l"><span><%:重启路由器%></span></a>
+    <p ><%:Для применения новых настроек, необходимо перезагрузить маршрутизатор.%> </p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Перезагрузить%></span></a>
 </div>
 </script>
 <script type="tmpl/text" id="restorefail">
 <div class="dialog-backup-tips">
     <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
-    <p ><%:由于%> <span></span> <%:原因，路由器设置备份失败！%></p>
-    <a href="#" class="btn btn-primary btn-l"><span><%:重试%></span></a>
+    <p ><%:Из-за%> <span></span> <%:не удалось выполнить резервное копирование настроек роутера!%></p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Повторить%></span></a>
 </div>
 </script>
 <script type="tmpl/text" id="resettip">
 <div class="dialog-reset-tips">
     <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
-    <p ><%:恢复出厂设置操作会抹掉当前路由器的所有设置，建议您先进行配置备份再恢复出厂设置。%><br>
+    <p ><%:Операция восстановления маршрутизатора к заводским настройкам, приведет к удалению всех настроек маршрутизатора. Перед восстановлением маршрутизатора к заводским настройкам, рекомендуется выполнить резервное копирование текущих настроек маршрутизатора.%><br>
     </p>
     <div class="btns">
-        <a href="#" id="toconfigbackup" class="btn btn-primary btn-m"><span><%:备份路由器设置%></span></a>
-        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:直接恢复出厂设置%></span></a>
+        <a href="#" id="toconfigbackup" class="btn btn-primary btn-m"><span><%:Резервная копия%></span></a>
+        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:Сбросить настройки%></span></a>
     </div>
 </div>
 </script>
@@ -114,11 +114,11 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 <div class="dialog-reset-tips">
     <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
     <p class="text-left">
-    <span><%:1.恢复出厂设置操作会抹掉当前路由器的所有设置；%></span>
-    <span><%:2.当前子Mesh节点会失去连接。%></span>
+    <span><%:1. Операция восстановления маршрутизатора к заводским настройкам, приведет к удалению всех настроек маршрутизатора.%></span>
+    <span><%:2. Так же будут сброшены настройки сети Mesh%></span>
     </p>
     <div class="btns">
-        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:直接恢复出厂设置%></span></a>
+        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:Сбросить настройки%></span></a>
     </div>
 </div>
 </script>
@@ -132,24 +132,25 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
     </div>
 
     <div>
-        <button type="button" id="btnTimezoneSubmit" class="btn btn-primary btn-l"><span><%:确定%></span></button>
+        <button type="button" id="btnTimezoneSubmit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
     </div>
 </div>
 </script>
 <script type="tmpl/text" id="tpldatetime">
 <div class="dialog-datetime">
     <div>
-        <span><select name="year" id="year" style="width:80px;"></select> <%:年%></span>
-        <span><select name="month" id="month" style="width:80px;"></select> <%:月%></span>
-        <span><select name="day" id="day" style="width:80px;"></select> <%:日%></span>
+		<span><%:День %><select name="day" id="day" style="width:80px;"></select></span>
+        <span> <%:Месяц %><select name="month" id="month" style="width:80px;"></select></span>
+		<span> <%:Год %><select name="year" id="year" style="width:80px;"></select></span>
+        
     </div>
     <div>
-        <span><select name="hour" id="hour" style="width:80px;"></select> <%:时%></span>
-        <span><select name="minute" id="minute" style="width:80px;"></select> <%:分%></span>
-        <span><select name="second" id="second" style="width:80px;"></select> <%:秒%></span>
+        <span> <%:  %><select name="hour" id="hour" style="width:80px;"></select></span>
+        <span> <%: : %><select name="minute" id="minute" style="width:80px;"></select></span>
+        <span> <%: : %><select name="second" id="second" style="width:80px;"></select></span>
     </div>
-    <p><button type="button" id="btnGetNowDate" class="btn btn-dft btn-l"><span><%:当前时间%></span></button></p>
-    <p><button type="button" id="btnDatetimeSubmit" class="btn btn-primary btn-l"><span><%:确定%></span></button></p>
+    <p><button type="button" id="btnGetNowDate" class="btn btn-dft btn-l"><span><%:Вермя вашего устройства %></span></button></p>
+    <p><button type="button" id="btnDatetimeSubmit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button></p>
 </div>
 </script>
 <script>
@@ -257,15 +258,15 @@ var isMesh = <%=isMesh%>;
 $.sub( 'upgrade:check', function() {
     var requestData = {},
         requestURL = '<%=luci.dispatcher.build_url("api","xqsystem","check_rom_update")%>',
-        tplChecking = '<%:当前版本{$romVersion}，{$ret}%>',
-        tplHasnew = '<%:发现新版本,升级包大小为{$size}，请立即升级。%>',
+        tplChecking = '<%:Текущая версия прошивки: {$romVersion}. {$ret}%>',
+        tplHasnew = '<%:Обнаружена новая версия прошивки, размер пакета обновления: {$size}.%>',
         requestURL2 = '<%=luci.dispatcher.build_url("api","misystem","topo_graph")%>',
         listHtml = '',
         mainMeshVersion;
 
     $( '#upgradeinfo' ).html( tplChecking.tmpl( {
         romVersion: '<em class="em"><%=romVersion%></em>',
-        ret: '<%:正在检测更新，请稍候...%>'
+        ret: '<%:Выполняется поиск новых версий...%>'
     } ) );
 
     //topo
@@ -303,9 +304,9 @@ $.sub( 'upgrade:check', function() {
                         if(rsp.code == 0){
                             //console.log(2222)
                             if(rsp.graph.mode==0){
-                                $('#blue').html('当前路由器_'+rsp.graph.locale+'(网关)');
+                                $('#blue').html('Маршрутизатор'+rsp.graph.locale+'(Шлюз)');
                             }else{
-                                $('#blue').html('当前路由器_'+rsp.graph.locale);
+                                $('#blue').html('Маршрутизатор'+rsp.graph.locale);
                             }
                             
 
@@ -336,7 +337,7 @@ $.sub( 'upgrade:check', function() {
             } else {
                 $( '#upgradeinfo,.upgradeinfo' ).html( tplChecking.tmpl( {
                     romVersion: '<em class="em"><%=romVersion%></em>',
-                    ret: '<%:你的版本是最新的，无需升级。%>'
+                    ret: '<%:Установлена самая последняя версия прошивки.%>'
                 } ) );
                 $(".hasnewver").hide();
                 if(isMesh){
@@ -356,7 +357,7 @@ $.sub( 'upgrade:check', function() {
         } else {
             $( '#upgradeinfo,.upgradeinfo' ).html( tplChecking.tmpl( {
                 romVersion: '<em class="em"><%=romVersion%></em>',
-                ret: '<%:检查失败，网络繁忙请刷新页面重试。%>'
+                ret: '<%:Не удалось связаться с сервером обновлений.%>'
             } ) );
         }
     });
@@ -377,7 +378,7 @@ $.sub( 'upgrade:download', function() {
             });
         };
         var dlgUpgradeConfirm = $.confirm(
-            '<div class="mod-downflash"><%:请注意：升级将会使所有已连接设备的网络中断，升级过程中请勿断开路由器电源或关闭本页面！%></div>',
+            '<div class="mod-downflash"><%:Обратите внимание: процесс обновления приведет к отключению от маршрутизатора всех подключенных устройств. Пожалуйста, не отключайте маршрутизатор и не закрывайте эту страницу во время процесса обновления!%></div>',
             function() {
                 window.location.href = url;
             }
@@ -432,7 +433,7 @@ $.sub( 'upgrade:upload', function() {
                 $('#uploadFormBtn').show();
             },
             error: function() {
-                $.alert( '<%:升级失败，系统错误或路由硬盘已满。%>' ).lock();
+                $.alert( '<%:Ошибка обновления, системная ошибка или память маршрутизатора переполнена.%>' ).lock();
                 $('#uploadFormBtn').show();
             }
         };
@@ -458,7 +459,7 @@ $.sub( 'upgrade:upload', function() {
         var err = $( '#uploadForm .t' );
         var item = $( '#uploadForm .item' ).eq( 0 );
         if ( image.val() == '' ) {
-            err.html( '<%:你未选择文件，请重新选择%>' ).show();
+            err.html( '<%:Выберите файл%>' ).show();
             item.addClass( 'item-err' );
             $( '#uploadFormBtn' ).trigger( 'enable', {disabled: true} );
             return false;
@@ -468,7 +469,7 @@ $.sub( 'upgrade:upload', function() {
         ext = $.trim( ext );
         var validExt = ext == 'bin' || ext == 'BIN';
         if ( !validExt ) {
-            err.html( '<%:文件格式错误，请重新选择%>' ).show();
+            err.html( '<%:Неверный формат файла прошивки%>' ).show();
             item.addClass( 'item-err' );
             $( '#uploadFormBtn' ).trigger( 'enable', {disabled: true} );
             return false;
@@ -484,7 +485,7 @@ $.sub( 'upgrade:upload', function() {
         $.dialog({
             id: 'usbcheck_upload',
             width: 390,
-            title: '<%:手动升级%>',
+            title: '<%:Ручное обновление прошивки%>',
             content: '<div class="mod-uploadflash">' + uploadform + '</div>'
         }).lock();
     }, 1000);
@@ -508,7 +509,7 @@ $.sub( 'upgrade:upload', function() {
 
             $.getJSON( requestURL, requestData, function( rsp ){
                 if( rsp.code===0 ){
-                    $.alert( '<%:日志上传成功%>');
+                    $.alert( '<%:Журнал успешно загружен%>');
                 } else {
                     $.alert( rsp.msg );
                 }
@@ -555,7 +556,7 @@ $.sub( 'upgrade:upload', function() {
 $.sub( 'reset:tip', function(){
     if(isMesh){
         var tipDialog = $.dialog({
-        title: '<%:提示%>',
+        title: '<%:ВНИМАНИЕ!%>',
         content: $('#resettip_d01').html(),
         lock: true,
         width: 390,
@@ -574,7 +575,7 @@ $.sub( 'reset:tip', function(){
     });
     }else{
         var tipDialog = $.dialog({
-        title: '<%:提示%>',
+        title: '<%:ВНИМАНИЕ!%>',
         content: $('#resettip').html(),
         lock: true,
         width: 390,
@@ -597,7 +598,7 @@ $.sub( 'reset:tip', function(){
 
 $.sub( 'config:backup', function(){
     var showList = $.dialog({
-        title: '<%:备份路由器设置%>',
+        title: '<%:Резервное копирование настроек%>',
         content: $('#selectBackupList').html(),
         lock: true,
         width: 390
@@ -625,7 +626,7 @@ $.sub( 'config:backup', function(){
                 }
             });
         }else{
-            $.alert('<%:至少选择1个%>');
+            $.alert('<%:Выберите хотя бы 1 пункт%>');
         }
     });
 });
@@ -633,7 +634,7 @@ $.sub( 'config:backup', function(){
 $.sub( 'config:backupfail', function(evt, data){
     var msg = data.msg;
     var failDialog = $.dialog({
-        title: '<%:备份路由器设置%>',
+        title: '<%:Резервное копирование настроек%>',
         content: $('#backupFail').html(),
         lock: true,
         width: 390,
@@ -662,7 +663,7 @@ $.sub( 'config:restore', function(evt, data){
     }
 
     var showRestoreList = $.dialog({
-        title: '<%:从备份恢复路由器设置%>',
+        title: '<%:Восстановление настроек%>',
         content: $('#selectRestoreList').html(),
         lock: true,
         width: 390,
@@ -692,7 +693,7 @@ $.sub( 'config:restore', function(evt, data){
                 }
             });
         }else{
-            $.alert('<%:至少选择1个%>');
+            $.alert('<%:Выберите хотя бы 1 пункт%>');
         }
     });
 });
@@ -700,7 +701,7 @@ $.sub( 'config:restore', function(evt, data){
 $.sub( 'config:restoresucc', function(evt, data){
 
     var succDialog = $.dialog({
-        title: '<%:从备份恢复路由器设置%>',
+        title: '<%:Восстановление настроек%>',
         content: $('#restoresucc').html(),
         lock: true,
         width: 390,
@@ -717,7 +718,7 @@ $.sub( 'config:restoresucc', function(evt, data){
 $.sub( 'config:restorefail', function(evt, data){
     var msg = data.msg;
     var failDialog = $.dialog({
-        title: '<%:从备份恢复路由器设置%>',
+        title: '<%:Восстановление настроек%>',
         content: $('#restorefail').html(),
         lock: true,
         width: 390,
@@ -734,7 +735,7 @@ $.sub( 'config:restorefail', function(evt, data){
 
 $.sub( 'config:upload', function(){
     var showUpload = $.dialog({
-        title: '<%:从备份恢复路由器设置%>',
+        title: '<%:Восстановление настроек%>',
         content: $('#configUpload').html(),
         lock: true,
         width: 390
@@ -755,7 +756,7 @@ $.sub( 'config:upload', function(){
                 }
             },
             error: function() {
-                $.alert( '<%:系统错误，请重试。%>' ).lock();
+                $.alert( '<%:Системная ошибка%>' ).lock();
                 $('#configuploadFormBtn').show();
             }
         };
@@ -777,7 +778,7 @@ $.sub( 'config:upload', function(){
         var err = $( '#configuploadForm .t' );
         var item = $( '#configuploadForm .item' ).eq( 0 );
         if ( image.val() == '' ) {
-            err.html( '<%:你未选择文件，请重新选择%>' ).show();
+            err.html( '<%:Выберите файл%>' ).show();
             item.addClass( 'item-err' );
             $( '#configuploadFormBtn' ).trigger( 'enable', {disabled: true} );
             return false;
@@ -787,7 +788,7 @@ $.sub( 'config:upload', function(){
         ext = $.trim( ext );
         var validExt = ext == 'gz' || ext == 'GZ';
         if ( !validExt ) {
-            err.html( '<%:文件格式错误，请重新选择%>' ).show();
+            err.html( '<%:Ошибка формата файла%>' ).show();
             item.addClass( 'item-err' );
             $( '#configuploadFormBtn' ).trigger( 'enable', {disabled: true} );
             return false;
@@ -817,25 +818,25 @@ $.sub( 'config:init', function(){
 
 $.sub('datetime', function(){
     var TIMEZONES =  [
-    ['CST+12', '<%:(UTC-12)国际日期变更线西%>'],
-    ['CST+11', '<%:(UTC-11)萨摩亚群岛%>'],
-    ['CST+11', '<%:(UTC-11)协调世界时%>'],
-    ['CST+10', '<%:(UTC-10)夏威夷%>'],
-    ['CST+9:30', '<%:(UTC-9:30)马克萨斯群岛标准时间%>'],
-    ['CST+9', '<%:(UTC-9)阿拉斯加%>'],
-    ['CST+8', '<%:(UTC-8)太平洋时间(美国和加拿大)%>'],
-    ['CST+8', '<%:(UTC-8)下加利福尼亚州%>'],
-    ['CST+7', '<%:(UTC-7)奇瓦瓦,拉巴斯,马萨特兰%>'],
-    ['CST+7', '<%:(UTC-7)山地时间(美国和加拿大)%>'],
-    ['CST+7', '<%:(UTC-7)亚利桑那%>'],
-    ['CST+6', '<%:(UTC-6)瓜达拉哈拉,墨西哥城,蒙特雷%>'],
-    ['CST+6', '<%:(UTC-6)萨斯克彻温%>'],
-    ['CST+6', '<%:(UTC-6)中部时间(美国和加拿大)%>'],
-    ['CST+6', '<%:(UTC-6)中美洲%>'],
-    ['CST+5', '<%:(UTC-5)波哥大,利马,基多%>'],
-    ['CST+5', '<%:(UTC-5)东部时间(美国和加拿大)%>'],
-    ['CST+5', '<%:(UTC-5)印第安纳州(东部)%>'],
-    ['CST+4:30', '<%:(UTC-4:30)加拉加斯%>'],
+    ['CST+12', '<%:(UTC-12)Международная линия перемены дат - запад%>'],
+    ['CST+11', '<%:(UTC-11)Самоа%>'],
+    ['CST+11', '<%:(UTC-11)Всемирное координированное время%>'],
+    ['CST+10', '<%:(UTC-10)Гавайи%>'],
+    ['CST+9:30', '<%:(UTC-9:30)Стандартное время Маркизских островов%>'],
+    ['CST+9', '<%:(UTC-9)Аляска%>'],
+    ['CST+8', '<%:(UTC-8)Тихоокеанское время (США и Канада)%>'],
+    ['CST+8', '<%:(UTC-8)Нижняя Калифорния%>'],
+    ['CST+7', '<%:(UTC-7)Чиуауа, Ла-Пас, Масатлан%>'],
+    ['CST+7', '<%:(UTC-7)Горное время (США и Канада)%>'],
+    ['CST+7', '<%:(UTC-7)Аризона%>'],
+    ['CST+6', '<%:(UTC-6)Гвадалахара, Мехико, Монтеррей%>'],
+    ['CST+6', '<%:(UTC-6)Саскачеван%>'],
+    ['CST+6', '<%:(UTC-6)Центральное время (США и Канада)%>'],
+    ['CST+6', '<%:(UTC-6)Центральная Америка%>'],
+    ['CST+5', '<%:(UTC-5)Богота, Лима, Кито%>'],
+    ['CST+5', '<%:(UTC-5)Восточное время (США и Канада)%>'],
+    ['CST+5', '<%:(UTC-5)Индиана (восток)%>'],
+    ['CST+4:30', '<%:(UTC-4:30)Каракас%>'],
     ['CST+4', '<%:(UTC-4)大西洋时间(加拿大)%>'],
     ['CST+4', '<%:(UTC-4)库亚巴%>'],
     ['CST+4', '<%:(UTC-4)乔治敦,拉巴斯,马瑙斯,圣湖安%>'],
@@ -1222,7 +1223,7 @@ $.sub('datetime', function(){
         if (rsp.code === 0) {
             var timezone = rsp.time.timezone;
             var index = rsp.time.index;
-            var tpldatetime = '<%:{$year}年{$month}月{$day}日 {$hour}:{$min}:{$sec}%>';
+            var tpldatetime = '<%:{$day} - {$month} - {$year} г {$hour}:{$min}:{$sec}%>';
             var datetiem = StringH.tmpl(tpldatetime, rsp.time);
 
             routerDatetime = rsp.time;
@@ -1235,7 +1236,7 @@ $.sub('datetime', function(){
 
             setInterval(function(){
                 var d = new Date(new Date().getTime() - dateDiff);
-                var dStr = DateH.format(d,"<%:yyyy年MM月dd日 hh:mm:ss%>");
+                var dStr = DateH.format(d,"<%:dd - MM - yyyy г hh:mm:ss%>");
                 $('#datetiemval').html(dStr);
                 $('#datetiemval2').html(dStr);
             }, 1000);
@@ -1271,7 +1272,7 @@ $.sub('datetime', function(){
         e.preventDefault();
         dlgTimezone = $.dialog({
             width: 390,
-            title: '<%:更改时区%>',
+            title: '<%:Изменение часового пояса%>',
             content: $('#tpltimezone').html(),
             lock: true
         });
@@ -1288,7 +1289,7 @@ $.sub('datetime', function(){
         e.preventDefault();
         dlgDatetime = $.dialog({
             width: 430,
-            title: '<%:更改时间%>',
+            title: '<%:Изменение даты и времени%>',
             content: $('#tpldatetime').html(),
             lock: true
         });
@@ -1348,12 +1349,12 @@ $.sub('datetime', function(){
 
     $('body').delegate('#btnDatetimeSubmit', 'click', function(e){
         e.preventDefault();
-        var time = $('#year').val() + '-' + $('#month').val() + '-' + $('#day').val() + ' ' + $('#hour').val() + ':' + $('#minute').val() + ':' + $('#second').val();
+        var time = $('#day').val() + '-' + $('#month').val() + '-' + $('#year').val() + ' ' + $('#hour').val() + ':' + $('#minute').val() + ':' + $('#second').val();
         $.post('<%=luci.dispatcher.build_url("api","misystem","set_sys_time")%>', {time: time}, function(rsp){
             rsp = $.parseJSON(rsp);
             if (rsp.code === 0) {
                 dlgDatetime.close();
-                $.alert('<%:设置成功，稍后生效，请等待一会刷新。%>');
+                $.alert('<%:Настройка выполнена успешно и вступит в силу немного позже.%>');
             } else {
                 $.alert(rsp.msg);
             }

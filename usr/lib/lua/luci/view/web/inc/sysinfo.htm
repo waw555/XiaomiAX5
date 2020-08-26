@@ -8,15 +8,15 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---2 有线中继
---1 无线中继
---4 mesh主设备  whc_cap
---3 mesh从设备  whc_re
+--2 Точка доступа
+--1 Усилитель
+--4 Ведущий mesh  whc_cap
+--3 Ведомый mesh  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 %>
 <div class="mod-upgrade" data="<%=netmod%>">
-    <div class="hd"><h3><%:升级检测%></h3></div>
+    <div class="hd"><h3><%:Обновление устройства%></h3></div>
 
 <!--    < isMesh >-->
 <!--    <div class="bd bd-01" id="meshUpgrade">-->
@@ -29,7 +29,7 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 <!--                <p id="blue">&#45;&#45;</p>-->
 <!--                 <p class="upgradeinfo"></p>-->
 <!--                  <a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btnUpgread btn btn-primary btn-l left">-->
-<!--                     <span><%:立即升级%></span>-->
+<!--                     <span><%:Обновить%></span>-->
 <!--                  </a>-->
 <!--                <a href="#" class="btnUpload btn btn-dft btn-l right">-->
 <!--                    <span><%:手动升级%></span>-->
@@ -39,12 +39,12 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 <!--    </div>-->
 <!--     <else>-->
     <div class="bd">
-            <h4><%:系统版本%></h4>
+            <h4><%:Версия прошивки%></h4>
             <p id="upgradeinfo"></p>
-            <p class="hasnewver" style="display:none;"><a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btn btn-primary btn-l" id="btnUpgread"><span><%:立即升级%></span></a></p>
-            <p><a href="#" id="btnUpload" class="btn btn-dft btn-l"><span><%:手动升级%></span></a></p>
+            <p class="hasnewver" style="display:none;"><a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btn btn-primary btn-l" id="btnUpgread"><span><%:Обновить%></span></a></p>
+            <p><a href="#" id="btnUpload" class="btn btn-dft btn-l"><span><%:Загрузить%></span></a></p>
             <div class="logs" style="display:none;">
-                <h4><%:更新日志%></h4>
+                <h4><%:Журнал обновлений%></h4>
                 <div id="changelog" style="display:none;">
                     <iframe name="setting" id="changelogUrl" style="width:100%; border:0;background:none;" src="about:blank" frameborder="0" height="500" scrolling="yes"></iframe>
                 </div>
@@ -55,36 +55,36 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:上传日志%></h3>
+        <h3><%:Загрузить журнал%></h3>
     </div>
     <div class="bd">
-        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:上传日志%></span></button></div>
+        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:Загрузить журнал%></span></button></div>
         <%if features["system"]["downloadlogs"] == "1" then%>
-        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:下载日志%></span></button></div>
+        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:Скачать журнал%></span></button></div>
         <%end%>
     </div>
 </div>
 
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:恢复出厂设置%></h3>
+        <h3><%:Сброс настроек%></h3>
     </div>
     <div class="bd">
-        <button type="button" id="btnReset" class="btn btn-primary btn-l"><span><%:立即恢复%></span></button>
+        <button type="button" id="btnReset" class="btn btn-primary btn-l"><span><%:Сбросить%></span></button>
     </div>
 </div>
 
  <%if not isMesh then%>
 <div class="mod-set mod-backupconfig">
     <div class="hd">
-        <h3><%:备份与恢复%></h3>
+        <h3><%:Резервное копирование и восстановление настроек%></h3>
     </div>
     <div class="bd">
-        <p><%:备份路由器的配置，重新刷机或重置路由器后可以用来恢复。%></p>
+        <p><%:Резервную копию конфигурации маршрутизатора можно использовать для восстановления после прошивки или сброса настроек маршрутизатора.%></p>
         <div class="btns">
             <a href="#" id="btnBackupconfig" class="btn btn-dft btn-m"
-            ><span><%:新建备份%></span></a>
-            <a href="#" id="btnUploadconfig" class="btn btn-dft btn-m"><span><%:立即恢复%></span></a>
+            ><span><%:Сохранить%></span></a>
+            <a href="#" id="btnUploadconfig" class="btn btn-dft btn-m"><span><%:Восстановить%></span></a>
         </div>
     </div>
 </div>
@@ -93,12 +93,12 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 <%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
 <div class="mod-uploadlog">
     <div class="hd">
-        <h3><%:设置系统语言%></h3>
+        <h3><%:Язык системы%></h3>
     </div>
     <div class="bd">
         <div class="clearfix">
             <div class="form-item-select">
-                <label class="k"><%:系统语言%></label>
+                <label class="k"><%:Выбранный язык%></label>
                 <span class="v"><select name="lang" id="lang" class="beautify"></select></span>
             </div>
         </div>
@@ -108,27 +108,27 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 
 <div class="mod-set mod-systime">
     <div class="hd">
-        <h3><%:时区设置%></h3>
+        <h3><%:Настройка часового пояса%></h3>
     </div>
 
     <%if netmod == 4 then%>
      <!-- 主mesh -->
-    <div class="bd" id="zhumesh"  style="display:none">
+    <div class="bd" id="zhumesh"  style="display:block">
         <div class="group" >
-            当前系统时间：<span id="datetiemval"></span>
+            Текущее время: <span id="datetiemval"></span>
         </div>
         <div class="group">
             <p id="timezoneval"></p>
-            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:更改时区%></span></button>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
         
     </div>
     <%elseif netmod == 3 then%>
-    <div class="bd" id="zimesh" style="display:none">
+    <div class="bd" id="zimesh" style="display:block">
         <div class="group">
-            <p>当前系统时间：<span id="datetiemval2"></span></p>
-            <p>当前系统时区：<span id="timezoneval2"></span></p>
-            <p>*如需修改时区，请切换到主Mesh路由进行修改，会自动同步到子Mesh路由</p>
+            <p>Текущее время: <span id="datetiemval2"></span></p>
+            <p>Часовой пояс: <span id="timezoneval2"></span></p>
+            <p>* Если вам нужно изменить часовой пояс, переключитесь на основной маршрутизатор Mesh для изменения настроек, он автоматически синхронизируется с дополнительным маршрутизатором Mesh</p>
         </div>
        
     </div>
@@ -137,11 +137,11 @@ local isMesh = (netmod == 3 or netmod == 4) and true  or  false
     <div class="bd">
         <div class="group">
             <p id="timezoneval"></p>
-            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:更改时区%></span></button>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
         <div class="group">
             <p id="datetiemval"></p>
-            <button type="button" id="btnDatetime" class="btn btn-dft btn-m"><span><%:更改时间%></span></button>
+            <button type="button" id="btnDatetime" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
         </div>
     </div>
 
