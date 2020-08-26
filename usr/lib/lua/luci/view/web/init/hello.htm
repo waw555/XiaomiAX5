@@ -16,7 +16,7 @@ local lang = sys.getLang()
 local ccode = xqCountryCode.getBDataCountryCode()
 %>
 <%include("web/inc/head")%>
-    <title><%:Redmi路由器%></title>
+    <title><%:Redmi Xiaomi AX5%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -68,23 +68,23 @@ local ccode = xqCountryCode.getBDataCountryCode()
                     <!-- <p class="tit"><%:只需简单设置，立即开启全新智能路由器新体验！%></p> -->
                     <div class="start">
                         <p class="img"><img src="<%=routerSrc %>"></p>
-                        <p class="agree"><%:请先阅读%>
+                        <p class="agree"><%:Пожалуйста, прочтите%>
                         <%if (ccode ~= 'US') then%>
-                            <a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "agreement")%>"><%:《用户许可使用协议》%>
+                            <a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "agreement")%>"><%:«Лицензионное соглашение с пользователем»%>
                             </a>
                         <%else%>
                             <a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "agreement")%>">
-                                <%:《用户协议》%>
+                                <%:"Пользовательское соглашение"%>
                             </a>
-                            <%:和%>
+                            <%:и%>
                              <a class="a2" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "privacy")%>">
-                                <%:《隐私协议》%>
+                                <%:«Соглашение о конфиденциальности»%>
                             </a>
                         <%end%>
-                        <%:后选择是否同意%></p>
-                        <a id="btnStart" href="#" class="btn btn-primary btn-l"><span><%:同意，继续%></span></a>
+                        <%:Вы согласны?%></p>
+                        <a id="btnStart" href="#" class="btn btn-primary btn-l"><span><%:Согласен%></span></a>
                          <%if (ccode ~= 'US') then%>
-                                 <p class="privacy"><label for="privacy"><input type="checkbox" name="privacy" id="privacy" checked="checked" autocomplete="off" /><%:加入%></label><a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "privacy")%>"><%:《用户体验改进计划》%></a></p>
+                                 <p class="privacy"><label for="privacy"><input type="checkbox" name="privacy" id="privacy" checked="checked" autocomplete="off" /><%:Согласен%></label><a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "privacy")%>"><%:«Программа улучшения качества»%></a></p>
                         <%end%>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ $(function(){
 
     elBtnStart.on( 'wait', function() {
         this.className = 'btn btn-primary-disabled';
-        $('span', this).text('<%:处理中...%>');
+        $('span', this).text('<%:Подождите...%>');
     });
 
     elBtnStart.on( 'click', function(e) {

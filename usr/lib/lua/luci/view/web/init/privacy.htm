@@ -6,7 +6,7 @@
     local lang = require("xiaoqiang.util.XQSysUtil").getLang()
 %>
 <%include("web/inc/head")%>
-    <title><%:Redmi路由器%></title>
+    <title><%:Redmi Xiaomi AX5%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -19,9 +19,9 @@
         <div class="mod-agreenment">
             <div class="privacy-cont-text">
             <%if ccode == "US" then %>
-                <h1><img class="logo" src="<%=resource%>/web/img/en/logo_privacy_us.png" alt="<%:Redmi路由器%>" /></h1>
+                <h1><img class="logo" src="<%=resource%>/web/img/en/logo_privacy_us.png" alt="<%:Redmi Xiaomi AX5%>" /></h1>
             <%else%>
-                <h1><img class="logo" src="<%=resource%>/web/img/<%=lang%>/logo_privacy.png" alt="<%:Redmi路由器%>" /></h1>
+                <h1><img class="logo" src="<%=resource%>/web/img/<%=lang%>/logo_privacy.png" alt="<%:Redmi Xiaomi AX5%>" /></h1>
             <%end%>
 
             <%if ccode == "HK" then%>
@@ -30,11 +30,15 @@
                 <%include("web/inc/privacy_TW")%>
             <%elseif ccode == "KR" then %>
                 <%include("web/inc/privacy_KR")%>
-              <%elseif ccode == "US" then %>
-                <%include("web/inc/privacy_US_inter")%>
+			<%elseif ccode == "US" then %>
+				<%include("web/inc/privacy_US_inter")%>
+			<%elseif ccode == "RU" then %>
+				<%include("web/inc/privacy_RU")%>
             <%else%>
                 <%if lang == "en" then%>
-                <%include("web/inc/privacy_US")%>
+					<%include("web/inc/privacy_US")%>
+				<%elseif ccode == "ru" then%>
+					<%include("web/inc/privacy_RU")%>
                 <%else%>
                 <%include("web/inc/privacy")%>
                 <%end%>
