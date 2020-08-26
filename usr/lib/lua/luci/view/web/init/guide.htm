@@ -47,7 +47,7 @@ local ccode = xqCountryCode.getBDataCountryCode()
 local wifi50IsSupport = features["wifi"]["wifi50"]
 %>
 <%include("web/inc/head")%>
-    <title><%:Redmi路由器%></title>
+    <title><%:Redmi Xiaomi AX5%></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -60,39 +60,39 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
         <div id="guide-doc">
             <div id="guide-bd">
                 <div class="mod-guide mod-guide-ipconflict">
-                    <p class="tit font18"><%:检测到与上级路由器存在IP冲突%></p>
+                    <p class="tit font18"><%:Обнаружен IP-конфликт с маршрутизатором верхнего уровня.%></p>
                     <div class="hr"></div>
-                    <p class="select-tip"><%:推荐您使用有线中继工作模式%></p>
+                    <p class="select-tip"><%:Рекомендуется использовать режим "Точка доступа"%></p>
                     <div class="select-divs">
                         <div class="select-option">
                             <img src="<%=resource%>/web/img/guide_bd_ipconflict.png?v=<%=ver%>" />
                             <br />
-                            <p class="gray"><%:该模式可以确保您的Redmi路由器与上%><br><%:级路由器处于同一局域网内可以互访%></p>
-                            <a href="#" class="btn btn-dft btn-block skipto" data-to="lanap" data-from="ipconflict"><span><%:有线中继工作模式%></span></a>
+                            <p class="gray"><%:Этот режим может гарантировать, что ваш маршрутизатор и другое %><br><%: находятся в одной локальной сети и могут связываться друг с другом.%></p>
+                            <a href="#" class="btn btn-dft btn-block skipto" data-to="lanap" data-from="ipconflict"><span><%:Точка доступа%></span></a>
                         </div>
                         <div class="select-option">
                             <a href="#" class="btn-border skipto gray" data-to="ssidpwd" data-from="ipconflict">
-                                <span><%:普通路由器模式%></span>
-                                <em>(<%:局域网IP将变更为%> <i></i>)</em>
+                                <span><%:Маршрутизатор%></span>
+                                <em>(<%:IP адрес LAN будет изменен на%> <i></i>)</em>
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- /ipconflict-->
                 <div class="mod-guide mod-guide-nowanselect">
-                    <p class="tit font18"><%:你似乎没有连接网线%></p>
+                    <p class="tit font18"><%:Похоже, у вас не подключен сетевой кабель%></p>
                     <div class="hr"></div>
-                    <p class="select-tip"><%:你可以选择所需的路由器工作模式继续设置%></p>
+                    <p class="select-tip"><%:Вы можете выбрать желаемый режим работы роутера, чтобы продолжить настройку%></p>
                     <div class="select-option">
                         <img src="<%=resource%>/web/img/guide_bd_nowanselect.png?v=<%=ver%>" />
                         <br />
-                        <a href="#" class="btn btn-dft btn-block skipto" data-to="pppoeorssidpwd" data-from="nowanselect"><span><%:路由器工作模式(创建一个无线网络)%></span></a>
+                        <a href="#" class="btn btn-dft btn-block skipto" data-to="pppoeorssidpwd" data-from="nowanselect"><span><%:Режим (Усилитель)%></span></a>
                     </div>
                     <%if features["apmode"]["wifiapmode"] == "1" then%>
                     <div class="select-option select-option-last">
                         <img src="<%=resource%>/web/img/guide_bd_nowanselect_rp.png?v=<%=ver%>" />
                         <br />
-                        <a href="#" class="btn btn-dft btn-block skipto" data-to="wds" data-from="nowanselect"><span><%:中继工作模式(扩展现有的无线网络)%></span></a>
+                        <a href="#" class="btn btn-dft btn-block skipto" data-to="wds" data-from="nowanselect"><span><%:Режим (Усилитель)%></span></a>
                     </div>
                     <%end%>
                 </div>
@@ -100,220 +100,220 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                 <div class="mod-guide mod-guide-pppoe">
                     <div class="for-succ hide">
                         <img src="<%=resource%>/web/img/guide_hd_finish.png?v=<%=ver%>" >
-                        <p><%:旧路由器宽带设置已经导入%></p>
+                        <p><%:Были импортированы настройки провайдера.%></p>
                     </div>
                     <div class="un-for-succ">
                         <div class="pic"><img src="<%=routerSrc %>?v=<%=ver%>" ></div>
-                        <p class="tit font18"><%:请输入网络运营商提供的用户名与密码%></p>
+                        <p class="tit font18"><%:Пожалуйста, введите имя пользователя и пароль, предоставленные оператором сети%></p>
                     </div>
                     <div class="hr"></div>
                     <form id="pppoe" name="pppoe" class="form clearfix" action="/">
                         <div class="form-inputs">
                             <div class="form-item">
-                                <label class="k"><%:用户名%></label>
-                                <span class="v"><input reqMsg="<%:用户名%>" name="ppoename" type="text" class="ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Имя пользователя%></label>
+                                <span class="v"><input reqMsg="<%:Имя пользователя%>" name="ppoename" type="text" class="ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-item" id="pppoepasswdline">
-                                <label class="k"><%:密码%></label>
-                                <span class="v"><input reqMsg="<%:密码%>" name="ppoepwd" data-type="password" type="password" class="android-input ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Пароль%></label>
+                                <span class="v"><input reqMsg="<%:Пароль%>" name="ppoepwd" data-type="password" type="password" class="android-input ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                         </div>
                         <div class="form-contral">
-                            <button class="btn btn-primary btn-m" type="submit"><span><%:下一步%></span></button>
-                            <button class="btn btn-dft btn-m r skipto" data-to="pppoecatchstep1" data-from="pppoe" type="button"><span><%:从旧路由器获取%></span></button>
+                            <button class="btn btn-primary btn-m" type="submit"><span><%:Далее%></span></button>
+                            <button class="btn btn-dft btn-m r skipto" data-to="pppoecatchstep1" data-from="pppoe" type="button"><span><%:Получить настройки%></span></button>
                         </div>
                     </form>
                     <p class="switchstep">
-                        <a href="#" class="a1 skipto goback" data-to="hellopage" ><%:返回%></a>
+                        <a href="#" class="a1 skipto goback" data-to="hellopage" ><%:Назад%></a>
                         <%if (wanType==1) then%>
                             <span>|</span>
-                            <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="pppoe"><%:无需拨号(DHCP方式)%></a>
+                            <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="pppoe"><%:Набор номера не требуется (метод DHCP)%></a>
                         <%end%>
                         <%if (ccode=='CN') then%>
                             <span>|</span>
-                            <a href="#" class="a1 skipto" data-to="forgetpassword" data-from="pppoe"><%:忘记密码%></a>
+                            <a href="#" class="a1 skipto" data-to="forgetpassword" data-from="pppoe"><%:Забыли пароль?%></a>
                         <%end%>
                     </p>
                 </div>
                 <!--/pppoe-->
                 <div class="mod-guide mod-guide-forgetpassword">
                     <img src="<%=routerSrc %>?v=<%=ver%>" >
-                    <p class="tit font18"><%:可通过以下方式以找回宽带密码%></p>
+                    <p class="tit font18"><%:Пароль широкополосного доступа можно получить следующими способами%></p>
                     <div class="hr"></div>
-                    <a href="#" class="btn btn-primary  btn-block skipto" data-to="pppoecatchstep1" data-from="forgetpassword"><span><%:从旧路由器获取%></span></a>
-                    <p class="list-t"><%:联系宽带服务商找回密码%></p>
+                    <a href="#" class="btn btn-primary  btn-block skipto" data-to="pppoecatchstep1" data-from="forgetpassword"><span><%:Получить настройки%></span></a>
+                    <p class="list-t"><%:Обратитесь к поставщику услуг широкополосного доступа, чтобы получить пароль%></p>
                     <div class="operators-wrap">
                         <ul>
                             <li class="clearfix">
                                 <span>10000</span>
-                                <%:中国电信宽带客服%>
+                                <%:Служба поддержки широкополосных сетей China Telecom%>
                             </li>
                             <li class="clearfix">
                                 <span>10010</span>
-                                <%:中国联通电信客服%>
+                                <%:Служба поддержки клиентов China Unicom Telecom%>
                             </li>
                             <li class="clearfix">
                                 <span>10086</span>
-                                <%:中国移动宽带客服%>
+                                <%:Служба поддержки клиентов мобильного широкополосного доступа в Китае%>
                             </li>
                             <li class="clearfix">
                                 <span>96196</span>
-                                <%:歌华有线客服%>
+                                <%:Служба поддержки клиентов компании Gehua Cable%>
                             </li>
                             <li class="clearfix">
                                 <span>952155</span>
-                                <%:艾普宽带客服%>
+                                <%:Служба поддержки широкополосного доступа в Айпу%>
                             </li>
                             <li class="clearfix">
                                 <span>95079</span>
-                                <%:长城宽带客服%>
+                                <%:Служба поддержки клиентов Great Wall Broadband%>
                             </li>
                             <li class="clearfix">
                                 <span>96877</span>
-                                <%:有线通客服%>
+                                <%:Проводное обслуживание клиентов%>
                             </li>
                             <li class="clearfix">
                                 <span>96007</span>
-                                <%:宽带通客服%>
+                                <%:Служба широкополосной связи%>
                             </li>
                             <li class="clearfix">
                                 <span>10050</span>
-                                <%:铁通宽带客服%>
+                                <%:Служба поддержки клиентов Railcom Broadband%>
                             </li>
                             <li class="clearfix">
                                 <span>010-82529990</span>
-                                <%:方正宽带%>
+                                <%:Основатель Broadband%>
                             </li>
                         </ul>
                     </div>
                     <p class="switchstep">
-                        <a href="#" class="a1 skipto goback" data-to="" ><%:返回%></a>
+                        <a href="#" class="a1 skipto goback" data-to="" ><%:Назад%></a>
                     </p>
                 </div>
                 <!--/forgetpassword-->
                 <div class="mod-guide mod-guide-pppoesending">
                     <div class="pic"><img src="<%=resource%>/web/img/guide_pppoesending.png?v=<%=ver%>" ></div>
-                    <p><%:正在拨号，请稍候%></p>
+                    <p><%:Набор номера, подождите%></p>
                     <!-- <div class="hr"></div> -->
                     <!-- <button class="btn btn-dft btn-block" type="button" id="cancelpppoe"><span><%:取消%></span></button> -->
                 </div>
                 <!--/拨号中-->
                 <div class="mod-guide mod-guide-pppoeerror">
                     <div class="pic"><img src="<%=resource%>/web/img/guide_error.png?v=<%=ver%>" ></div>
-                    <p><%:拨号失败（错误码%> :<span id="pppoeerrorcode"></span><%:），请检查用户名密码输入是否有误，或联系运营商确认是否欠费%></p>
+                    <p><%:Не удалось набрать номер (код ошибки%> :<span id="pppoeerrorcode"></span><%:), проверьте, правильно ли введены имя пользователя и пароль, или свяжитесь с оператором, чтобы проверить, не просрочен ли платеж.%></p>
                     <div class="hr"></div>
                     <div class="form-contral">
-                        <button class="btn btn-primary btn-l skipto" data-to="pppoe" type="button"><span><%:重新输入%></span></button>
+                        <button class="btn btn-primary btn-l skipto" data-to="pppoe" type="button"><span><%:Повторить%></span></button>
                         <!-- <button class="btn btn-dft btn-m r skipto" data-to="operators" data-from="pppoeerror" type="button"><span><%:联系运营商%></span></button> -->
                     </div>
                     <p class="switchstep">
-                        <a href="#" class="a1 skip-pppoe"><%:跳过此步骤%></a>
+                        <a href="#" class="a1 skip-pppoe"><%:Пропустить%></a>
                     </p>
                 </div>
                 <!--/拨号出错-->
                 <div class="mod-guide mod-guide-operators">
-                    <p class="tit font18"><%:联系运营商找回用户名与密码%></p>
+                    <p class="tit font18"><%:Свяжитесь с оператором, чтобы получить имя пользователя и пароль.%></p>
                     <div class="hr"></div>
                     <div class="list">
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10000</span><%:中国电信%>
+                                <span>10000</span><%:China Telecom%>
                             </div>
                             <div class="item r clearfix">
-                                <span>95079</span><%:长城宽带%>
+                                <span>95079</span><%:Great Wall Broadband%>
                             </div>
                         </div>
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10010</span><%:中国联通%>
+                                <span>10010</span><%:China Unicom%>
                             </div>
                             <div class="item r clearfix">
-                                <span>952155</span><%:艾普宽带%>
+                                <span>952155</span><%:Aip Broadband%>
                             </div>
                         </div>
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10086</span><%:中国移动%>
+                                <span>10086</span><%:China Mobile%>
                             </div>
                             <div class="item r clearfix">
-                                <span>4006100008</span><%:鹏博士%>
+                                <span>4006100008</span><%:Доктор Пэн%>
                             </div>
                         </div>
                         <div class="clearfix line last-line">
                             <div class="item l clearfix">
-                                <span>10050</span><%:中国铁通%>
+                                <span>10050</span><%:China Railcom%>
                             </div>
                             <div class="item r clearfix">
-                                <span>96007</span><%:宽带通%>
+                                <span>96007</span><%:Широкополосный доступ%>
                             </div>
                         </div>
                     </div>
                     <div class="result-text">
-                        <p><%:错误码：%><span>691</span></p>
+                        <p><%:Код ошибки:%><span>691</span></p>
                     </div>
                     <p class="more">
-                        <a href="#" class="a1 skipto" data-to="operatorsmore" data-from="operators"><%:更多运营商联系方式%></a> <br />
+                        <a href="#" class="a1 skipto" data-to="operatorsmore" data-from="operators"><%:Дополнительная контактная информация оператора%></a> <br />
                     </p>
                     <p class="switchstep">
-                        <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operators"><%:返回%></a>
+                        <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operators"><%:Назад%></a>
                         <span>|</span>
-                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operators"><%:从旧路由器导入宽带设置%></a>
+                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operators"><%:Импортировать настройки широкополосного доступа со старого роутера%></a>
                     </p>
                 </div>
                 <!--/运营商-->
                 <div class="mod-guide mod-guide-operatorsmore">
-                    <p class="tit font18"><%:联系运营商找回用户名与密码%></p>
+                    <p class="tit font18"><%:Свяжитесь с оператором, чтобы получить имя пользователя и пароль.%></p>
                     <div class="hr"></div>
                     <div class="operator-wrap show-select-xxx">
-                        <div class="selected-text"><%:请选择运营商%></div>
+                        <div class="selected-text"><%:Пожалуйста, выберите оператора%></div>
                         <div class="select">
                             <div class="select-tab clearfix">
-                                <span><%:省会%></span><span class="city"><%:城市%></span><span><%:运营商%></span>
+                                <span><%:Столица провинции%></span><span class="city"><%:Город%></span><span><%:Оператор%></span>
                             </div>
                             <div class="select-content">
                                 <div id="province">
                                     <dl class="clearfix">
                                         <dt>A-G</dt>
                                         <dd>
-                                            <span class="current">安徽s</span><span>安ee徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                            <span class="current">Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
                                         <dt>H-K</dt>
                                         <dd>
-                                            <span>安徽</span><span>安ssssss徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
                                         <dt>L-S</dt>
                                         <dd>
-                                            <span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
                                         <dt>T-Z</dt>
                                         <dd>
-                                            <span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                         </dd>
                                     </dl>
                                 </div>
                                 <div id="city">
-                                    <span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                    <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                 </div>
                                 <div id="operator">
-                                    <span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span><span>安徽</span>
+                                    <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="result-text">
-                        <p><%:运营商联系方式%></p>
-                        <p><%:错误码：691%></p>
+                        <p><%:Контакт с оператором%></p>
+                        <p><%:Код ошибки: 691%></p>
                     </div>
                     <p class="switchstep">
-                        <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operatorsmore"><%:返回%></a>
+                        <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operatorsmore"><%:Назад%></a>
                         <span>|</span>
                         <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operatorsmore"><%:从旧路由器导入宽带设置%></a>
                     </p>
@@ -345,11 +345,11 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </form>
                     <%if (wanType==1) then%>
                         <p class="switchstep">
-                            <a href="#" class="a1 goback skipto" data-to="pppoe"><%:返回%></a>
+                            <a href="#" class="a1 goback skipto" data-to="pppoe"><%:Назад%></a>
                         </p>
                     <%else%>
                         <p class="switchstep">
-                            <a href="#" class="a1 goback skipto" data-to="hellopage" ><%:返回%></a>
+                            <a href="#" class="a1 goback skipto" data-to="hellopage" ><%:Назад%></a>
                         </p>
                         <p class="switchstep">
                             <a href="#" class="a1 skipto" data-to="pppoe" data-from="ssidpwd"><%:需要拨号(PPPoE)%></a>
@@ -373,7 +373,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </div>
                     <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep2"><span><%:下一步%></span></a>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="operators"><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="operators"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step1-->
@@ -387,7 +387,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </div>
                     <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep3" ><span><%:下一步%></span></a>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep1"><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep1"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step2-->
@@ -400,7 +400,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </div>
                     <a href="#" id="pppoecatch" class="btn btn-primary btn-block"><span><%:立即导入%></span></a>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2"><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step3-->
@@ -421,7 +421,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="hr"></div>
                     <div class="clearfix">
                         <button id="repppoecatch" class="btn btn-primary btn-m l" type="button"><span><%:重试%></span></button>
-                        <button class="btn btn-dft btn-m r skipto" data-to="pppoecatchstep1" type="button"><span><%:返回%></span></button>
+                        <button class="btn btn-dft btn-m r skipto" data-to="pppoecatchstep1" type="button"><span><%:Назад%></span></button>
                     </div>
                 </div>
                 <!--/pppoecatcherror-->
@@ -435,7 +435,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </div>
                     <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoe" data-from="pppoecatchsucc"><span><%:下一步%></span></a>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2" data-from="pppoecatchstep3"><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2" data-from="pppoecatchstep3"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/pppoecatchsucc-->
@@ -485,7 +485,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         </div>
                     </form>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" id="routerpwdgoback" data-to="ssidpwd" ><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" id="routerpwdgoback" data-to="ssidpwd" ><%:Назад%></a>
                     </p>
                 </div>
                 <!--/设置路由器名称管理密码 -->
@@ -567,7 +567,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         <a href="###" class="btn btn-primary btn-block" id="updateVasBtn"><span><%:下一步%></span></a>
                     </div>
                     <!-- <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="" ><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="" ><%:Назад%></a>
                     </p> -->
                 </div>
                 <!--/vas-->
@@ -638,7 +638,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                             </div>
                             <button class="btn btn-primary btn-l" type="submit"><span><%:下一步%></span></button>
                             <div class="switchstep">
-                                <a class="a1 goback skipto" data-to="" href="#"><span><%:返回%></span></a>
+                                <a class="a1 goback skipto" data-to="" href="#"><span><%:Назад%></span></a>
                             </div>
                         </form>
                     </div>
@@ -681,7 +681,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         </div>
                     </form>
                     <p class="switchstep">
-                        <a href="#" class="a1 goback skipto" data-to="" ><%:返回%></a>
+                        <a href="#" class="a1 goback skipto" data-to="" ><%:Назад%></a>
                         <!-- <span>|</span>
                         <a href="#" class="a1" id="skipwdsnewssid"><%:跳过%></a> -->
                     </p>
@@ -712,7 +712,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                                 <button class="btn btn-primary btn-block" type="submit"><span><%:下一步%></span></button>
                             </div>
                             <div class="switchstep">
-                                <a class="a1 goback skipto" data-to="" href="#" ><span><%:返回%></span></a>
+                                <a class="a1 goback skipto" data-to="" href="#" ><span><%:Назад%></span></a>
                             </div>
                         </form>
                     </div>
@@ -730,7 +730,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="hr"></div>
                     <div class="clearfix">
                         <button class="btn btn-primary btn-m l skipto retry" data-to="lanap" type="button"><span><%:重试%></span></button>
-                        <button class="btn btn-dft btn-m r skipto goback" data-to="ssidpwd" type="button"><span><%:返回%></span></button>
+                        <button class="btn btn-dft btn-m r skipto goback" data-to="ssidpwd" type="button"><span><%:Назад%></span></button>
                     </div>
                     <p class="switchstep">
                         <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="tipswannolink"><%:跳过此步骤%></a>
@@ -744,7 +744,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <p class="cont"><%:出错了%></p>
                     <div class="hr"></div>
                     <p class="switchstep">
-                        <a href="#" class="goback skipto btn btn-dft btn-l" data-to=""><span><%:返回%></span></a>
+                        <a href="#" class="goback skipto btn btn-dft btn-l" data-to=""><span><%:Назад%></span></a>
                     </p>
                 </div>
                 <!--/tipserror-->
