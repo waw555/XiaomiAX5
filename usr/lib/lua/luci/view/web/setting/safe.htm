@@ -21,7 +21,7 @@ local netmod = XQFunction.getnetmode()
 --0 router
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/safe.css?v=<%=ver%>" rel="stylesheet">
@@ -32,7 +32,7 @@ local netmod = XQFunction.getnetmode()
     <div id="bd">
         <div class="mod-set mod-macfilter" id="modMacfilter" style="display:none;">
             <div class="hd">
-                <h3><%:无线访问控制%></h3>
+                <h3><%:Конроль доступа Wi-Fi%></h3>
                 <div class="switch">
                     <a data-enable="1" class="btn-switch btn-switch-off" id="macfilterswitch" href="#"></a>
                 </div>
@@ -40,39 +40,39 @@ local netmod = XQFunction.getnetmode()
             <div class="bd">
                 <%if netmod == 0 or netmod == 4 then%>
                 <div class="section" style="display:none;">
-                    <h4><%:控制模式%>：</h4>
+                    <h4><%:Режим блокировки%>：</h4>
                     <p>
                         <label for="filtertype1">
-                            <input id="filtertype1" type="radio" name="filtertype" value="0" class="filtertype"> <span><%:黑名单模式（不允许列表中设备访问）%></span>
+                            <input id="filtertype1" type="radio" name="filtertype" value="0" class="filtertype"> <span><%:Черный список%></span>
                         </label>
                         <label for="filtertype2">
-                            <input id="filtertype2" type="radio" name="filtertype" value="1" class="filtertype"> <span><%:白名单模式（只允许列表中设备访问）%></span>
+                            <input id="filtertype2" type="radio" name="filtertype" value="1" class="filtertype"> <span><%:Белый список%></span>
                         </label>
                     </p>
                 </div>
                 <%end%>
                 <div class="section" style="display:none;">
-                    <h4 id="typeText"><%:正在检测模式列表...%></h4>
+                    <h4 id="typeText"><%:Подождите...%></h4>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th><%:设备名称%></th>
-                                <th><%:MAC地址%></th>
-                                <th width="80" style="padding-left:21px;"><%:操作%></th>
+                                <th><%:Устройство%></th>
+                                <th><%:MAC адрес%></th>
+                                <th width="80" style="padding-left:21px;"><%:Действия%></th>
                             </tr>
                         </thead>
                         <tbody id="deviceslist">
                             <tr>
-                                <td colspan="3"><%:正在查询中...%></td>
+                                <td colspan="3"><%:Подождите...%></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="add-contral">
-                        <a id="btnListAdd" href="#" class="btn btn-dft btn-m"><span><%:从在线列表添加%></span></a><a id="btnSelfAdd" href="#" class="btn btn-dft btn-m"><span><%:手工添加%></span></a>
+                        <a id="btnListAdd" href="#" class="btn btn-dft btn-m"><span><%:Выбрать%></span></a><a id="btnSelfAdd" href="#" class="btn btn-dft btn-m"><span><%:Добавить%></span></a>
                     </div>
                 </div>
                 <div class="form-contral">
-                    <button style="display:none;" id="setWifiMacfilter" class="btn btn-primary btn-l" type="submit"><span><%:保存并生效%></span>
+                    <button style="display:none;" id="setWifiMacfilter" class="btn btn-primary btn-l" type="submit"><span><%:Сохранить%></span>
                     </button>
                 </div>
             </div>
@@ -82,28 +82,28 @@ local netmod = XQFunction.getnetmode()
         <%if netmod == 0 then%>
         <div class="mod-set mod-manage-filter">
             <div class="hd">
-                <h3><%:管理后台访问控制%></h3>
+                <h3><%:Доступ к Панели управления%></h3>
                 <div class="switch">
                     <a data-enable="1" class="btn-switch btn-switch-off" id="managefilterswitch" href="#"></a>
                 </div>
             </div>
             <div class="bd" id="manageFilterBody">
                 <div class="isoff" style="display:none;">
-                    <p><%:开启白名单功能后，将只允许名单中的设备访问管理后台，每次开启会将本机自动添加至白名单。%></p>
+                    <p><%:При включении функции "Белый список", только устройства из белого списка смогут получить доступ к панели управления.%></p>
                 </div>
                 <div class="ison" style="display:none;">
                      <table class="table">
                         <thead>
                             <tr>
-                                <th><%:MAC地址白名单%></th>
-                                <th width="80" class="center"><%:操作%></th>
+                                <th><%:MAC адрес%></th>
+                                <th width="80" class="center"><%:Действие%></th>
                             </tr>
                         </thead>
                         <tbody id="manageFilterList">
                         </tbody>
                     </table>
                     <div class="btns" style="padding:20px 0;">
-                        <button class="btn btn-primary btn-l" id="manageFilterAdd"><span><%:通过MAC地址添加设备%></span></button>
+                        <button class="btn btn-primary btn-l" id="manageFilterAdd"><span><%:Добавить%></span></button>
                     </div>
                 </div>
             </div>
@@ -121,21 +121,21 @@ local netmod = XQFunction.getnetmode()
                     <%:名称%>
                 </label>
                 <span class="v">
-<input type="text" id="macname" name="macname" class="ipt-text" reqMsg="<%:名称%>" />
+<input type="text" id="macname" name="macname" class="ipt-text" reqMsg="<%:Устройство%>" />
 </span>
                 <em class="t"></em>
             </div>
             <div class="form-item">
                 <label class="k">
-                    <%:MAC地址%>
+                    <%:MAC адрес%>
                 </label>
                 <span class="v">
-<input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC地址%>" />
+<input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC адрес%>" />
 </span>
                 <em class="t"></em>
             </div>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary btn-l" id="selfAddSubmit"><span><%:确定%></span>
+                <button type="submit" class="btn btn-primary btn-l" id="selfAddSubmit"><span><%:Сохранить%></span>
                 </button>
             </div>
         </form>
@@ -147,20 +147,20 @@ local netmod = XQFunction.getnetmode()
             <table class="table">
                 <thead>
                     <tr>
-                        <th><%:设备名称%></th>
-                        <th><%:设备信息%></th>
-                        <th><%:连接时长%></th>
-                        <th width="80"><%:操作%></th>
+                        <th><%:Устройство%></th>
+                        <th><%:Адрес%></th>
+                        <th><%:В сети%></th>
+                        <th width="80"><%:Выбор%></th>
                     </tr>
                 </thead>
                 <tbody id="dialogdeviceslist">
                     <tr>
-                        <td colspan="4"><%:正在查询中...%></td>
+                        <td colspan="4"><%:Подождите...%></td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary btn-l" id="listAddSubmit"><span><%:添加%></span>
+                <button type="submit" class="btn btn-primary btn-l" id="listAddSubmit"><span><%:Добавить%></span>
                 </button>
             </div>
         </form>
@@ -170,7 +170,7 @@ local netmod = XQFunction.getnetmode()
     <tr data-mac="{$addr}">
         <td>{$name}</td>
         <td>{$addr}</td>
-        <td><a href="#" class="btn btn-dft btn-s del"><span><%:删除%></span></a>
+        <td><a href="#" class="btn btn-dft btn-s del"><span><%:Удалить%></span></a>
         </td>
     </tr>
 </script>
@@ -223,7 +223,7 @@ local netmod = XQFunction.getnetmode()
                 }
                 $('#deviceslist').html(trarr.join(''));
             } else {
-                $('#deviceslist').html('<tr><td colspan="3"><%:还没有设备添加进来%></td></tr>');
+                $('#deviceslist').html('<tr><td colspan="3"><%:Нет устройств%></td></tr>');
             }
         };
         var getOnlineList = function () {
@@ -250,10 +250,10 @@ local netmod = XQFunction.getnetmode()
                     if( trarr.length > 0 ){
                         $('#dialogdeviceslist').html(trarr.join(''));
                     }else{
-                        $('#dialogdeviceslist').html('<tr><td colspan="4"><%:您已经全部添加过了%></td></tr>');
+                        $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Все устройства добавлены%></td></tr>');
                     }
                 } else {
-                    $('#dialogdeviceslist').html('<tr><td colspan="4"><%:还没有设备连接进来%></td></tr>');
+                    $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Устройство не в сети%></td></tr>');
                 }
             });
         };
@@ -261,10 +261,10 @@ local netmod = XQFunction.getnetmode()
             var model = res.model;
             if (model == 0) {
                 $('#filtertype1').prop('checked', true);
-                $('#typeText').html('<%:黑名单设备列表%>');
+                $('#typeText').html('<%:Список устройств в "Черном списке"%>');
             } else {
                 $('#filtertype2').prop('checked', true);
-                $('#typeText').html('<%:白名单设备列表%>');
+                $('#typeText').html('<%:Список устройств в "Белом списке"%>');
             }
         };
         var isEnable = function (res) {
@@ -287,8 +287,8 @@ local netmod = XQFunction.getnetmode()
             if (model == 1 && enable == 1) {
                 if ($('#deviceslist td').length == 1) {
                     $.dialog({
-                        title: '<%:无线MAC地址过滤%>',
-                        content: '<%:您没有在列表中添加任何设备，保存后所有设备将无法访问网络！请返回修改%>',
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы не добавили ни одного устройства в "Белый список", после сохраненияч ни одно устройство не сможет получить доступ к сети.%>',
                         ok: function () {
                             this.close();
                         }
@@ -304,8 +304,8 @@ local netmod = XQFunction.getnetmode()
                 });
                 if( !hasSelf && lanType != 0 ){
                     $.dialog({
-                        title: '<%:无线MAC地址过滤%>',
-                        content: '<%:您没有将当前设备添加至白名单，保存后本机将无法访问网络！%>',
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы не добавили текущее устройство в "Белый список", устройство не сможет получить доступ к сети после сохранения.%>',
                         ok: function(){
                             this.close();
                         }
@@ -323,8 +323,8 @@ local netmod = XQFunction.getnetmode()
                 });
                 if( hasSelf ){
                     $.dialog({
-                        title: '<%:无线MAC地址过滤%>',
-                        content: '<%:您将当前设备添加至黑名单，保存后本机将无法访问网络！%>',
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы добавляете текущее устройство в "Черный список", после сохранения, ваше устройство не сможет получить доступ к сети.%>',
                         ok: function(){
                             this.close();
                         }
@@ -374,7 +374,7 @@ local netmod = XQFunction.getnetmode()
             var formName = 'selfAdd';
             var validator = Valid.checkAll($('#selfAdd')[0]);
             if (validator) {
-                $('#selfAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:保存中...%>');
+                $('#selfAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
                 var mac = $('#macaddr').val(),
                     name = $('#macname').val(),
                     model = $('.filtertype:checked').val(),
@@ -406,9 +406,9 @@ local netmod = XQFunction.getnetmode()
                             //
                         }else if(res.code == 1658){
                             selfaddDialog.close();
-                            $.alert( "添加失败，Mesh路由不能添加到黑名单" );
+                            $.alert( "Не удалось добавить устройство, устройство сети Mesh не может быть добавлено в "Черный список"". );
                         }else{
-                            $('#selfAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:添加%>');
+                            $('#selfAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
                             msg = res.msg;
                             alert(msg);
                         }
@@ -430,9 +430,9 @@ local netmod = XQFunction.getnetmode()
 
             var inputs = $('.onlinemacinput:checked');
             if (inputs.length < 1) {
-                alert("<%:请至少选择一个设备%>");
+                alert("<%:Выберите хотя бы одно устройство%>");
             } else {
-                $('#listAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:保存中...%>');
+                $('#listAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
                 inputs.each(function (index, item) {
                     valarr.push( $.trim( item.value ) );
                 });
@@ -458,7 +458,7 @@ local netmod = XQFunction.getnetmode()
                         } else if(res.code == 401){
                             //
                         }else {
-                            $('#listAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:添加%>');
+                            $('#listAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
                             msg = res.msg;
                             alert(msg);
                         }
@@ -502,9 +502,9 @@ local netmod = XQFunction.getnetmode()
             $('.filtertype').on('click', function (e) {
                 var val = $(this).val();
                 if (val == 0) {
-                    $('#typeText').html('<%:黑名单设备列表%>');
+                    $('#typeText').html('<%:Список устройств в "Черном списке"%>');
                 } else {
-                    $('#typeText').html('<%:白名单设备列表%>');
+                    $('#typeText').html('<%:Список устройств в "Белом списке"%>');
                 }
                 getWifiFilterInfo({
                     model: val
@@ -517,7 +517,7 @@ local netmod = XQFunction.getnetmode()
             $('#btnListAdd').on('click', function (e) {
                 e.preventDefault();
                 listaddDialog = $.dialog({
-                    title: '<%:设备列表%><a id="devicesRefresh" class="ico-dev-refresh" href="#"></a>',
+                    title: '<%:Список устройств%><a id="devicesRefresh" class="ico-dev-refresh" href="#"></a>',
                     content: $('#tmplAddList').html(),
                     lock: true,
                     padding: 0,
@@ -529,7 +529,7 @@ local netmod = XQFunction.getnetmode()
             $('#btnSelfAdd').on('click', function (e) {
                 e.preventDefault();
                 selfaddDialog = $.dialog({
-                    title: '<%:手工添加%>',
+                    title: '<%:Добавить%>',
                     content: $('#tmplAddSelf').html(),
                     lock: true,
                     padding: 0
@@ -563,7 +563,7 @@ local netmod = XQFunction.getnetmode()
             //refresh
             $('body').delegate('#devicesRefresh', 'click', function(e){
                 e.preventDefault();
-                $('#dialogdeviceslist').html('<tr><td colspan="4"><%:正在查询中...%></td></tr>');
+                $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Подождите...%></td></tr>');
                 getOnlineList();
             });
         });
@@ -585,10 +585,10 @@ local netmod = XQFunction.getnetmode()
 <script type="text/tmpl" id="tplManageFilterlist">
 {for(var i=0, len=$data.length; i < len; i++)}
 <tr>
-    <td>{$data[i].mac}{if($data[i].self)}(<%:本机%>){/if}</td>
+    <td>{$data[i].mac}{if($data[i].self)}(<%:Текущее устройство%>){/if}</td>
     <td class="center">
         {if(len > 1)}
-            {if(!$data[i].self)}<a class="btn btn-dft btn-s del" data-mac="{$data[i].mac}"><span><%:删除%></span></a>{/if}
+            {if(!$data[i].self)}<a class="btn btn-dft btn-s del" data-mac="{$data[i].mac}"><span><%:Удалить%></span></a>{/if}
         {/if}
     </td>
 </tr>
@@ -598,14 +598,14 @@ local netmod = XQFunction.getnetmode()
 <div class="form-managefilter">
     <form action="#" class="form" id="manageFilterForm" style="text-align:center;">
         <div class="form-item" style="float:none;">
-            <label class="k" style="left:115px;"><%:MAC地址%></label>
+            <label class="k" style="left:115px;"><%:MAC адрес%></label>
             <span class="v">
-                <input type="text" name="mac" id="macaddr" class="ipt-text"  maxlength="17" datatype="macaddr" reqMsg="<%:MAC地址%>">
+                <input type="text" name="mac" id="macaddr" class="ipt-text"  maxlength="17" datatype="macaddr" reqMsg="<%:MAC адрес%>">
             </span>
             <em class="t"></em>
         </div>
         <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-l"><span><%:保存%></span></button>
+            <button type="submit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
         </div>
     </form>
 <div>
@@ -687,7 +687,7 @@ local netmod = XQFunction.getnetmode()
     addBtn.on('click', function(e){
         e.preventDefault();
         $.dialog({
-            title: '<%:通过MAC地址添加设备%>',
+            title: '<%:Добавить%>',
             content: $('#tplManageFilterForm').html(),
             lock: true
         });
