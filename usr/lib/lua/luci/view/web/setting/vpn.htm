@@ -10,7 +10,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/vpn.css?v=<%=ver%>" rel="stylesheet">
@@ -28,121 +28,121 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                         <span class="arrow2"></span>
                     </span>
                 </div>
-                <h3><%:VPN%></h3>
+                <h3><%:Настройка VPN сетей%></h3>
             </div>
             <div class="bd">
                 <div class="section section-help" id="helpSection">
                     <div class="help-cont">
                         <span class="help-close"></span>
                         <div class="what">
-                            <h3><%:什么是VPN%></h3>
-                            <p><%:VPN属于远程访问技术，应用举例：出差员工在外地通过VPN服务访问企业内部网络。%></p>
-                            <p><%:PPTP（Point to Point Tunneling Protocol）和L2TP（Layer 2 Tunneling Protocol）为两种互联网隧道协议，都属于VPN（Virtual Private Network）虚拟专用网络的不同协议分类方式。%></p>
+                            <h3><%:Что такое VPN%></h3>
+                            <p><%:VPN (Виртуальная Частная Сеть)- это технология удаленного доступа. Пример использования: Сотрудники, находящиеся в командировках, получают доступ к корпоративной внутренней сети через службы VPN.%></p>
+                            <p><%:PPTP (Туннельный протокол типа точка-точка, позволяющий компьютеру устанавливать защищённое соединение с сервером за счёт создания специального туннеля в стандартной, незащищённой сети.) и L2TP (Протокол туннелирования второго уровня — в компьютерных сетях туннельный протокол, использующийся для поддержки виртуальных частных сетей) - это два протокола туннелирования, оба из которых относятся к разным методам классификации протоколов VPN (Виртуальная Частная Сеть).%></p>
                         </div>
                         <div class="qa">
-                            <h3><%:常见问题%></h3>
-                            <h4><%:如何设置VPN%></h4>
-                            <p><%:1.首先需要在VPN服务商官网上注册账号，获得用户名、密码、服务器地址、协议类型等信息。%></p>
-                            <p><%:2.将信息添加到服务中，并启用该VPN服务%></p>
-                            <h4><%:注意事项%>:</h4>
-                            <p><%:1.VPN用户名、密码、服务器地址、协议类型等信息需要向VPN服务商获取。%></p>
-                            <p><%:2.如果不清楚VPN协议类型，可以选择自动。%></p>
-                            <p><%:3.服务器地址可以是域名或IP地址，具体由服务商提供。%></p>
+                            <h3><%:Описание%></h3>
+                            <h4><%:Как включить VPN%></h4>
+                            <p><%:1. Вам необходимо зарегистрировать учетную запись на сайте поставщика услуг VPN, получить имя пользователя, пароль, адрес сервера, тип протокола и другую информацию.%></p>
+                            <p><%:2. Ввести полученные данные в соответствующие поля и включить службу VPN.%></p>
+                            <h4><%:Как настроить VPN%>:</h4>
+                            <p><%:1. Имя пользователя, пароль, адрес сервера, тип протокола и другую информацию необходимо ввести в соответствующие поля, на странице параметров VPN%></p>
+                            <p><%:2. Если вы не знаете тип протокола VPN, вы можете выбрать автоматический режим.%></p>
+                            <p><%:3. Адрес сервера предоставленный поставщиком услуги VPN, может быть доменным именем или IP-адресом.%></p>
                         </div>
                     </div>
                 </div>
                 <div class="section-list">
-                    <h4><%:VPN 服务列表: %></h4>
+                    <h4><%:Список VPN сетей%></h4>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th width="160"><%:名称%></th>
-                                <th><%:协议类型%></th>
-                                <th><%:服务器地址%></th>
-                                <th><%:用户名%></th>
-                                <th><%:状态%></th>
-                                <th class="center" width="244"><%:操作%></th>
+                                <th><%:Имя сети%></th>
+                                <th><%:Тип сети%></th>
+                                <th><%:Адрес сервера%></th>
+                                <th><%:Пользователь%></th>
+                                <th><%:Состояние%></th>
+                                <th class="center" width="244"><%:Действия%></th>
                             </tr>
                         </thead>
                         <tbody id="vpnlist">
                             <tr>
-                                <td class="center" colspan="6"><%:查询中...%></td>
+                                <td class="center" colspan="6"><%:Подождите...%></td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="btns">
-                        <a href="#" class="btn btn-dft btn-l" id="btnadditem"><span><%:添加服务%></span></a>
+                        <a href="#" class="btn btn-dft btn-l" id="btnadditem"><span><%:Добавить%></span></a>
                     </div>
                 </div>
                 <div class="section-set" style="display:none">
-                    <span class="k"><%:开机自动连接%></span>
+                    <span class="k"><%:Автоматическое подключение при загрузке%></span>
                     <a href="#" id="autostart" class="btn-switch btn-switch-off"></a>
                 </div>
             </div>
             <%if hardware ~= "d01" then%>
             <div class="hd">
-                <h3><%:智能VPN分流%></h3>
+                <h3><%:Доступ к VPN сети%></h3>
                 <div class="switch">
                     <a href="#" id="smartvpnswitch" class="btn-switch btn-switch-off"></a>
                 </div>
             </div>
             <div class="bd">
-                <div id="smartvpnoff"><p><%:你可以自定义哪些服务或设备会走VPN的流量%></p></div>
+                <div id="smartvpnoff"><p><%:Вы можете настроить, какие IP адреса или устройства смогут использовать сеть VPN.%></p></div>
                 <div id="smartvpnon" class="smartvpnon" style="display:none;">
                     <div id="smartvpnmode" class="tab">
                         <ul class="clearfix">
                             <li class="first active" data-mode="1">
-                                <%:按服务地址分流%>
+                                <%:IP адреса%>
                             </li>
                             <li data-mode="2">
-                                <%:按设备分流%>
+                                <%:Устройства%>
                             </li>
                         </ul>
                     </div>
                     <div id="smartvpnmodedesc" class="smartvpnmodedesc">
-                        <p><%:可以通过添加服务地址来限定哪些服务流量会经过VPN%></p>
-                        <p><%:可以通过添加设备来限定哪些设备可以使用VPN流量%></p>
+                        <p><%:Вы можете установить, трафик с каких IP адресов будет проходить через VPN, добавив IP адреса.%></p>
+                        <p><%:Вы можете добавить устройства, которые смогут использовать сеть VPN.%></p>
                     </div>
                     <div id="smartvpnmodecont">
                         <div style="display:none;">
                             <table class="table">
                                 <thead>
-                                    <th><%:名称%></th>
-                                    <th style="width:80px; text-align:center;"><%:操作%></th>
+                                    <th><%:IP адрес%></th>
+                                    <th style="width:80px; text-align:center;"><%:Действия%></th>
                                 </thead>
                                 <tbody id="smartvpnurlTbody">
                                 </tbody>
                             </table>
                             <div class="btn-wrap">
-                                <button class="btn btn-dft btn-l" id="addsmartvpnurl"><span><%:添加服务地址%></span></button>
+                                <button class="btn btn-dft btn-l" id="addsmartvpnurl"><span><%:Добавить IP адрес%></span></button>
                             </div>
                         </div>
                         <div style="display:none;">
                             <table class="table">
                                 <thead>
-                                    <th><%:名称%></th>
-                                    <th><%:MAC地址%></th>
-                                    <th style="width:80px; text-align:center;"><%:操作%></th>
+                                    <th><%:Имя устройства%></th>
+                                    <th><%:MAC адрес%></th>
+                                    <th style="width:80px; text-align:center;"><%:Действия%></th>
                                 </thead>
                                 <tbody id="smartvpnmacTbody">
                                 </tbody>
                             </table>
                             <div class="btn-wrap">
-                                <button class="btn btn-dft" id="addsmartvpndevicelist"><span><%:从设备列表添加设备%></span></button>
-                                <button class="btn btn-dft" id="addsmartvpnmac"><span><%:通过MAC地址添加%></span></button>
+                                <button class="btn btn-dft" id="addsmartvpndevicelist"><span><%:Выбрать устройство%></span></button>
+                                <button class="btn btn-dft" id="addsmartvpnmac"><span><%:Добавить по MAC адресу%></span></button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="hd">
-                <h3><%:小米服务走VPN%></h3>
+                <h3><%:Интернет через VPN%></h3>
                 <div class="switch">
                     <a href="#" id="mivpnswitch" class="btn-switch btn-switch-off"></a>
                 </div>
             </div>
             <div class="bd">
-                <p><%:当你需要通过VPN使用外网时，可以开启此功能保证Redmi路由器APP远程服务可用，其他情况下关闭此功能%></p>
+                <p><%:Если вам нужно использовать Интернет через VPN, вы можете включить эту функцию.%></p>
             </div>
              <%end%>
         </div>
@@ -156,12 +156,12 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <input type="hidden" name="id" value="{$id}">
     {/if}
     <div class="form-item">
-        <label class="k"><%:名称%></label>
-        <span class="v"><input type="text" name="oname" reqMsg = "<%:名称%>" class="ipt-text" value="{$oname}"></span>
+        <label class="k"><%:Имя сети%></label>
+        <span class="v"><input type="text" name="oname" reqMsg = "<%:Имя сети%>" class="ipt-text" value="{$oname}"></span>
         <em class="t"></em>
     </div>
     <div class="form-item-select">
-        <label class="k"><%:协议类型%></label>
+        <label class="k"><%:Протокол%></label>
         <span class="v">
             <select name="proto" class="beautify vpntype">
                 <option value="pptp" {if($proto == 'pptp')}selected="selected"{/if}>PPTP</option>
@@ -173,22 +173,22 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <em class="t"></em>
     </div>
     <div class="form-item">
-        <label class="k"><%:服务器%></label>
-        <span class="v"><input type="text" name="server" reqMsg = "<%:服务器%>" class="ipt-text" value="{$server}"></span>
+        <label class="k"><%:Адрес сервера%></label>
+        <span class="v"><input type="text" name="server" reqMsg = "<%:Адрес сервера%>" class="ipt-text" value="{$server}"></span>
         <em class="t"></em>
     </div>
     <div class="form-item">
-        <label class="k"><%:用户名%></label>
-        <span class="v"><input type="text" name="username" reqMsg = "<%:用户名%>" class="ipt-text" value="{$username}"></span>
+        <label class="k"><%:Имя пользователя%></label>
+        <span class="v"><input type="text" name="username" reqMsg = "<%:Имя пользователя%>" class="ipt-text" value="{$username}"></span>
         <em class="t"></em>
     </div>
     <div class="form-item">
-        <label class="k"><%:密码%></label>
-        <span class="v"><input type="password" name="password" reqMsg = "<%:密码%>" class="ipt-text" data-type="password" value="{$password}"></span>
+        <label class="k"><%:Пароль%></label>
+        <span class="v"><input type="password" name="password" reqMsg = "<%:Пароль%>" class="ipt-text" data-type="password" value="{$password}"></span>
         <em class="t"></em>
     </div>
     <div class="item-contral">
-        <button type="submit" class="btn btn-primary btn-l" id="btnSave"><span><%:保存%></span></button>
+        <button type="submit" class="btn btn-primary btn-l" id="btnSave"><span><%:Сохранить%></span></button>
     </div>
 </form>
 </script>
@@ -204,9 +204,9 @@ local hardware = string.lower( XQSysUtil.getHardware() )
         <span class="vpn-status">
             <span class="val">
             {if($vpnlist[i].iscurrent == 1)}
-                <%:查询中...%>
+                <%:Подождите...%>
             {else}
-                <%:未启用%>
+                <%:Не подключен%>
             {/if}
             </span>
             <span class="uptime"></span>
@@ -214,27 +214,27 @@ local hardware = string.lower( XQSysUtil.getHardware() )
     </td>
     <td>
         <div class="conn-opt conn-opt-1">
-            <button class="btn btn-primary btn-block btn-conn-stop" data-id={$vpnlist[i].id}><span><%:断开连接%></span></button>
+            <button class="btn btn-primary btn-block btn-conn-stop" data-id={$vpnlist[i].id}><span><%:Остановить%></span></button>
         </div>
         <div class="conn-opt conn-opt-2">
-            <button class="btn btn-primary btn-block btn-conn-cancel" data-id={$vpnlist[i].id}><span><%:取消连接%></span></button>
+            <button class="btn btn-primary btn-block btn-conn-cancel" data-id={$vpnlist[i].id}><span><%:Отключить%></span></button>
         </div>
         <div class="conn-opt conn-opt-3">
-            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:连接%></span></button>
-            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:编辑%></span></button>
-            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:删除%></span></button>
+            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:Включить%></span></button>
+            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:Изменить%></span></button>
+            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:Удалить%></span></button>
         </div>
         <div class="conn-opt conn-opt-4">
-            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:重连%></span></button>
-            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:编辑%></span></button>
-            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:删除%></span></button>
+            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:Включить%></span></button>
+            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:Изменить%></span></button>
+            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:Удалить%></span></button>
         </div>
     </td>
 </tr>
 {/for}
 {else}
 <tr>
-    <td colspan="6" class="center"><%:没有设置信息%></td>
+    <td colspan="6" class="center"><%:Нет ни одной VPN сети%></td>
 </tr>
 {/if}
 </script>
@@ -247,14 +247,14 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <script type="tmpl/html" id="tmplsmartvpnurl">
 <tr>
     <td>{$url}</td>
-    <td><button class="btn btn-dft smartvpn-del" data-url="{$url}"><span><%:删除%></span></button></td>
+    <td><button class="btn btn-dft smartvpn-del" data-url="{$url}"><span><%:Удалить%></span></button></td>
 </tr>
 </script>
 <script type="tmpl/html" id="tmplsmartvpnmac">
 <tr>
     <td>{$name}</td>
     <td>{$mac}</td>
-    <td><button class="btn btn-dft smartvpn-del" data-macs="{$mac}"><span><%:删除%></span></button></td>
+    <td><button class="btn btn-dft smartvpn-del" data-macs="{$mac}"><span><%:Удалить%></span></button></td>
 </tr>
 </script>
 <script type="tmpl/html" id="tmplAddList">
@@ -263,22 +263,22 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             <table class="table">
                 <thead>
                     <tr>
-                        <th><%:设备名称%></th>
-                        <th width="90"><%:状态%></th>
-                        <th><%:MAC地址%></th>
-                        <th width="30"><%:操作%></th>
+                        <th><%:Устройство%></th>
+                        <th width="90"><%:Состояние%></th>
+                        <th><%:MAC адрес%></th>
+                        <th width="50"><%:Выбор%></th>
                     </tr>
                 </thead>
                 <tbody id="dialogdeviceslist">
                     <tr>
-                        <td colspan="4"><%:正在查询中...%></td>
+                        <td colspan="4"><%:Подождите...%></td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary" id="listAddSubmit"><span><%:确定%></span>
+                <button type="submit" class="btn btn-primary" id="listAddSubmit"><span><%:Сохранить%></span>
                 </button>
-                <button type="submit" class="btn btn-dft" id="listAddClose"><span><%:取消%></span>
+                <button type="submit" class="btn btn-dft" id="listAddClose"><span><%:Отменить%></span>
                 </button>
             </div>
         </form>
@@ -297,20 +297,20 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <script type="tmpl/html" id="tmplAddmac">
     <div class="dialog-add-bymac">
         <form class="form" name="addbymac" id="addbymac">
-            <p><%:请输入设备的MAC地址%></p>
+            <p><%:Введите MAC адрес устройства%></p>
             <div class="form-item">
                 <label class="k">
-                    <%:MAC地址%>
+                    <%:MAC адрес%>
                 </label>
                 <span class="v">
-                    <input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC地址%>" />
+                    <input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC адрес%>" />
                 </span>
                 <em class="t"></em>
             </div>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary" id="macAddSubmit"><span><%:确定%></span>
+                <button type="submit" class="btn btn-primary" id="macAddSubmit"><span><%:Сохранить%></span>
                 </button>
-                <button type="submit" class="btn btn-dft" id="macAddClose"><span><%:取消%></span>
+                <button type="submit" class="btn btn-dft" id="macAddClose"><span><%:Отменить%></span>
                 </button>
             </div>
         </form>
@@ -319,20 +319,20 @@ local hardware = string.lower( XQSysUtil.getHardware() )
 <script type="tmpl/html" id="tmplAddurl">
     <div class="dialog-add-bymac">
         <form class="form" name="addbyurl" id="addbyurl">
-            <p><%:请输入地址%></p>
+            <p><%:Введите IP адрес%></p>
             <div class="form-item">
                 <label class="k">
-                    <%:地址%>
+                    <%:IP адрес%>
                 </label>
                 <span class="v">
-                    <input type="text" id="urladdr" name="urladdr" class="ipt-text" reqMsg="<%:地址%>" />
+                    <input type="text" id="urladdr" name="urladdr" class="ipt-text" reqMsg="<%:IP адрес%>" />
                 </span>
                 <em class="t"></em>
             </div>
             <div class="form-contral">
-                <button type="submit" class="btn btn-primary" id="urlAddSubmit"><span><%:确定%></span>
+                <button type="submit" class="btn btn-primary" id="urlAddSubmit"><span><%:Сохранить%></span>
                 </button>
-                <button type="submit" class="btn btn-dft" id="urlAddClose"><span><%:取消%></span>
+                <button type="submit" class="btn btn-dft" id="urlAddClose"><span><%:Отменить%></span>
                 </button>
             </div>
         </form>
@@ -402,28 +402,28 @@ var modelVpn = (function(){
                 // 0 connected 1 connecting 2 failed 3 close
                 switch(status){
                     case 0:
-                        statusText = '<%:已连接%>';
+                        statusText = '<%:Подключен%>';
                         trstatus = 'conn-st-1';
                         uptime = secondToDate(rsp.uptime);
                         break;
                     case 1:
                         trstatus = 'conn-st-2';
-                        statusText = '<%:正在拨号...%>';
+                        statusText = '<%:Подключение...%>';
                         break;
                     case 2:
-                        statusText = '<%:连接失败%>';
+                        statusText = '<%:Ошибка подключения%>';
                         trstatus = 'conn-st-4';
                         break;
                     case 3:
-                        statusText = '<%:已断开%>';
+                        statusText = '<%:Отключен%>';
                         trstatus = 'conn-st-3';
                         break;
                     case 4:
-                        statusText = '<%:未启用%>';
+                        statusText = '<%:Выключен%>';
                         trstatus = 'conn-st-3';
                         break;
                     default:
-                        statusText = '<%:连接异常%>';
+                        statusText = '<%:Нестабильное подключение%>';
                         trstatus = 'conn-st-4';
                         break;
                 }
@@ -431,7 +431,7 @@ var modelVpn = (function(){
                 if (rsp.errcode) {
                     trstatus = 'conn-st-4';
                     // statusText = rsp.errmsg;
-                    statusText = '<span class="errmsg-wrap" data-error="' + rsp.errmsg + '"><%:连接失败%></span>';
+                    statusText = '<span class="errmsg-wrap" data-error="' + rsp.errmsg + '"><%:Ошибка подключения%></span>';
                     uptime = '';
                 };
                 var el = document.getElementById(currentId);
@@ -543,7 +543,7 @@ var modelVpn = (function(){
                     }
                     console.log( tpldata );
                     dlgform = $.dialog({
-                        title: '<%:添加服务%>',
+                        title: '<%:Добавить%>',
                         width: 600,
                         content: tpl.tmpl(tpldata),
                         lock: true
@@ -573,7 +573,7 @@ var modelVpn = (function(){
                         $.pub( 'loading:stop' );
                     });
                 };
-            $.confirm( '<%:你确定要删除此项吗？%>', ok );
+            $.confirm( '<%:Вы уверены, что хотите удалить этот элемент?%>', ok );
         });
 
          $('#autostart').on('click', function( e ){
@@ -605,7 +605,7 @@ var modelVpn = (function(){
                     proto: 'pptp'
                 };
             dlgform = $.dialog({
-                title: '<%:添加服务%>',
+                title: '<%:Добавить%>',
                 width: 600,
                 content: tpl.tmpl(tpldata),
                 lock: true
@@ -681,7 +681,7 @@ var modelVpn = (function(){
             var self = this;
             var open = $(this).hasClass('btn-switch-on') ? 0 : 1;
             if( open == 1 ){
-                $.confirm('<%:重新连接vpn后该设置将生效，同时"小米服务走vpn功能"将关闭%>', function(){
+                $.confirm('<%:Эта настройка вступит в силу после повторного подключения к vpn, и функция "Интернет через VPN" будет отключена.%>', function(){
                     checkConnected(function(){
                         // var enable = $(self).hasClass('btn-switch-on') ? 0 : 1;
                         var mode = $('#smartvpnmode li.active').attr('data-mode');
@@ -737,7 +737,7 @@ var modelVpn = (function(){
                             }
                             $('#smartvpnurlTbody').html(trarr.join(''));
                         }else{
-                            $('#smartvpnurlTbody').html('<tr><td colspan="2" style="text-align:center;"><%:还未添加服务地址%></td></tr>');
+                            $('#smartvpnurlTbody').html('<tr><td colspan="2" style="text-align:center;"><%:Адрес не добавлен%></td></tr>');
                         }
                     }else{
                         tabs.removeClass('active').eq(1).addClass('active');
@@ -757,7 +757,7 @@ var modelVpn = (function(){
                             }
                             $('#smartvpnmacTbody').html(mtrarr.join(''));
                         }else{
-                            $('#smartvpnmacTbody').html('<tr><td colspan="3" style="text-align:center;"><%:还未添加设备%></td></tr>');
+                            $('#smartvpnmacTbody').html('<tr><td colspan="3" style="text-align:center;"><%:Устройство не добавлено%></td></tr>');
                         }
                     }
                 }else{
@@ -781,7 +781,7 @@ var modelVpn = (function(){
 			if(list[i].isap != 8){
                             var tr = StringH.tmpl(tpl, {
                                 name: list[i].name,
-                                status: list[i].online == 1 ? '<%:在线%>' : '<%:离线%>',
+                                status: list[i].online == 1 ? '<%:В сети%>' : '<%:Не в сети%>',
                                 mac: list[i].mac
                             });
                             trarr.push(tr);
@@ -797,7 +797,7 @@ var modelVpn = (function(){
                         var inputs = $('.deviceinput:checked');
                         var valarr = [];
                         if( inputs.length < 1 ){
-                            alert("<%:请至少选择一个设备%>");
+                            alert("<%:Выберите хотя бы одно устройство%>");
                         }else{
                             inputs.each(function (index, item) {
                                 valarr.push( $.trim( item.value ) );
@@ -808,7 +808,7 @@ var modelVpn = (function(){
                         }
                     });
                 }else{
-                    $('#dialogdeviceslist').html('<tr><td colspan="4" style="text-align:center;"><%:还没有设备连接进来%></td></tr>');
+                    $('#dialogdeviceslist').html('<tr><td colspan="4" style="text-align:center;"><%:Устройство не в сети%></td></tr>');
                 }
             }
         });
@@ -907,7 +907,7 @@ var modelVpn = (function(){
             e.preventDefault();
             var open = $(this).hasClass('btn-switch-on') ? 0 : 1;
             if( open == 1 ){
-                $.confirm('<%:开启该功能后，需要您重新连接VPN方可生效，且智能分流功能将关闭。若开启后发现路由器App远程访问出现异常，请您关闭。是否确认开启？%>', function(){
+                $.confirm('<%:После включения этой функции вам необходимо повторно подключиться к VPN. Если после включения вы обнаружите, что удаленный доступ к маршрутизатору не работает, выключите эту функцию.%>', function(){
                     stopListenStatus();
                     $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 0, id: currentId}, function(rsp){
                         if (rsp.code == 0) {
@@ -967,7 +967,7 @@ var modelVpn = (function(){
         } );
         $('#addsmartvpndevicelist').on('click', function(){
             devicelistDialog = $.dialog({
-                title: '<%:请选择需要使用VPN的设备%>',
+                title: '<%:Выбор устройства%>',
                 content: $('#tmplAddList').html(),
                 lock: true,
                 width: 600,
@@ -978,7 +978,7 @@ var modelVpn = (function(){
         });
         $('#addsmartvpnmac').on('click', function(){
             addSmartVPNmacDialog = $.dialog({
-                title: '<%:通过MAC地址添加要使用VPN的设备%>',
+                title: '<%:Добавление устройства по MAC адресу%>',
                 content: $('#tmplAddmac').html(),
                 lock: true,
                 width: 390,
@@ -989,7 +989,7 @@ var modelVpn = (function(){
         });
         $('#addsmartvpnurl').on('click', function(){
             addSmartVPNurlDialog = $.dialog({
-                title: '<%:添加要使用VPN的服务地址%>',
+                title: '<%:Добавление адреса%>',
                 content: $('#tmplAddurl').html(),
                 lock: true,
                 width: 390,
@@ -1007,7 +1007,7 @@ var modelVpn = (function(){
     }
     function checkConnected( nextfn ){
         if( vpnConnectStatus == 0 ){
-            $.confirm('<%:当前正在连接的VPN将被断开，重新连接后该设置将生效。%>', function(){
+            $.confirm('<%:Текущий подключенный VPN будет отключен, и настройка вступит в силу после повторного подключения.%>', function(){
                 stopListenStatus();
                 $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 0, id: currentId}, function(rsp){
                     if (rsp.code == 0) {
