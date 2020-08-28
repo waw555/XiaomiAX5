@@ -159,7 +159,7 @@ webpackJsonp([8], {
                         },
                         dialog_data: {
                             tit: "Подсказка",
-                            message: "Введите пароль账号/密码",
+                            message: "Введите пароль",
                             button: "Принять"
                         },
                         clientHeight: document.documentElement.clientHeight,
@@ -389,7 +389,7 @@ webpackJsonp([8], {
                         }
                     }, [t._v("Подключить")])])])], 1)]) : 2 == t.type ? r("Loading", {
                         attrs: {
-                            desc: "正在设置为DHCP上网模式，请耐心等待..."
+                            desc: "Выполняется переход на тип подключения Интернета по DHCP, подождите..."
                         }
                     }) : 3 == t.type ? r("div", {
                         staticClass: "success"
@@ -398,7 +398,7 @@ webpackJsonp([8], {
                         attrs: {
                             src: s("WNz1")
                         }
-                    }), t._v(" "), r("p", [t._v("DHCP配置成功")]), t._v(" "), r("a", {
+                    }), t._v(" "), r("p", [t._v("Конфигурация DHCP прошла успешно")]), t._v(" "), r("a", {
                         staticClass: "to_home",
                         attrs: {
                             href: "#/home"
