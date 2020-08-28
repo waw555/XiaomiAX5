@@ -59,7 +59,7 @@ webpackJsonp([15], {
                 created: function() {
                     var t = this;
                     if (this.$route.query.from) {
-                        this.errortip = !0, "wireless" === this.$route.query.from ? this.error_desc = "Неверный пароль для ретрансляции Wi-Fi，Режим УсилителяОшибка конфигурации." : "dhcp" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации DHCP" : "wired" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации Точки доступа" : "static" === this.$route.query.from && (this.error_desc = "Ошибка конфигурации Статического IP");
+                        this.errortip = !0, "wireless" === this.$route.query.from ? this.error_desc = "Неверный пароль для ретрансляции Wi-Fi，Режим Усилителя. Ошибка конфигурации." : "dhcp" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации DHCP" : "wired" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации Точки доступа" : "static" === this.$route.query.from && (this.error_desc = "Ошибка конфигурации Статического IP");
                         var e = this.$router.history.current.path;
                         this.$router.push({
                             path: e
