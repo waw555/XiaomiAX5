@@ -36,7 +36,7 @@ webpackJsonp([19], {
                         staticClass: "cont"
                     }, [s("div", {
                         staticClass: "connect"
-                    }, [t._v("\n            您已成功Подключить互联网\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n            您已成功Подключить Интернет\n        ")]), t._v(" "), s("div", {
                         staticClass: "desc"
                     }, [t._v("\n            下载小米WiFi APP, 随时随地管理你的路由器\n        ")]), t._v(" "), t._m(1), t._v(" "), s("div", {
                         staticClass: "desc_app"

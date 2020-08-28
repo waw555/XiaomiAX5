@@ -127,7 +127,7 @@ webpackJsonp([16], {
                         staticClass: "headertop"
                     }, [s("Headers", {
                         attrs: {
-                            name: "上网向导"
+                            name: "Мастер настройки"
                         }
                     }), t._v(" "), t._m(0)], 1), t._v(" "), s("div", {
                         staticClass: "content width100"

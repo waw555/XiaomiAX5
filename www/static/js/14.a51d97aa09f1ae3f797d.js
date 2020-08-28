@@ -174,7 +174,7 @@ webpackJsonp([14], {
                                             t.interval = setInterval(function() {
                                                 t.netDiagnosisResult()
                                             }, 5e3)
-                                        }, 3e3) : t.$refs.tip.showTips(a.data.msg || "发生未知错误，请稍后再试~"));
+                                        }, 3e3) : t.$refs.tip.showTips(a.data.msg || "Произошла неизвестная ошибка, повторите попытку позже"));
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -302,7 +302,7 @@ webpackJsonp([14], {
                                         e.next = 28;
                                         break;
                                     case 27:
-                                        t.$refs.tip.showTips(a.data.msg || "发生未知错误，请稍后再试~");
+                                        t.$refs.tip.showTips(a.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 28:
                                         e.next = 31;
                                         break;

@@ -111,7 +111,7 @@ webpackJsonp([11], {
                                         }
                                         return e.password_count++, e.$refs.restip.innerHTML = "密码错误", e.password_count >= 4 && (e.$refs.restip.innerHTML = "多次密码错误，将禁止继续尝试"), t.abrupt("return");
                                     case 16:
-                                        e.$refs.tip.showTips(o.data.msg || "发生未知错误，请稍后再试~");
+                                        e.$refs.tip.showTips(o.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 17:
                                     case "end":
                                         return t.stop()

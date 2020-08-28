@@ -168,7 +168,7 @@ webpackJsonp([4], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请设置Пароль Wi-Fi: ，至少8位",
+                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
                             name: "password",
                             autocomplete: "off",
                             type: e.passtype,
@@ -251,7 +251,7 @@ webpackJsonp([4], {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [e._v("*W-iFi密码不能包含特殊字符` ; | $ & { } \\")])]), e._v(" "), s("Subtitle", {
+                    }, [e._v("* Пароль Wi-Fi не может содержать специальные символы, такие как:` ; | $ & { } \\")])]), e._v(" "), s("Subtitle", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -533,7 +533,7 @@ webpackJsonp([4], {
                                         r = t.sent, e.type = 3, 0 == r.data.code ? (e.pppoeStatus = 0, e.checkPppoeStatus(), e.common.setInitLog({
                                             type: 0,
                                             step: "pppoe_success"
-                                        })) : (e.type = 1, e.$refs.tip.showTips(r.data.msg || "发生未知错误，请稍后再试~"), e.common.setInitLog({
+                                        })) : (e.type = 1, e.$refs.tip.showTips(r.data.msg || "Произошла неизвестная ошибка, повторите попытку позже"), e.common.setInitLog({
                                             type: 0,
                                             step: "pppoe_fail"
                                         }), e.common.setInitLog({
@@ -607,7 +607,7 @@ webpackJsonp([4], {
                                         }, (p = t.common.getCookie("hardware")) && "R3L" != p && "R4C" != p && "R1CL" != p && "R4CM" != p && (n.ssid5g_ssid = a.ssid + "_5G", n.ssid5g_passwd = a.password), t.$router.push({
                                             path: "/wifi_complete",
                                             query: n
-                                        })) : (t.type = 2, t.$refs.tip.showTips(i.data.msg || "发生未知错误，请稍后再试~"));
+                                        })) : (t.type = 2, t.$refs.tip.showTips(i.data.msg || "Произошла неизвестная ошибка, повторите попытку позже"));
                                     case 15:
                                     case "end":
                                         return s.stop()
@@ -645,15 +645,15 @@ webpackJsonp([4], {
                         staticClass: "container"
                     }, ["oldRouter" == e.from ? s("Header", {
                         attrs: {
-                            name: "Подключить互联网"
+                            name: "Подключить Интернет"
                         }
                     }) : s("Header", {
                         attrs: {
-                            name: "上网向导"
+                            name: "Мастер настройки"
                         }
                     }), e._v(" "), 0 == e.type ? s("Loading", {
                         attrs: {
-                            desc: "正在检测你的上网环境，请耐心等待..."
+                            desc: "Ваша сеть проходит проверку, подождите..."
                         }
                     }) : 1 == e.type ? s("div", {
                         staticClass: "account"
@@ -684,7 +684,7 @@ webpackJsonp([4], {
                         attrs: {
                             for: "name"
                         }
-                    }, [e._v("宽带账户")]), e._v(" "), s("input", {
+                    }, [e._v("Имя пользователя")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -696,7 +696,7 @@ webpackJsonp([4], {
                         }],
                         attrs: {
                             type: "text",
-                            placeholder: "Введите пароль宽带账户",
+                            placeholder: "Введите пароль",
                             name: "name",
                             required: ""
                         },
@@ -732,7 +732,7 @@ webpackJsonp([4], {
                             }
                         }],
                         attrs: {
-                            placeholder: "Введите парольПароль",
+                            placeholder: "Введите пароль",
                             name: "passwd",
                             type: e.switchpass,
                             required: ""
@@ -766,7 +766,7 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*Пароль不能为空")])]), e._v(" "), s("field-messages", {
+                    }, [e._v("* Пароль не может быть пустым")])]), e._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "name"
@@ -776,27 +776,27 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*宽带账户不能为空")])]), e._v(" "), 1 == e.errorType ? s("div", {
+                    }, [e._v("* Имя пользователя не может быть пустым")])]), e._v(" "), 1 == e.errorType ? s("div", {
                         staticClass: "error-tip"
-                    }, [s("div", {}, [e._v("\n              " + e._s(this.pppoeErrorMsg || "帐号或密码错误（错误码：691）") + "\n          ")]), e._v(" "), s("div", {
+                    }, [s("div", {}, [e._v("\n              " + e._s(this.pppoeErrorMsg || "Неверное Имя пользователя или пароль (Код ошибки: 691)") + "\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 如果忘记账号或密码，您可以"), s("span", {
+                    }, [e._v("\n              1. Если вы забыли имя пользователя или пароль, вы можете:"), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.getAccFromOld
                         }
-                    }, [e._v("一键从旧路由器获取账号&密码")])]), e._v(" "), s("div", {
+                    }, [e._v("Получить имя пользователя и пароль от старого маршрутизатора в один клик")])]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              2. 请Принять帐号是否欠费，或联系您的"), s("span", {
+                    }, [e._v("\n              2. Для того, чтобы проверить наличие задолженности, Вам необходимо обратиться к своему "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
                     }, [e._v("Провайдеру")])])]) : e._e(), e._v(" "), 2 == e.errorType ? s("div", {
                         staticClass: "error-tip"
-                    }, [s("div", {}, [e._v("\n             " + e._s(this.pppoeErrorMsg || "同一账号重复登录（错误码：678）") + "\n          ")]), e._v(" "), s("div", {
+                    }, [s("div", {}, [e._v("\n             " + e._s(this.pppoeErrorMsg || "Уже выполнено подключение с Вашей учетной записью (Код ошибки: 678)") + "\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口Подключить的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. Выключите маршрутизатор и отключите сетевой кабель от маршрутизатора. Подождите 10 минут. Подключите сетевой кабель к маршрутизатору и включите маршрутизатор.\n\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",
@@ -807,7 +807,7 @@ webpackJsonp([4], {
                         staticClass: "error-tip"
                     }, [s("div", {}, [e._v("\n             运营商接口返回错误（错误码：" + e._s(e.pppoeErrorCode) + "）\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口Подключить的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. Выключите маршрутизатор и отключите сетевой кабель от маршрутизатора. Подождите 10 минут. Подключите сетевой кабель к маршрутизатору и включите маршрутизатор.\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",

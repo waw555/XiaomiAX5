@@ -401,7 +401,7 @@ webpackJsonp([0, 20], {
                         staticClass: "container"
                     }, [s("Header", {
                         attrs: {
-                            name: "上网向导",
+                            name: "Мастер настройки",
                             step: e.step
                         },
                         on: {
@@ -767,7 +767,7 @@ webpackJsonp([0, 20], {
                             expression: "step == 3"
                         }],
                         staticClass: "loading"
-                    }, [s("h3", [e._v("上网向导")]), e._v(" "), s("Loading", {
+                    }, [s("h3", [e._v("Мастер настройки")]), e._v(" "), s("Loading", {
                         attrs: {
                             desc: "Настройка Wi-Fi сети, подождите..."
                         }

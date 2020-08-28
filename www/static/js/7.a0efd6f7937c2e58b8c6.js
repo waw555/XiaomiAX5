@@ -557,7 +557,7 @@ webpackJsonp([7, 20], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请设置Пароль Wi-Fi: ，至少8位",
+                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
                             name: "password",
                             type: t.passtype,
                             wifipassword: "",
@@ -786,7 +786,7 @@ webpackJsonp([7, 20], {
                             expression: "step == 3"
                         }],
                         staticClass: "loading"
-                    }, [s("h3", [t._v("上网向导")]), t._v(" "), s("Loading", {
+                    }, [s("h3", [t._v("Мастер настройки")]), t._v(" "), s("Loading", {
                         attrs: {
                             desc: "Настройка Wi-Fi сети, подождите..."
                         }

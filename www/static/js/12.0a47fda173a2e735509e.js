@@ -198,7 +198,7 @@ webpackJsonp([12], {
                                     case 0:
                                         return e.next = 2, t.axios.getRouterStatus();
                                     case 2:
-                                        (s = e.sent) && s.data && 0 == s.data.code ? (t.routerData = s.data, t.getHardware(s.data.hardware), t.routerInfo.runTime = t.common.secondToDate(s.data.upTime)) : t.$refs.tip.showTips(s.data.msg || "发生未知错误，请稍后再试~");
+                                        (s = e.sent) && s.data && 0 == s.data.code ? (t.routerData = s.data, t.getHardware(s.data.hardware), t.routerInfo.runTime = t.common.secondToDate(s.data.upTime)) : t.$refs.tip.showTips(s.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -215,7 +215,7 @@ webpackJsonp([12], {
                                     case 0:
                                         return e.next = 2, t.axios.getNetPppoeStatus();
                                     case 2:
-                                        (s = e.sent) && s.data && 0 == s.data.code ? t.statusData = s.data : t.$refs.tip.showTips(s.data.msg || "发生未知错误，请稍后再试~");
+                                        (s = e.sent) && s.data && 0 == s.data.code ? t.statusData = s.data : t.$refs.tip.showTips(s.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -309,7 +309,7 @@ webpackJsonp([12], {
                         staticClass: "name"
                     }, [this._v("\n          上网状态\n        ")]), this._v(" "), e("div", {
                         staticClass: "desp"
-                    }, [this._v("\n          成功Подключить互联网\n        ")])])
+                    }, [this._v("\n          成功Подключить Интернет\n        ")])])
                 }]
             };
         var v = s("VU/8")(u, d, !1, function(t) {

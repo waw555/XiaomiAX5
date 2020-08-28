@@ -61,7 +61,7 @@ webpackJsonp([17], {
                                     case 5:
                                         (r = e.sent) && r.data && 0 == r.data.code ? (t.common.setCookie("token", r.data.token, 1 / 48), t.$router.push({
                                             path: "/guide"
-                                        })) : t.$refs.tip.showTips(r.data.msg || "发生未知错误，请稍后再试~");
+                                        })) : t.$refs.tip.showTips(r.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 7:
                                     case "end":
                                         return e.stop()
