@@ -264,7 +264,7 @@ webpackJsonp([12], {
                         staticClass: "tit"
                     }, [t._v("\n      网络状态\n    ")]), t._v(" "), s("ul", [t._m(0), t._v(" "), "apmode" != t.wifiType ? s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          IP地址\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          IP адрес\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.statusData.ip.address) + "\n        ")])]) : t._e(), t._v(" "), "apmode" != t.wifiType ? s("li", [s("div", {
                         staticClass: "name"

@@ -32,7 +32,7 @@ webpackJsonp([7, 20], {
                         sameRouterPwd: !0,
                         routerPwd: null,
                         wifi: {
-                            name: "Xiaomi_1A1A",
+                            name: "REDMI_XIAOMI_AX5",
                             locale: "Дом",
                             ssid: "",
                             password: null,
@@ -212,7 +212,7 @@ webpackJsonp([7, 20], {
                         staticClass: "form static_form"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "IP地址"
+                            name: "IP адрес"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -259,14 +259,14 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*IP地址不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* IP адрес не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "ipaddr"
                         },
                         slot: "ipaddr"
-                    }, [t._v("*IP地址格式不正确")])]), t._v(" "), s("Subtitle", {
+                    }, [t._v("* Неверный формат IP-адреса")])]), t._v(" "), s("Subtitle", {
                         attrs: {
-                            name: "子网掩码地址"
+                            name: "Маска подсети"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -313,14 +313,14 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*子网掩码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Маска подсети не может быть пустой")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "ipaddr"
                         },
                         slot: "ipaddr"
-                    }, [t._v("*子网掩码格式不正确")])]), t._v(" "), s("Subtitle", {
+                    }, [t._v("* Неправильный формат маски подсети")])]), t._v(" "), s("Subtitle", {
                         attrs: {
-                            name: "默认网关"
+                            name: "Шлюз"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -367,14 +367,14 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*网关不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Адрес Шлюза не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "ipaddr"
                         },
                         slot: "ipaddr"
-                    }, [t._v("*网关格式不正确")])]), t._v(" "), s("Subtitle", {
+                    }, [t._v("* Неправильный формат адреса шлюза")])]), t._v(" "), s("Subtitle", {
                         attrs: {
-                            name: "首选DNS服务器"
+                            name: "Основной сервер DNS"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -421,14 +421,14 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*首选DNS不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("Адрес основного сервера DNS, не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "ipaddr"
                         },
                         slot: "ipaddr"
-                    }, [t._v("*首选DNS格式不正确")])]), t._v(" "), s("Subtitle", {
+                    }, [t._v("Неправильный формат адреса, основного сервера DNS")])]), t._v(" "), s("Subtitle", {
                         attrs: {
-                            name: "备用DNS服务器（可选）"
+                            name: "Дополнительный сервер DNS (необязательно)"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -519,7 +519,7 @@ webpackJsonp([7, 20], {
                         }],
                         attrs: {
                             type: "text",
-                            placeholder: "XIAOMI_1A1A",
+                            placeholder: "REDMI_XIAOMI_AX5",
                             name: "name",
                             checklength: "",
                             required: "",

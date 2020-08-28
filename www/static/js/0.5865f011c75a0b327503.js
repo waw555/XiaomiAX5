@@ -228,7 +228,7 @@ webpackJsonp([0, 20], {
                         routerPwd: null,
                         conflictIP: null,
                         wifi: {
-                            name: "Xiaomi_1A1A",
+                            name: "REDMI_XIAOMI_AX5",
                             locale: "Дом",
                             ssid: "",
                             password: null,
