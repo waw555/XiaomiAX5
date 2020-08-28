@@ -295,7 +295,7 @@ webpackJsonp([6, 20], {
                         staticClass: "container"
                     }, [s("Header", {
                         attrs: {
-                            name: "Точка доступа模式",
+                            name: "Режим Точка доступа",
                             step: e.step
                         },
                         on: {
@@ -321,7 +321,7 @@ webpackJsonp([6, 20], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "新路由器的Параметры Wi-Fi"
+                            name: "Параметры Wi-Fi нового маршрутизатора"
                         }
                     }), e._v(" "), s("validate", {
                         attrs: {
@@ -609,9 +609,9 @@ webpackJsonp([6, 20], {
                             expression: "step===2"
                         }],
                         staticClass: "loading"
-                    }, [s("h3", [e._v("Точка доступа模式")]), e._v(" "), s("Loading", {
+                    }, [s("h3", [e._v("Режим Точка доступа")]), e._v(" "), s("Loading", {
                         attrs: {
-                            desc: "正在配置中，请等待......"
+                            desc: "Подождите..."
                         }
                     })], 1), e._v(" "), s("Wificomplete", {
                         directives: [{
