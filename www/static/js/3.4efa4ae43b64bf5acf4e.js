@@ -135,15 +135,15 @@ webpackJsonp([3], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Содержание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Сохранить"
                     }
                 },
                 data: function() {
@@ -229,9 +229,9 @@ webpackJsonp([3], {
                 data: function() {
                     return {
                         dialog_data: {
-                            tit: "尝试中继失败了",
-                            message: "可能是Wi-Fi密码出错了",
-                            button: "确认"
+                            tit: "Попытка ретрансляции не удалась",
+                            message: "Возможно, пароль Wi-Fi неверный",
+                            button: "Подтвердить"
                         },
                         passtype_wifi: "password",
                         step: 1,
@@ -337,7 +337,7 @@ webpackJsonp([3], {
                         staticClass: "wireless_loading"
                     }, [i("Headers", {
                         attrs: {
-                            name: "可用无线网络列表",
+                            name: "Список доступных беспроводных сетей",
                             fontsize: "index",
                             step: t.step
                         },
@@ -352,20 +352,20 @@ webpackJsonp([3], {
                             src: e("p1AH"),
                             alt: ""
                         }
-                    }), t._v(" "), i("p", [t._v(" 正在扫描可用的Wi-Fi ")]), t._v(" "), i("router-link", {
+                    }), t._v(" "), i("p", [t._v(" Поиск доступного Wi-Fi ")]), t._v(" "), i("router-link", {
                         staticClass: "back",
                         attrs: {
                             tag: "button",
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1)], 1) : t._e(), t._v(" "), 2 == t.step ? i("div", {
                         staticClass: "wireless_list"
                     }, [i("Headers", {
                         attrs: {
-                            name: "可用无线网络列表",
+                            name: "Список доступных беспроводных сетей",
                             fontsize: "index",
                             step: t.step
                         },
@@ -403,7 +403,7 @@ webpackJsonp([3], {
                         staticClass: "wireless_detail"
                     }, [i("Headers", {
                         attrs: {
-                            name: "连接Wi-Fi:" + t.wifi.ssid,
+                            name: "Подключить Wi-Fi:" + t.wifi.ssid,
                             fontsize: "index",
                             step: t.step
                         },
@@ -423,13 +423,13 @@ webpackJsonp([3], {
                         }
                     }, [i("div", {
                         staticClass: "name_pass"
-                    }, [i("p", [t._v(" Wi-Fi名称："), i("span", [t._v(t._s(t.wifi.ssid))])])]), t._v(" "), i("validate", {
+                    }, [i("p", [t._v(" Имя Wi-Fi："), i("span", [t._v(t._s(t.wifi.ssid))])])]), t._v(" "), i("validate", {
                         attrs: {
                             tag: "label"
                         }
                     }, [t.encrype ? i("div", {
                         staticClass: "password"
-                    }, [i("p", [t._v(" Wi-Fi密码  \n                        "), t._v(" "), i("field-messages", {
+                    }, [i("p", [t._v(" Пароль Wi-Fi  \n                        "), t._v(" "), i("field-messages", {
                         staticClass: "error",
                         attrs: {
                             name: "password1",
@@ -440,22 +440,22 @@ webpackJsonp([3], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("密码长度要求8-63个数字、字母或符号")]), t._v(" "), i("div", {
+                    }, [t._v("Пароль должен от 8 до 63 символов.")]), t._v(" "), i("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("密码长度要求8-63个数字、字母或符号")]), t._v(" "), i("div", {
+                    }, [t._v("Пароль должен от 8 до 63 символов.")]), t._v(" "), i("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("密码长度要求8-63个数字、字母或符号")]), t._v(" "), i("div", {
+                    }, [t._v("Пароль должен от 8 до 63 символов.")]), t._v(" "), i("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("请输入数字、英文字母或英文字符")])])], 1), t._v(" "), i("input", {
+                    }, [t._v("Используйте цифры, латинские буквы и символы")])])], 1), t._v(" "), i("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -471,7 +471,7 @@ webpackJsonp([3], {
                         attrs: {
                             name: "password1",
                             type: t.passtype_wifi,
-                            placeholder: "请输入",
+                            placeholder: "Введите пароль",
                             wifipassword: "",
                             minlength: "8",
                             maxlength: "63",
@@ -501,21 +501,21 @@ webpackJsonp([3], {
                         class: {
                             static: "static" == t.position
                         }
-                    }, [i("p", [t._v("连接成功后，当前路由器的Wi-Fi名称和密码保持不变")]), t._v(" "), i("button", {
+                    }, [i("p", [t._v("После успешного подключения Имя Wi-Fi и пароль остаются неизменными.")]), t._v(" "), i("button", {
                         staticClass: "blue button",
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("连接")]), t._v(" "), i("div", {
+                    }, [t._v("Подключить")]), t._v(" "), i("div", {
                         staticClass: "button",
                         on: {
                             click: t.goBackStep
                         }
-                    }, [t._v("上一步")])])], 1)], 1)], 1) : t._e(), t._v(" "), 4 == t.step ? i("div", {
+                    }, [t._v("Далее")])])], 1)], 1)], 1) : t._e(), t._v(" "), 4 == t.step ? i("div", {
                         staticClass: "wireless_success"
                     }, [i("Headers", {
                         attrs: {
-                            name: "上网设置",
+                            name: "Параметры Инетрнета",
                             fontsize: "index",
                             step: t.step
                         },
@@ -532,11 +532,11 @@ webpackJsonp([3], {
                         }
                     }), t._v(" "), i("p", {
                         staticClass: "para"
-                    }, [t._v("恭喜，Redmi路由器一键中继成功")]), t._v(" "), i("p", {
+                    }, [t._v("Подключение маршрутизатора успешно.")]), t._v(" "), i("p", {
                         staticClass: "para"
-                    }, [t._v("当前无线网络名称为：" + t._s(t.ssid) + "（之前的WiFi名称）")]), t._v(" "), i("p", {
+                    }, [t._v("Текущее Имя Wi-Fi:" + t._s(t.ssid) + "(Предыдущее Имя Wi-Fi)")]), t._v(" "), i("p", {
                         staticClass: "para"
-                    }, [t._v("当前Redmi路由器的IP地址为：" + t._s(t.ip))]), t._v(" "), i("div", {
+                    }, [t._v("IP адрес маршрутизатора" + t._s(t.ip))]), t._v(" "), i("div", {
                         staticClass: "bottom"
                     }, [i("router-link", {
                         staticClass: "button",
@@ -545,13 +545,13 @@ webpackJsonp([3], {
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1)])], 1) : t._e(), t._v(" "), 5 == t.step || 6 == t.step ? i("div", {
                         staticClass: "wifi_set"
                     }, [i("Headers", {
                         attrs: {
-                            name: "上网设置",
+                            name: "Параметры Интернета",
                             fontsize: "index",
                             step: t.step
                         },
@@ -566,18 +566,18 @@ webpackJsonp([3], {
                             src: e("TMGK"),
                             alt: ""
                         }
-                    }), t._v(" "), i("p", [t._v(" 未搜索到可用的Wi-Fi ")]), t._v(" "), i("p", [t._v("请确保路由器网口未插网线，再重新扫描")]), t._v(" "), i("router-link", {
+                    }), t._v(" "), i("p", [t._v(" Доступный Wi-Fi не найден ")]), t._v(" "), i("p", [t._v(" Убедитесь, что сетевой порт маршрутизатора не подключен к сетевому кабелю, а затем повторите сканирование. ")]), t._v(" "), i("router-link", {
                         staticClass: "back",
                         attrs: {
                             tag: "button",
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1) : t._e(), t._v(" "), 6 == t.step ? i("Loading", {
                         attrs: {
-                            desc: "连接中......"
+                            desc: "Подключение..."
                         }
                     }) : t._e()], 1)], 1) : t._e(), t._v(" "), i("Dialog", {
                         ref: "dialog",
