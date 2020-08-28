@@ -5,7 +5,7 @@
 local ver = require("xiaoqiang.XQVersion").webVersion
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/proset.css?v=<%=ver%>" rel="stylesheet">
@@ -16,7 +16,7 @@ local ver = require("xiaoqiang.XQVersion").webVersion
     <div id="bd">
         <div class="mod-set mod-dhcp" id="lanDhcp">
             <div class="hd">
-                <h3><%:DHCP服务%></h3>
+                <h3><%:Служба DHCP%></h3>
                 <div class="switch">
                     <a href="#" id="dhcpswitch" class="btn-switch btn-switch-off"></a>
                 </div>
@@ -26,29 +26,29 @@ local ver = require("xiaoqiang.XQVersion").webVersion
                     <input type="hidden" name="ignore">
                     <div class="set" style="display:none;">
                         <div class="form-item">
-                            <label class="k"><%:开始IP%></label>
+                            <label class="k"><%:Начальный IP адрес%></label>
                             <span class="v">
-                                <span class="ipprefix">192.168.31.</span><input type="text" class="ipt-text iplimit" name="start" id="startip" reqMsg="<%:开始IP%>" datatype="n-3" minValue="2" maxValue="254" style="width:128px"  maxlength="3">
+                                <span class="ipprefix">192.168.31.</span><input type="text" class="ipt-text iplimit" name="start" id="startip" reqMsg="<%:Начальный IP адрес%>" datatype="n-3" minValue="2" maxValue="254" style="width:228px"  maxlength="3">
                             </span>
                             <em class="t"></em>
                         </div>
                         <div class="form-item">
-                            <label class="k"><%:结束IP%></label>
+                            <label class="k"><%:Конечный IP адрес%></label>
                             <span class="v">
-                                <span class="ipprefix">192.168.31.</span><input type="text" class="ipt-text iplimit" name="end" id="endip" reqMsg="<%:结束IP%>" datatype="nrange-3" fromNEl="startip"  minValue="2" maxValue="254" style="width:128px"  maxlength="3">
+                                <span class="ipprefix">192.168.31.</span><input type="text" class="ipt-text iplimit" name="end" id="endip" reqMsg="<%:Конечный IP адрес%>" datatype="nrange-3" fromNEl="startip"  minValue="2" maxValue="254" style="width:228px"  maxlength="3">
                             </span>
                             <em class="t"></em>
                         </div>
                         <div class="form-item">
-                            <label class="k"><%:租约(分)%></label>
+                            <label class="k"><%:Время аренды (в минутах)%></label>
                             <span class="v">
-                                <input type="text" name="leasetime" class="ipt-text" maxlength="6" reqMsg="<%:租约%>" datatype="n-4" minValue="2" maxValue="2880">
+                                <input type="text" name="leasetime" class="ipt-text" maxlength="6" reqMsg="<%:Сохранить%>" datatype="n-4" minValue="2" maxValue="2880">
                             </span>
                             <em class="t"></em>
                         </div>
                     </div>
                     <div class="form-contral">
-                        <button class="btn btn-primary btn-l hidden" type="submit" id="btnDhcpSubmit"><span><%:保存%></span></button>
+                        <button class="btn btn-primary btn-l hidden" type="submit" id="btnDhcpSubmit"><span><%:Сохранить%></span></button>
                     </div>
                 </form>
             </div>
@@ -56,18 +56,18 @@ local ver = require("xiaoqiang.XQVersion").webVersion
 
         <div class="mod-set mod-lanip" id="lanIp">
             <div class="hd">
-                <h3><%:局域网IP地址%></h3>
+                <h3><%:Адрес маршрутизатора%></h3>
             </div>
             <div class="bd">
                 <form name="ipaddr" id="ipaddr" action="#" class="form form-lanip">
                     <input type="hidden" name="old_ip">
                     <div class="form-item">
-                        <label class="k"><%:局域网IP%></label>
-                        <span class="v"><input type="text" name="ip" class="ipt-text" maxlength="15" reqMsg="<%:局域网IP%>" datatype="ipaddr"></span>
+                        <label class="k"><%:IP адрес%></label>
+                        <span class="v"><input type="text" name="ip" class="ipt-text" maxlength="15" reqMsg="<%:IP адрес%>" datatype="ipaddr"></span>
                         <em class="t"></em>
                     </div>
                     <div class="form-contral">
-                        <button type="submit" id="btnLanipSubmit" class="btn btn-primary btn-l hidden"><span><%:保存%></span></button>
+                        <button type="submit" id="btnLanipSubmit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
                     </div>
                 </form>
             </div>
@@ -247,7 +247,7 @@ local ver = require("xiaoqiang.XQVersion").webVersion
                 $.pub( 'wait', {id: '#btnDhcpSubmit'} );
                 $.getJSON( requestURL, requestData, function( rsp ){
                     if ( rsp.code === 0 ) {
-                        $.alert('<%:设置成功%>', function(){
+                        $.alert('<%:Успешно%>', function(){
                             location.reload( true );
                         }).lock();
                     }else{
@@ -270,14 +270,14 @@ local ver = require("xiaoqiang.XQVersion").webVersion
                     requestData = {
                         ip: ip
                     };
-                $.confirm('<%:此操作需要重启才能生效，是否提交?%>', function(){
+                $.confirm('<%:Необходимо перезагрузить маршрутизатор%>', function(){
                     $.pub( 'wait', {id: '#btnLanipSubmit'} );
                     $.getJSON( requestURL, requestData, function( rsp ){
                         if( rsp.code === 0 ){
                             var ip = rsp.ip;
                             rebootWait( {
                                 lanIp : ip,
-                                action : '<%:重启路由器%>',
+                                action : '<%:Перезагрузить%>',
                                 refresh : true
                             } );
                         } else {

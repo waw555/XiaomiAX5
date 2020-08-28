@@ -61,16 +61,16 @@ local lanip = lan["ipv4"][1]["ip"]
 {/for}
 {else}
 <tr>
-    <td colspan="5" class="center"><%:没有设置信息%></td>
+    <td colspan="5" class="center"><%:Нет информации%></td>
 </tr>
 {/if}
 </script>
 <script type="tmpl/html" id="tpldevitem">
 <tr data-idx="{$idx}">
-    <td class="form-item"><input name="dname{$idx}" class="ipt-text dname" reqMsg="<%:设备名称%>" datatype="text" maxLength="50"><em class="t"></em></td>
-    <td class="form-item">{$ipprefix}<input name="ip{$idx}" class="ipt-text ip" reqMsg="<%:IP地址%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px"><em class="t"></em></td>
-    <td class="form-item"><input name="mac{$idx}" class="ipt-text mac" reqMsg="<%:MAC地址%>" datatype="macaddr"><em class="t"></em></td>
-    <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:移除%></span></a></td>
+    <td class="form-item"><input name="dname{$idx}" class="ipt-text dname" reqMsg="<%:Устройство%>" datatype="text" maxLength="50"><em class="t"></em></td>
+    <td class="form-item">{$ipprefix}<input name="ip{$idx}" class="ipt-text ip" reqMsg="<%:IP адрес%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px"><em class="t"></em></td>
+    <td class="form-item"><input name="mac{$idx}" class="ipt-text mac" reqMsg="<%:MAC адрес%>" datatype="macaddr"><em class="t"></em></td>
+    <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:Удалить%></span></a></td>
 </tr>
 </script>
 <script type="tmpl/html" id="tpldevlist">
@@ -78,35 +78,35 @@ local lanip = lan["ipv4"][1]["ip"]
     <table class="table">
         <thead>
             <tr>
-                <th><%:设备名称%></th>
-                <th><%:IP地址%></th>
-                <th><%:MAC地址%></th>
-                <th class="center"><%:操作%></th>
+                <th><%:Устройтво%></th>
+                <th><%:IP адрес%></th>
+                <th><%:MAC адрес%></th>
+                <th class="center"><%:Действие%></th>
             </tr>
         </thead>
         <tbody id="banditems">
         {if($devlist.length > 0)}
             {for(var i=0; i<$devlist.length; i++)}
             <tr data-idx="{js print(i)}">
-                <td class="form-item"><input value="{$devlist[i].dname}" name="dname{js print(i)}" class="ipt-text dname" reqMsg="<%:设备名称%>" datatype="text" maxLength="50"><em class="t"></em></td>
-                <td class="form-item">{$ipprefix}<input value="{$devlist[i].ip}" name="ip{js print(i)}" class="ipt-text ip" reqMsg="<%:IP地址%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px" maxlength="3"><em class="t"></em></td>
-                <td class="form-item"><input value="{$devlist[i].mac}" name="mac{js print(i)}" class="ipt-text mac" reqMsg="<%:MAC地址%>" datatype="macaddr"><em class="t"></em></td>
-                <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:移除%></span></a></td>
+                <td class="form-item"><input value="{$devlist[i].dname}" name="dname{js print(i)}" class="ipt-text dname" reqMsg="<%:Устройтво%>" datatype="text" maxLength="50"><em class="t"></em></td>
+                <td class="form-item">{$ipprefix}<input value="{$devlist[i].ip}" name="ip{js print(i)}" class="ipt-text ip" reqMsg="<%:IP адрес%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px" maxlength="3"><em class="t"></em></td>
+                <td class="form-item"><input value="{$devlist[i].mac}" name="mac{js print(i)}" class="ipt-text mac" reqMsg="<%:MAC адрес%>" datatype="macaddr"><em class="t"></em></td>
+                <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:Удалить%></span></a></td>
             </tr>
             {/for}
         {else}
             <tr data-idx="0">
-                <td class="form-item"><input name="dname0" class="ipt-text dname" reqMsg="<%:设备名称%>" datatype="text" maxLength="50"><em class="t"></em></td>
-                <td class="form-item">{$ipprefix}<input name="ip0" class="ipt-text ip" reqMsg="<%:IP地址%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px" maxlength="3"><em class="t"></em></td>
-                <td class="form-item"><input name="mac0" class="ipt-text mac" reqMsg="<%:MAC地址%>" datatype="macaddr"><em class="t"></em></td>
-                <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:移除%></span></a></td>
+                <td class="form-item"><input name="dname0" class="ipt-text dname" reqMsg="<%:Устройтво%>" datatype="text" maxLength="50"><em class="t"></em></td>
+                <td class="form-item">{$ipprefix}<input name="ip0" class="ipt-text ip" reqMsg="<%:IP адрес%>" datatype="n-3" minValue="1" maxValue="254" style="width:30px" maxlength="3"><em class="t"></em></td>
+                <td class="form-item"><input name="mac0" class="ipt-text mac" reqMsg="<%:MAC адрес%>" datatype="macaddr"><em class="t"></em></td>
+                <td class="center"><a href="#" class="btn btn-dft btn-del-item btn-s" href="#"><span><%:Удалить%></span></a></td>
             </tr>
         {/if}
         </tbody>
     </table>
     <div class="btns">
-        <p><a href="#" id="addoneitem" class="btn btn-dft btn-m" href="#"><span><%:增加一项%></span></a></p>
-        <p><button id="submitbandlist" class="btn btn-primary btn-m" type="submit"><span><%:一键绑定%></button></span></p>
+        <p><a href="#" id="addoneitem" class="btn btn-dft btn-m" href="#"><span><%:Добавить еще%></span></a></p>
+        <p><button id="submitbandlist" class="btn btn-primary btn-m" type="submit"><span><%:Добавить%></button></span></p>
     </div>
 </form>
 </script>
@@ -195,7 +195,7 @@ var ModelDhcpband = (function(){
                 ipprefix: ipprefix
             } );
             $.dialog({
-                title: '<%:绑定设备%>',
+                title: '<%:Устройство%>',
                 content: randerDom,
                 lock: true,
                 width: 828,
@@ -254,7 +254,7 @@ var ModelDhcpband = (function(){
                     ok = function(){
                         unbind.call( that, e, mac );
                     };
-                $.confirm( '<%:你确定要解除此项绑定？%>', ok );
+                $.confirm( '<%:Вы уверены, что хотите удалить устройство?%>', ok );
             });
             // band
             $( 'body' ).delegate( '#addbandlist', 'submit', function( e ){
@@ -285,7 +285,7 @@ var ModelDhcpband = (function(){
                     }
                     repeatIP = getRepeat( iplist );
                     if ( repeatIP.length !== 0 ) {
-                        $.alert( '<%:存在IP冲突，请检查输入项%>' + repeatIP.join(' , ') );
+                        $.alert( '<%:Конфликт IP-адресов, пожалуйста, проверьте ввод.%>' + repeatIP.join(' , ') );
                         return;
                     }
 
@@ -336,7 +336,7 @@ var ModelDhcpband = (function(){
                         btnSubmit.hide();
                     }
                 } else {
-                    $.alert('<%:出现异常，请刷新页面%>');
+                    $.alert('<%:Устройство отключено.%>');
                 }
             } );
 
@@ -368,7 +368,7 @@ var ModelDhcpband = (function(){
                 if ( isEmpty ) {
                     ok();
                 } else {
-                    $.confirm( '<%:确定要删除这项数据吗%>', ok );
+                    $.confirm( '<%:Вы уверены, что хотите удалить эти данные?%>', ok );
                 }
             } );
 
@@ -392,7 +392,7 @@ var ModelDhcpband = (function(){
             $( '#dellist' ).on( 'click', function( e ){
                 e.preventDefault();
                 if ( $('.bandmac:checked').length == 0 ) {
-                    $.alert( '<%:你还未选择任何设备%>' );
+                    $.alert( '<%:Вы не выбрали ни одного устройства%>' );
                     return;
                 }
                 var that = this,
@@ -408,7 +408,7 @@ var ModelDhcpband = (function(){
                         unbind.call( that, e, mac );
                     };
 
-                $.confirm( '<%:确认要解除选中项目的绑定关系？%>', ok );
+                $.confirm( '<%:Вы уверены, что хотите удалить устройство?%>', ok );
             } );
         };
 

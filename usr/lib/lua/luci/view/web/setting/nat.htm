@@ -1,13 +1,13 @@
 <%
 --[[
-    Info    路由器端口转发
+    Info    路由器Перенаправление порта
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local XQLanWanUtil = require("xiaoqiang.util.XQLanWanUtil")
 local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/nat.css?v=<%=ver%>" rel="stylesheet">
@@ -19,7 +19,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
         <div id="bd" data-ip="<%=ip%>">
             <div class="mod-set mod-nat">
                 <div class='hd'>
-                    <h3><%:端口转发%></h3>
+                    <h3><%:Перенаправление портов%></h3>
                     <!--
                     <div class='switch'>
                         <a href="#" data-status="0" class="btn-switch btn-switch-on" id="btnnat"></a>
@@ -27,18 +27,18 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                     -->
                 </div>
                 <div class="bd">
-                    <h3><%:端口转发规则列表：%></h3>
+                    <h3><%:Список правил перенаправление портов%></h3>
                     <form name="portFormEdit">
                         <table class="table table-nat">
                             <thead>
                                 <tr>
-                                    <th width="200"><%:名称%></th>
-                                    <th><%:协议%></th>
-                                    <th><%:外部端口%></th>
-                                    <th><%:内部IP地址%></th>
-                                    <th><%:内部端口%></th>
+                                    <th width="200"><%:Название%></th>
+                                    <th><%:Протокол%></th>
+                                    <th><%:Внешний порт%></th>
+                                    <th><%:IP адрес%></th>
+                                    <th><%:Внутренний порт%></th>
                                     <!--    <th><%:状态%></th> -->
-                                    <th class="center" width="230"><%:操作%></th>
+                                    <th class="center" width="230"><%:Действие%></th>
                                 </tr>
                             </thead>
                             <tbody id="natlist_port">
@@ -50,18 +50,18 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 
             <div class="mod-set mod-nat">
                 <div class="bd">
-                    <h3><%:范围转发规则列表：%></h3>
+                    <h3><%:Список правил перенаправления диапазона портов%></h3>
                     <form name="rangeFormEdit">
                         <table class="table  table-nat">
                             <thead>
                                 <tr>
-                                    <th width="200"><%:名称%></th>
-                                    <th><%:协议%></th>
-                                    <th><%:起始端口%></th>
-                                    <th><%:结束端口%></th>
-                                    <th><%:目标IP%></th>
+                                    <th width="200"><%:Название%></th>
+                                    <th><%:Протокол%></th>
+                                    <th><%:Начальный порт%></th>
+                                    <th><%:Конечный порт%></th>
+                                    <th><%:IP адрес%></th>
                                     <!-- <th><%:状态%></th> -->
-                                    <th class="center" width="230"><%:操作%></th>
+                                    <th class="center" width="230"><%:Действие%></th>
                                 </tr>
                             </thead>
                             <tbody id="natlist_range">
@@ -74,7 +74,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
             <div class='mod-set mod-nat'>
                 <div class="bd">
                     <div class="item item-control">
-                        <button type="submit" id="apply" class="btn btn-primary btn-large"><span><%:保存并生效%></span></button>
+                        <button type="submit" id="apply" class="btn btn-primary btn-large"><span><%:Сохранить%></span></button>
                     </div>
                 </div>
             </div>
@@ -88,37 +88,37 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 <script type="text/template" id="tpl_new_port">
 <form id="portForm" name="portForm" class="form form-horizontal">
     <div class="form-item form-item-input">
-        <label for="name" class="k"><%:名称%></label>
+        <label for="name" class="k"><%:Название%></label>
         <span class="v"><input type="text" name="name" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-select">
-        <label for="proto" class="k"><%:协议%></label>
+        <label for="proto" class="k"><%:Протокол%></label>
         <span class="v">
             <select  name="proto" class="beautify" style="">
                 <option value='1'>TCP</option>
                 <option value='2'>UDP</option>
-                <option value='3'><%:TCP和UDP%></option>
+                <option value='3'><%:TCP и UDP%></option>
             </select>
         </span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="sport" class="k"><%:外部端口%></label>
+        <label for="sport" class="k"><%:Внешний порт%></label>
         <span class="v"><input type="text" name="sport" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input input-ip">
-        <label for="ip" class="k"><%:内部IP地址：%><span class="iphere"></span></label>
+        <label for="ip" class="k"><%:IP адрес%><span class="iphere"></span></label>
         <span class="v"><input type="text" name="ip" value="" class="ipt-text no-init" style="margin-left: 219px;width: 34px;" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="dport" class="k"><%:内部端口%></label>
+        <label for="dport" class="k"><%:Внутренний порт%></label>
         <span class="v"><input type="text" name="dport" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
@@ -131,37 +131,37 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 <script type="text/template" id="tpl_new_range">
 <form id="rangeForm" name="rangeForm" class="form form-horizontal">
     <div class="form-item form-item-input">
-        <label for="name" class="k"><%:名称%></label>
+        <label for="name" class="k"><%:Название%></label>
         <span class="v"><input type="text" name="name" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-select">
-        <label for="proto" class="k"><%:协议%></label>
+        <label for="proto" class="k"><%:Протокол%></label>
         <span class="v">
             <select  name="proto" class="beautify" style="">
                 <option value='1'>TCP</option>
                 <option value='2'>UDP</option>
-                <option value='3'><%:TCP和UDP%></option>
+                <option value='3'><%:TCP и UDP%></option>
             </select>
         </span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="fport" class="k"><%:起始端口%></label>
+        <label for="fport" class="k"><%:Начальный порт%></label>
         <span class="v"><input type="text" name="fport" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="tport" class="k"><%:结束端口%></label>
+        <label for="tport" class="k"><%:Конечный порт%></label>
         <span class="v"><input type="text" name="tport" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="ip" class="k"><%:目标IP%></label>
+        <label for="ip" class="k"><%:IP адрес%></label>
         <span class="v"><input type="text" name="ip" value="" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
@@ -177,15 +177,15 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
         <td>
             {if($arr[i].proto == 1)}TCP{/if}
             {if($arr[i].proto == 2)}UDP{/if}
-            {if($arr[i].proto == 3)}TCP和UDP{/if}
+            {if($arr[i].proto == 3)}TCP и UDP{/if}
         </td>
         <td>{$arr[i].srcport}</td>
         <td>{$arr[i].destip}</td>
         <td>{$arr[i].destport}</td>
      <!--   <td><%:未生效%></td> -->
         <td class="center">
-            <a class="btn btn-dft editPort" href="javascript:;" data-item="{encodeURIComponent(QW.JSON.stringify($arr[i]))}" data-port="{$arr[i].srcport}"><span><%:编辑%></span></a>
-            <a class="btn btn-dft delPort" href="javascript:;" data-port="{$arr[i].srcport}"><span><%:删除%></span></a>
+            <a class="btn btn-dft editPort" href="javascript:;" data-item="{encodeURIComponent(QW.JSON.stringify($arr[i]))}" data-port="{$arr[i].srcport}"><span><%:Изменить%></span></a>
+            <a class="btn btn-dft delPort" href="javascript:;" data-port="{$arr[i].srcport}"><span><%:Удалить%></span></a>
         </td>
     </tr>
 {/for}
@@ -194,37 +194,37 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 <script type="text/template" id="tpl_tr_port_edit">
 <form id="portForm" name="portForm" class="form form-horizontal">
     <div class="form-item form-item-input">
-        <label for="name" class="k"><%:名称%></label>
+        <label for="name" class="k"><%:Название%></label>
         <span class="v"><input type="text" name="name" value="{$item.name}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-select">
-        <label for="proto" class="k"><%:协议%></label>
+        <label for="proto" class="k"><%:Протокол%></label>
         <span class="v">
             <select  name="proto" class="beautify" style="">
                 <option value='1' {js print($item.proto == 1? "selected": "")}>TCP</option>
                 <option value='2' {js print($item.proto == 2? "selected": "")}>UDP</option>
-                <option value='3' {js print($item.proto == 3? "selected": "")}><%:TCP和UDP%></option>
+                <option value='3' {js print($item.proto == 3? "selected": "")}><%:TCP и UDP%></option>
             </select>
         </span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="sport" class="k"><%:外部端口%></label>
+        <label for="sport" class="k"><%:Внешний порт%></label>
         <span class="v"><input type="text" name="sport" value="{$item.srcport}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input input-ip">
-        <label for="ip" class="k"><%:内部IP地址：%><span class="iphere"></span></label>
+        <label for="ip" class="k"><%:IP адрес%><span class="iphere"></span></label>
         <span class="v"><input type="text" name="ip" value="{$item.destip}" class="ipt-text no-init" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="dport" class="k"><%:内部端口%></label>
+        <label for="dport" class="k"><%:Внутренний порт%></label>
         <span class="v"><input type="text" name="dport" value="{$item.destport}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
@@ -240,15 +240,15 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
         <td>
             {if($arr[i].proto == 1)}TCP{/if}
             {if($arr[i].proto == 2)}UDP{/if}
-            {if($arr[i].proto == 3)}<%:TCP和UDP%>{/if}
+            {if($arr[i].proto == 3)}<%:TCP и UDP%>{/if}
         </td>
         <td>{$arr[i].srcport.f}</td>
         <td>{$arr[i].srcport.t}</td>
         <td>{$arr[i].destip}</td>
         <!-- <td><%:未生效%></td> -->
         <td class="center">
-            <a class="btn btn-dft editRange" href="javascript:;" data-item="{encodeURIComponent(QW.JSON.stringify($arr[i]))}" data-port="{$arr[i].srcport.f}"><span><%:编辑%></span></a>
-            <a class="btn btn-dft delRange" href="javascript:;" data-port="{$arr[i].srcport.f}"><span><%:删除%></span></a>
+            <a class="btn btn-dft editRange" href="javascript:;" data-item="{encodeURIComponent(QW.JSON.stringify($arr[i]))}" data-port="{$arr[i].srcport.f}"><span><%:Изменить%></span></a>
+            <a class="btn btn-dft delRange" href="javascript:;" data-port="{$arr[i].srcport.f}"><span><%:Удалить%></span></a>
         </td>
     </tr>
 {/for}
@@ -256,37 +256,37 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 <script type="text/template" id="tpl_tr_range_edit">
 <form id="rangeForm" name="rangeForm" class="form form-horizontal">
     <div class="form-item form-item-input">
-        <label for="name" class="k"><%:名称%></label>
+        <label for="name" class="k"><%:Название%></label>
         <span class="v"><input type="text" name="name" value="{$item.name}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-select">
-        <label for="proto" class="k"><%:协议%></label>
+        <label for="proto" class="k"><%:Протокол%></label>
         <span class="v">
             <select  name="proto" class="beautify" style="">
                 <option value='1' {js print($item.proto == 1? "selected": "")}>TCP</option>
                 <option value='2' {js print($item.proto == 2? "selected": "")}>UDP</option>
-                <option value='3' {js print($item.proto == 3? "selected": "")}><%:TCP和UDP%></option>
+                <option value='3' {js print($item.proto == 3? "selected": "")}><%:TCP и UDP%></option>
             </select>
         </span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="fport" class="k"><%:起始端口%></label>
+        <label for="fport" class="k"><%:Начальный порт%></label>
         <span class="v"><input type="text" name="fport" value="{$item.srcport.f}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="tport" class="k"><%:结束端口%></label>
+        <label for="tport" class="k"><%:Конечный порт%></label>
         <span class="v"><input type="text" name="tport" value="{$item.srcport.t}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
 
     <div class="form-item form-item-input">
-        <label for="ip" class="k"><%:目标IP%></label>
+        <label for="ip" class="k"><%:IP адрес%></label>
         <span class="v"><input type="text" name="ip" value="{$item.destip}" class="ipt-text" /></span>
         <em class="t"></em>
     </div>
@@ -311,7 +311,7 @@ var modelNat = (function(){
         // newPost
             $('body').on('click', '.newPort' ,function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:新建端口转发规则%>',
+                    title: '<%:Новое правило переадресации портов%>',
                     content: $('#tpl_new_port').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -320,7 +320,7 @@ var modelNat = (function(){
                     },
                     lock: true,
                     fixed: true,
-                    okValue: '<%:添加%>',
+                    okValue: '<%:Добавить%>',
                     ok: function() {
                         e.preventDefault();
                         var data = $('#portForm').serialize();
@@ -329,22 +329,22 @@ var modelNat = (function(){
                         var validator = FormValidator.checkAll('portForm', [
                             {
                                 name: 'ip',
-                                display :'<%:IP地址最后一位%>',
+                                display :'<%:IP адрес%>',
                                 rules: 'required|is_natural|less_than[255]|greater_than[1]'
                             },
                             {
                                 name: 'name',
-                                display: '<%:名称%>',
+                                display: '<%:Название%>',
                                 rules: 'required'
                             },
                             {
                                 name: 'sport',
-                                display: '<%:外部端口%>',
+                                display: '<%:Внешний порт%>',
                                 rules: 'required|is_natural|less_than[65536]'
                             },
                             {
                                 name: 'dport',
-                                display: '<%:内部端口%>',
+                                display: '<%:Внутренний порт%>',
                                 rules: 'required|is_natural|less_than[65536]'
                             }
                         ]);
@@ -362,8 +362,8 @@ var modelNat = (function(){
                 e.preventDefault();
                 var port = $(this).data('port');
                 var dlg = window.art.dialog({
-                    title: '<%:端口转发%>',
-                    content: '<%:确定要删除这条规则吗？%>',
+                    title: '<%:Перенаправление порта%>',
+                    content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
                     ok: function() {
@@ -387,22 +387,22 @@ var modelNat = (function(){
                 var validator = FormValidator.checkAll('portFormEdit', [
                     {
                         name: 'ip',
-                        display :'<%:IP地址最后一位%>',
+                        display :'<%:IP адрес%>',
                         rules: 'required|is_natural|less_than[255]|greater_than[1]'
                     },
                     {
                         name: 'name',
-                        display: '<%:名称%>',
+                        display: '<%:Название%>',
                         rules: 'required'
                     },
                     {
                         name: 'sport',
-                        display: '<%:外部端口%>',
+                        display: '<%:Внешний порт%>',
                         rules: 'required|is_natural|less_than[65536]'
                     },
                     {
                         name: 'dport',
-                        display: '<%:内部端口%>',
+                        display: '<%:Внутренний порт%>',
                         rules: 'required|is_natural|less_than[65536]'
                     }
                 ]);
@@ -422,7 +422,7 @@ var modelNat = (function(){
             // newRange
             $('body').on('click', '.newRange', function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:新建范围转发规则%>',
+                    title: '<%:Новое правило переадресации диапазона портов%>',
                     content: $('#tpl_new_range').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -430,7 +430,7 @@ var modelNat = (function(){
                     },
                     lock: true,
                     fixed: true,
-                    okValue: '<%:添加%>',
+                    okValue: '<%:Добавить%>',
                     ok: function() {
                         e.preventDefault();
 
@@ -438,22 +438,22 @@ var modelNat = (function(){
                         var validator = FormValidator.checkAll('rangeForm', [
                             {
                                 name: 'ip',
-                                display :'<%:目标IP%>',
+                                display :'<%:IP адрес%>',
                                 rules: 'required|valid_ip|callback_no_change'
                             },
                             {
                                 name: 'name',
-                                display: '<%:名称%>',
+                                display: '<%:Название%>',
                                 rules: 'required'
                             },
                             {
                                 name: 'fport',
-                                display: '<%:起始端口%>',
+                                display: '<%:Начальный порт%>',
                                 rules: 'required|is_natural|less_than[65536]'
                             },
                             {
                                 name: 'tport',
-                                display: '<%:结束端口%>',
+                                display: '<%:Конечный порт%>',
                                 rules: 'required|is_natural|less_than[65536]'
                             }
                         ]);
@@ -472,8 +472,8 @@ var modelNat = (function(){
                 var port = $(this).data('port');
 
                 var dlg = window.art.dialog({
-                    title: '<%:端口转发%>',
-                    content: '<%:确定要删除这条规则吗？%>',
+                    title: '<%:Перенаправление порта%>',
+                    content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
                     ok: function() {
@@ -498,22 +498,22 @@ var modelNat = (function(){
                 var validator = FormValidator.checkAll('rangeFormEdit', [
                     {
                         name: 'ip',
-                        display :'<%:目标IP%>',
+                        display :'<%:IP адрес%>',
                         rules: 'required|valid_ip|callback_no_change'
                     },
                     {
                         name: 'name',
-                        display: '<%:名称%>',
+                        display: '<%:Название%>',
                         rules: 'required'
                     },
                     {
                         name: 'fport',
-                        display: '<%:起始端口%>',
+                        display: '<%:Начальный порт%>',
                         rules: 'required|is_natural|less_than[65536]'
                     },
                     {
                         name: 'tport',
-                        display: '<%:结束端口%>',
+                        display: '<%:Конечный порт%>',
                         rules: 'required|is_natural|less_than[65536]'
                     }
                 ]);
@@ -534,8 +534,8 @@ var modelNat = (function(){
             $('#apply').on('click', function(e) {
                 var $btn = $(e.currentTarget);
                 var dlg = window.top.art.dialog({
-                    title: '<%:端口转发%>',
-                    content: '<%:规则正在生效中，请等待...%>',
+                    title: '<%:Перенаправление порта%>',
+                    content: '<%:Подождите...%>',
                     lock: true,
                     fixed: true,
                     cancel: false
@@ -562,7 +562,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -580,7 +580,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -596,7 +596,7 @@ var modelNat = (function(){
                     modelNat.getRedirectPort();
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         lock: true,
                         fixed: true,
@@ -611,7 +611,7 @@ var modelNat = (function(){
                     modelNat.getRedirectRange();
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -628,7 +628,7 @@ var modelNat = (function(){
             modelNat.savedItem = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:编辑端口转发规则%>',
+                title: '<%:Изменить правило перенаправление порта%>',
                 content: StringH.tmpl($('#tpl_tr_port_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -639,32 +639,32 @@ var modelNat = (function(){
                 },
                 lock: true,
                 fixed: true,
-                okValue: '<%:更新%>',
+                okValue: '<%:Изменить%>',
                 ok: function() {
                     e.preventDefault();
                     var data = $('#portForm').serialize();
                     var ip = window.ipprefix + $('input[name="ip"]').val();
                     data = data.replace(/ip=\d{1,3}/, 'ip=' + ip);
-                    data += '&force=1'; // 编辑时增加参数 force=1
+                    data += '&force=1'; // Изменить时增加参数 force=1
                     var validator = FormValidator.checkAll('portForm', [
                         {
                             name: 'ip',
-                            display :'<%:IP地址最后一位%>',
+                            display :'<%:Последняя цифра IP-адреса%>',
                             rules: 'required|is_natural|less_than[255]|greater_than[1]'
                         },
                         {
                             name: 'name',
-                            display: '<%:名称%>',
+                            display: '<%:Название%>',
                             rules: 'required'
                         },
                         {
                             name: 'sport',
-                            display: '<%:外部端口%>',
+                            display: '<%:Внешний порт%>',
                             rules: 'required|is_natural|less_than[65536]'
                         },
                         {
                             name: 'dport',
-                            display: '<%:内部端口%>',
+                            display: '<%:Внутренний порт%>',
                             rules: 'required|is_natural|less_than[65536]'
                         }
                     ]);
@@ -682,7 +682,7 @@ var modelNat = (function(){
             modelNat.savedItemRange = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:编辑范围转发规则%>',
+                title: '<%:Изменить правила переадресации диапазона портов%>',
                 content: StringH.tmpl($('#tpl_tr_range_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -690,32 +690,32 @@ var modelNat = (function(){
                 },
                 lock: true,
                 fixed: true,
-                okValue: '<%:更新%>',
+                okValue: '<%:Изменить%>',
                 ok: function() {
                     e.preventDefault();
 
                     var data = $('#rangeForm').serialize();
-                    // 编辑时添加参数
+                    // Изменить时Добавить参数
                     data += '&force=1';
                     var validator = FormValidator.checkAll('rangeForm', [
                         {
                             name: 'ip',
-                            display :'<%:目标IP%>',
+                            display :'<%:IP адрес%>',
                             rules: 'required|valid_ip|callback_no_change'
                         },
                         {
                             name: 'name',
-                            display: '<%:名称%>',
+                            display: '<%:Название%>',
                             rules: 'required'
                         },
                         {
                             name: 'fport',
-                            display: '<%:起始端口%>',
+                            display: '<%:Начальный порт%>',
                             rules: 'required|is_natural|less_than[65536]'
                         },
                         {
                             name: 'tport',
-                            display: '<%:结束端口%>',
+                            display: '<%:Конечный порт%>',
                             rules: 'required|is_natural|less_than[65536]'
                         }
                     ]);
@@ -730,7 +730,7 @@ var modelNat = (function(){
         getRedirectPort: function() {
             $.getJSON(modelNat.url.getRedirect, 'ftype='+1, function(rsp) {
                 var html;
-                htmlAdd = '<tr><td style="text-align:center;" colspan="6"><a class="btn btn-dft newPort" href="#"><span><%:添加规则%></span></a></td></tr>';
+                htmlAdd = '<tr><td style="text-align:center;" colspan="6"><a class="btn btn-dft newPort" href="#"><span><%:Добавить%></span></a></td></tr>';
                 if (rsp.code === 0) {
                     if (rsp.list.length !== 0) {
                         html = StringH.tmpl($('#tpl_tr_port').html(), {arr: rsp.list});
@@ -741,7 +741,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         lock: true,
                         fixed: true,
@@ -753,7 +753,7 @@ var modelNat = (function(){
         getRedirectRange: function() {
             $.getJSON(modelNat.url.getRedirect, 'ftype='+2, function(rsp) {
                 var html;
-                htmlAdd = '<tr><td style="text-align:center;" colspan="6"><a class="btn btn-dft newRange" href="#"><span><%:添加规则%></span></a></td></tr>';
+                htmlAdd = '<tr><td style="text-align:center;" colspan="6"><a class="btn btn-dft newRange" href="#"><span><%:Добавить%></span></a></td></tr>';
                 if (rsp.code === 0) {
                     if (rsp.list.length　!== 0) {
                         var html = StringH.tmpl($('#tpl_tr_range').html(), {arr: rsp.list});
@@ -764,7 +764,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:端口转发%>',
+                        title: '<%:Перенаправление порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
