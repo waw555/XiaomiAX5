@@ -185,8 +185,8 @@ webpackJsonp([12], {
                             R4A: "小米路由器4A千兆版",
                             R2100: "小米路由器AC2100",
                             RM2100: "Redmi AC2100",
-                            RM1800: "Redmi路由器AX1800",
-                            RA67: "Redmi路由器 AX5"
+                            RM1800: "Redmi Xiaomi AX5AX1800",
+                            RA67: "Redmi Xiaomi AX5 AX5"
                         } [t.platform], this.routerInfo.macAddr = t.mac, this.routerInfo.ROMversion = t.version, this.routerInfo.sn = t.sn
                     },
                     routerStatus: function() {

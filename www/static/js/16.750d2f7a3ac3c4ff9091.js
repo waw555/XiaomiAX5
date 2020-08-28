@@ -182,7 +182,7 @@ webpackJsonp([16], {
                         }
                     }), this._v(" "), e("div", {
                         staticClass: "img_text "
-                    }, [e("p", [this._v("光猫或入户网口")]), this._v(" "), e("p", [this._v("Redmi路由器")])])])
+                    }, [e("p", [this._v("Оптический или сетевой кабель")]), this._v(" "), e("p", [this._v("Redmi Xiaomi AX5")])])])
                 }]
             };
         var r = s("VU/8")(a, o, !1, function(t) {

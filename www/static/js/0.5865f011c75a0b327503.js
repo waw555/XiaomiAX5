@@ -423,7 +423,7 @@ webpackJsonp([0, 20], {
                         }
                     }, [e._v("Далее")]), e._v(" "), s("div", {
                         staticClass: "others"
-                    }, [e._v("\n                您也可以"), s("router-link", {
+                    }, [e._v("\n                Вы также можете "), s("router-link", {
                         attrs: {
                             tag: "a",
                             to: {
@@ -750,7 +750,7 @@ webpackJsonp([0, 20], {
                         staticStyle: {
                             "text-align": "center"
                         }
-                    }, [e._v("当前为DHCP模式，您也可以选择其他模式 "), s("a", {
+                    }, [e._v("当前为DHCP模式，Вы также можете 选择其他模式 "), s("a", {
                         attrs: {
                             href: ""
                         },

@@ -154,7 +154,7 @@ webpackJsonp([17], {
                         }
                     }), t._v(" "), a("text", {
                         attrs: {
-                            id: "欢迎使用Redmi路由器",
+                            id: "欢迎使用Redmi Xiaomi AX5",
                             "font-family": "MI-LANTING--GBK1-Light, MI LANTING",
                             "font-size": "54",
                             "font-weight": "300",
@@ -165,7 +165,7 @@ webpackJsonp([17], {
                             x: "1.8",
                             y: "232.4"
                         }
-                    }, [t._v("欢迎使用Redmi路由器")])])])])])]), t._v(" "), a("div", {
+                    }, [t._v("欢迎使用Redmi Xiaomi AX5")])])])])])]), t._v(" "), a("div", {
                         staticClass: "footer width100"
                     }, [a("div", {
                         staticClass: "user"
@@ -183,7 +183,7 @@ webpackJsonp([17], {
                             },
                             expression: "userProtocol"
                         }
-                    }), t._v(" "), a("span", [t._v("已阅读并同意Redmi路由器")]), t._v(" "), a("a", {
+                    }), t._v(" "), a("span", [t._v("已阅读并同意Redmi Xiaomi AX5")]), t._v(" "), a("a", {
                         attrs: {
                             href: "javascript:void(0)"
                         },
