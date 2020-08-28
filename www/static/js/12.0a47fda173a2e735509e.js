@@ -168,24 +168,24 @@ webpackJsonp([12], {
                 methods: {
                     getHardware: function(t) {
                         this.routerInfo.routerModel = {
-                            R1D: "小米路由器",
-                            R2D: "小米路由器2",
-                            R3D: "小米路由器HD",
-                            R1CM: "小米路由器MINI",
-                            R1CL: "小米路由器青春版",
-                            R3: "小米路由器3",
-                            R3L: "小米路由器3C",
-                            R3P: "小米路由器3 Pro",
-                            R3A: "小米路由器3A",
-                            R3G: "小米路由器3G",
-                            R4: "小米路由器4",
-                            R4C: "小米路由器4C",
-                            R4CM: "小米路由器4CM",
-                            D01: "小米路由器D01",
-                            R4A: "小米路由器4A千兆版",
-                            R2100: "小米路由器AC2100",
+                            R1D: "Router Xiaomi",
+                            R2D: "Router Xiaomi 2",
+                            R3D: "Router Xiaomi HD",
+                            R1CM: "Router Xiaomi MINI",
+                            R1CL: "Router Xiaomi Youth Edition",
+                            R3: "Router Xiaomi 3",
+                            R3L: "Router Xiaomi 3C",
+                            R3P: "Router Xiaomi 3 Pro",
+                            R3A: "Router Xiaomi 3A",
+                            R3G: "Router Xiaomi 3G",
+                            R4: "Router Xiaomi 4",
+                            R4C: "Router Xiaomi 4C",
+                            R4CM: "Router Xiaomi 4CM",
+                            D01: "Router Xiaomi D01",
+                            R4A: "Router Xiaomi 4A Gigabit Edition",
+                            R2100: "Router Xiaomi AC2100",
                             RM2100: "Redmi AC2100",
-                            RM1800: "Redmi Xiaomi AX5AX1800",
+                            RM1800: "Redmi Xiaomi AX1800",
                             RA67: "Redmi Xiaomi AX5 AX5"
                         } [t.platform], this.routerInfo.macAddr = t.mac, this.routerInfo.ROMversion = t.version, this.routerInfo.sn = t.sn
                     },
@@ -256,49 +256,49 @@ webpackJsonp([12], {
                         staticClass: "headertop"
                     }, [s("Header", {
                         attrs: {
-                            name: "运行状态详情"
+                            name: "Информация"
                         }
                     })], 1), t._v(" "), s("div", {
                         staticClass: "content"
                     }, [s("div", {
                         staticClass: "tit"
-                    }, [t._v("\n      网络状态\n    ")]), t._v(" "), s("ul", [t._m(0), t._v(" "), "apmode" != t.wifiType ? s("li", [s("div", {
+                    }, [t._v("\n      Интернет\n    ")]), t._v(" "), s("ul", [t._m(0), t._v(" "), "apmode" != t.wifiType ? s("li", [s("div", {
                         staticClass: "name"
                     }, [t._v("\n          IP адрес\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.statusData.ip.address) + "\n        ")])]) : t._e(), t._v(" "), "apmode" != t.wifiType ? s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          DNS服务器\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Сервер DNS\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, t._l(t.statusData.dns, function(e) {
                         return s("span", [t._v("\n            " + t._s(e) + "\n      ")])
                     }), 0)]) : t._e()]), t._v(" "), s("div", {
                         staticClass: "tit"
-                    }, [t._v("\n      路由信息\n    ")]), t._v(" "), s("ul", [s("li", [s("div", {
+                    }, [t._v("\n      Устройство\n    ")]), t._v(" "), s("ul", [s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          路由器型号\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Модель\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.routerModel) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          系统ROM版本\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Версия прошивки\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.ROMversion) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          系统运行时长\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Время работы\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.runTime) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          MAC地址\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          MAC адрес\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.macAddr) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          SN\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Серийный номер\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.sn) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          终端设备\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Устройства\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
-                    }, [t._v("\n          " + t._s(t.routerData.count.online) + "台\n        ")])])])]), t._v(" "), s("Toast", {
+                    }, [t._v("\n          " + t._s(t.routerData.count.online) + "шт.\n        ")])])])]), t._v(" "), s("Toast", {
                         ref: "tip"
                     })], 1)
                 },
@@ -307,9 +307,9 @@ webpackJsonp([12], {
                         e = this._self._c || t;
                     return e("li", [e("div", {
                         staticClass: "name"
-                    }, [this._v("\n          上网状态\n        ")]), this._v(" "), e("div", {
+                    }, [this._v("\n          Интернет\n        ")]), this._v(" "), e("div", {
                         staticClass: "desp"
-                    }, [this._v("\n          成功Подключить Интернет\n        ")])])
+                    }, [this._v("\n          Подключен\n        ")])])
                 }]
             };
         var v = s("VU/8")(u, d, !1, function(t) {

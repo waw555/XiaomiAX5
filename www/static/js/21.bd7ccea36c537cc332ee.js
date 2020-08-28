@@ -256,7 +256,7 @@ webpackJsonp([21], {
                         s = this._self._c || t;
                     return s("div", {
                         staticClass: "desp"
-                    }, [this._v("\n            运行状态详情"), s("span", {
+                    }, [this._v("\n            Информация"), s("span", {
                         staticClass: "iconfont icon-fanhui"
                     })])
                 }, function() {
