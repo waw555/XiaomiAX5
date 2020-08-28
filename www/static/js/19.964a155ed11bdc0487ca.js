@@ -36,20 +36,20 @@ webpackJsonp([19], {
                         staticClass: "cont"
                     }, [s("div", {
                         staticClass: "connect"
-                    }, [t._v("\n            您已Подключен\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n            Подключен\n        ")]), t._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [t._v("\n            下载小米WiFi APP, 随时随地管理你的路由器\n        ")]), t._v(" "), t._m(1), t._v(" "), s("div", {
+                    }, [t._v("\n            Рекомендуется установить приложение Xiaomi WiFi, чтобы управлять маршрутизатором в любое время и в любом месте.\n        ")]), t._v(" "), t._m(1), t._v(" "), s("div", {
                         staticClass: "desc_app"
-                    }, [t._v("\n            小米WiFi APP\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n            Приложение Xiaomi WiFi\n        ")]), t._v(" "), s("div", {
                         staticClass: "download",
                         on: {
                             click: t.downloadEvent
                         }
                     }, [s("div", {
                         staticClass: "down"
-                    }, [t._v("\n                一键下载\n            ")]), t._v(" "), s("div", {
+                    }, [t._v("\n                Скачать\n            ")]), t._v(" "), s("div", {
                         staticClass: "desc_down"
-                    }, [t._v("\n                小米WiFi APP\n            ")])])])])
+                    }, [t._v("\n                Приложение Xiaomi WiFi\n            ")])])])])
                 },
                 staticRenderFns: [function() {
                     var t = this.$createElement,

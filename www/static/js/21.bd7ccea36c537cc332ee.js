@@ -215,7 +215,7 @@ webpackJsonp([21], {
                         on: {
                             click: t.downloadEvent
                         }
-                    }, [t._v("下载小米WiFi App")]), i("span", {
+                    }, [t._v("下载Приложение Xiaomi WiFi")]), i("span", {
                         staticClass: "desc"
                     }, [t._v("畅想更多贴心智能功能")])])]), t._v(" "), t.gotopc ? i("div", {
                         staticClass: "senior"
