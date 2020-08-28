@@ -101,31 +101,31 @@ webpackJsonp([23], {
                             pppoePassword: "..."
                         },
                         operator_lists: [{
-                            name: "中国电信",
+                            name: "China Telecom",
                             tel: "10000"
                         }, {
-                            name: "中国联通",
+                            name: "China Unicom",
                             tel: "10010"
                         }, {
-                            name: "中国移动",
+                            name: "China Mobile",
                             tel: "10086"
                         }, {
-                            name: "中国铁通",
+                            name: "China Railcom",
                             tel: "10050"
                         }, {
-                            name: "歌华有线",
+                            name: "Gehua Cable",
                             tel: "96196"
                         }, {
-                            name: "宽带通",
+                            name: "Broadband",
                             tel: "96007"
                         }, {
-                            name: "长城宽带",
+                            name: "Great Wall Broadband",
                             tel: "95079"
                         }, {
-                            name: "东方有线",
+                            name: "Oriental Cable",
                             tel: "96877"
                         }, {
-                            name: "华数宽带",
+                            name: "Huashu Broadband",
                             tel: "0571-96171"
                         }]
                     }
@@ -198,11 +198,11 @@ webpackJsonp([23], {
                         on: {
                             click: t.goOperator
                         }
-                    }, [t._v("联系Провайдеру")])])])], 1) : t._e(), t._v(" "), 2 === t.step ? a("div", {
+                    }, [t._v("Позвонить Провайдеру")])])])], 1) : t._e(), t._v(" "), 2 === t.step ? a("div", {
                         staticClass: "telephone"
                     }, [a("Headers", {
                         attrs: {
-                            name: "运营商通讯录",
+                            name: "Список Провайдеров",
                             step: t.step,
                             fontsize: "index"
                         },
