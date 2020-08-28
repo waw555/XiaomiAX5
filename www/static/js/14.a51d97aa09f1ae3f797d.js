@@ -139,7 +139,7 @@ webpackJsonp([14], {
                     return {
                         count: 0,
                         value: 0,
-                        statusText: "路由系统检测中...",
+                        statusText: "Диагностика системы маршрутизации...",
                         interval: null,
                         counter: null,
                         canceled: !1
@@ -148,7 +148,7 @@ webpackJsonp([14], {
                 created: function() {
                     var t = this;
                     this.counter = setInterval(function() {
-                        t.value >= 99 && clearInterval(t.counter), t.value >= 3 && (t.statusText = "路由系统状态正常"), t.status >= 7 && (t.statusText = "路由器外网检测中..."), t.value >= 17 && (t.statusText = "WAN或Internet口状态检测中..."), t.value >= 27 && (t.statusText = "上网模式检测中..."), t.value >= 37 && (t.statusText = "DNS解析能力检测中..."), t.value++
+                        t.value >= 99 && clearInterval(t.counter), t.value >= 3 && (t.statusText = "Система маршрутизации в нормальном состоянии"), t.status >= 7 && (t.statusText = "Обнаружение внешней сети маршрутизатора..."), t.value >= 17 && (t.statusText = "Определение статуса WAN порта или LAN порта..."), t.value >= 27 && (t.statusText = "Обнаружение внешней сети..."), t.value >= 37 && (t.statusText = "Проверка DNS сервера..."), t.value++
                     }, 303), this.netDiagnosis()
                 },
                 components: {
@@ -328,7 +328,7 @@ webpackJsonp([14], {
                         staticClass: "headertop"
                     }, [a("Header", {
                         attrs: {
-                            name: "网络诊断中"
+                            name: "Диагностика сети"
                         }
                     })], 1), t._v(" "), a("div", {
                         staticClass: "value"
@@ -351,9 +351,9 @@ webpackJsonp([14], {
                         on: {
                             click: t.cancelDiagnosis
                         }
-                    }, [t._v("\n      取消诊断\n    ")]), t._v(" "), a("div", {
+                    }, [t._v("\n      Отменить\n    ")]), t._v(" "), a("div", {
                         staticClass: "desc"
-                    }, [t._v("诊断过程预计需要50秒，请耐心等待")])]), t._v(" "), a("Toast", {
+                    }, [t._v("Процесс диагностики занимает примерно 1 минуту. подождите...")])]), t._v(" "), a("Toast", {
                         ref: "tip"
                     })], 1)
                 },
