@@ -798,35 +798,35 @@ webpackJsonp([4], {
                         staticClass: "desc"
                     }, [e._v("\n              1. Выключите маршрутизатор и отключите сетевой кабель от маршрутизатора. Подождите 10 минут. Подключите сетевой кабель к маршрутизатору и включите маршрутизатор.\n\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
+                    }, [e._v("\n              2. Если Интернет по прежнему не работает, обратитесь к своему "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("Провайдеру")]), e._v("Принять账号情况\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
+                    }, [e._v("Провайдеру")]), e._v("Сохранить\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
                         staticClass: "error-tip"
-                    }, [s("div", {}, [e._v("\n             运营商接口返回错误（错误码：" + e._s(e.pppoeErrorCode) + "）\n          ")]), e._v(" "), s("div", {
+                    }, [s("div", {}, [e._v("\n             Оборудование провайдера возвращает ошибку. Код ошибки: " + e._s(e.pppoeErrorCode) + "）\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              1. Выключите маршрутизатор и отключите сетевой кабель от маршрутизатора. Подождите 10 минут. Подключите сетевой кабель к маршрутизатору и включите маршрутизатор.\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
+                    }, [e._v("\n              2. Если Интернет по прежнему не работает, обратитесь к своему "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
                     }, [e._v("Провайдеру")])])]) : e._e(), e._v(" "), "oldRouter" == e.from ? s("div", {}) : s("div", {}, [0 == e.errorType ? s("div", {
                         staticClass: "forget"
-                    }, [s("ul", [s("li", [e._v("忘记账号密码？")]), e._v(" "), s("li", [e._v("请联系 "), s("span", {
+                    }, [s("ul", [s("li", [e._v("Забыли логин или пароль?")]), e._v(" "), s("li", [e._v("Обратитесь к своему  "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("Провайдеру")]), e._v(" 或者 "), s("span", {
+                    }, [e._v("Провайдеру")]), e._v(" или "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.getAccFromOld
                         }
-                    }, [e._v("一键从旧路由器获取账号密码")])])])]) : e._e()]), e._v(" "), e.showBtn ? s("div", {
+                    }, [e._v("Получить имя пользователя и пароль от старого маршрутизатора в один клик")])])])]) : e._e()]), e._v(" "), e.showBtn ? s("div", {
                         staticClass: "footer width100"
                     }, [s("button", {
                         staticClass: "button",
@@ -840,7 +840,7 @@ webpackJsonp([4], {
                         on: {
                             click: e.selectModel
                         }
-                    }, [e._v("无需拨号")])])]) : e._e()], 1)], 1)]) : 2 == e.type ? s("WifiInput", {
+                    }, [e._v("Не подключать")])])]) : e._e()], 1)], 1)]) : 2 == e.type ? s("WifiInput", {
                         attrs: {
                             showBtn: e.showBtn
                         },
@@ -853,7 +853,7 @@ webpackJsonp([4], {
                         }
                     }) : s("Loading", {
                         attrs: {
-                            desc: "设置中..."
+                            desc: "Подождите..."
                         }
                     }), e._v(" "), s("Toast", {
                         ref: "tip"
