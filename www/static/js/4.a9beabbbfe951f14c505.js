@@ -21,7 +21,7 @@ webpackJsonp([4], {
                         routerPwd: null,
                         wifi: {
                             name: "",
-                            locale: "家",
+                            locale: "Дом",
                             ssid: "",
                             password: null,
                             encryption: "mixed-psk",
@@ -133,7 +133,7 @@ webpackJsonp([4], {
                         attrs: {
                             type: "text",
                             name: "name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             autocomplete: "off",
                             checklength: "",
                             required: "",
@@ -246,7 +246,7 @@ webpackJsonp([4], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [e._v("*请输入数字、英文字母或英文字符")]), e._v(" "), s("div", {
+                    }, [e._v("* Используйте только цифры, латинские буквы и символы.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -259,7 +259,7 @@ webpackJsonp([4], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "管理密码设置"
+                            name: "Параметры пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -285,7 +285,7 @@ webpackJsonp([4], {
                         }],
                         attrs: {
                             name: "routerPwd",
-                            placeholder: "请设置管理密码，至少8位",
+                            placeholder: "* Пароль доступа к Панели управления, должен содержать не менее 8 символов.",
                             type: e.Router_passtype,
                             wifipassword: "",
                             minlength: "8",
@@ -330,22 +330,22 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*路由器管理密码不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [e._v("*路由器管理密码不少于8位")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не менее 8 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [e._v("*路由器管理密码不多于63位")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не более 63 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [e._v("*请输入数字、英文字母或英文字符文")])]), e._v(" "), s("ul", {
+                    }, [e._v("* Используйте только цифры, латинские буквы и символы.文")])]), e._v(" "), s("ul", {
                         staticClass: "checkboxs"
                     }, [s("li", [s("CheckBox", {
                         attrs: {
@@ -374,14 +374,14 @@ webpackJsonp([4], {
                             },
                             expression: "wifi.update"
                         }
-                    }), e._v("路由空闲时为您自动升级固件版本，以便提供更好体验")], 1)])], 1), e._v(" "), e.showBtn ? s("div", {
+                    }), e._v("Автоматическое обновление версии прошивки, когда маршрутизатор находится в режиме ожидания.")], 1)])], 1), e._v(" "), e.showBtn ? s("div", {
                         staticClass: "footer width40"
                     }, [s("button", {
                         staticClass: "button",
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("下一步")])]) : e._e()])
+                    }, [e._v("Далее")])]) : e._e()])
                 },
                 staticRenderFns: []
             };
@@ -587,7 +587,7 @@ webpackJsonp([4], {
                                         }, s.next = 4, t.axios.upgrade(r);
                                     case 4:
                                         return s.sent, (a = {
-                                            locale: "家",
+                                            locale: "Дом",
                                             name: e.wifi.name,
                                             ssid: e.wifi.name,
                                             password: e.wifi.password,
@@ -672,7 +672,7 @@ webpackJsonp([4], {
                         }
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "请输入宽带运营商提供的账号密码"
+                            name: "Пожалуйста, введите пароль, предоставленный Провайдером."
                         }
                     }), e._v(" "), s("validate", {
                         attrs: {
@@ -721,7 +721,7 @@ webpackJsonp([4], {
                         attrs: {
                             for: "passwd"
                         }
-                    }, [e._v("宽带密码")]), e._v(" "), s("input", {
+                    }, [e._v("Пароль")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -732,7 +732,7 @@ webpackJsonp([4], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请输入宽带密码",
+                            placeholder: "请输入Пароль",
                             name: "passwd",
                             type: e.switchpass,
                             required: ""
@@ -766,7 +766,7 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*宽带密码不能为空")])]), e._v(" "), s("field-messages", {
+                    }, [e._v("*Пароль不能为空")])]), e._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "name"
@@ -792,36 +792,36 @@ webpackJsonp([4], {
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("宽带运营商")])])]) : e._e(), e._v(" "), 2 == e.errorType ? s("div", {
+                    }, [e._v("Провайдеру")])])]) : e._e(), e._v(" "), 2 == e.errorType ? s("div", {
                         staticClass: "error-tip"
                     }, [s("div", {}, [e._v("\n             " + e._s(this.pppoeErrorMsg || "同一账号重复登录（错误码：678）") + "\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/家庭网关断电重启，10分钟后重新进行初始化。\n\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("宽带运营商")]), e._v("确认账号情况\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
+                    }, [e._v("Провайдеру")]), e._v("确认账号情况\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
                         staticClass: "error-tip"
                     }, [s("div", {}, [e._v("\n             运营商接口返回错误（错误码：" + e._s(e.pppoeErrorCode) + "）\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/家庭网关断电重启，10分钟后重新进行初始化。\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("宽带运营商")])])]) : e._e(), e._v(" "), "oldRouter" == e.from ? s("div", {}) : s("div", {}, [0 == e.errorType ? s("div", {
+                    }, [e._v("Провайдеру")])])]) : e._e(), e._v(" "), "oldRouter" == e.from ? s("div", {}) : s("div", {}, [0 == e.errorType ? s("div", {
                         staticClass: "forget"
                     }, [s("ul", [s("li", [e._v("忘记账号密码？")]), e._v(" "), s("li", [e._v("请联系 "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("宽带运营商")]), e._v(" 或者 "), s("span", {
+                    }, [e._v("Провайдеру")]), e._v(" 或者 "), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.getAccFromOld
@@ -833,7 +833,7 @@ webpackJsonp([4], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("下一步")]), e._v(" "), s("div", {
+                    }, [e._v("Далее")]), e._v(" "), s("div", {
                         staticClass: "bottom"
                     }, [s("span", {
                         staticClass: "blue",
@@ -849,7 +849,7 @@ webpackJsonp([4], {
                         }
                     }) : 3 == e.type ? s("Loading", {
                         attrs: {
-                            desc: "正在拨号，请耐心等待..."
+                            desc: "Соединение, подождите..."
                         }
                     }) : s("Loading", {
                         attrs: {

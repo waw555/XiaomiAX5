@@ -104,7 +104,7 @@ webpackJsonp([25], {
                         tit: "请选择上网连接类型",
                         wan_type: "正在检测",
                         inter_lists: [{
-                            tit1: "宽带账号上网",
+                            tit1: "Имя пользователя上网",
                             tit2: "PPPOE",
                             href: "#/pppoe"
                         }, {
@@ -184,7 +184,7 @@ webpackJsonp([25], {
                     }, [s("Headers", {
                         staticClass: "header",
                         attrs: {
-                            name: "上网设置",
+                            name: "Параметры Интернета",
                             step: t.step,
                             fontsize: "index"
                         },

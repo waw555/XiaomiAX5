@@ -330,7 +330,7 @@ webpackJsonp([5], {
                         staticClass: "allWifi"
                     }, [s("p", {
                         staticClass: "p1"
-                    }, [t._v("提示：修改Wi-Fi名称或密码后，需重新连接Wi-Fi")]), t._v(" "), s("div", {
+                    }, [t._v("Подсказка：修改Wi-Fi名称或密码后，需重新连接Wi-Fi")]), t._v(" "), s("div", {
                         staticClass: "wifi"
                     }, [s("vue-form", {
                         staticClass: "width100",
@@ -390,7 +390,7 @@ webpackJsonp([5], {
                         }],
                         attrs: {
                             id: "input2450name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             type: "text",
                             name: "name2450",
                             checklength: "",
@@ -516,7 +516,7 @@ webpackJsonp([5], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("*请输入数字、英文字母或英文字符")]), t._v(" "), s("div", {
+                    }, [t._v("* Используйте только цифры, латинские буквы и символы.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -605,7 +605,7 @@ webpackJsonp([5], {
                         }],
                         attrs: {
                             id: "input24name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             type: "text",
                             name: "name24",
                             checklength: "",
@@ -731,7 +731,7 @@ webpackJsonp([5], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("*请输入数字、英文字母或英文字符")]), t._v(" "), s("div", {
+                    }, [t._v("* Используйте только цифры, латинские буквы и символы.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -939,7 +939,7 @@ webpackJsonp([5], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("*请输入数字、英文字母或英文字符")]), t._v(" "), s("div", {
+                    }, [t._v("* Используйте только цифры, латинские буквы и символы.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -1036,15 +1036,15 @@ webpackJsonp([5], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Описание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Принять"
                     }
                 },
                 data: function() {

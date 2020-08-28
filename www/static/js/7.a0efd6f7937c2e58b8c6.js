@@ -33,7 +33,7 @@ webpackJsonp([7, 20], {
                         routerPwd: null,
                         wifi: {
                             name: "Xiaomi_1A1A",
-                            locale: "家",
+                            locale: "Дом",
                             ssid: "",
                             password: null,
                             encryption: "mixed-psk",
@@ -475,7 +475,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("下一步")])])]), t._v(" "), s("vue-form", {
+                    }, [t._v("Далее")])])]), t._v(" "), s("vue-form", {
                         staticClass: "width100",
                         attrs: {
                             state: t.formstate2
@@ -634,7 +634,7 @@ webpackJsonp([7, 20], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("*请输入数字、英文字母或英文字符")]), t._v(" "), s("div", {
+                    }, [t._v("* Используйте только цифры, латинские буквы и символы.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -647,7 +647,7 @@ webpackJsonp([7, 20], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "管理密码设置"
+                            name: "Параметры пароля"
                         }
                     }), t._v(" "), s("validate", {
                         directives: [{
@@ -673,7 +673,7 @@ webpackJsonp([7, 20], {
                         }],
                         attrs: {
                             name: "routerPwd",
-                            placeholder: "请设置管理密码，至少8位",
+                            placeholder: "* Пароль доступа к Панели управления, должен содержать не менее 8 символов.",
                             type: t.Router_passtype,
                             wifipassword: "",
                             minlength: "8",
@@ -718,22 +718,22 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*路由器管理密码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль доступа к Панели управления не может быть пустым.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("*路由器管理密码不少于8位")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль доступа к Панели управления, должен содержать не менее 8 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("*路由器管理密码不多于63位")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль доступа к Панели управления, должен содержать не более 63 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [t._v("*请输入数字、英文字母或英文字符")])]), t._v(" "), s("ul", {
+                    }, [t._v("* Используйте только цифры, латинские буквы и символы.")])]), t._v(" "), s("ul", {
                         staticClass: "checkboxs"
                     }, [s("li", [s("CheckBox", {
                         attrs: {
@@ -762,7 +762,7 @@ webpackJsonp([7, 20], {
                             },
                             expression: "update"
                         }
-                    }), t._v("路由空闲时为您自动升级固件版本，以便提供更好体验")], 1)]), t._v(" "), 2 === t.step ? s("div", {
+                    }), t._v("Автоматическое обновление версии прошивки, когда маршрутизатор находится в режиме ожидания.")], 1)]), t._v(" "), 2 === t.step ? s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -778,7 +778,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("下一步")])]) : t._e()], 1)])], 1), t._v(" "), s("div", {
+                    }, [t._v("Далее")])]) : t._e()], 1)])], 1), t._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",

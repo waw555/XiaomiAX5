@@ -52,7 +52,7 @@ webpackJsonp([27], {
                         staticClass: "container"
                     }, [n("Header", {
                         attrs: {
-                            name: "宽带运营商"
+                            name: "Провайдеру"
                         }
                     }), t._v(" "), n("ul", {
                         staticClass: "operators"

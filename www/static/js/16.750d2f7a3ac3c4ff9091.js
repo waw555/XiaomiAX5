@@ -12,15 +12,15 @@ webpackJsonp([16], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Описание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Принять"
                     }
                 },
                 data: function() {
@@ -71,7 +71,7 @@ webpackJsonp([16], {
                     return {
                         title: "光猫或其他上级设备故障",
                         message: "检查光猫或其他上级设备的面板上所有灯是否都是绿灯常亮，如果红灯闪烁请检查线路是否正常。",
-                        button: "好的"
+                        button: "Принять"
                     }
                 },
                 methods: {
@@ -151,7 +151,7 @@ webpackJsonp([16], {
                                 return e.preventDefault(), t.gotoOperators(e)
                             }
                         }
-                    }, [t._v("宽带运营商")])])]), t._v(" "), s("p", {
+                    }, [t._v("Провайдеру")])])]), t._v(" "), s("p", {
                         staticClass: "button",
                         on: {
                             click: t.tryAgain

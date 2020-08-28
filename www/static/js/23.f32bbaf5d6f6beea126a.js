@@ -173,7 +173,7 @@ webpackJsonp([23], {
                         staticClass: "bandwidth"
                     }, [a("Headers", {
                         attrs: {
-                            name: "宽带账号信息",
+                            name: "Имя пользователя信息",
                             step: t.step,
                             fontsize: "index"
                         },
@@ -184,21 +184,21 @@ webpackJsonp([23], {
                         staticClass: "band_account main"
                     }, [a("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          仅在宽带账号上网模式下展示账号密码等信息\n        ")]), t._v(" "), a("ul", [a("li", [a("label", {
+                    }, [t._v("\n          仅在Имя пользователя上网模式下展示账号密码等信息\n        ")]), t._v(" "), a("ul", [a("li", [a("label", {
                         attrs: {
                             for: ""
                         }
-                    }, [t._v("宽带账号")]), t._v(" "), a("span", [t._v(t._s(t.pppoe.pppoeName))])]), t._v(" "), a("li", [a("label", {
+                    }, [t._v("Имя пользователя")]), t._v(" "), a("span", [t._v(t._s(t.pppoe.pppoeName))])]), t._v(" "), a("li", [a("label", {
                         attrs: {
                             for: ""
                         }
-                    }, [t._v("宽带密码")]), t._v(" "), a("span", [t._v(t._s(t.pppoe.pppoePassword))])])]), t._v(" "), a("p", {
+                    }, [t._v("Пароль")]), t._v(" "), a("span", [t._v(t._s(t.pppoe.pppoePassword))])])]), t._v(" "), a("p", {
                         staticClass: "link"
                     }, [a("a", {
                         on: {
                             click: t.goOperator
                         }
-                    }, [t._v("联系宽带运营商")])])])], 1) : t._e(), t._v(" "), 2 === t.step ? a("div", {
+                    }, [t._v("联系Провайдеру")])])])], 1) : t._e(), t._v(" "), 2 === t.step ? a("div", {
                         staticClass: "telephone"
                     }, [a("Headers", {
                         attrs: {

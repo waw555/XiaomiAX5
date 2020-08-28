@@ -64,12 +64,12 @@ webpackJsonp([18], {
                         on: {
                             click: t.operators
                         }
-                    }, [t._v("宽带运营商")])])]), t._v(" "), n("button", {
+                    }, [t._v("Провайдеру")])])]), t._v(" "), n("button", {
                         staticClass: "foot",
                         on: {
                             click: t.retry
                         }
-                    }, [t._v("返回主界面")])])])])
+                    }, [t._v("На Главную")])])])])
                 },
                 staticRenderFns: []
             };

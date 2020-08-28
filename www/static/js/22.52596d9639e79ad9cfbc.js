@@ -164,15 +164,15 @@ webpackJsonp([22], {
                         staticClass: "container"
                     }, [n("Header", {
                         attrs: {
-                            name: "宽带运营商"
+                            name: "Провайдеру"
                         }
                     }), t._v(" "), n("div", {
                         staticClass: "desc"
-                    }, [t._v("\n    仅在宽带账号上网模式下展示账号密码等信息\n  ")]), t._v(" "), n("ul", {
+                    }, [t._v("\n    仅在Имя пользователя上网模式下展示账号密码等信息\n  ")]), t._v(" "), n("ul", {
                         staticClass: "account"
-                    }, [n("li", [t._v("宽带账号\n      "), n("div", {
+                    }, [n("li", [t._v("Имя пользователя\n      "), n("div", {
                         staticClass: "broad"
-                    }, [t._v("\n        " + t._s(t.pppoe.pppoeName) + "\n      ")])]), t._v(" "), n("li", [t._v("宽带密码\n      "), n("div", {
+                    }, [t._v("\n        " + t._s(t.pppoe.pppoeName) + "\n      ")])]), t._v(" "), n("li", [t._v("Пароль\n      "), n("div", {
                         staticClass: "broad"
                     }, [t._v("\n        " + t._s(t.pppoe.pppoePassword) + "\n      ")])])]), t._v(" "), n("ul", {
                         staticClass: "operators"

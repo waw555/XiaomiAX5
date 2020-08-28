@@ -131,15 +131,15 @@ webpackJsonp([1], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Описание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Принять"
                     }
                 },
                 data: function() {
@@ -243,7 +243,7 @@ webpackJsonp([1], {
                         routerPwd: null,
                         wifi: {
                             name: "",
-                            locale: "家",
+                            locale: "Дом",
                             ssid: "",
                             password: null,
                             encryption: "mixed-psk",
@@ -333,7 +333,7 @@ webpackJsonp([1], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "WiFi设置"
+                            name: "Параметры Wi-Fi"
                         }
                     }), e._v(" "), s("validate", {
                         attrs: {
@@ -345,7 +345,7 @@ webpackJsonp([1], {
                         attrs: {
                             for: "name"
                         }
-                    }, [e._v("WiFi名称:")]), e._v(" "), s("input", {
+                    }, [e._v("Имя Wi-Fi")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -358,7 +358,7 @@ webpackJsonp([1], {
                         attrs: {
                             type: "text",
                             name: "name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             autocomplete: "off",
                             checklength: "",
                             required: ""
@@ -384,7 +384,7 @@ webpackJsonp([1], {
                         attrs: {
                             for: "name"
                         }
-                    }, [e._v("WiFi密码:")]), e._v(" "), s("input", {
+                    }, [e._v("Пароль Wi-Fi:")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -395,7 +395,7 @@ webpackJsonp([1], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请设置WiFi密码，至少8位",
+                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
                             name: "password",
                             autocomplete: "off",
                             type: e.passtype,
@@ -436,12 +436,12 @@ webpackJsonp([1], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*WiFi名称不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Имя WiFi не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [e._v("*WiFi名称最多28字节")])]), e._v(" "), s("field-messages", {
+                    }, [e._v("* Имя WiFi должно быть не более 28 символов.")])]), e._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password",
@@ -452,22 +452,22 @@ webpackJsonp([1], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*WiFi密码不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль WiFi не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [e._v("*WiFi密码不少于8位")]), e._v(" "), s("div", {
+                    }, [e._v("Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [e._v("*WiFi密码不多于63位")]), e._v(" "), s("div", {
+                    }, [e._v("Длина пароля Wi-Fi, должна быть не более 63 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [e._v("*请输入数字、英文字母或英文字符")])]), e._v(" "), s("Subtitle", {
+                    }, [e._v("* Используйте только цифры, латинские буквы и символы.")])]), e._v(" "), s("Subtitle", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -475,7 +475,7 @@ webpackJsonp([1], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "管理密码设置"
+                            name: "Параметры пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -501,7 +501,7 @@ webpackJsonp([1], {
                         }],
                         attrs: {
                             name: "routerPwd",
-                            placeholder: "请设置管理密码，至少8位",
+                            placeholder: "* Пароль доступа к Панели управления, должен содержать не менее 8 символов.",
                             type: e.Router_passtype,
                             wifipassword: "",
                             minlength: "8",
@@ -546,22 +546,22 @@ webpackJsonp([1], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*路由器管理密码不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [e._v("*路由器管理密码不少于8位")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не менее 8 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [e._v("*路由器管理密码不多于63位")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не более 63 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [e._v("*请输入数字、英文字母或英文字符")])]), e._v(" "), s("ul", {
+                    }, [e._v("* Используйте только цифры, латинские буквы и символы.")])]), e._v(" "), s("ul", {
                         staticClass: "checkboxs"
                     }, [s("li", [s("CheckBox", {
                         attrs: {
@@ -575,7 +575,7 @@ webpackJsonp([1], {
                             },
                             expression: "sameRouterPwd"
                         }
-                    }), e._v("将WiFi密码作为路由器管理密码")], 1), e._v(" "), s("li", [s("CheckBox", {
+                    }), e._v("Использовать пароль Wi-Fi в качестве пароля доступа к Панели управления?")], 1), e._v(" "), s("li", [s("CheckBox", {
                         attrs: {
                             name: "update",
                             value: "update"
@@ -590,14 +590,14 @@ webpackJsonp([1], {
                             },
                             expression: "wifi.update"
                         }
-                    }), e._v("路由空闲时为您自动升级固件版本，以便提供更好体验")], 1)])], 1), e._v(" "), e.showBtn ? s("div", {
+                    }), e._v("Автоматическое обновление версии прошивки, когда маршрутизатор находится в режиме ожидания.")], 1)])], 1), e._v(" "), e.showBtn ? s("div", {
                         staticClass: "footer width40"
                     }, [s("button", {
                         staticClass: "button",
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("下一步")])]) : e._e()])
+                    }, [e._v("Далее")])]) : e._e()])
                 },
                 staticRenderFns: []
             };
@@ -621,7 +621,7 @@ webpackJsonp([1], {
                         type: 1,
                         pppoe_type: "at",
                         pppoe_input_show: !1,
-                        tit: "请输入宽带运营商提供的账号密码",
+                        tit: "Пожалуйста, введите пароль, предоставленный Провайдером.",
                         inputShow: !0,
                         login: "",
                         password: "",
@@ -644,9 +644,9 @@ webpackJsonp([1], {
                             dns2: null
                         },
                         dialog_data: {
-                            tit: "提示",
-                            message: "请输入账号或密码",
-                            button: "好的"
+                            tit: "Подсказка",
+                            message: "Введите имя пользователя или пароль.",
+                            button: "Принять"
                         },
                         clientHeight: document.documentElement.clientHeight,
                         position: "absolute"
@@ -670,10 +670,10 @@ webpackJsonp([1], {
                         if (!this.login || !this.password) return this.err_msg = !0, setTimeout(function() {
                             e.err_msg = !1
                         }, 2e3), !1;
-                        if ("at" == this.pppoe_type) console.log("走自动的逻辑"), this.type = 2, this.postPppoe("at");
+                        if ("at" == this.pppoe_type) console.log("Автоматический режим"), this.type = 2, this.postPppoe("at");
                         else {
-                            if (this.formstate.$invalid) return console.log("不满足条件不走"), !1;
-                            console.log("走手动的逻辑"), this.type = 2, this.postPppoe("mt")
+                            if (this.formstate.$invalid) return console.log("Не соответствует условиям."), !1;
+                            console.log("Ручной режим"), this.type = 2, this.postPppoe("mt")
                         }
                         this.common.setCookie("login", this.login), this.common.setCookie("password", this.password)
                     },
@@ -770,7 +770,7 @@ webpackJsonp([1], {
                         }],
                         staticClass: "header",
                         attrs: {
-                            name: "上网设置"
+                            name: "Параметры Интернета"
                         },
                         on: {
                             goBack: e.handleBack
@@ -788,7 +788,7 @@ webpackJsonp([1], {
                         staticClass: "all-input"
                     }, [o("div", {
                         staticClass: "input one"
-                    }, [o("span", [e._v("宽带账号")]), e._v(" "), o("input", {
+                    }, [o("span", [e._v("Имя пользователя")]), e._v(" "), o("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model",
@@ -810,7 +810,7 @@ webpackJsonp([1], {
                         }
                     })]), e._v(" "), o("div", {
                         staticClass: "input two"
-                    }, [o("span", [e._v("宽带密码")]), e._v(" "), "checkbox" === e.passtype ? o("input", {
+                    }, [o("span", [e._v("Пароль")]), e._v(" "), "checkbox" === e.passtype ? o("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model",
@@ -894,9 +894,9 @@ webpackJsonp([1], {
                             expression: "err_msg"
                         }],
                         staticClass: "p3"
-                    }, [e._v("请输入账号或者密码")])]), e._v(" "), o("p", {
+                    }, [e._v("Ввыедите имя пользователя или пароль.")])]), e._v(" "), o("p", {
                         staticClass: "p1"
-                    }, [e._v("DNS配置")]), e._v(" "), o("select", {
+                    }, [e._v("Параметры DNS")]), e._v(" "), o("select", {
                         directives: [{
                             name: "model",
                             rawName: "v-model",
@@ -918,11 +918,11 @@ webpackJsonp([1], {
                         attrs: {
                             value: "at"
                         }
-                    }, [e._v("自动设置")]), e._v(" "), o("option", {
+                    }, [e._v("Автоматический")]), e._v(" "), o("option", {
                         attrs: {
                             value: "mt"
                         }
-                    }, [e._v("手动设置")])]), e._v(" "), o("div", {
+                    }, [e._v("Ручной")])]), e._v(" "), o("div", {
                         staticClass: "arrow"
                     }), e._v(" "), o("div", {
                         staticClass: "pppoe_form"
@@ -963,7 +963,7 @@ webpackJsonp([1], {
                         attrs: {
                             type: "text",
                             name: "dns1",
-                            placeholder: "DNS1 必填",
+                            placeholder: "Основной сервер DNS",
                             checkip: "",
                             required: ""
                         },
@@ -997,7 +997,7 @@ webpackJsonp([1], {
                         attrs: {
                             type: "text",
                             name: "dns2",
-                            placeholder: "DNS2",
+                            placeholder: "Дополнительный сервер DNS",
                             checkip: ""
                         },
                         domProps: {
@@ -1025,12 +1025,12 @@ webpackJsonp([1], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("DNS1必须输入")]), e._v(" "), o("div", {
+                    }, [e._v("Введите адрес основного сервера DNS")]), e._v(" "), o("div", {
                         attrs: {
                             slot: "checkip"
                         },
                         slot: "checkip"
-                    }, [e._v("格式错误，DNS服务器地址由4个0-255之间的数字组成，数字之间用点区隔。")])]), e._v(" "), o("field-messages", {
+                    }, [e._v("Неверный формат. Адрес DNS-сервера состоит из 4 чисел от 0 до 255, разделенных точками.")])]), e._v(" "), o("field-messages", {
                         staticClass: "error-tip error-tip2",
                         class: {
                             static: "static" == e.position
@@ -1044,7 +1044,7 @@ webpackJsonp([1], {
                             slot: "checkip"
                         },
                         slot: "checkip"
-                    }, [e._v("格式错误，DNS服务器地址由4个0-255之间的数字组成，数字之间用点区隔。")])])], 1), e._v(" "), o("div", {
+                    }, [e._v("Неверный формат. Адрес DNS-сервера состоит из 4 чисел от 0 до 255, разделенных точками.")])])], 1), e._v(" "), o("div", {
                         staticClass: "bottom_botton",
                         class: {
                             static: "static" == e.position
@@ -1057,14 +1057,14 @@ webpackJsonp([1], {
                         on: {
                             click: e.sure
                         }
-                    }, [e._v("应用")]), e._v(" "), o("div", {
+                    }, [e._v("Сохранить")]), e._v(" "), o("div", {
                         staticClass: "botn cannel",
                         on: {
                             click: e.gotoWifi
                         }
-                    }, [e._v("跳过")])])])], 1)]) : 2 == e.type ? o("Loading", {
+                    }, [e._v("Пропустить")])])])], 1)]) : 2 == e.type ? o("Loading", {
                         attrs: {
-                            desc: "正在拨号，请耐心等待..."
+                            desc: "Соединение, подождите..."
                         }
                     }) : 3 == e.type ? o("div", {
                         staticClass: "success"
@@ -1073,30 +1073,30 @@ webpackJsonp([1], {
                         attrs: {
                             src: s("WNz1")
                         }
-                    }), e._v(" "), o("p", [e._v("PPPOE设置成功")]), e._v(" "), o("a", {
+                    }), e._v(" "), o("p", [e._v("Соединение PPPOE установлено")]), e._v(" "), o("a", {
                         staticClass: "to_home",
                         attrs: {
                             href: "#/home"
                         }
-                    }, [e._v("返回主界面")])]) : 4 == e.type ? o("div", {
+                    }, [e._v("На Главную")])]) : 4 == e.type ? o("div", {
                         staticClass: "error-tip"
-                    }, [e._v("错误码691")]) : 5 == e.type ? o("div", {
+                    }, [e._v("Код ошибки: 691")]) : 5 == e.type ? o("div", {
                         staticClass: "error-tip"
-                    }, [e._v("错误码678")]) : 6 == e.type ? o("div", {
+                    }, [e._v("Код ошибки: 678")]) : 6 == e.type ? o("div", {
                         staticClass: "error-tip"
-                    }, [e._v("错误码X")]) : 7 == e.type ? o("div", {
+                    }, [e._v("Код ошибки: X")]) : 7 == e.type ? o("div", {
                         staticClass: "success"
                     }, [o("img", {
                         staticClass: "complete",
                         attrs: {
                             src: s("TMGK")
                         }
-                    }), e._v(" "), o("p", [e._v("网络超时，请返回首页检查网络状态")]), e._v(" "), o("a", {
+                    }), e._v(" "), o("p", [e._v("Сеть не отвечает, вернитесь на Главную страницу, чтобы проверить состояние сети.")]), e._v(" "), o("a", {
                         staticClass: "to_home",
                         attrs: {
                             href: "#/home"
                         }
-                    }, [e._v("返回主界面")])]) : e._e(), e._v(" "), o("Dialog", {
+                    }, [e._v("На Главную")])]) : e._e(), e._v(" "), o("Dialog", {
                         ref: "dialog",
                         staticClass: "dialog",
                         attrs: {
@@ -1111,11 +1111,11 @@ webpackJsonp([1], {
                         t = this._self._c || e;
                     return t("p", {
                         staticClass: "p2"
-                    }, [this._v("\n        如果忘记宽带账号或密码，请联系您的\n        "), t("a", {
+                    }, [this._v("\n        Если вы забыли Имя пользователя или пароль, обратитесь к своему \n        "), t("a", {
                         attrs: {
                             href: "#/operators"
                         }
-                    }, [this._v("宽带运营商")])])
+                    }, [this._v("Провайдеру")])])
                 }]
             };
         var w = s("VU/8")(v, P, !1, function(e) {

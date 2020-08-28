@@ -39,7 +39,7 @@ webpackJsonp([15], {
                 name: "error2",
                 data: function() {
                     return {
-                        typeList: ['宽带账号上网<span style="opacity: .4"> PPPOE</span>', '自动获取IP<span style="opacity: .4"> DHCP</span>', "静态IP", "Wi-Fi中继", "有线中继"],
+                        typeList: ['Имя пользователя上网<span style="opacity: .4"> PPPOE</span>', '自动获取IP<span style="opacity: .4"> DHCP</span>', "静态IP", "Wi-Fi中继", "有线中继"],
                         mapTypeLink: [{
                             path: "/guide",
                             query: {

@@ -135,15 +135,15 @@ webpackJsonp([3], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Описание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Принять"
                     }
                 },
                 data: function() {
@@ -359,7 +359,7 @@ webpackJsonp([3], {
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1)], 1) : t._e(), t._v(" "), 2 == t.step ? i("div", {
                         staticClass: "wireless_list"
@@ -515,7 +515,7 @@ webpackJsonp([3], {
                         staticClass: "wireless_success"
                     }, [i("Headers", {
                         attrs: {
-                            name: "上网设置",
+                            name: "Параметры Интернета",
                             fontsize: "index",
                             step: t.step
                         },
@@ -545,13 +545,13 @@ webpackJsonp([3], {
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1)])], 1) : t._e(), t._v(" "), 5 == t.step || 6 == t.step ? i("div", {
                         staticClass: "wifi_set"
                     }, [i("Headers", {
                         attrs: {
-                            name: "上网设置",
+                            name: "Параметры Интернета",
                             fontsize: "index",
                             step: t.step
                         },
@@ -573,7 +573,7 @@ webpackJsonp([3], {
                             to: "/home"
                         },
                         domProps: {
-                            innerHTML: t._s("返回主界面")
+                            innerHTML: t._s("На Главную")
                         }
                     })], 1) : t._e(), t._v(" "), 6 == t.step ? i("Loading", {
                         attrs: {

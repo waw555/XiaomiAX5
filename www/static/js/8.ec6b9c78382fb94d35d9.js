@@ -158,9 +158,9 @@ webpackJsonp([8], {
                             dns2: null
                         },
                         dialog_data: {
-                            tit: "提示",
+                            tit: "Подсказка",
                             message: "请输入账号/密码",
-                            button: "好的"
+                            button: "Принять"
                         },
                         clientHeight: document.documentElement.clientHeight,
                         position: "absolute"
@@ -177,10 +177,10 @@ webpackJsonp([8], {
                         this.step = t
                     },
                     onSubmit: function() {
-                        if ("at" == this.dhcp_type) console.log("走自动的逻辑"), this.type = 2, this.postdhcp("at");
+                        if ("at" == this.dhcp_type) console.log("Автоматический режим"), this.type = 2, this.postdhcp("at");
                         else {
-                            if (this.formstate.$invalid) return console.log("不满足条件不走"), !1;
-                            console.log("走手动的逻辑"), this.type = 2, this.postdhcp("mt")
+                            if (this.formstate.$invalid) return console.log("Не соответствует условиям."), !1;
+                            console.log("Ручной режим"), this.type = 2, this.postdhcp("mt")
                         }
                     },
                     postdhcp: function(t) {
@@ -218,7 +218,7 @@ webpackJsonp([8], {
                     }, [r("Headers", {
                         staticClass: "header",
                         attrs: {
-                            name: "上网设置"
+                            name: "Параметры Интернета"
                         },
                         on: {
                             goBack: t.handleBack
@@ -229,7 +229,7 @@ webpackJsonp([8], {
                         }
                     }, [r("p", {
                         staticClass: "p1"
-                    }, [t._v("DNS配置")]), t._v(" "), r("select", {
+                    }, [t._v("Параметры DNS")]), t._v(" "), r("select", {
                         directives: [{
                             name: "model",
                             rawName: "v-model",
@@ -251,11 +251,11 @@ webpackJsonp([8], {
                         attrs: {
                             value: "at"
                         }
-                    }, [t._v("自动设置")]), t._v(" "), r("option", {
+                    }, [t._v("Автоматический")]), t._v(" "), r("option", {
                         attrs: {
                             value: "mt"
                         }
-                    }, [t._v("手动设置")])]), t._v(" "), r("div", {
+                    }, [t._v("Ручной")])]), t._v(" "), r("div", {
                         staticClass: "arrow"
                     }), t._v(" "), r("div", {
                         staticClass: "dhcp_form"
@@ -296,7 +296,7 @@ webpackJsonp([8], {
                         attrs: {
                             type: "text",
                             name: "dns1",
-                            placeholder: "DNS1 必填",
+                            placeholder: "Основной сервер DNS",
                             checkip: "",
                             required: ""
                         },
@@ -330,7 +330,7 @@ webpackJsonp([8], {
                         attrs: {
                             type: "text",
                             name: "dns2",
-                            placeholder: "DNS2",
+                            placeholder: "Дополнительный сервер DNS",
                             checkip: ""
                         },
                         domProps: {
@@ -358,12 +358,12 @@ webpackJsonp([8], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("DNS1必须输入")]), t._v(" "), r("div", {
+                    }, [t._v("Введите адрес основного сервера DNS")]), t._v(" "), r("div", {
                         attrs: {
                             slot: "checkip"
                         },
                         slot: "checkip"
-                    }, [t._v("格式错误，DNS服务器地址由4个0-255之间的数字组成，数字之间用点区隔。")])]), t._v(" "), r("field-messages", {
+                    }, [t._v("Неверный формат. Адрес DNS-сервера состоит из 4 чисел от 0 до 255, разделенных точками.")])]), t._v(" "), r("field-messages", {
                         staticClass: "error-tip error-tip2",
                         class: {
                             static: "static" == t.position
@@ -377,7 +377,7 @@ webpackJsonp([8], {
                             slot: "checkip"
                         },
                         slot: "checkip"
-                    }, [t._v("格式错误，DNS服务器地址由4个0-255之间的数字组成，数字之间用点区隔。")])])], 1), t._v(" "), r("div", {
+                    }, [t._v("Неверный формат. Адрес DNS-сервера состоит из 4 чисел от 0 до 255, разделенных точками.")])])], 1), t._v(" "), r("div", {
                         staticClass: "footer",
                         class: {
                             static: "static" == t.position
@@ -403,7 +403,7 @@ webpackJsonp([8], {
                         attrs: {
                             href: "#/home"
                         }
-                    }, [t._v("返回主界面")])]) : t._e(), t._v(" "), r("Dialog", {
+                    }, [t._v("На Главную")])]) : t._e(), t._v(" "), r("Dialog", {
                         ref: "dialog",
                         staticClass: "dialog",
                         attrs: {
@@ -427,15 +427,15 @@ webpackJsonp([8], {
                 props: {
                     title: {
                         type: String,
-                        default: "标题"
+                        default: "Название"
                     },
                     message: {
                         type: String,
-                        default: "内容"
+                        default: "Описание"
                     },
                     button: {
                         type: String,
-                        default: "好的"
+                        default: "Принять"
                     }
                 },
                 data: function() {

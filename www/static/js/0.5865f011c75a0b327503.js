@@ -229,7 +229,7 @@ webpackJsonp([0, 20], {
                         conflictIP: null,
                         wifi: {
                             name: "Xiaomi_1A1A",
-                            locale: "家",
+                            locale: "Дом",
                             ssid: "",
                             password: null,
                             encryption: "mixed-psk",
@@ -421,7 +421,7 @@ webpackJsonp([0, 20], {
                         on: {
                             click: e.goWifiSet
                         }
-                    }, [e._v("下一步")]), e._v(" "), s("div", {
+                    }, [e._v("Далее")]), e._v(" "), s("div", {
                         staticClass: "others"
                     }, [e._v("\n                您也可以"), s("router-link", {
                         attrs: {
@@ -486,7 +486,7 @@ webpackJsonp([0, 20], {
                         attrs: {
                             type: "text",
                             name: "name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             checklength: "",
                             required: "",
                             filterspecialchar: ""
@@ -600,7 +600,7 @@ webpackJsonp([0, 20], {
                             slot: "wifipassword"
                         },
                         slot: "wifipassword"
-                    }, [e._v("*请输入数字、英文字母或英文字符")]), e._v(" "), s("div", {
+                    }, [e._v("* Используйте только цифры, латинские буквы и символы.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
@@ -613,7 +613,7 @@ webpackJsonp([0, 20], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "管理密码设置"
+                            name: "Параметры пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -639,7 +639,7 @@ webpackJsonp([0, 20], {
                         }],
                         attrs: {
                             name: "routerPwd",
-                            placeholder: "请设置管理密码，至少8位",
+                            placeholder: "* Пароль доступа к Панели управления, должен содержать не менее 8 символов.",
                             type: e.Router_passtype,
                             minlength: "8",
                             maxlength: "63",
@@ -694,17 +694,17 @@ webpackJsonp([0, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*路由器管理密码不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [e._v("*路由器管理密码不少于8位")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не менее 8 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [e._v("*路由器管理密码不多于63位")])]), e._v(" "), s("ul", {
+                    }, [e._v("* Пароль доступа к Панели управления, должен содержать не более 63 символов.")])]), e._v(" "), s("ul", {
                         staticClass: "checkboxs"
                     }, [s("li", [s("CheckBox", {
                         attrs: {
@@ -733,7 +733,7 @@ webpackJsonp([0, 20], {
                             },
                             expression: "update"
                         }
-                    }), e._v("路由空闲时为您自动升级固件版本，以便提供更好体验")], 1)])], 1), e._v(" "), s("div", {
+                    }), e._v("Автоматическое обновление версии прошивки, когда маршрутизатор находится в режиме ожидания.")], 1)])], 1), e._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -746,7 +746,7 @@ webpackJsonp([0, 20], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("下一步")]), e._v(" "), s("p", {
+                    }, [e._v("Далее")]), e._v(" "), s("p", {
                         staticStyle: {
                             "text-align": "center"
                         }
@@ -792,7 +792,7 @@ webpackJsonp([0, 20], {
                         t = this._self._c || e;
                     return t("div", {
                         staticClass: "main"
-                    }, [t("h4", [this._v("检测到当前模式为自动获取IP（DHCP）")]), this._v(" "), t("h4", [this._v("请点击下一步")])])
+                    }, [t("h4", [this._v("检测到当前模式为自动获取IP（DHCP）")]), this._v(" "), t("h4", [this._v("请点击Далее")])])
                 }]
             };
         var w = s("VU/8")(h, P, !1, function(e) {
