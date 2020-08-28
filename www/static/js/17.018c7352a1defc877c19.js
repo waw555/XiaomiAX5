@@ -154,7 +154,7 @@ webpackJsonp([17], {
                         }
                     }), t._v(" "), a("text", {
                         attrs: {
-                            id: "欢迎使用Redmi Xiaomi AX5",
+                            id: "Добро пожаловать!",
                             "font-family": "MI-LANTING--GBK1-Light, MI LANTING",
                             "font-size": "54",
                             "font-weight": "300",
@@ -165,7 +165,7 @@ webpackJsonp([17], {
                             x: "1.8",
                             y: "232.4"
                         }
-                    }, [t._v("欢迎使用Redmi Xiaomi AX5")])])])])])]), t._v(" "), a("div", {
+                    }, [t._v("Добро пожаловать!")])])])])])]), t._v(" "), a("div", {
                         staticClass: "footer width100"
                     }, [a("div", {
                         staticClass: "user"

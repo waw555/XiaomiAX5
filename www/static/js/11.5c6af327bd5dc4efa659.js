@@ -109,7 +109,7 @@ webpackJsonp([11], {
                                             t.next = 16;
                                             break
                                         }
-                                        return e.password_count++, e.$refs.restip.innerHTML = "密码错误", e.password_count >= 4 && (e.$refs.restip.innerHTML = "多次密码错误，将禁止继续尝试"), t.abrupt("return");
+                                        return e.password_count++, e.$refs.restip.innerHTML = "Неправильный пароль", e.password_count >= 4 && (e.$refs.restip.innerHTML = "Неоднократный ввод неправильного пароля, дальнейшие попытки будут заблокированны."), t.abrupt("return");
                                     case 16:
                                         e.$refs.tip.showTips(o.data.msg || "Произошла неизвестная ошибка, повторите попытку позже");
                                     case 17:
@@ -199,7 +199,7 @@ webpackJsonp([11], {
                         }
                     }), e._v(" "), n("text", {
                         attrs: {
-                            id: "欢迎使用Redmi Xiaomi AX5",
+                            id: "Добро пожаловать!",
                             "font-family": "MI-LANTING--GBK1-Light, MI LANTING",
                             "font-size": "54",
                             "font-weight": "300",
@@ -210,7 +210,7 @@ webpackJsonp([11], {
                             x: "1.8",
                             y: "232.4"
                         }
-                    }, [e._v("欢迎使用Redmi Xiaomi AX5")])])])])])]), e._v(" "), n("div", {
+                    }, [e._v("Добро пожаловать!")])])])])])]), e._v(" "), n("div", {
                         staticClass: "form"
                     }, [n("vue-form", {
                         staticClass: "width100",
@@ -234,7 +234,7 @@ webpackJsonp([11], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("路由器管理密码不能为空")])]), e._v(" "), n("div", {
+                    }, [e._v("Пароль Панели управления не может быть пустым.")])]), e._v(" "), n("div", {
                         staticClass: "error-tip"
                     }, [n("div", {
                         ref: "restip"
@@ -255,7 +255,7 @@ webpackJsonp([11], {
                             }
                         }],
                         attrs: {
-                            placeholder: "Введите пароль路由器管理密码",
+                            placeholder: "Введите пароль",
                             name: "passwd",
                             type: e.switchpass,
                             required: ""
@@ -286,15 +286,15 @@ webpackJsonp([11], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("登录")])])], 1)], 1), e._v(" "), n("div", {
+                    }, [e._v("Вход")])])], 1)], 1), e._v(" "), n("div", {
                         staticClass: "operate"
                     }, [n("span", {
                         on: {
                             click: e.forgetPasswd
                         }
-                    }, [e._v("忘记密码")])]), e._v(" "), e._m(0), e._v(" "), n("div", {
+                    }, [e._v("Не хотите запоминать пароль?!")])]), e._v(" "), e._m(0), e._v(" "), n("div", {
                         staticClass: "footer"
-                    }, [e._v("\n        使用小米WiFi APP免除记密码烦恼\n      ")]), e._v(" "), n("Toast", {
+                    }, [e._v("\n        Используйте приложение Xiaomi WiFi, чтобы не запоминать пароли.\n      ")]), e._v(" "), n("Toast", {
                         ref: "tip"
                     })], 1)
                 },
