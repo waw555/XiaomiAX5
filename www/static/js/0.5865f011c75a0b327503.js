@@ -421,7 +421,7 @@ webpackJsonp([0, 20], {
                         on: {
                             click: e.goWifiSet
                         }
-                    }, [e._v("Следующий шаг")]), e._v(" "), s("div", {
+                    }, [e._v("Далее")]), e._v(" "), s("div", {
                         staticClass: "others"
                     }, [e._v("\n                Вы также можете"), s("router-link", {
                         attrs: {
@@ -430,7 +430,7 @@ webpackJsonp([0, 20], {
                                 path: "/error2"
                             }
                         }
-                    }, [e._v(" Выбрать другой режим и продолжить настройку")])], 1)])]), e._v(" "), s("vue-form", {
+                    }, [e._v(" Выбрать другой режим")])], 1)])]), e._v(" "), s("vue-form", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -450,7 +450,7 @@ webpackJsonp([0, 20], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "Настройки Wi-Fi"
+                            name: "Параметры Wi-Fi"
                         }
                     }), e._v(" "), s("input", {
                         staticStyle: {
@@ -486,7 +486,7 @@ webpackJsonp([0, 20], {
                         attrs: {
                             type: "text",
                             name: "name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             checklength: "",
                             required: "",
                             filterspecialchar: ""
@@ -613,7 +613,7 @@ webpackJsonp([0, 20], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "Настройка пароля"
+                            name: "Параметры пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -746,7 +746,7 @@ webpackJsonp([0, 20], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [e._v("Следующий шаг")]), e._v(" "), s("p", {
+                    }, [e._v("Далее")]), e._v(" "), s("p", {
                         staticStyle: {
                             "text-align": "center"
                         }
@@ -769,7 +769,7 @@ webpackJsonp([0, 20], {
                         staticClass: "loading"
                     }, [s("h3", [e._v("Мастер настройки")]), e._v(" "), s("Loading", {
                         attrs: {
-                            desc: "Настройка, подождите ..."
+                            desc: "Подождите..."
                         }
                     })], 1), e._v(" "), s("Wificomplete", {
                         directives: [{
