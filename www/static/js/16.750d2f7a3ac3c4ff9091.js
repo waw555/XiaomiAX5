@@ -156,7 +156,7 @@ webpackJsonp([16], {
                         on: {
                             click: t.tryAgain
                         }
-                    }, [t._v("再试试")]), t._v(" "), s("p", {
+                    }, [t._v("Попробуйте еще раз")]), t._v(" "), s("p", {
                         staticClass: "button continueB",
                         on: {
                             click: t.goModeChoose
