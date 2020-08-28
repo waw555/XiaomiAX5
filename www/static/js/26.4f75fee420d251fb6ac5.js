@@ -21,7 +21,7 @@ webpackJsonp([26], {
                         staticClass: "content "
                     }, [n("Header", {
                         attrs: {
-                            name: "用户体验改善计划"
+                            name: "Программа улучшения качества"
                         }
                     }), this._v(" "), this._m(0)], 1)
                 },

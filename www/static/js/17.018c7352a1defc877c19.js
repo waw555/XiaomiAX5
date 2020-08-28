@@ -183,14 +183,14 @@ webpackJsonp([17], {
                             },
                             expression: "userProtocol"
                         }
-                    }), t._v(" "), a("span", [t._v("已阅读并同意Redmi Xiaomi AX5")]), t._v(" "), a("a", {
+                    }), t._v(" "), a("span", [t._v("Прочитал и согласен")]), t._v(" "), a("a", {
                         attrs: {
                             href: "javascript:void(0)"
                         },
                         on: {
                             click: t.agreement
                         }
-                    }, [t._v("《用户许可使用协议》")])], 1), t._v(" "), a("div", [a("CheckBox", {
+                    }, [t._v("《Лицензионное соглашение с пользователем》")])], 1), t._v(" "), a("div", [a("CheckBox", {
                         attrs: {
                             name: "protocal"
                         },
@@ -201,14 +201,14 @@ webpackJsonp([17], {
                             },
                             expression: "planProtocal"
                         }
-                    }), t._v("已加入\n                  "), a("a", {
+                    }), t._v("Согласен\n                  "), a("a", {
                         attrs: {
                             href: "javascript:void(0)"
                         },
                         on: {
                             click: t.privacy
                         }
-                    }, [t._v("《用户体验改善计划》")])], 1)]), t._v(" "), a("div", {
+                    }, [t._v("《Программа улучшения качества》")])], 1)]), t._v(" "), a("div", {
                         staticClass: "join"
                     }, [a("a", {
                         staticClass: "button",
@@ -222,9 +222,9 @@ webpackJsonp([17], {
                         on: {
                             click: t.start
                         }
-                    }, [t._v("马上体验")])]), t._v(" "), a("div", {
+                    }, [t._v("Присоединиться")])]), t._v(" "), a("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          版权所有 小米移动软件有限公司\n      ")])]), t._v(" "), a("Toast", {
+                    }, [t._v("\n          Авторские права Xiaomi Mobile Software Co., Ltd.\n      ")])]), t._v(" "), a("Toast", {
                         ref: "tip"
                     })], 1)
                 },
