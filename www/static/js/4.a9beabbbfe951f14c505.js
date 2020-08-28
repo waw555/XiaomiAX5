@@ -645,7 +645,7 @@ webpackJsonp([4], {
                         staticClass: "container"
                     }, ["oldRouter" == e.from ? s("Header", {
                         attrs: {
-                            name: "连接互联网"
+                            name: "Подключить互联网"
                         }
                     }) : s("Header", {
                         attrs: {
@@ -696,7 +696,7 @@ webpackJsonp([4], {
                         }],
                         attrs: {
                             type: "text",
-                            placeholder: "请输入宽带账户",
+                            placeholder: "Введите пароль宽带账户",
                             name: "name",
                             required: ""
                         },
@@ -732,7 +732,7 @@ webpackJsonp([4], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请输入Пароль",
+                            placeholder: "Введите парольПароль",
                             name: "passwd",
                             type: e.switchpass,
                             required: ""
@@ -787,7 +787,7 @@ webpackJsonp([4], {
                         }
                     }, [e._v("一键从旧路由器获取账号&密码")])]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              2. 请确认帐号是否欠费，或联系您的"), s("span", {
+                    }, [e._v("\n              2. 请Принять帐号是否欠费，或联系您的"), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
@@ -796,18 +796,18 @@ webpackJsonp([4], {
                         staticClass: "error-tip"
                     }, [s("div", {}, [e._v("\n             " + e._s(this.pppoeErrorMsg || "同一账号重复登录（错误码：678）") + "\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. 重新插拔WAN或Internet口Подключить的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",
                         on: {
                             click: e.gotoOperators
                         }
-                    }, [e._v("Провайдеру")]), e._v("确认账号情况\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
+                    }, [e._v("Провайдеру")]), e._v("Принять账号情况\n          ")])]) : e._e(), e._v(" "), 3 == e.errorType ? s("div", {
                         staticClass: "error-tip"
                     }, [s("div", {}, [e._v("\n             运营商接口返回错误（错误码：" + e._s(e.pppoeErrorCode) + "）\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
-                    }, [e._v("\n              1. 重新插拔WAN或Internet口连接的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n          ")]), e._v(" "), s("div", {
+                    }, [e._v("\n              1. 重新插拔WAN或Internet口Подключить的网线，并将光猫/Дом庭网关断电重启，10分钟后重新进行初始化。\n\n          ")]), e._v(" "), s("div", {
                         staticClass: "desc"
                     }, [e._v("\n              2. 若还是不行，请联系您的"), s("span", {
                         staticClass: "blue",

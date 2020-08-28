@@ -173,9 +173,9 @@ webpackJsonp([5], {
                             txpwr2: ""
                         },
                         dialog_data: {
-                            tit: "确认修改",
-                            message: "如果您修改了Wi-Fi配置，确认修改后您当前连接的Wi-Fi会断开30s；需要重新连接您的Wi-Fi。",
-                            button: "确认修改"
+                            tit: "Принять修改",
+                            message: "如果您修改了Wi-Fi配置，Принять修改后您当前Подключить的Wi-Fi会断开30s；需要重新Подключить您的Wi-Fi。",
+                            button: "Принять修改"
                         },
                         mask_show: !1
                     }
@@ -330,7 +330,7 @@ webpackJsonp([5], {
                         staticClass: "allWifi"
                     }, [s("p", {
                         staticClass: "p1"
-                    }, [t._v("Подсказка：修改Wi-Fi名称或密码后，需重新连接Wi-Fi")]), t._v(" "), s("div", {
+                    }, [t._v("Подсказка：修改Wi-Fi名称或密码后，需重新ПодключитьWi-Fi")]), t._v(" "), s("div", {
                         staticClass: "wifi"
                     }, [s("vue-form", {
                         staticClass: "width100",

@@ -255,7 +255,7 @@ webpackJsonp([11], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请输入路由器管理密码",
+                            placeholder: "Введите пароль路由器管理密码",
                             name: "passwd",
                             type: e.switchpass,
                             required: ""

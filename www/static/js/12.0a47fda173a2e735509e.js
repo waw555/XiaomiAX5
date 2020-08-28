@@ -309,7 +309,7 @@ webpackJsonp([12], {
                         staticClass: "name"
                     }, [this._v("\n          上网状态\n        ")]), this._v(" "), e("div", {
                         staticClass: "desp"
-                    }, [this._v("\n          成功连接互联网\n        ")])])
+                    }, [this._v("\n          成功Подключить互联网\n        ")])])
                 }]
             };
         var v = s("VU/8")(u, d, !1, function(t) {

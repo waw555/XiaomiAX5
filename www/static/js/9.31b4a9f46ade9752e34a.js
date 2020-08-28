@@ -192,7 +192,7 @@ webpackJsonp([9], {
                 }, function() {
                     var t = this.$createElement,
                         e = this._self._c || t;
-                    return e("ul", [e("li", [this._v("1. 请确保WAN或Internet口已用网线连接到因特网（如入户宽带、光猫等）")]), this._v(" "), e("li", [this._v("2. 请确认网线是否插紧或损坏，光猫是否连接电源")]), this._v(" "), e("li", [this._v("3. 若仍然无法上网，请联系您的Провайдеру")])])
+                    return e("ul", [e("li", [this._v("1. 请确保WAN或Internet口已用网线Подключить到因特网（如入户宽带、光猫等）")]), this._v(" "), e("li", [this._v("2. 请Принять网线是否插紧或损坏，光猫是否Подключить电源")]), this._v(" "), e("li", [this._v("3. 若仍然无法上网，请联系您的Провайдеру")])])
                 }]
             };
         var o = s("VU/8")(r, a, !1, function(t) {

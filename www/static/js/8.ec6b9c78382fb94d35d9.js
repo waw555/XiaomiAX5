@@ -159,7 +159,7 @@ webpackJsonp([8], {
                         },
                         dialog_data: {
                             tit: "Подсказка",
-                            message: "请输入账号/密码",
+                            message: "Введите пароль账号/密码",
                             button: "Принять"
                         },
                         clientHeight: document.documentElement.clientHeight,
@@ -387,7 +387,7 @@ webpackJsonp([8], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("连接")])])])], 1)]) : 2 == t.type ? r("Loading", {
+                    }, [t._v("Подключить")])])])], 1)]) : 2 == t.type ? r("Loading", {
                         attrs: {
                             desc: "正在设置为DHCP上网模式，请耐心等待..."
                         }

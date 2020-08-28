@@ -250,7 +250,7 @@ webpackJsonp([21], {
                         staticClass: "reason"
                     }, [s("div", {
                         staticClass: "title"
-                    }, [this._v("\n          外网不通的原因可能是：\n\n        ")]), this._v(" "), s("ul", [s("li", [this._v("WAN或Internet口网络连接异常/Имя пользователя密码错误")]), this._v(" "), s("li", [this._v("IP未获取/DNS解析异常")])])])
+                    }, [this._v("\n          外网不通的原因可能是：\n\n        ")]), this._v(" "), s("ul", [s("li", [this._v("WAN或Internet口网络Подключить异常/Имя пользователя密码错误")]), this._v(" "), s("li", [this._v("IP未获取/DNS解析异常")])])])
                 }, function() {
                     var t = this.$createElement,
                         s = this._self._c || t;
