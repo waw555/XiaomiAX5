@@ -173,9 +173,9 @@ webpackJsonp([5], {
                             txpwr2: ""
                         },
                         dialog_data: {
-                            tit: "Принять修改",
-                            message: "如果您修改了Wi-Fi配置，Принять修改后您当前Подключить的Wi-Fi会断开30s；需要重新Подключить您的Wi-Fi。",
-                            button: "Принять修改"
+                            tit: "Принятие изменений",
+                            message: "Если Вы измените конфигурацию Wi-Fi, после нажатия кнопки Принять, Ваша текущая Wi-Fi сеть  будет отключена, примерно на 30 секунд. Необходимо будет произвести повторное подключение к Wi-Fi сети. ",
+                            button: "Принять"
                         },
                         mask_show: !1
                     }
@@ -261,11 +261,11 @@ webpackJsonp([5], {
                         this.wifi_type = this.wifi2450, this.formstate0.$invalid && this.status2450 || this.showDialog()
                     },
                     onSubmit1: function() {
-                        if (this.wifi_type = this.wifi24, this.status2450) return this.$refs.tip.showTips("请先关闭双频合一 并点击保存按钮"), !1;
+                        if (this.wifi_type = this.wifi24, this.status2450) return this.$refs.tip.showTips("Сначала отключите двухдиапазонную интеграцию и нажмите кнопку Сохранить."), !1;
                         this.formstate1.$invalid || this.showDialog()
                     },
                     onSubmit2: function() {
-                        if (this.wifi_type = this.wifi50, this.status2450) return this.$refs.tip.showTips("请先关闭双频合一 并点击保存按钮"), !1;
+                        if (this.wifi_type = this.wifi50, this.status2450) return this.$refs.tip.showTips("Сначала отключите двухдиапазонную интеграцию и нажмите кнопку Сохранить."), !1;
                         this.formstate2.$invalid || this.showDialog()
                     },
                     sure: function() {
@@ -330,7 +330,7 @@ webpackJsonp([5], {
                         staticClass: "allWifi"
                     }, [s("p", {
                         staticClass: "p1"
-                    }, [t._v("Подсказка：修改Wi-Fi名称或密码后，需重新ПодключитьWi-Fi")]), t._v(" "), s("div", {
+                    }, [t._v("После смены Имени или пароля Wi-Fi, необходимо повторно подключиться к Wi-Fi сети.")]), t._v(" "), s("div", {
                         staticClass: "wifi"
                     }, [s("vue-form", {
                         staticClass: "width100",
@@ -346,7 +346,7 @@ webpackJsonp([5], {
                         staticClass: "tit tit24"
                     }, [s("span", {
                         staticClass: "left"
-                    }, [t._v("Wi-Fi双频合一")]), t._v(" "), s("span", {
+                    }, [t._v("Двухчастотный Wi-Fi в одном")]), t._v(" "), s("span", {
                         staticClass: "right off",
                         class: {
                             on: !0 === t.status2450
@@ -358,7 +358,7 @@ webpackJsonp([5], {
                         }
                     }, [t._v(t._s(t.status2450))])]), t._v(" "), s("p", {
                         staticClass: "p1"
-                    }, [t._v("开启后，2.4G和5G会使用同一名称，路由器会自动为终端选择最佳Wi-Fi网络，但自动切换信号源时网络会短暂中断，甚至频繁掉线等问题。")]), t._v(" "), s("div", {
+                    }, [t._v("После включения двухчастотного Wi-Fi, сети Wi-Fi 2,4G и Wi-Fi 5G, будут использовать одно и то же Имя, и маршрутизатор автоматически выберет лучшую Wi-Fi сеть для устройств.")]), t._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -534,7 +534,7 @@ webpackJsonp([5], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("保存")])])]), t._v(" "), s("div", {
+                    }, [t._v("Сохранить")])])]), t._v(" "), s("div", {
                         staticClass: "trim"
                     }), t._v(" "), s("div", {
                         directives: [{
@@ -749,7 +749,7 @@ webpackJsonp([5], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("保存")])])]), t._v(" "), s("div", {
+                    }, [t._v("Сохранить")])])]), t._v(" "), s("div", {
                         staticClass: "trim"
                     }), t._v(" "), s("vue-form", {
                         staticClass: "width100",
@@ -957,11 +957,11 @@ webpackJsonp([5], {
                         attrs: {
                             type: "submit"
                         }
-                    }, [t._v("保存")])])])], 1), t._v(" "), s("div", {
+                    }, [t._v("Сохранить")])])])], 1), t._v(" "), s("div", {
                         staticClass: "trim"
                     })], 1)]) : 2 == t.type ? s("Loading", {
                         attrs: {
-                            desc: "正在设置，请耐心等待..."
+                            desc: "Подождите ..."
                         }
                     }) : t._e(), t._v(" "), s("Dialog", {
                         ref: "dialog",
