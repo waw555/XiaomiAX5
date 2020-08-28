@@ -243,7 +243,7 @@ webpackJsonp([1], {
                         routerPwd: null,
                         wifi: {
                             name: "",
-                            locale: "Домой",
+                            locale: "Дом",
                             ssid: "",
                             password: null,
                             encryption: "mixed-psk",
@@ -333,7 +333,7 @@ webpackJsonp([1], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "Настройки WiFi"
+                            name: "Параметры WiFi"
                         }
                     }), e._v(" "), s("validate", {
                         attrs: {
@@ -358,7 +358,7 @@ webpackJsonp([1], {
                         attrs: {
                             type: "text",
                             name: "name",
-                            placeholder: "Redmi_1A1A",
+                            placeholder: "Redmi_Xiaomi_AX5",
                             autocomplete: "off",
                             checklength: "",
                             required: ""
@@ -475,7 +475,7 @@ webpackJsonp([1], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "Настройка пароля"
+                            name: "Параметры пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -673,7 +673,7 @@ webpackJsonp([1], {
                         if ("at" == this.pppoe_type) console.log("Автоматическая настройка"), this.type = 2, this.postPppoe("at");
                         else {
                             if (this.formstate.$invalid) return console.log("Неверные данные"), !1;
-                            console.log("Ручная настроука"), this.type = 2, this.postPppoe("mt")
+                            console.log("Ручная настройка"), this.type = 2, this.postPppoe("mt")
                         }
                         this.common.setCookie("login", this.login), this.common.setCookie("password", this.password)
                     },
@@ -770,7 +770,7 @@ webpackJsonp([1], {
                         }],
                         staticClass: "header",
                         attrs: {
-                            name: "Настройки интернета"
+                            name: "Параметры Интернета"
                         },
                         on: {
                             goBack: e.handleBack
@@ -1025,7 +1025,7 @@ webpackJsonp([1], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("Требуется указать DNS 1")]), e._v(" "), o("div", {
+                    }, [e._v("Требуется указать основной DNS сервер")]), e._v(" "), o("div", {
                         attrs: {
                             slot: "checkip"
                         },
@@ -1064,7 +1064,7 @@ webpackJsonp([1], {
                         }
                     }, [e._v("Пропустить")])])])], 1)]) : 2 == e.type ? o("Loading", {
                         attrs: {
-                            desc: "Соединение, пожалуйста, подождите..."
+                            desc: "Подождите..."
                         }
                     }) : 3 == e.type ? o("div", {
                         staticClass: "success"
@@ -1078,7 +1078,7 @@ webpackJsonp([1], {
                         attrs: {
                             href: "#/home"
                         }
-                    }, [e._v("Вернуться на Главную")])]) : 4 == e.type ? o("div", {
+                    }, [e._v("На Главную")])]) : 4 == e.type ? o("div", {
                         staticClass: "error-tip"
                     }, [e._v("Ошибка: Код 691.")]) : 5 == e.type ? o("div", {
                         staticClass: "error-tip"
@@ -1096,7 +1096,7 @@ webpackJsonp([1], {
                         attrs: {
                             href: "#/home"
                         }
-                    }, [e._v("Вернуться на Главную")])]) : e._e(), e._v(" "), o("Dialog", {
+                    }, [e._v("На Главную")])]) : e._e(), e._v(" "), o("Dialog", {
                         ref: "dialog",
                         staticClass: "dialog",
                         attrs: {
