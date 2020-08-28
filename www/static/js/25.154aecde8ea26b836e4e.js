@@ -251,7 +251,7 @@ webpackJsonp([25], {
                         on: {
                             click: t.gotoPCVersion
                         }
-                    }, [t._v("\n        前往电脑版\n      ")])])]) : t._e()], 1)
+                    }, [t._v("\n        Перейти к версии для ПК\n      ")])])]) : t._e()], 1)
                 },
                 staticRenderFns: [function() {
                     var t = this.$createElement,
@@ -274,7 +274,7 @@ webpackJsonp([25], {
                         e = this._self._c || t;
                     return e("div", {
                         staticClass: "content"
-                    }, [e("p", [this._v("访问电脑版")]), this._v(" "), e("p", [this._v("使用更多高级功能")])])
+                    }, [e("p", [this._v("Используйте версию для ПК")]), this._v(" "), e("p", [this._v("Используйте расширенные параметры")])])
                 }]
             };
         var p = s("VU/8")(o, r, !1, function(t) {

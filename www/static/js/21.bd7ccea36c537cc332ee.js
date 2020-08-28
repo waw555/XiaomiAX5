@@ -233,7 +233,7 @@ webpackJsonp([21], {
                         on: {
                             click: t.gotoPCVersion
                         }
-                    }, [t._v("\n            前往电脑版\n          ")])])]) : t._e(), t._v(" "), i("Toast", {
+                    }, [t._v("\n            Перейти к версии для ПК\n          ")])])]) : t._e(), t._v(" "), i("Toast", {
                         ref: "tip"
                     })], 1)
                 },
@@ -264,7 +264,7 @@ webpackJsonp([21], {
                         s = this._self._c || t;
                     return s("div", {
                         staticClass: "content"
-                    }, [s("p", [this._v("访问电脑版")]), this._v(" "), s("p", [this._v("使用更多高级功能")])])
+                    }, [s("p", [this._v("Используйте версию для ПК")]), this._v(" "), s("p", [this._v("Используйте расширенные параметры")])])
                 }]
             };
         var l = i("VU/8")(c, r, !1, function(t) {
