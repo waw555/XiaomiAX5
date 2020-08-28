@@ -475,7 +475,7 @@ webpackJsonp([1], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "Параметры пароля"
+                            name: "Параметры Пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{

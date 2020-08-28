@@ -101,14 +101,14 @@ webpackJsonp([25], {
                         step: 1,
                         isAp: !1,
                         gotopc: 0,
-                        tit: "请选择上网连接类型",
+                        tit: "Выберите тип подключения к Интернету",
                         wan_type: "正在检测",
                         inter_lists: [{
-                            tit1: "Имя пользователя上网",
+                            tit1: "Имя пользователя",
                             tit2: "PPPOE",
                             href: "#/pppoe"
                         }, {
-                            tit1: "自动获取IP",
+                            tit1: "Получить IP адрес автоматически",
                             tit2: "DHCP",
                             href: "#/dhcp"
                         }],
@@ -133,7 +133,7 @@ webpackJsonp([25], {
                                     case 0:
                                         return e.next = 2, t.axios.getWifiStatus();
                                     case 2:
-                                        (s = e.sent).data ? "wifiapmode" == s.data.mode ? (t.wan_type = "无线中继", t.apmode()) : "lanapmode" == s.data.mode ? (t.wan_type = "有线中继", t.apmode()) : "dhcp" == s.data.mode ? t.wan_type = "DHCP" : "pppoe" == s.data.mode ? t.wan_type = "PPPOE" : "static" == s.data.mode ? t.wan_type = "静态IP" : t.wan_type = "未能识别" : t.wan_type = "未能识别";
+                                        (s = e.sent).data ? "wifiapmode" == s.data.mode ? (t.wan_type = "无线中继", t.apmode()) : "lanapmode" == s.data.mode ? (t.wan_type = "Точка доступа", t.apmode()) : "dhcp" == s.data.mode ? t.wan_type = "DHCP" : "pppoe" == s.data.mode ? t.wan_type = "PPPOE" : "static" == s.data.mode ? t.wan_type = "Статический IP" : t.wan_type = "未能识别" : t.wan_type = "未能识别";
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -164,7 +164,7 @@ webpackJsonp([25], {
                                     case 0:
                                         return e.next = 2, t.axios.getIsAP();
                                     case 2:
-                                        (s = e.sent).data && 0 == s.data.code && (0 == s.data.mode ? t.getWanType() : t.wan_type = "Wi-Fi中继");
+                                        (s = e.sent).data && 0 == s.data.code && (0 == s.data.mode ? t.getWanType() : t.wan_type = "Усилитель Wi-Fi");
                                     case 4:
                                     case "end":
                                         return e.stop()

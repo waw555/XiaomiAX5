@@ -39,7 +39,7 @@ webpackJsonp([15], {
                 name: "error2",
                 data: function() {
                     return {
-                        typeList: ['Имя пользователя上网<span style="opacity: .4"> PPPOE</span>', '自动获取IP<span style="opacity: .4"> DHCP</span>', "静态IP", "Wi-Fi中继", "有线中继"],
+                        typeList: ['Имя пользователя<span style="opacity: .4"> PPPOE</span>', 'Получить IP адрес автоматически<span style="opacity: .4"> DHCP</span>', "Статический IP", "Усилитель Wi-Fi", "Точка доступа"],
                         mapTypeLink: [{
                             path: "/guide",
                             query: {
@@ -59,7 +59,7 @@ webpackJsonp([15], {
                 created: function() {
                     var t = this;
                     if (this.$route.query.from) {
-                        this.errortip = !0, "wireless" === this.$route.query.from ? this.error_desc = "需中继Wi-Fi的密码错误，无线中继模式配置失败，请重新选择模式" : "dhcp" === this.$route.query.from ? this.error_desc = "dhcp配置失败，请重新选择模式" : "wired" === this.$route.query.from ? this.error_desc = "有线中继配置失败，请重新选择模式" : "static" === this.$route.query.from && (this.error_desc = "静态IP配置失败，请重新选择模式");
+                        this.errortip = !0, "wireless" === this.$route.query.from ? this.error_desc = "Неверный пароль для ретрансляции Wi-Fi，Режим УсилителяОшибка конфигурации." : "dhcp" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации DHCP" : "wired" === this.$route.query.from ? this.error_desc = "Ошибка конфигурации Точки доступа" : "static" === this.$route.query.from && (this.error_desc = "Ошибка конфигурации Статического IP");
                         var e = this.$router.history.current.path;
                         this.$router.push({
                             path: e
@@ -82,13 +82,13 @@ webpackJsonp([15], {
                         staticClass: "container"
                     }, [r("Header", {
                         attrs: {
-                            name: "选择配置类型"
+                            name: "Тип подключения"
                         }
                     }), t._v(" "), r("div", {
                         staticClass: "main width100"
                     }, [r("Subtitle", {
                         attrs: {
-                            name: "请选择上网连接类型"
+                            name: "Выберите тип подключения к Интернету"
                         }
                     }), t._v(" "), r("ul", t._l(t.typeList, function(e, s) {
                         return r("router-link", {

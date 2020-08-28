@@ -168,7 +168,7 @@ webpackJsonp([22], {
                         }
                     }), t._v(" "), n("div", {
                         staticClass: "desc"
-                    }, [t._v("\n    仅在Имя пользователя上网模式下展示账号密码等信息\n  ")]), t._v(" "), n("ul", {
+                    }, [t._v("\n    仅在Имя пользователя模式下展示账号密码等信息\n  ")]), t._v(" "), n("ul", {
                         staticClass: "account"
                     }, [n("li", [t._v("Имя пользователя\n      "), n("div", {
                         staticClass: "broad"

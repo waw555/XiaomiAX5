@@ -111,7 +111,7 @@ webpackJsonp([4], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "Wi-Fi设置"
+                            name: "Параметры Wi-Fi"
                         }
                     }), e._v(" "), s("validate", {
                         attrs: {
@@ -123,7 +123,7 @@ webpackJsonp([4], {
                         attrs: {
                             for: "name"
                         }
-                    }, [e._v("Wi-Fi名称:")]), e._v(" "), s("input", {
+                    }, [e._v("Имя Wi-Fi:")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model",
@@ -157,7 +157,7 @@ webpackJsonp([4], {
                         attrs: {
                             for: "name"
                         }
-                    }, [e._v("Wi-Fi密码:")]), e._v(" "), s("input", {
+                    }, [e._v("Пароль Wi-Fi:")]), e._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -168,7 +168,7 @@ webpackJsonp([4], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请设置Wi-Fi密码，至少8位",
+                            placeholder: "请设置Пароль Wi-Fi: ，至少8位",
                             name: "password",
                             autocomplete: "off",
                             type: e.passtype,
@@ -210,17 +210,17 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*Wi-Fi名称不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Имя WiFi не может быть пустым.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [e._v("*Wi-Fi名称最多28字节")]), e._v(" "), s("div", {
+                    }, [e._v("* Имя WiFi должно быть не более 28 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [e._v("*Wi-Fi名称不能包含特殊字符` ; | $ & { } \\")])]), e._v(" "), s("field-messages", {
+                    }, [e._v("* Имя Wi-Fi не может содержать специальные символы, такие как: ` ; | $ & { } \\")])]), e._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password",
@@ -231,17 +231,17 @@ webpackJsonp([4], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("*Wi-Fi密码不能为空")]), e._v(" "), s("div", {
+                    }, [e._v("* Пароль Wi-Fi не может быть пустым")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [e._v("*Wi-Fi密码不少于8位")]), e._v(" "), s("div", {
+                    }, [e._v("* Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [e._v("*Wi-Fi密码不多于63位")]), e._v(" "), s("div", {
+                    }, [e._v("* Длина пароля Wi-Fi, должна быть не более 63 символов.")]), e._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
@@ -259,7 +259,7 @@ webpackJsonp([4], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "Параметры пароля"
+                            name: "Параметры Пароля"
                         }
                     }), e._v(" "), s("validate", {
                         directives: [{
@@ -359,7 +359,7 @@ webpackJsonp([4], {
                             },
                             expression: "sameRouterPwd"
                         }
-                    }), e._v("将Wi-Fi密码作为路由器管理密码")], 1), e._v(" "), s("li", [s("CheckBox", {
+                    }), e._v("Использовать пароль Wi-Fi в качестве пароля доступа к Панели управления?")], 1), e._v(" "), s("li", [s("CheckBox", {
                         attrs: {
                             name: "update",
                             value: "update"

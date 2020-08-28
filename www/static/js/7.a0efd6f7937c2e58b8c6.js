@@ -183,7 +183,7 @@ webpackJsonp([7, 20], {
                             height: "1rem"
                         },
                         attrs: {
-                            name: "静态IP",
+                            name: "Статический IP",
                             step: t.step
                         },
                         on: {
@@ -495,7 +495,7 @@ webpackJsonp([7, 20], {
                         staticClass: "form form-res"
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "Wi-Fi设置"
+                            name: "Параметры Wi-Fi"
                         }
                     }), t._v(" "), s("validate", {
                         attrs: {
@@ -507,7 +507,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi名称:")]), t._v(" "), s("input", {
+                    }, [t._v("Имя Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -546,7 +546,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi密码:")]), t._v(" "), s("input", {
+                    }, [t._v("Пароль Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -557,7 +557,7 @@ webpackJsonp([7, 20], {
                             }
                         }],
                         attrs: {
-                            placeholder: "请设置Wi-Fi密码，至少8位",
+                            placeholder: "请设置Пароль Wi-Fi: ，至少8位",
                             name: "password",
                             type: t.passtype,
                             wifipassword: "",
@@ -598,17 +598,17 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi名称不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi не может быть пустым.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [t._v("*Wi-Fi名称最多28字节")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi должно быть не более 28 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi名称不能包含特殊字符` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
+                    }, [t._v("* Имя Wi-Fi не может содержать специальные символы, такие как: ` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password",
@@ -619,17 +619,17 @@ webpackJsonp([7, 20], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi密码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("*Wi-Fi密码不少于8位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("*Wi-Fi密码不多于63位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не более 63 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
@@ -639,7 +639,7 @@ webpackJsonp([7, 20], {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi密码不能包含特殊字符` ; | $ & { } \\")])]), t._v(" "), s("Subtitle", {
+                    }, [t._v("* Пароль Wi-Fi не может содержать специальные символы, такие как:` ; | $ & { } \\")])]), t._v(" "), s("Subtitle", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -647,7 +647,7 @@ webpackJsonp([7, 20], {
                             expression: "!sameRouterPwd"
                         }],
                         attrs: {
-                            name: "Параметры пароля"
+                            name: "Параметры Пароля"
                         }
                     }), t._v(" "), s("validate", {
                         directives: [{
@@ -747,7 +747,7 @@ webpackJsonp([7, 20], {
                             },
                             expression: "sameRouterPwd"
                         }
-                    }), t._v("将Wi-Fi密码作为路由器管理密码")], 1), t._v(" "), s("li", [s("CheckBox", {
+                    }), t._v("Использовать пароль Wi-Fi в качестве пароля доступа к Панели управления?")], 1), t._v(" "), s("li", [s("CheckBox", {
                         attrs: {
                             name: "update",
                             value: "2"
@@ -788,7 +788,7 @@ webpackJsonp([7, 20], {
                         staticClass: "loading"
                     }, [s("h3", [t._v("上网向导")]), t._v(" "), s("Loading", {
                         attrs: {
-                            desc: "正在配置中，请稍候......"
+                            desc: "Настройка Wi-Fi сети, подождите..."
                         }
                     })], 1), t._v(" "), s("Wificomplete", {
                         directives: [{
@@ -1043,9 +1043,9 @@ webpackJsonp([7, 20], {
                         attrs: {
                             id: "title"
                         }
-                    }), t._v(" "), s("p", [t._v("配置完成，Wi-Fi重启中")]), t._v(" "), s("p", [t._v("再次连接Wi-Fi即可访问互联网")]), t._v(" "), t.wireless ? s("p", {
+                    }), t._v(" "), s("p", [t._v("Настройка завершена, производится перезагрузка Wi-Fi сети.")]), t._v(" "), s("p", [t._v("Подключитесь к Wi-Fi еще раз, чтобы получить доступ к Интернету.")]), t._v(" "), t.wireless ? s("p", {
                         staticClass: "fail"
-                    }, [t._v("若搜不到以下新Wi-Fi，则表示中继连接失败，请重新配置")]) : t._e()]), t._v(" "), s("div", {
+                    }, [t._v("Если следующее подключение к сети Wi-Fi не произойдет, это означает, что соединение с ретранслятором не удалось, измените конфигурацию подключения к Инетрнету.")]) : t._e()]), t._v(" "), s("div", {
                         ref: "con",
                         staticClass: "form  width100",
                         class: {
@@ -1056,13 +1056,13 @@ webpackJsonp([7, 20], {
                         }
                     }, [s("Subtitle", {
                         attrs: {
-                            name: "您的Wi-Fi密码如下，建议截图保存"
+                            name: "Это Ваш пароль доступа к Wi-Fi сети, сделайте скриншот, запомните или сохраните пароль в надежном месте."
                         }
                     }), t._v(" "), s("div", {
                         staticClass: "wifi_item"
-                    }, [t._m(0), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid2g_ssid))]), t._v(" "), s("p", [t._v("Wi-Fi密码")]), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid2g_passwd))])]), t._v(" "), t.resultData.ssid5g_ssid ? s("div", {
+                    }, [t._m(0), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid2g_ssid))]), t._v(" "), s("p", [t._v("Пароль Wi-Fi: ")]), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid2g_passwd))])]), t._v(" "), t.resultData.ssid5g_ssid ? s("div", {
                         staticClass: "wifi_item wifi_item2"
-                    }, [t._m(1), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid5g_ssid))]), t._v(" "), s("p", [t._v("Wi-Fi密码")]), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid5g_passwd))])]) : t._e(), t._v(" "), s("div", {
+                    }, [t._m(1), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid5g_ssid))]), t._v(" "), s("p", [t._v("Пароль Wi-Fi: ")]), t._v(" "), s("h3", [t._v(t._s(t.resultData.ssid5g_passwd))])]) : t._e(), t._v(" "), s("div", {
                         staticClass: "wifi_item3"
                     }, [s("p", {
                         directives: [{
@@ -1071,14 +1071,14 @@ webpackJsonp([7, 20], {
                             value: !t.wireless,
                             expression: "!wireless"
                         }]
-                    }, [t._v("管理后台：  " + t._s(t.resultData.lan_ip))]), t._v(" "), s("p", [t._v("管理密码：  " + t._s(t.adminPassword))]), t._v(" "), s("p", {
+                    }, [t._v("Адрес Панели управления:   " + t._s(t.resultData.lan_ip))]), t._v(" "), s("p", [t._v("Пароль доступа к Панели управления:   " + t._s(t.adminPassword))]), t._v(" "), s("p", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
                             value: t.wireless,
                             expression: "wireless"
                         }]
-                    }, [t._v("推荐安装小米WiFi APP,随时随地管理您的路由")])])], 1)])
+                    }, [t._v("Рекомендуется установить приложение Xiaomi WiFi, чтобы управлять маршрутизатором в любое время и в любом месте.")])])], 1)])
                 },
                 staticRenderFns: [function() {
                     var t = this.$createElement,

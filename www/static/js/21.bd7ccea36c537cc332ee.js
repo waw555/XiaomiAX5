@@ -192,7 +192,7 @@ webpackJsonp([21], {
                         staticClass: "wifi"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              Wi-Fi设置\n            ")])]), t._v(" "), i("li", {
+                    }, [t._v("\n              Параметры Wi-Fi\n            ")])]), t._v(" "), i("li", {
                         on: {
                             click: t.setPppoe
                         }

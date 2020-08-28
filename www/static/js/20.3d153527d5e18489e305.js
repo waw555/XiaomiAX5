@@ -80,9 +80,9 @@ webpackJsonp([20], {
                         attrs: {
                             id: "title"
                         }
-                    }), s._v(" "), e("p", [s._v("配置完成，Wi-Fi重启中")]), s._v(" "), e("p", [s._v("再次连接Wi-Fi即可访问互联网")]), s._v(" "), s.wireless ? e("p", {
+                    }), s._v(" "), e("p", [s._v("Настройка завершена, производится перезагрузка Wi-Fi сети.")]), s._v(" "), e("p", [s._v("Подключитесь к Wi-Fi еще раз, чтобы получить доступ к Интернету.")]), s._v(" "), s.wireless ? e("p", {
                         staticClass: "fail"
-                    }, [s._v("若搜不到以下新Wi-Fi，则表示中继连接失败，请重新配置")]) : s._e()]), s._v(" "), e("div", {
+                    }, [s._v("Если следующее подключение к сети Wi-Fi не произойдет, это означает, что соединение с ретранслятором не удалось, измените конфигурацию подключения к Инетрнету.")]) : s._e()]), s._v(" "), e("div", {
                         ref: "con",
                         staticClass: "form  width100",
                         class: {
@@ -93,13 +93,13 @@ webpackJsonp([20], {
                         }
                     }, [e("Subtitle", {
                         attrs: {
-                            name: "您的Wi-Fi密码如下，建议截图保存"
+                            name: "Это Ваш пароль доступа к Wi-Fi сети, сделайте скриншот, запомните или сохраните пароль в надежном месте."
                         }
                     }), s._v(" "), e("div", {
                         staticClass: "wifi_item"
-                    }, [s._m(0), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid2g_ssid))]), s._v(" "), e("p", [s._v("Wi-Fi密码")]), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid2g_passwd))])]), s._v(" "), s.resultData.ssid5g_ssid ? e("div", {
+                    }, [s._m(0), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid2g_ssid))]), s._v(" "), e("p", [s._v("Пароль Wi-Fi: ")]), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid2g_passwd))])]), s._v(" "), s.resultData.ssid5g_ssid ? e("div", {
                         staticClass: "wifi_item wifi_item2"
-                    }, [s._m(1), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid5g_ssid))]), s._v(" "), e("p", [s._v("Wi-Fi密码")]), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid5g_passwd))])]) : s._e(), s._v(" "), e("div", {
+                    }, [s._m(1), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid5g_ssid))]), s._v(" "), e("p", [s._v("Пароль Wi-Fi: ")]), s._v(" "), e("h3", [s._v(s._s(s.resultData.ssid5g_passwd))])]) : s._e(), s._v(" "), e("div", {
                         staticClass: "wifi_item3"
                     }, [e("p", {
                         directives: [{
@@ -108,14 +108,14 @@ webpackJsonp([20], {
                             value: !s.wireless,
                             expression: "!wireless"
                         }]
-                    }, [s._v("管理后台：  " + s._s(s.resultData.lan_ip))]), s._v(" "), e("p", [s._v("管理密码：  " + s._s(s.adminPassword))]), s._v(" "), e("p", {
+                    }, [s._v("Адрес Панели управления:   " + s._s(s.resultData.lan_ip))]), s._v(" "), e("p", [s._v("Пароль доступа к Панели управления:   " + s._s(s.adminPassword))]), s._v(" "), e("p", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
                             value: s.wireless,
                             expression: "wireless"
                         }]
-                    }, [s._v("推荐安装小米WiFi APP,随时随地管理您的路由")])])], 1)])
+                    }, [s._v("Рекомендуется установить приложение Xiaomi WiFi, чтобы управлять маршрутизатором в любое время и в любом месте.")])])], 1)])
                 },
                 staticRenderFns: [function() {
                     var s = this.$createElement,

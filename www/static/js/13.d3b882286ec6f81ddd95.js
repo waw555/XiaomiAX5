@@ -272,7 +272,7 @@ webpackJsonp([13], {
                         on: {
                             click: t.gotopcsetting
                         }
-                    }, [t._v("切换到有线中继模式")])]), t._v(" "), i("li", [t._v("2、"), i("a", {
+                    }, [t._v("切换到Точка доступа模式")])]), t._v(" "), i("li", [t._v("2、"), i("a", {
                         on: {
                             click: t.avoidipconflict
                         }

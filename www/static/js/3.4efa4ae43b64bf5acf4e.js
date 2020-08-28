@@ -230,7 +230,7 @@ webpackJsonp([3], {
                     return {
                         dialog_data: {
                             tit: "尝试中继失败了",
-                            message: "可能是Wi-Fi密码出错了",
+                            message: "可能是Пароль Wi-Fi: 出错了",
                             button: "确认"
                         },
                         passtype_wifi: "password",
@@ -429,7 +429,7 @@ webpackJsonp([3], {
                         }
                     }, [t.encrype ? i("div", {
                         staticClass: "password"
-                    }, [i("p", [t._v(" Wi-Fi密码  \n                        "), t._v(" "), i("field-messages", {
+                    }, [i("p", [t._v(" Пароль Wi-Fi:   \n                        "), t._v(" "), i("field-messages", {
                         staticClass: "error",
                         attrs: {
                             name: "password1",

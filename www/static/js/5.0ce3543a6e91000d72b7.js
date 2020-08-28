@@ -321,7 +321,7 @@ webpackJsonp([5], {
                     }, [s("Headers", {
                         staticClass: "head",
                         attrs: {
-                            name: "Wi-Fi设置"
+                            name: "Параметры Wi-Fi"
                         },
                         on: {
                             goBack: t.handleBack
@@ -378,7 +378,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi名称:")]), t._v(" "), s("input", {
+                    }, [t._v("Имя Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -424,7 +424,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi密码:")]), t._v(" "), s("input", {
+                    }, [t._v("Пароль Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -436,7 +436,7 @@ webpackJsonp([5], {
                         }],
                         attrs: {
                             id: "input2450password",
-                            placeholder: "Wi-Fi密码至少8位",
+                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
                             readonly: "",
                             onfocus: "this.removeAttribute('readonly')",
                             autocomplete: "off",
@@ -480,17 +480,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi名称不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi не может быть пустым.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [t._v("*Wi-Fi名称最多28字节")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi должно быть не более 28 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi名称不能包含特殊字符` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
+                    }, [t._v("* Имя Wi-Fi не может содержать специальные символы, такие как: ` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password2450",
@@ -501,17 +501,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi密码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("*Wi-Fi密码不少于8位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("*Wi-Fi密码不多于63位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не более 63 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
@@ -521,7 +521,7 @@ webpackJsonp([5], {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi密码不能包含特殊字符` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может содержать специальные символы, такие как:` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -593,7 +593,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi名称:")]), t._v(" "), s("input", {
+                    }, [t._v("Имя Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -639,7 +639,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi密码:")]), t._v(" "), s("input", {
+                    }, [t._v("Пароль Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -654,7 +654,7 @@ webpackJsonp([5], {
                             readonly: "",
                             onfocus: "this.removeAttribute('readonly')",
                             autocomplete: "off",
-                            placeholder: "Wi-Fi密码至少8位",
+                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
                             name: "password24",
                             type: t.passtype24,
                             wifipassword: "",
@@ -695,17 +695,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi名称不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi не может быть пустым.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [t._v("*Wi-Fi名称最多28字节")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi должно быть не более 28 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi名称不能包含特殊字符` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
+                    }, [t._v("* Имя Wi-Fi не может содержать специальные символы, такие как: ` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password24",
@@ -716,17 +716,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi密码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("*Wi-Fi密码不少于8位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("*Wi-Fi密码不多于63位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не более 63 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
@@ -736,7 +736,7 @@ webpackJsonp([5], {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi密码不能包含特殊字符` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может содержать специальные символы, такие как:` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -801,7 +801,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi名称:")]), t._v(" "), s("input", {
+                    }, [t._v("Имя Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -847,7 +847,7 @@ webpackJsonp([5], {
                         attrs: {
                             for: "name"
                         }
-                    }, [t._v("Wi-Fi密码:")]), t._v(" "), s("input", {
+                    }, [t._v("Пароль Wi-Fi:")]), t._v(" "), s("input", {
                         directives: [{
                             name: "model",
                             rawName: "v-model.trim",
@@ -903,17 +903,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi名称不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi не может быть пустым.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "checklength"
                         },
                         slot: "checklength"
-                    }, [t._v("*Wi-Fi名称最多28字节")]), t._v(" "), s("div", {
+                    }, [t._v("* Имя WiFi должно быть не более 28 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi名称不能包含特殊字符` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
+                    }, [t._v("* Имя Wi-Fi не может содержать специальные символы, такие как: ` ; | $ & { } \\")])]), t._v(" "), s("field-messages", {
                         staticClass: "error-tip",
                         attrs: {
                             name: "password50",
@@ -924,17 +924,17 @@ webpackJsonp([5], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [t._v("*Wi-Fi密码不能为空")]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может быть пустым")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "minlength"
                         },
                         slot: "minlength"
-                    }, [t._v("*Wi-Fi密码不少于8位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не менее 8 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "maxlength"
                         },
                         slot: "maxlength"
-                    }, [t._v("*Wi-Fi密码不多于63位")]), t._v(" "), s("div", {
+                    }, [t._v("* Длина пароля Wi-Fi, должна быть не более 63 символов.")]), t._v(" "), s("div", {
                         attrs: {
                             slot: "wifipassword"
                         },
@@ -944,7 +944,7 @@ webpackJsonp([5], {
                             slot: "filterspecialchar"
                         },
                         slot: "filterspecialchar"
-                    }, [t._v("*Wi-Fi密码不能包含特殊字符` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
+                    }, [t._v("* Пароль Wi-Fi не может содержать специальные символы, такие как:` ; | $ & { } \\")])])], 1)]), t._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
