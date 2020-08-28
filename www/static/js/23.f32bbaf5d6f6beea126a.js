@@ -184,7 +184,7 @@ webpackJsonp([23], {
                         staticClass: "band_account main"
                     }, [a("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          仅在Имя пользователя模式下展示账号密码等信息\n        ")]), t._v(" "), a("ul", [a("li", [a("label", {
+                    }, [t._v("\n          Учетные данные\n        ")]), t._v(" "), a("ul", [a("li", [a("label", {
                         attrs: {
                             for: ""
                         }

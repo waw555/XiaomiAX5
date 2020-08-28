@@ -100,31 +100,31 @@ webpackJsonp([22], {
                             pppoePassword: "..."
                         },
                         operator_lists: [{
-                            name: "中国电信",
+                            name: "China Telecom",
                             tel: "10000"
                         }, {
-                            name: "中国联通",
+                            name: "China Unicom",
                             tel: "10010"
                         }, {
-                            name: "中国移动",
+                            name: "China Mobile",
                             tel: "10086"
                         }, {
-                            name: "中国铁通",
+                            name: "China Railcom",
                             tel: "10050"
                         }, {
-                            name: "歌华有线",
+                            name: "Gehua Cable",
                             tel: "96196"
                         }, {
-                            name: "宽带通",
+                            name: "Broadband",
                             tel: "96007"
                         }, {
-                            name: "长城宽带",
+                            name: "Great Wall Broadband",
                             tel: "95079"
                         }, {
-                            name: "东方有线",
+                            name: "Oriental Cable",
                             tel: "96877"
                         }, {
-                            name: "华数宽带",
+                            name: "Huashu Broadband",
                             tel: "0571-96171"
                         }]
                     }
@@ -168,7 +168,7 @@ webpackJsonp([22], {
                         }
                     }), t._v(" "), n("div", {
                         staticClass: "desc"
-                    }, [t._v("\n    仅在Имя пользователя模式下展示账号密码等信息\n  ")]), t._v(" "), n("ul", {
+                    }, [t._v("\n    Учетные данные\n  ")]), t._v(" "), n("ul", {
                         staticClass: "account"
                     }, [n("li", [t._v("Имя пользователя\n      "), n("div", {
                         staticClass: "broad"
