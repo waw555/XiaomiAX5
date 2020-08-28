@@ -57,7 +57,7 @@ webpackJsonp([21], {
                         status: 1,
                         gotopc: 0,
                         times: 1,
-                        button_text: "立即进行Диагностика сети",
+                        button_text: "Диагностика сети",
                         network_type: 0
                     }
                 },
@@ -77,7 +77,7 @@ webpackJsonp([21], {
                                     case 0:
                                         return s.next = 2, t.axios.getWifiStatus();
                                     case 2:
-                                        (i = s.sent).data && ("wifiapmode" == i.data.mode ? (t.button_text = "查看帮助", t.network_type = 1) : "lanapmode" == i.data.mode && (t.button_text = "查看帮助", t.network_type = 1));
+                                        (i = s.sent).data && ("wifiapmode" == i.data.mode ? (t.button_text = "Справка", t.network_type = 1) : "lanapmode" == i.data.mode && (t.button_text = "Справка", t.network_type = 1));
                                     case 4:
                                     case "end":
                                         return s.stop()
@@ -157,7 +157,7 @@ webpackJsonp([21], {
                         staticClass: "diag"
                     }, [i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          建议您进行Диагностика сети定位具体问题\n        ")]), t._v(" "), i("div", {
+                    }, [t._v("\n          Рекомендуется выполнить диагностику сети для выявления проблем.\n        ")]), t._v(" "), i("div", {
                         staticClass: "btn",
                         on: {
                             click: t.diagnose
@@ -173,14 +173,14 @@ webpackJsonp([21], {
                         }
                     }, [i("div", {
                         staticClass: "correct"
-                    }, [t._v("\n          网络正常\n          ")]), t._v(" "), t._m(2)])])]) : t._e()]), t._v(" "), i("div", {
+                    }, [t._v("\n          Сеть нормальная\n          ")]), t._v(" "), t._m(2)])])]) : t._e()]), t._v(" "), i("div", {
                         staticClass: "bottom"
                     }, [i("div", {
                         staticClass: "more",
                         on: {
                             click: t.more
                         }
-                    }, [t._v("\n        更多高级功能"), i("span", {
+                    }, [t._v("\n        Расширенные функции"), i("span", {
                         staticClass: "iconfont icon-fanhui"
                     })]), t._v(" "), i("div", {
                         staticClass: "info"
@@ -200,7 +200,7 @@ webpackJsonp([21], {
                         staticClass: "setting"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              上网模式设置\n            ")])]), t._v(" "), i("li", {
+                    }, [t._v("\n              Параметры Интернета\n            ")])]), t._v(" "), i("li", {
                         on: {
                             click: t.operator
                         }
@@ -208,16 +208,16 @@ webpackJsonp([21], {
                         staticClass: "user"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              Имя пользователя信息\n            ")])])])]), t._v(" "), i("div", {
+                    }, [t._v("\n              Имя пользователя\n            ")])])])]), t._v(" "), i("div", {
                         staticClass: "footer"
                     }, [i("span", {
                         staticClass: "download",
                         on: {
                             click: t.downloadEvent
                         }
-                    }, [t._v("下载Приложение Xiaomi WiFi")]), i("span", {
+                    }, [t._v("Скачать приложение Xiaomi WiFi")]), i("span", {
                         staticClass: "desc"
-                    }, [t._v("畅想更多贴心智能功能")])])]), t._v(" "), t.gotopc ? i("div", {
+                    }, [t._v("Расширенные функции")])])]), t._v(" "), t.gotopc ? i("div", {
                         staticClass: "senior"
                     }, [i("div", {
                         staticClass: "mask"
@@ -242,7 +242,7 @@ webpackJsonp([21], {
                         s = this._self._c || t;
                     return s("div", {
                         staticClass: "status"
-                    }, [this._v("\n        网络出现问题\n        "), s("div", [this._v("路由器稳定运行中")])])
+                    }, [this._v("\n        Проблемы с сетью\n        "), s("div", [this._v("Маршрутизатор работает стабильно")])])
                 }, function() {
                     var t = this.$createElement,
                         s = this._self._c || t;
@@ -250,7 +250,7 @@ webpackJsonp([21], {
                         staticClass: "reason"
                     }, [s("div", {
                         staticClass: "title"
-                    }, [this._v("\n          外网不通的原因可能是：\n\n        ")]), this._v(" "), s("ul", [s("li", [this._v("WAN或Internet口网络Подключить异常/Имя пользователяНеправильный пароль")]), this._v(" "), s("li", [this._v("IP未获取/DNS解析异常")])])])
+                    }, [this._v("\n          Причиной выхода из строя внешней сети может быть：\n\n        ")]), this._v(" "), s("ul", [s("li", [this._v("Не подключен сетевой кабель. Неправильные имя пользователя или пароль")]), this._v(" "), s("li", [this._v("IP адрес не получен, неправильный адрес сервера DNS")])])])
                 }, function() {
                     var t = this.$createElement,
                         s = this._self._c || t;
@@ -264,7 +264,7 @@ webpackJsonp([21], {
                         s = this._self._c || t;
                     return s("div", {
                         staticClass: "content"
-                    }, [s("p", [this._v("Используйте версию для ПК")]), this._v(" "), s("p", [this._v("Используйте расширенные параметры")])])
+                    }, [s("p", [this._v("Используйте версию для ПК")]), this._v(" "), s("p", [this._v("Используйте расширенные функции")])])
                 }]
             };
         var l = i("VU/8")(c, r, !1, function(t) {

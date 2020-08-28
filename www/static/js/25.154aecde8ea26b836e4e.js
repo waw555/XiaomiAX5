@@ -274,7 +274,7 @@ webpackJsonp([25], {
                         e = this._self._c || t;
                     return e("div", {
                         staticClass: "content"
-                    }, [e("p", [this._v("Используйте версию для ПК")]), this._v(" "), e("p", [this._v("Используйте расширенные параметры")])])
+                    }, [e("p", [this._v("Используйте версию для ПК")]), this._v(" "), e("p", [this._v("Используйте расширенные функции")])])
                 }]
             };
         var p = s("VU/8")(o, r, !1, function(t) {

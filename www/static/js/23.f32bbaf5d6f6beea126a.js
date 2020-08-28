@@ -173,7 +173,7 @@ webpackJsonp([23], {
                         staticClass: "bandwidth"
                     }, [a("Headers", {
                         attrs: {
-                            name: "Имя пользователя信息",
+                            name: "Имя пользователя",
                             step: t.step,
                             fontsize: "index"
                         },
