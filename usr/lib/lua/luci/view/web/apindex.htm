@@ -327,7 +327,7 @@ $.sub('status:newget', function(){
                         }else{
                             $('.passwd_2g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_2g_online').html('Устройства：'+res['2g'].online_sta_count);
+                        $('.wifi_2g_online').html('Подключенные устройства: '+res['2g'].online_sta_count);
                         //5g
                         $('.wifi_5g_name').html('Имя Wi-Fi：'+res['5g'].ssid);
                         if(res['5g'].passwd != ''){
@@ -335,7 +335,7 @@ $.sub('status:newget', function(){
                         }else{
                             $('.passwd_5g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_5g_online').html('Устройства：'+res['5g'].online_sta_count);
+                        $('.wifi_5g_online').html('Подключенные устройства: '+res['5g'].online_sta_count);
                         //信息
 
 

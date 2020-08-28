@@ -54,7 +54,7 @@ var GLOBALHEADER = true;
                 <ul>
                     <li <%if string.find(REQUEST_URI, "/home") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "home")%>"><%:Статус%></a></li>
                     <%if usbIsSupport == '1' then%>
-                    <li <%if string.find(REQUEST_URI, "/store") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "store")%>"><%:Память%></a></li>
+                    <li <%if string.find(REQUEST_URI, "/store") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "store")%>"><%:Диск%></a></li>
                     <%end%>
                     <li <%if string.find(REQUEST_URI, "/setting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>"><%:Настройки%></a></li>
 
@@ -64,7 +64,7 @@ var GLOBALHEADER = true;
                 <%elseif netMode==3 then%>
                 <ul>
                     <li <%if string.find(REQUEST_URI, "/home") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "home")%>"><%:Состояние сети Mesh%></a></li>
-                    <li <%if string.find(REQUEST_URI, "/apsetting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>"><%:Состояние подсети Mesh%></a></li>
+                    <li <%if string.find(REQUEST_URI, "/apsetting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>"><%:Устройство Mesh%></a></li>
                 </ul>
                 <%else%>
                 <ul>
@@ -81,7 +81,7 @@ var GLOBALHEADER = true;
                     <span class="goto-topo"><a href="http://miwifi.com/" target="_blank"><%:Вся сеть%></a></span>
                 <%end%>
                 <%if (netmod == 4 or netmod == 0)then%>
-                   <span id="addMesh" style="cursor:pointer;margin-top:6px;margin-left:15px"><%:Добавить устройства Mesh %></span>
+                   <span id="addMesh" style="cursor:pointer;margin-top:6px;margin-left:15px"><%:Добавить Mesh %></span>
                 <%end%>
                 <span id="sysmenu" class="name s-dropdown"><%=router_name%></span>
                 <span id="sysnotice" class="ico-notice"></span>

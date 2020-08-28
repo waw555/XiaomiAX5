@@ -136,10 +136,10 @@
                 <div class="bd">
                     <table>
                         <tr>
-                            <th><%:Модель маршрутизатора%></th>
-                            <th><%:Версия прошивки%></th>
-                            <th><%:MAC адрес%></th>
-                            <th><%:Серийный номер%></th>
+                            <th><%:Модель %></th>
+                            <th><%:Версия прошивки %></th>
+                            <th><%:MAC адрес %></th>
+                            <th><%:Серийный номер %></th>
                         </tr>
                         <tr>
                             <td id="routermodel">--</td>
@@ -207,7 +207,7 @@
         <tr>
             <th class="s0">{$devtype}</th>
         {if($devlen > 0 )}
-            <th class="s1"><%:Доступ к внешней сети%></th>
+            <th class="s1"><%:Доступ к сети%></th>
             {if($hasDisk)}
             <th class="s2"><%:Полный доступ%></th>
             {/if}
@@ -329,10 +329,10 @@
     {if($appInfos.length > 0)}
     <table class="table">
         <tr class="{$order}">
-            <th><%:任务名称%></th>
-            <th><span class="orderbycpu">CPU</span></th>
-            <th><span class="orderbymem"><%:内存%></span></th>
-            <th width="80"><%:操作%></th>
+            <th><%:Название%></th>
+            <th><span class="orderbycpu">Процессор</span></th>
+            <th><span class="orderbymem"><%:Память%></span></th>
+            <th width="80"><%:Работает%></th>
         </tr>
         {for (var i = 0; i < $appInfos.length; i++)}
         <tr>
@@ -340,14 +340,14 @@
             <td>{$appInfos[i].cpu}%</td>
             <td>{$appInfos[i].mem}%</td>
             <td><a href="###" class="btn btn-dft btn-s killtask" data-status="{$appInfos[i].status}" data-id="{$appInfos[i].id}" data-pname="{$appInfos[i].name}"><span>
-            {if($appInfos[i].status == 5)}<%:结束%>{/if}
-            {if($appInfos[i].status == 7 || $appInfos[i].status == 6)}<%:开启%>{/if}
+            {if($appInfos[i].status == 5)}<%:Отключен%>{/if}
+            {if($appInfos[i].status == 7 || $appInfos[i].status == 6)}<%:Включен%>{/if}
             </span></a></td>
         </tr>
         {/for}
     </table>
     {else}
-    <p><%:没有运行中的任务%></p>
+    <p><%:Нет запущенных задач%></p>
     {/if}
 </div>
 </script>
@@ -391,7 +391,7 @@ $.sub('netdiagnosis', function(){
                     devline.className = 'line line-ok';
                     netline.className = 'line line-err';
                     $(netline)
-                    .attr('title', '<%:点击进行网络检测%>')
+                    .attr('title', '<%:Диагностика сети%>')
                     .click(function(){
                         window.location.href = 'http://miwifi.com/cgi-bin/luci/diagnosis';
                     });
