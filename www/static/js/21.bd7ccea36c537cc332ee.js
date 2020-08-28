@@ -57,7 +57,7 @@ webpackJsonp([21], {
                         status: 1,
                         gotopc: 0,
                         times: 1,
-                        button_text: "立即进行网络诊断",
+                        button_text: "立即进行Диагностика сети",
                         network_type: 0
                     }
                 },
@@ -157,7 +157,7 @@ webpackJsonp([21], {
                         staticClass: "diag"
                     }, [i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          建议您进行网络诊断定位具体问题\n        ")]), t._v(" "), i("div", {
+                    }, [t._v("\n          建议您进行Диагностика сети定位具体问题\n        ")]), t._v(" "), i("div", {
                         staticClass: "btn",
                         on: {
                             click: t.diagnose
