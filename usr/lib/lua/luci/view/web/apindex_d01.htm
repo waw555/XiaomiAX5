@@ -39,7 +39,7 @@
     end
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/index.css?v=<%=ver%>" rel="stylesheet">
@@ -51,7 +51,7 @@
         <div class="inner clearfix">
             <div class="devices">
                 <div class="img"></div>
-                <p><%:终端设备%></p>
+                <p><%:Устройства%></p>
                 <!-- <div class="status status-devices" id="statusDevices"><b class="devcountonline">--</b><%:台%></div> -->
             </div>
             <div id="devline" class="line line-ok"></div>
@@ -60,7 +60,7 @@
                     <img class="on" src="<%=resource%>/web/img/icons/<%=routerSrcOn%>">
                     <img class="off" src="<%=resource%>/web/img/icons/<%=routerSrc%>">
                 </div>
-                <p><%=router_name%> | <%:本机%></p>
+                <p><%=router_name%> | <%:Дом%></p>
                 <table class="status-wifi" id="statusWifi">
                 <%if wifi50IsSupport == "1" then%>
                     <tr>
@@ -69,14 +69,14 @@
                         </td>
                         <td class="c">|</td>
                         <td class="r">
-                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%else%>
                     <tr>
                         <td style="border-radius:24px;" colspan="3">
-                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi:</span><b id="ssid24val">--</b></div>
-                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi: </span><b id="ssid24val">--</b></div>
+                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%end%>
@@ -87,11 +87,11 @@
             <div class="linetext-aplink">
                <!--  <%:netmod apindexd01=%><%=netmod%> -->
                 <%if netmod == 1 then%>
-                    <%:无线中继%>
+                    <%:Усилитель%>
                 <%elseif netmod == 2 then%>
-                    <%:有线中继%>
+                    <%:Точка доступа%>
                 <%elseif netmod == 3 then%>
-                    <%:Mesh组网%>
+                    <%:Сеть Mesh%>
                 <%end%>
             </div>
 
@@ -103,7 +103,7 @@
             <%else%>
                 <img src="<%=resource%>/web/img/icons/router_other.png">
             <%end%>
-                <p><%:上级路由器%></p>
+                <p><%:Ведущий маршрутизатор%></p>
                  <%if netmod == 1 or  netmod == 2 then%>
                 <div class="status status-internet" id="statusInternet">
                     <i class="ico ico-wifi-on"></i><b id="ssidval">--</b>
@@ -119,11 +119,11 @@
         </div>
         <%end%>
 
-        <!--add  路由器信息-->
+        <!--add  Информация о маршрутизаторе -->
         <div class="mod-routerstatus nav-tab-content clearfix">
             <div class="routerinfo">
                 <div class="hd">
-                    <h3><%:路由器信息%></h3>
+                    <h3><%:Информация о маршрутизаторе%></h3>
                 </div>
                 <div class="bd">
                     <table>
@@ -134,10 +134,10 @@
                             <td id="routersn">--</td>
                         </tr>
                         <tr>
-                            <th><%:路由器型号%></th>
-                            <th><%:系统ROM版本%></th>
-                            <th><%:MAC地址%></th>
-                            <th><%:SN%></th>
+                            <th><%:Модель %></th>
+                            <th><%:Версия прошивки %></th>
+                            <th><%:MAC адрес %></th>
+                            <th><%:Серийный номер %></th>
                         </tr>
                     </table>
                 </div>
@@ -148,26 +148,26 @@
 
             <div class="status-panel status-panel-first">
                 <div class="hd">
-                    <h3><%:当前CPU状态%></h3>
-                    <p><%:当前CPU负载：%><b id="cpuused">--</b></p>
+                    <h3><%:Нагрузка на процессор%></h3>
+                    <p><%:Нагрузка на процессор：%><b id="cpuused">--</b></p>
                 </div>
                 <div class="bd">
                     <div class="canvas" id="cpuChart"></div>
                 </div>
                 <div class="ft">
-                    <%:CPU核心数%>: <span class="val" id="cpucore">--</span> <i class="div">|</i> <%:核心频率%>: <span class="val" id="cpuhz">--</span>
+                    <%:Количество ядер%>: <span class="val" id="cpucore">--</span> <i class="div">|</i> <%:Частота процессора%>: <span class="val" id="cpuhz">--</span>
                 </div>
             </div>
             <div class="status-panel">
                 <div class="hd">
-                    <h3><%:当前内存状态%></h3>
-                    <p><%:当前内存占用：%><b id="memused">--</b></p>
+                    <h3><%:Состояние памяти%></h3>
+                    <p><%:Используется：%><b id="memused">--</b></p>
                 </div>
                 <div class="bd">
                     <div class="canvas" id="memChart"></div>
                 </div>
                 <div class="ft">
-                    <%:内存容量%>: <span class="val" id="memtotal">--</span> <i class="div">|</i> <%:内存类型%>: <span class="val" id="memtype">--</span> <i class="div">|</i> <%:内存频率%>: <span class="val" id="memhz">--</span>
+                    <%:Объем памяти%>: <span class="val" id="memtotal">--</span> <i class="div">|</i> <%:Тип памяти%>: <span class="val" id="memtype">--</span> <i class="div">|</i> <%:Частота памяти%>: <span class="val" id="memhz">--</span>
                 </div>
             </div>
         </div>
@@ -230,32 +230,39 @@ $.sub('status:get', function(){
         }
     });
 
-    //add 路由器信息
+    //add Информация о маршрутизаторе
     function getHardware(data){
         var mapChannel, mapModel;
-        mapChannel = {
-            'current': '<%:内测版%>',
-            'release': '<%:稳定版%>',
-            'stable': '<%:开发版%>'
-        },
-        mapModel = {
-            'R1D': '<%:Redmi路由器%>',
-            'R2D': '<%:Redmi路由器2%>',
-            'R3D': '<%:Redmi路由器HD%>',
-            'R1CM': '<%:Redmi路由器MINI%>',
-            'R1CL': '<%:Redmi路由器青春版%>',
-            'R3': '<%:Redmi路由器3%>',
-            'R3L': '<%:Redmi路由器3C%>',
-            'R3P': '<%:Redmi路由器3 Pro%>',
-            'R3A': '<%:Redmi路由器3A%>',
-            'R3G': '<%:Redmi路由器3G%>',
-            'R4': '<%:Redmi路由器4%>',
-            'R4C': '<%:Redmi路由器4Q%>',
-            'R4CM': '<%:Redmi路由器4C%>',
-            'D01': '<%:Redmi路由器Mesh%>',
-            'R4AC': '<%:Redmi路由器4A%>',
-            'R4A': '<%:Redmi路由器4 v2%>'
-        };
+		mapChannel = {
+			'current': '<%:Бета%>',
+			'release': '<%:Релиз%>',
+			'stable': '<%:Альфа%>'
+		},
+		mapModel = {
+			'R1D': '<%:Router Xiaomi%>',
+			'R2D': '<%:Mi Router 2%>',
+			'R3D': '<%:Mi Router HD%>',
+			'R1CM': '<%:Router Xiaomi MINI%>',
+			'R1CL': '<%:Mi Router Youth Edition%>',
+			'R3': '<%:Mi Router 3%>',
+			'R3L': '<%:Mi Router 3C%>',
+			'R3P': '<%:Mi Router 3 Pro%>',
+			'R3A': '<%:Mi Router 3A%>',
+			'R3G': '<%:Mi Router 3G%>',
+			'R4': '<%:Mi Router 4%>',
+			'R4C': '<%:Mi Router 4Q%>',
+			'R4CM': '<%:Mi Router 4C%>',
+			'D01': '<%:Xiaomi router Mesh%>',
+			'R4AC': '<%:Mi Router 4A%>',
+			'R4A': '<%:Mi Router 4 v2%>',
+			'R3Gv2': '<%:Mi Router 3G%>',
+			'R2600': '<%:Mi Router 2600%>',
+			'R2100': '<%:Mi Router AC2100%>',
+			'R1500': '<%:Mi Router 1500%>',
+			'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+			'RM1800': '<%:Router Xiaomi AX1800%>',
+			'RA67': '<%:Redmi Xiaomi AX5%>'
+		};
 
         $('#routermodel').text(mapModel[data.platform] + '('+ data.platform +')');
         $('#routerversion').text('MiWiFi ' + mapChannel[data.channel] + ' ' + data.version);
@@ -308,11 +315,11 @@ $.sub( 'wifisignel', function(){
             signal = 0;
         }
         if ( signal > 80) {
-            return '<%:优%>';
+            return '<%:Высокий%>';
         } else if ( signal > 30 ) {
-            return '<%:良%>';
+            return '<%:Средний%>';
         } else {
-            return '<%:差%>';
+            return '<%:Низкий%>';
         }
     };
     $.getJSON('<%=luci.dispatcher.build_url("api", "xqnetwork", "wifiap_signal")%>', {}, function( rsp ){
@@ -335,7 +342,7 @@ $.sub( 'wifisignel', function(){
                 $('#ssidval').text( 'SSID:' + rsp.ssid );
             }
 
-            $('#apqualityval').html( '<%:当前为无线中继模式，中继质量为%><b class="lv-{$lv}">{$quality}</b>'.tmpl({
+            $('#apqualityval').html( '<%:Уровень сигнала%><b class="lv-{$lv}">{$quality}</b>'.tmpl({
                 quality: getSignelText( rsp.signal ),
                 lv: apsingallv
             }) );

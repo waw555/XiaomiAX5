@@ -60,7 +60,7 @@
                     <img class="on" src="<%=resource%>/web/img/icons/<%=routerSrcOn%>">
                     <img class="off" src="<%=resource%>/web/img/icons/<%=routerSrc%>">
                 </div>
-                <p><%=router_name%> | <%:本机%></p>
+                <p><%=router_name%> | <%:Дом%></p>
                 <table <%if netmod == 3 then%>style="display: none"<%end%> class="status-wifi" id="statusWifi">
                 <%if wifi50IsSupport == "1" then%>
                     <tr>
@@ -69,14 +69,14 @@
                         </td>
                         <td class="c">|</td>
                         <td class="r">
-                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%else%>
                     <tr>
                         <td style="border-radius:24px;" colspan="3">
-                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi:</span><b id="ssid24val">--</b></div>
-                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G:</span><b id="ssid50val">--</b></div>
+                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi: </span><b id="ssid24val">--</b></div>
+                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
                         </td>
                     </tr>
                 <%end%>
@@ -88,7 +88,7 @@
             <div id="netline" class="line line-aplink"></div>
             <%end%>
             <div class="linetext-aplink">
-            <%if netmod == 1 then%><%:无线中继%><%elseif netmod ==3 then%><%:Mesh组网%><%else%><%:有线中继%><%end%></div>
+            <%if netmod == 1 then%><%:Усилитель%><%elseif netmod ==3 then%><%:Сеть Mesh%><%else%><%:Точка доступа%><%end%></div>
             <div class="internet">
             <%if vendorInfo_ip ~= 0 then%>
                 <a href="http://<%=vendorInfo_ip%>" target="_blank">
@@ -97,7 +97,7 @@
             <%else%>
                 <img src="<%=resource%>/web/img/icons/router_other.png">
             <%end%>
-                <p><%:主路由器%></p>
+                <p><%:Ведомый маршрутизатор%></p>
                 <div <%if netmod == 3 then%>style="display: none"<%end%> class="status status-internet" id="statusInternet">
                     <i class="ico ico-wifi-on"></i><b id="ssidval">--</b>
                 </div>
@@ -116,43 +116,43 @@
                 <div class="wifi_set">
                     <div class="wifi_2g">
                         <ul>
-                             <li> <b>2.4G</b><span>Hz</span></li>
-                            <li class="wifi_2g_name">Wi-Fi名称</li>
-                            <li class="passwd_2g">Wi-Fi密码：
+                             <li> <b>2.4G </b><span>Hz</span></li>
+                            <li class="wifi_2g_name">Имя Wi-Fi</li>
+                            <li class="passwd_2g">Пароль Wi-Fi
                                 <input type="text" class="wifi_2g_pssswd wifi_2g_pssswd_txt" value="">
                                 <input type="password" class="wifi_2g_pssswd" value="">
                                  <span class="eye2"></span>
                             </li>
-                            <li class="wifi_2g_online">连接设备数量 --</li>
+                            <li class="wifi_2g_online">Устройства</li>
                         </ul>
                         <%if netmod ~= 3 then%>
-                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>" >设置</a>
+                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>" >Настроить</a>
                         <%end%>
                     </div>
 
                     <div class="wifi_5g">
                         <ul>
-                            <li> <b>5G</b><span>Hz</span></li>
-                             <li class="wifi_5g_name">Wi-Fi名称</li>
-                            <li class="passwd_5g">Wi-Fi密码：
+                            <li> <b>5G </b><span>Hz</span></li>
+                             <li class="wifi_5g_name">Имя Wi-Fi</li>
+                            <li class="passwd_5g">Пароль Wi-Fi
                                 <input type="text" class="wifi_5g_pssswd wifi_5g_pssswd_txt" value="">
                                 <input type="password" class="wifi_5g_pssswd" value="">
                                 <span class="eye2"></span>
                             </li>
-                            <li class="wifi_5g_online">连接设备数量 --</li>
+                            <li class="wifi_5g_online">Устройства</li>
                         </ul>
                         <%if netmod ~= 3 then%>
-                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>" >设置</a>
+                        <a class="btn_wifi" href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>" >Настроить</a>
                         <%end%>
                     </div>
                 </div>
                 <div class="bd">
                     <table>
                         <tr>
-                            <th><%:路由器型号%></th>
-                            <th><%:系统ROM版本%></th>
-                            <th><%:MAC地址%></th>
-                            <th><%:SN%></th>
+                            <th><%:Модель %></th>
+                            <th><%:Версия прошивки %></th>
+                            <th><%:MAC адрес %></th>
+                            <th><%:Серийный номер %></th>
                         </tr>
                         <tr>
                             <td id="routermodel">--</td>
@@ -217,36 +217,36 @@ $.sub('status:get', function(){
 
 
         var mapChannel, mapModel;
-        mapChannel = {
-            'current': '<%:内测版%>',
-            'release': '<%:稳定版%>',
-            'stable': '<%:开发版%>'
-        },
-        mapModel = {
-            'R1D': '<%:小米路由器%>',
-            'R2D': '<%:小米路由器2%>',
-            'R3D': '<%:小米路由器HD%>',
-            'R1CM': '<%:小米路由器MINI%>',
-            'R1CL': '<%:小米路由器青春版%>',
-            'R3': '<%:小米路由器3%>',
-            'R3L': '<%:小米路由器3C%>',
-            'R3P': '<%:小米路由器3 Pro%>',
-            'R3A': '<%:小米路由器3A%>',
-            'R3G': '<%:小米路由器3G%>',
-            'R4': '<%:小米路由器4%>',
-            'R4C': '<%:小米路由器4Q%>',
-            'R4CM': '<%:小米路由器4C%>',
-            'D01': '<%:小米路由器Mesh%>',
-            'R4AC': '<%:小米路由器4A%>',
-            'R4A': '<%:小米路由器4 v2%>',
-            'R3Gv2': '<%:小米路由器3G%>',
-            'R2600': '<%:小米路由器2600%>',
-            'R2100': '<%:小米路由器AC2100%>',
-            'R1500': '<%:小米路由器1500%>',
-            'R3600': '<%:小米AIoT路由器AX3600%>',
-            'RM1800': '<%:小米路由器AX1800%>',
-            'RA67': '<%:Redmi路由器 AX5%>'
-        };
+		mapChannel = {
+			'current': '<%:Бета%>',
+			'release': '<%:Релиз%>',
+			'stable': '<%:Альфа%>'
+		},
+		mapModel = {
+			'R1D': '<%:Router Xiaomi%>',
+			'R2D': '<%:Mi Router 2%>',
+			'R3D': '<%:Mi Router HD%>',
+			'R1CM': '<%:Router Xiaomi MINI%>',
+			'R1CL': '<%:Mi Router Youth Edition%>',
+			'R3': '<%:Mi Router 3%>',
+			'R3L': '<%:Mi Router 3C%>',
+			'R3P': '<%:Mi Router 3 Pro%>',
+			'R3A': '<%:Mi Router 3A%>',
+			'R3G': '<%:Mi Router 3G%>',
+			'R4': '<%:Mi Router 4%>',
+			'R4C': '<%:Mi Router 4Q%>',
+			'R4CM': '<%:Mi Router 4C%>',
+			'D01': '<%:Xiaomi router Mesh%>',
+			'R4AC': '<%:Mi Router 4A%>',
+			'R4A': '<%:Mi Router 4 v2%>',
+			'R3Gv2': '<%:Mi Router 3G%>',
+			'R2600': '<%:Mi Router 2600%>',
+			'R2100': '<%:Mi Router AC2100%>',
+			'R1500': '<%:Mi Router 1500%>',
+			'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+			'RM1800': '<%:Router Xiaomi AX1800%>',
+			'RA67': '<%:Redmi Xiaomi AX5%>'
+		};
 
         // $('#routermodel').text(mapModel[data.platform] + '('+ data.platform +')');
         $('#routermodel').text(mapModel[data.platform]);
@@ -282,36 +282,36 @@ $.sub('status:get', function(){
 $.sub('status:newget', function(){
 
     var mapChannel, mapModel;
-    mapChannel = {
-        'current': '<%:内测版%>',
-        'release': '<%:稳定版%>',
-        'stable': '<%:开发版%>'
-    },
-    mapModel = {
-        'R1D': '<%:小米路由器%>',
-        'R2D': '<%:小米路由器2%>',
-        'R3D': '<%:小米路由器HD%>',
-        'R1CM': '<%:小米路由器MINI%>',
-        'R1CL': '<%:小米路由器青春版%>',
-        'R3': '<%:小米路由器3%>',
-        'R3L': '<%:小米路由器3C%>',
-        'R3P': '<%:小米路由器3 Pro%>',
-        'R3A': '<%:小米路由器3A%>',
-        'R3G': '<%:小米路由器3G%>',
-        'R4': '<%:小米路由器4%>',
-        'R4C': '<%:小米路由器4Q%>',
-        'R4CM': '<%:小米路由器4C%>',
-        'D01': '<%:小米路由器Mesh%>',
-        'R4AC': '<%:小米路由器4A%>',
-        'R4A': '<%:小米路由器4 v2%>',
-        'R3Gv2': '<%:小米路由器3G%>',
-        'R2600': '<%:小米路由器2600%>',
-        'R2100': '<%:小米路由器AC2100%>',
-        'R1500': '<%:小米路由器1500%>',
-        'R3600': '<%:小米AIoT路由器AX3600%>',
-        'RM1800': '<%:小米路由器AX1800%>',
-        'RA67': '<%:Redmi路由器 AX5%>'
-    };
+	mapChannel = {
+		'current': '<%:Бета%>',
+		'release': '<%:Релиз%>',
+		'stable': '<%:Альфа%>'
+	},
+	mapModel = {
+		'R1D': '<%:Router Xiaomi%>',
+		'R2D': '<%:Mi Router 2%>',
+		'R3D': '<%:Mi Router HD%>',
+		'R1CM': '<%:Router Xiaomi MINI%>',
+		'R1CL': '<%:Mi Router Youth Edition%>',
+		'R3': '<%:Mi Router 3%>',
+		'R3L': '<%:Mi Router 3C%>',
+		'R3P': '<%:Mi Router 3 Pro%>',
+		'R3A': '<%:Mi Router 3A%>',
+		'R3G': '<%:Mi Router 3G%>',
+		'R4': '<%:Mi Router 4%>',
+		'R4C': '<%:Mi Router 4Q%>',
+		'R4CM': '<%:Mi Router 4C%>',
+		'D01': '<%:Xiaomi router Mesh%>',
+		'R4AC': '<%:Mi Router 4A%>',
+		'R4A': '<%:Mi Router 4 v2%>',
+		'R3Gv2': '<%:Mi Router 3G%>',
+		'R2600': '<%:Mi Router 2600%>',
+		'R2100': '<%:Mi Router AC2100%>',
+		'R1500': '<%:Mi Router 1500%>',
+		'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+		'RM1800': '<%:Router Xiaomi AX1800%>',
+		'RA67': '<%:Redmi Xiaomi AX5%>'
+	};
     var apiNewStatus = '<%=luci.dispatcher.build_url("api","misystem","newstatus")%>';
     $.ajax({
                 url: apiNewStatus,
@@ -321,21 +321,21 @@ $.sub('status:newget', function(){
                     res =  $.parseJSON(res);
                     if(res.code == 0){
                         //2.4g
-                        $('.wifi_2g_name').html('Wi-Fi名称：'+res['2g'].ssid);
+                        $('.wifi_2g_name').html('Имя Wi-Fi：'+res['2g'].ssid);
                         if(res['2g'].pssswd != ''){
                             $('.wifi_2g_pssswd').val(res['2g'].pssswd);
                         }else{
-                            $('.passwd_2g').html('Wi-Fi密码: 未设置');
+                            $('.passwd_2g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_2g_online').html('连接设备数量：'+res['2g'].online_sta_count);
+                        $('.wifi_2g_online').html('Устройства：'+res['2g'].online_sta_count);
                         //5g
-                        $('.wifi_5g_name').html('Wi-Fi名称：'+res['5g'].ssid);
+                        $('.wifi_5g_name').html('Имя Wi-Fi：'+res['5g'].ssid);
                         if(res['5g'].passwd != ''){
                             $('.wifi_5g_pssswd').val(res['5g'].passwd);
                         }else{
-                            $('.passwd_5g').html('Wi-Fi密码: 未设置');
+                            $('.passwd_5g').html('Пароль Wi-Fi: Не установлен');
                         }
-                        $('.wifi_5g_online').html('连接设备数量：'+res['5g'].online_sta_count);
+                        $('.wifi_5g_online').html('Устройства：'+res['5g'].online_sta_count);
                         //信息
 
 
@@ -362,11 +362,11 @@ $.sub( 'wifisignel', function(){
             signal = 0;
         }
         if ( signal > 80) {
-            return '<%:优%>';
+            return '<%:Высокий%>';
         } else if ( signal > 30 ) {
-            return '<%:良%>';
+            return '<%:Средний%>';
         } else {
-            return '<%:差%>';
+            return '<%:Низкий%>';
         }
     };
     $.getJSON('<%=luci.dispatcher.build_url("api", "xqnetwork", "wifiap_signal")%>', {}, function( rsp ){
@@ -389,7 +389,7 @@ $.sub( 'wifisignel', function(){
                 $('#ssidval').text( 'SSID:' + rsp.ssid );
             }
 
-            $('#apqualityval').html( '<%:当前为无线中继模式，中继质量为%><b class="lv-{$lv}">{$quality}</b>'.tmpl({
+            $('#apqualityval').html( '<%:Уровень сигнала%><b class="lv-{$lv}">{$quality}</b>'.tmpl({
                 quality: getSignelText( rsp.signal ),
                 lv: apsingallv
             }) );
