@@ -5,7 +5,7 @@
 local ver = require("xiaoqiang.XQVersion").webVersion
 %>
 <%include("web/inc/head")%>
-<title><%:Redmi路由器%></title>
+<title><%:Redmi Xiaomi AX5%></title>
 <meta name="viewport" content="width=1200">
 <link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
 <link href="<%=resource%>/web/css/dmz.css?v=<%=ver%>" rel="stylesheet">
@@ -23,22 +23,22 @@ local ver = require("xiaoqiang.XQVersion").webVersion
             </div>
             <div class="bd">
                 <div class="mod-dmz" id="dmzinfo" style="">
-                    <%:开启DMZ功能可以将内网某一个设备的IP映射到外网，方便从外网访问到该设备。%>
+                    <%:Включение функции DMZ может сопоставить IP адрес определенного устройства во внутренней сети с внешней сетью, чтобы облегчить доступ к устройству из внешней сети.%>
                 </div>
                 <div class="mod-dmz" id="appdmz" style="display:none;">
                     <form class="form form-dmz" name="dmzset" id="dmzset">
                         <div class="form-item form-item-input">
-                            <label class="k dmz-k" style="width: 10em;right: 16px;"><%:DMZ IP地址%></label>
+                            <label class="k dmz-k" style="width: 10em;right: 16px;"><%:DMZ IP адрес%></label>
                             <span class="v vi"><span id="prefix" class="ippfix"></span><input name="ipval" id="ipval" type="text" style="width:96px;" class="ipt-text iplimit" maxlength="3"></span>
                             <em class="t"></em>
                         </div>
                         <div class="item-more">
-                            <span><%:DMZ状态：%></span>
-                            <span class=""><span id="ipOK"><%:未生效%></span></span>
+                            <span><%:Статус DMZ：%></span>
+                            <span class=""><span id="ipOK"><%:Не активный%></span></span>
                         </div>
                         <div class="form-contral">
-                            <a class="btn btn-primary" id="save"><span><%:应用%></span></a>
-                            <!-- <a class="btn btn-dft" id="cancel"><span><%:取消%></span></a> -->
+                            <a class="btn btn-primary" id="save"><span><%:Сохранить%></span></a>
+                            <!-- <a class="btn btn-dft" id="cancel"><span><%:Отмена%></span></a> -->
                         </div>
                     </form>
                 </div>
@@ -85,7 +85,7 @@ var modelDMZ = (function(){
                     //$('[name=ip]').val(last);
                     $('.dmz-k').hide();
 
-                    $('#ipOK').text('<%:IP地址%>'+ rsp.ip +'<%:已生效%>')
+                    $('#ipOK').text('<%:IP адрес%>'+ rsp.ip +'<%:Активно%>')
                         .addClass('blue');
                     var last = rsp.ip.split('.')[3];
                     $('#ipval').val(last);
@@ -113,7 +113,7 @@ var modelDMZ = (function(){
             if ( status == '2' ) {
                 window.top.art.dialog({
                     title: 'DMZ',
-                    content: '<%:端口转发开启了，不可以设置DMZ%>',
+                    content: '<%:Включена функция "Перенаправление портов", функция DMX не может быть включена.%>',
                     lock: true,
                     time: 1000
                 });
@@ -129,8 +129,8 @@ var modelDMZ = (function(){
                     $.getJSON('<%=luci.dispatcher.build_url("api", "xqnetwork", "dmz_off")%>', {}, function(rsp){
                         if (rsp.code == 0) {
                             var dlg = window.top.art.dialog({
-                                title: '<%:设置DMZ%>',
-                                content: '<%:关闭成功，生效中，请稍候...%>',
+                                title: '<%:Параметры DMZ%>',
+                                content: '<%:Подождите...%>',
                                 lock: true,
                                 time: 15*1000
                             });
@@ -140,7 +140,7 @@ var modelDMZ = (function(){
                             $.get(urlReload, function(rsp) {
                                 if (rsp.code === 0) {
                                     dlg.close();
-                                    $('#ipOK').text('<%:未生效%>').removeClass('blue');
+                                    $('#ipOK').text('<%:Не активно%>').removeClass('blue');
                                 }
                             }, 'json');
                         }
@@ -186,7 +186,7 @@ var modelDMZ = (function(){
                 // checkAll的第一个参数在dom里最好唯一, 不要有同名的id，　否则 ie下会有问题
                 validator = FormValidator.checkAll('dmzset', [{
                     name: 'ipval',
-                    display :'<%:IP地址最后一位%>',
+                    display :'<%:Последняя цифра IP-адреса%>',
                     rules: 'required|is_natural|less_than[255]|greater_than[1]'
                 }]);
             var ip = $('#appdmz').data('lanip');
@@ -195,8 +195,8 @@ var modelDMZ = (function(){
             var data = prefix + '.' + last;
             if (validator) {
                 var dlg = window.top.art.dialog({
-                    title: '<%:设置DMZ%>',
-                    content: '<%:配置成功，请稍候...%>',
+                    title: '<%:Параметры DMZ%>',
+                    content: '<%:Подождите...%>',
                     lock: true,
                     time: 17*1000
                 });
@@ -212,14 +212,14 @@ var modelDMZ = (function(){
                            // $('#appdmzOK').show();
                            // $('#ipOK').text(data);
                             var ip = $('#prefix').text() + $('#ipval').val();
-                            $('#ipOK').text('<%:IP地址%>'+ ip +'<%:已生效%>')
+                            $('#ipOK').text('<%:IP адрес%>'+ ip +'<%:Активно%>')
                                 .addClass('blue');
 
                             $('#appdmz').data('ip', data);
                             $('#btndmz').attr('data-status', 1);
                         }else{
                             window.top.art.dialog({
-                                title: '<%:设置DMZ%>',
+                                title: '<%:Параметры DMZ%>',
                                 content: rsp.msg
                             });
                         }

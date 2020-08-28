@@ -36,39 +36,39 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                         <div class="what">
                             <h3><%:Что такое DDNS?%></h3>
                             <p><%:DDNS（Dynamic Domain Name Server） Это - сервер динамический доменных имен.%></p>
-                            <p><%:В настоящее время, большая часть коммутируемого доступа в Интернет маршрутизатором, представляет собой динамический IP-адрес. DDNS может привязать динамический IP-адрес внешней сети маршрутизатора к фиксированному имени домена, чтобы пользователи могли получить доступ к маршрутизатору из внешней сети через фиксированное доменное имя.%></p>
+                            <p><%:В настоящее время, большая часть коммутируемого доступа в Интернет маршрутизатором, представляет собой динамический IP адрес. DDNS может привязать динамический IP адрес внешней сети маршрутизатора к фиксированному имени домена, чтобы пользователи могли получить доступ к маршрутизатору из внешней сети через фиксированное доменное имя.%></p>
                         </div>
                         <div class="qa">
-                            <h3><%:常见问题%></h3>
-                            <h4><%:如何设置DDNS？%></h4>
-                            <p><%:1. 通过DDNS服务商获得域名及账号密码信息；%></p>
-                            <p><%:2. 开启DDNS服务，添加服务，输入前一步获取的信息，保存并启用该服务。%></p>
-                            <h4><%:注意事项%>:</h4>
-                            <p><%:可以通过内置的DDNS运营商去该运营商官网去注册账号及申请域名；%></p>
-                            <p><%:用户名和密码为注册该运营商的用户名与密码；%></p>
-                            <p><%:主机名称为从运营商申请的域名；%></p>
-                            <p><%:强制检查为WAN口IP的检查时间，如无特殊需求，建议使用默认配置；%></p>
-                            <p><%:强制更新为域名与IP强制更新的时间，如无特殊需求，建议使用默认配置；%></p>
-                            <p><%:只能同时开启一个DDNS服务。%></p>
+                            <h3><%:Информация о настройке службы DDNS%></h3>
+                            <h4><%:Как настроить DDNS?%></h4>
+                            <p><%:1. Необходимо получить информацию о доменном имени и данные учетной записи у поставщика услуг DDNS%></p>
+                            <p><%:2. Перейдите в настройки службы DDNS, добавьте новую запись, введите информацию полученную у поставщика услуг.%></p>
+                            <h4><%:Терминология%>:</h4>
+                            <p><%:Поставщик услуг DDNS - оператор, позволяющий привязать к вашему динамическому IP адресу, фиксированное доменное имя.%></p>
+                            <p><%:Учетная запись - Имя учетной записи и пароль, выдаваемые опреатором для доступа к услуге.%></p>
+                            <p><%:Имя хоста - доменное имя выданное оператором%></p>
+                            <p><%:Проверка IP адреса - Время (в минутах), через которое происходит проверка текущего IP адреса.%></p>
+                            <p><%:Период обновления доменного имени - Время (в часах), через которое происходит связь с оператором и проверка привязки доменного имени к текущему IP адресу. Не ставьте слишком маленькое значение, так как это может привести к блокировке со стороны оператора.%></p>
+                            <p><%:Может быть активирована только одна служба DDNS%></p>
                         </div>
                     </div>
                 </div>
                 <div class="section">
-                    <h4><%:服务列表：%></h4>
+                    <h4><%:Список настроенных сервисов：%></h4>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th><%:服务提供商及主机名称%></th>
-                                <th><%:最近更新%></th>
-                                <th width="165" style="padding-left:15px;"><%:状态%></th>
-                                <th width="156" class="center"><%:操作%></th>
+                                <th><%:Название%></th>
+                                <th><%:IP адрес%></th>
+                                <th width="180" style="padding-left:15px;"><%:Состояние%></th>
+                                <th width="210" class="center"><%:Действия%></th>
                             </tr>
                         </thead>
                         <tbody id="serviceTbody">
                         </tbody>
                     </table>
                     <div class="addserver-contral">
-                        <a href="#" id="btnAddServer" class="btn btn-dft btn-l"><span><%:添加服务%></span></a>
+                        <a href="#" id="btnAddServer" class="btn btn-dft btn-l"><span><%:Добавить%></span></a>
                     </div>
                 </div>
             </div>
@@ -83,20 +83,20 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
 <script type="tmpl/html" id="tmplService">
 <tr data-service-id="{$id}" {if($enabled == 1)}data-enabled = "1"{/if}>
     <td>{$servicename}<br/>{$domain}</td>
-    <td class="con">{$lastupdate}&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="forceupdate"><%:手动更新%></a><br/>WAN口&nbsp;IP:&nbsp;&nbsp;{$wanip}</td>
-    <td class="con">{if($enabled == 1)}<%:已启用%>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="close" href="#"><%:停用%></a>{else}<%:未启用%>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="open" href="#"><%:启用%></a>{/if}<br/>{if($status == 1)}<span class="status-ok"><%:连接正常%></span>{elseif($status == 2)}<span><%:连接中...%></span>{else}<span class="status-err"><%:连接错误%></span><span class="err-ico" data-error="{$error}"></span>{/if}</td>
-    <td><a href="#" class="btn btn-dft edit btn-s"><span><%:编辑%></span></a><a href="#" class="btn btn-dft del btn-s"><span><%:删除%></span></a></td>
+    <td class="con">{$lastupdate}&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#" class="forceupdate"><%:Обновить%></a><br/>IP адрес: {$wanip}</td>
+    <td class="con">{if($enabled == 1)}<%:Активен%>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="close" href="#"><%:Выключить%></a>{else}<%:Не авктивен%>&nbsp;&nbsp;|&nbsp;&nbsp;<a class="open" href="#"><%:Включить%></a>{/if}<br/>{if($status == 1)}<span class="status-ok"><%:Подключен%></span>{elseif($status == 2)}<span><%:Подключение%></span>{else}<span class="status-err"><%:Ошибка%></span><span class="err-ico" data-error="{$error}"></span>{/if}</td>
+    <td><a href="#" class="btn btn-dft edit btn-s"><span><%:Изменить%></span></a><a href="#" class="btn btn-dft del btn-s"><span><%:Удалить%></span></a></td>
 </tr>
 </script>
 <script type="tmpl/html" id="tmplAddServer">
 <div class="dialog-form-wrap">
     <form action="<%=luci.dispatcher.build_url("api", "xqnetwork", "add_server")%>" class="form form-ddns" name="addDdns" id="addDdns">
         <div class="form-item-select">
-            <label class="k"><%:服务提供商%></label>
+            <label class="k"><%:Поставщик услуг%></label>
             <span class="v">
                 <select id="servername" class="beautify" name="servername">
-                    <option value="2" selected="selected"><%:花生壳（oray.com）%></option>
-                    <option value="3"><%:公云（3322.org）%></option>
+                    <option value="2" selected="selected"><%:oray.com%></option>
+                    <option value="3"><%:3322.org%></option>
                     <option value="4"><%:Dyndns.com%></option>
                     <option value="1"><%:No-ip.com%></option>
                 </select>
@@ -104,42 +104,42 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:用户名%></label>
+            <label class="k"><%:Имя пользователя%></label>
             <span class="v">
-                <input type="text" id="username" name="username" reqMsg="<%:用户名%>" class="ipt-text" />
+                <input type="text" id="username" name="username" reqMsg="<%:Имя пользователя%>" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:密码%></label>
+            <label class="k"><%:Пароль%></label>
             <span class="v">
-                <input type="text" id="password" name="password" reqMsg="<%:密码%>" class="ipt-text" />
+                <input type="text" id="password" name="password" reqMsg="<%:Пароль%>" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:主机名称%></label>
+            <label class="k"><%:Домен%></label>
             <span class="v">
-                <input type="text" id="hostname" name="hostname" reqMsg="<%:主机名称%>" class="ipt-text" />
+                <input type="text" id="hostname" name="hostname" reqMsg="<%:Домен%>" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:状态检查%></label>
+            <label class="k"><%:Проверка IP адреса%></label>
             <span class="v">
-                <input type="text" id="checkinterval" name="checkinterval" reqMsg="<%:状态检查的分钟间隔%>" datatype="n-10" minValue="1" class="ipt-text" />
+                <input type="text" id="checkinterval" name="checkinterval" reqMsg="<%:Время (в минутах), через которое происходит проверка текущего IP адреса.%>" datatype="n-10" minValue="1" class="ipt-text" />
             </span>
-            <em class="t" id="tipminute"><%:分钟%></em>
+            <em class="t" id="tipminute"><%:минуты%></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:强制更新%></label>
+            <label class="k"><%:Период обновления%></label>
             <span class="v">
-            <input type="text" id="forceinterval" name="forceinterval" reqMsg="<%:强制更新的小时间隔%>" datatype="n-10" minValue="1" class="ipt-text" />
+            <input type="text" id="forceinterval" name="forceinterval" reqMsg="<%:Время (в часах), через которое происходит связь с оператором и проверка привязки доменного имени к текущему IP адресу.%>" datatype="n-10" minValue="1" class="ipt-text" />
             </span>
-            <em class="t" id="tiphour"><%:小时%></em>
+            <em class="t" id="tiphour"><%:часы%></em>
         </div>
         <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-l" id="addDdnsSubmit"><span><%:确定%></span></button>
+            <button type="submit" class="btn btn-primary btn-l" id="addDdnsSubmit"><span><%:Сохранить%></span></button>
         </div>
     </form>
 </div>
@@ -149,49 +149,49 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
     <form action="<%=luci.dispatcher.build_url("api", "xqnetwork", "ddns_edit")%>" class="form form-ddns" name="editDdns" id="editDdns">
         <input type="hidden" value="{$enabled}" id="enabled" />
         <div class="form-item">
-            <label class="k"><%:服务提供商%></label>
+            <label class="k"><%:Поставщик услуг%></label>
             <span class="v">
-                <input type="text" id="eservername" name="eservername" {if($id == 1)}value="<%:No-ip.com%>"{/if} {if($id == 2)}value="<%:花生壳（oray.com）%>"{/if} {if($id == 3)}value="<%:公云（3322.org）%>"{/if} {if($id == 4)}value="<%:Dyndns.com%>"{/if} class="ipt-text" data-postvalue="{$id}" disabled="disabled" />
+                <input type="text" id="eservername" name="eservername" {if($id == 1)}value="<%:No-ip.com%>"{/if} {if($id == 2)}value="<%:oray.com%>"{/if} {if($id == 3)}value="<%:3322.org%>"{/if} {if($id == 4)}value="<%:Dyndns.com%>"{/if} class="ipt-text" data-postvalue="{$id}" disabled="disabled" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:用户名%></label>
+            <label class="k"><%:Имя пользователя%></label>
             <span class="v">
-                <input type="text" id="eusername" name="eusername" reqMsg="<%:用户名%>" value="{$usernametext}" class="ipt-text" />
+                <input type="text" id="eusername" name="eusername" reqMsg="<%:Имя пользователя%>" value="{$usernametext}" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:密码%></label>
+            <label class="k"><%:Пароль%></label>
             <span class="v">
-                <input type="password" data-type="password"  value="{$passwordtext}"  id="epassword" name="epassword" reqMsg="<%:密码%>" class="ipt-text" />
+                <input type="password" data-type="password"  value="{$passwordtext}"  id="epassword" name="epassword" reqMsg="<%:Пароль%>" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:主机名称%></label>
+            <label class="k"><%:Домен%></label>
             <span class="v">
-                <input type="text" id="ehostname" name="ehostname" reqMsg="<%:主机名称%>" value="{$hostnametext}" class="ipt-text" />
+                <input type="text" id="ehostname" name="ehostname" reqMsg="<%:Домен%>" value="{$hostnametext}" class="ipt-text" />
             </span>
             <em class="t"></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:状态检查%></label>
+            <label class="k"><%:Проверка IP адреса%></label>
             <span class="v">
-                <input type="text" id="echeckinterval" name="echeckinterval" reqMsg="<%:状态检查的分钟间隔%>" datatype="n-10" minValue="1" value="{$checkintervaltext}" class="ipt-text" />
+                <input type="text" id="echeckinterval" name="echeckinterval" reqMsg="<%:Время (в минутах), через которое происходит проверка текущего IP адреса.%>" datatype="n-10" minValue="1" value="{$checkintervaltext}" class="ipt-text" />
             </span>
-            <em class="t" id="tipminute"><%:分钟%></em>
+            <em class="t" id="tipminute"><%:минуты%></em>
         </div>
         <div class="form-item">
-            <label class="k"><%:强制更新%></label>
+            <label class="k"><%:Период обновления%></label>
             <span class="v">
-                <input type="text" id="eforceinterval" name="eforceinterval" reqMsg="<%:强制更新的小时间隔%>" datatype="n-10" minValue="1" value="{$forceintervaltext}" class="ipt-text" />
+                <input type="text" id="eforceinterval" name="eforceinterval" reqMsg="<%:Время (в часах), через которое происходит связь с оператором и проверка привязки доменного имени к текущему IP адресу.%>" datatype="n-10" minValue="1" value="{$forceintervaltext}" class="ipt-text" />
             </span>
-            <em class="t" id="tiphour"><%:小时%></em>
+            <em class="t" id="tiphour"><%:часы%></em>
         </div>
         <div class="form-contral">
-            <button type="submit" class="btn btn-primary btn-block" id="editDdnsSubmit"><span><%:确定%></span></button>
+            <button type="submit" class="btn btn-primary btn-block" id="editDdnsSubmit"><span><%:Сохранить%></span></button>
         </div>
     </form>
 </div>
@@ -211,7 +211,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
         var validator = Valid.checkAll( $('#addDdns')[0] );
 
         if( validator ){
-            $('#addDdnsSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:保存中...%>');
+            $('#addDdnsSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
             var usernamevalue = $('#username').val(),
                 passwordvalue = $('#password').val(),
                 checkintervalvalue = $('#checkinterval').val(),
@@ -230,7 +230,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                         addServerDialog.close();
                         $.pub('ddns:get');
                     }else{
-                        $('#addDdnsSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:添加%>');
+                        $('#addDdnsSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
                         msg = res.msg;
                         $.alert(msg);
                     }
@@ -243,7 +243,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
         var validator = Valid.checkAll( $('#editDdns')[0] );
 
         if( validator ){
-            $('#editDdnsSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:保存中...%>');
+            $('#editDdnsSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
             var usernamevalue = $('#eusername').val(),
                 passwordvalue = $('#epassword').val(),
                 checkintervalvalue = $('#echeckinterval').val(),
@@ -263,7 +263,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                         editServerDialog.close();
                         $.pub('ddns:get');
                     }else{
-                        $('#editDdnsSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:添加%>');
+                        $('#editDdnsSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
                         msg = res.msg;
                         $.alert(msg);
                     }
@@ -346,14 +346,14 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                 success: function(res){
                     if(res.code == 0){
                         $.pub('ddns:get');
-                        $.alert('<%:更新成功%>');
+                        $.alert('<%:Обновить?%>');
                     }else{
                         $.alert(res.msg);
                     }
                 }
             });
         }else{
-            $.alert('<%:未启动无法强制更新%>');
+            $.alert('<%:Не удалось обновить%>');
         }
     });
     $.sub('ddns:get', function(evt, data){
@@ -390,7 +390,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                         }
                         $('#serviceTbody').html(trarr.join(''));
                     }else{
-                        $('#serviceTbody').html('<tr><td colspan="4" style="text-align:center;"><%:还没有服务添加进来%></td></tr>');
+                        $('#serviceTbody').html('<tr><td colspan="4" style="text-align:center;"><%:Нет настроенных сервисов%></td></tr>');
                     }
                 }
             }
@@ -398,7 +398,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
     });
     $.sub('ddns:showAddDialog', function(evt, data){
         addServerDialog = $.dialog({
-            title: '<%:添加服务%>',
+            title: '<%:Добавление поставщика услуг%>',
             content: $('#tmplAddServer').html(),
             lock: true,
             padding: 0
@@ -430,7 +430,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
                         enabled: StringH.encode4HtmlValue(res.enabled)
                     });
                     editServerDialog = $.dialog({
-                        title: '<%:编辑服务%>',
+                        title: '<%:Изменение поставщика услуг%>',
                         content: editServerDialogHTML,
                         lock: true,
                         padding: 0
@@ -524,7 +524,7 @@ local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
     // 20140618150929 ==> 06/18/2014&nbsp;&nbsp;15:09
     function formatTime(str){
         if(!str){
-            return '<%:暂无更新%>';
+            return '<%:Без обновления%>';
         }
         var format = "";
         var year = str.substr(0, 4);
