@@ -146,11 +146,11 @@ webpackJsonp([32], {
             secondToHour: function(t) {
                 var e = this.pint(t / 3600),
                     n = this.pint(60 * (parseFloat(t / 3600) - e));
-                return e + "小时" + n + "分" + (this.pint(t) - 3600 * e - 60 * n) + "秒"
+                return e + " ч " + n + " м " + (this.pint(t) - 3600 * e - 60 * n) + " с "
             },
             secondToDate: function(t) {
                 var e, n = parseFloat(t);
-                return null !== n && "" !== n && (n > 60 && n < 3600 ? n = this.pint(n / 60) + "分" + this.pint(60 * (parseFloat(n / 60) - this.pint(n / 60, 10))) + "秒" : n >= 3600 && n < 86400 ? n = this.secondToHour(n) : n >= 86400 ? (n -= 3600 * (e = this.pint(n / 86400)) * 24, n = e + "天" + this.secondToHour(n)) : n = this.pint(n) + "秒"), n
+                return null !== n && "" !== n && (n > 60 && n < 3600 ? n = this.pint(n / 60) + " м " + this.pint(60 * (parseFloat(n / 60) - this.pint(n / 60, 10))) + " с " : n >= 3600 && n < 86400 ? n = this.secondToHour(n) : n >= 86400 ? (n -= 3600 * (e = this.pint(n / 86400)) * 24, n = e + " д " + this.secondToHour(n)) : n = this.pint(n) + " ч "), n
             }
         }
     },
@@ -418,7 +418,7 @@ webpackJsonp([32], {
         a.a.interceptors.response.use(function(t) {
             var e = t.data,
                 n = window.location.href.split("#");
-            return 401 == e.code && "Invalid token" == e.msg && ++d <= 1 && confirm("登录状态失效，请您重新登录") && (window.location.href = n[0]), t
+            return 401 == e.code && "Invalid token" == e.msg && ++d <= 1 && confirm("Сессия истекла, пожалуйста выполните вход.") && (window.location.href = n[0]), t
         }, function(t) {
             return i.a.reject(t)
         }), n.d(e, "b", function() {
@@ -505,7 +505,7 @@ webpackJsonp([32], {
                             document.getElementsByTagName("head")[0].removeChild(o), clearTimeout(o.timer), window._jsonCallBack = null, t.fail && t.fail()
                         }, 1e3)
                     });
-                    console.error("Axios.JSONP 至少需要一个url参数!")
+                    console.error("Требуется хотя бы 1 параметр Axios.JSONP!")
                 }(t)
             },
             netDiagnoseStart: function(t) {

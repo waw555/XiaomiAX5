@@ -330,7 +330,7 @@ webpackJsonp([5], {
                         staticClass: "allWifi"
                     }, [s("p", {
                         staticClass: "p1"
-                    }, [t._v("После смены Имени или пароля Wi-Fi, необходимо повторно подключиться к Wi-Fi сети.")]), t._v(" "), s("div", {
+                    }, [t._v("После смены имени или пароля Wi-Fi, необходимо повторно подключиться к Wi-Fi сети.")]), t._v(" "), s("div", {
                         staticClass: "wifi"
                     }, [s("vue-form", {
                         staticClass: "width100",
@@ -436,7 +436,7 @@ webpackJsonp([5], {
                         }],
                         attrs: {
                             id: "input2450password",
-                            placeholder: "Длина пароля Wi-Fi, должна быть не менее 8 символов.",
+                            placeholder: "Введите пароль",
                             readonly: "",
                             onfocus: "this.removeAttribute('readonly')",
                             autocomplete: "off",

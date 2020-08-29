@@ -96,36 +96,36 @@ webpackJsonp([22], {
                 data: function() {
                     return {
                         pppoe: {
-                            pppoeName: "...",
-                            pppoePassword: "..."
+                            pppoeName: "Нет",
+                            pppoePassword: "Нет"
                         },
                         operator_lists: [{
-                            name: "China Telecom",
-                            tel:  "10000"
+                            name: "Билайн",
+                            tel:  "88007000611"
                         }, {
-                            name: "China Unicom",
-                            tel:  "10010"
+                            name: "Дом.ru",
+                            tel:  "88003337000"
                         }, {
-                            name: "China Mobile",
-                            tel:  "10086"
+                            name: "Ростелеком",
+                            tel:  "88007071212"
                         }, {
-                            name: "China Railcom",
-                            tel:  "10050"
+                            name: "Мегафон",
+                            tel:  "88005500500"
                         }, {
-                            name: "Gehua Cable",
-                            tel:  "96196"
+                            name: "МТС",
+                            tel:  "88002500890"
                         }, {
-                            name: "Broadband",
-                            tel:  "96007"
+                            name: "Акадо",
+                            tel:  "84999400000"
                         }, {
-                            name: "Great Wall Broadband",
-                            tel:  "95079"
+                            name: "Yota",
+                            tel:  "88005500007"
                         }, {
-                            name: "Oriental Cable",
-                            tel:  "96877"
+                            name: "Tele2",
+                            tel:  "88005550611"
                         }, {
-                            name: "Huashu Broadband",
-                            tel:  "0571-96171"
+                            name: "МГТС",
+                            tel:  "84956360636"
                         }]
                     }
                 },
@@ -164,11 +164,11 @@ webpackJsonp([22], {
                         staticClass: "container"
                     }, [n("Header", {
                         attrs: {
-                            name: "Провайдеру"
+                            name: "Провайдеры"
                         }
                     }), t._v(" "), n("div", {
                         staticClass: "desc"
-                    }, [t._v("\n    Учетные данные\n  ")]), t._v(" "), n("ul", {
+                    }, [t._v("\n    Данные учетной записи\n  ")]), t._v(" "), n("ul", {
                         staticClass: "account"
                     }, [n("li", [t._v("Имя пользователя\n      "), n("div", {
                         staticClass: "broad"

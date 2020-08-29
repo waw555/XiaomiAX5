@@ -894,7 +894,7 @@ webpackJsonp([1], {
                             expression: "err_msg"
                         }],
                         staticClass: "p3"
-                    }, [e._v("Ввыедите имя пользователя или пароль.")])]), e._v(" "), o("p", {
+                    }, [e._v("Введите имя пользователя или пароль.")])]), e._v(" "), o("p", {
                         staticClass: "p1"
                     }, [e._v("Параметры DNS")]), e._v(" "), o("select", {
                         directives: [{

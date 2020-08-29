@@ -10,32 +10,32 @@ webpackJsonp([27], {
                 data: function() {
                     return {
                         operator_lists: [{
-                            name: "China Telecom",
-                            tel: "10000"
+                            name: "Билайн",
+                            tel:  "88007000611"
                         }, {
-                            name: "China Unicom",
-                            tel: "10010"
+                            name: "Дом.ru",
+                            tel:  "88003337000"
                         }, {
-                            name: "China Mobile",
-                            tel: "10086"
+                            name: "Ростелеком",
+                            tel:  "88007071212"
                         }, {
-                            name: "China Railcom",
-                            tel: "10050"
+                            name: "Мегафон",
+                            tel:  "88005500500"
                         }, {
-                            name: "Gehua Cable",
-                            tel: "96196"
+                            name: "МТС",
+                            tel:  "88002500890"
                         }, {
-                            name: "Broadband",
-                            tel: "96007"
+                            name: "Акадо",
+                            tel:  "84999400000"
                         }, {
-                            name: "Great Wall Broadband",
-                            tel: "95079"
+                            name: "Yota",
+                            tel:  "88005500007"
                         }, {
-                            name: "Oriental Cable",
-                            tel: "96877"
+                            name: "Tele2",
+                            tel:  "88005550611"
                         }, {
-                            name: "Huashu Broadband",
-                            tel: "0571-96171"
+                            name: "МГТС",
+                            tel:  "84956360636"
                         }]
                     }
                 },

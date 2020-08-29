@@ -234,7 +234,7 @@ webpackJsonp([11], {
                             slot: "required"
                         },
                         slot: "required"
-                    }, [e._v("Пароль Панели управления не может быть пустым.")])]), e._v(" "), n("div", {
+                    }, [e._v("Введите пароль.")])]), e._v(" "), n("div", {
                         staticClass: "error-tip"
                     }, [n("div", {
                         ref: "restip"

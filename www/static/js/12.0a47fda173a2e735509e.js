@@ -186,7 +186,7 @@ webpackJsonp([12], {
                             R2100: "Router Xiaomi AC2100",
                             RM2100: "Redmi AC2100",
                             RM1800: "Redmi Xiaomi AX1800",
-                            RA67: "Redmi Xiaomi AX5 AX5"
+                            RA67: "Redmi Xiaomi AX5"
                         } [t.platform], this.routerInfo.macAddr = t.mac, this.routerInfo.ROMversion = t.version, this.routerInfo.sn = t.sn
                     },
                     routerStatus: function() {
@@ -296,9 +296,9 @@ webpackJsonp([12], {
                         staticClass: "desp"
                     }, [t._v("\n          " + t._s(t.routerInfo.sn) + "\n        ")])]), t._v(" "), s("li", [s("div", {
                         staticClass: "name"
-                    }, [t._v("\n          Устройства\n        ")]), t._v(" "), s("div", {
+                    }, [t._v("\n          Подключенные устройства\n        ")]), t._v(" "), s("div", {
                         staticClass: "desp"
-                    }, [t._v("\n          " + t._s(t.routerData.count.online) + "шт.\n        ")])])])]), t._v(" "), s("Toast", {
+                    }, [t._v("\n          " + t._s(t.routerData.count.online) + " шт.\n        ")])])])]), t._v(" "), s("Toast", {
                         ref: "tip"
                     })], 1)
                 },

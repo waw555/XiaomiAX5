@@ -173,7 +173,7 @@ webpackJsonp([21], {
                         }
                     }, [i("div", {
                         staticClass: "correct"
-                    }, [t._v("\n          Сеть нормальная\n          ")]), t._v(" "), t._m(2)])])]) : t._e()]), t._v(" "), i("div", {
+                    }, [t._v("\n          В сети\n          ")]), t._v(" "), t._m(2)])])]) : t._e()]), t._v(" "), i("div", {
                         staticClass: "bottom"
                     }, [i("div", {
                         staticClass: "more",
@@ -192,7 +192,7 @@ webpackJsonp([21], {
                         staticClass: "wifi"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              Параметры Wi-Fi\n            ")])]), t._v(" "), i("li", {
+                    }, [t._v("\n              Wi-Fi\n            ")])]), t._v(" "), i("li", {
                         on: {
                             click: t.setPppoe
                         }
@@ -200,7 +200,7 @@ webpackJsonp([21], {
                         staticClass: "setting"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              Параметры Интернета\n            ")])]), t._v(" "), i("li", {
+                    }, [t._v("\n              Интернет\n            ")])]), t._v(" "), i("li", {
                         on: {
                             click: t.operator
                         }
@@ -208,7 +208,7 @@ webpackJsonp([21], {
                         staticClass: "user"
                     }), t._v(" "), i("div", {
                         staticClass: "desc"
-                    }, [t._v("\n              Имя пользователя\n            ")])])])]), t._v(" "), i("div", {
+                    }, [t._v("\n              Учетная запись\n            ")])])])]), t._v(" "), i("div", {
                         staticClass: "footer"
                     }, [i("span", {
                         staticClass: "download",
@@ -256,7 +256,7 @@ webpackJsonp([21], {
                         s = this._self._c || t;
                     return s("div", {
                         staticClass: "desp"
-                    }, [this._v("\n            Информация"), s("span", {
+                    }, [this._v("\n            Подробнее"), s("span", {
                         staticClass: "iconfont icon-fanhui"
                     })])
                 }, function() {
