@@ -269,7 +269,7 @@ var rebootWait = function ( opt ) {
                 dlgRebootWait.content( '<%:Не удалось автоматически подключиться к маршрутизатору, проверьте, правильно ли подключена беспроводная сеть или сетевой кабель.%>' );
                 return;
             }
-            dlgRebootWait.content( action + '<%:Ожидается автоматическое перенаправление, осталось {$time} сек.%>'.tmpl({time: tUse}) );
+            dlgRebootWait.content( action + '<%: Ожидается автоматическое перенаправление, осталось {$time} сек.%>'.tmpl({time: tUse}) );
         };
 
     window.setTimeout( function(){
