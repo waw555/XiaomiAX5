@@ -102,31 +102,31 @@ webpackJsonp([23], {
                         },
                         operator_lists: [{
                             name: "China Telecom",
-                            tel: "10000"
+                            tel:  "10000"
                         }, {
                             name: "China Unicom",
-                            tel: "10010"
+                            tel:  "10010"
                         }, {
                             name: "China Mobile",
-                            tel: "10086"
+                            tel:  "10086"
                         }, {
                             name: "China Railcom",
-                            tel: "10050"
+                            tel:  "10050"
                         }, {
                             name: "Gehua Cable",
-                            tel: "96196"
+                            tel:  "96196"
                         }, {
                             name: "Broadband",
-                            tel: "96007"
+                            tel:  "96007"
                         }, {
                             name: "Great Wall Broadband",
-                            tel: "95079"
+                            tel:  "95079"
                         }, {
                             name: "Oriental Cable",
-                            tel: "96877"
+                            tel:  "96877"
                         }, {
                             name: "Huashu Broadband",
-                            tel: "0571-96171"
+                            tel:  "0571-96171"
                         }]
                     }
                 },
@@ -146,7 +146,7 @@ webpackJsonp([23], {
                                     case 0:
                                         return e.next = 2, t.axios.getPppoeStatus();
                                     case 2:
-                                        0 == (a = e.sent).data.code && (t.pppoe.pppoeName = a.data.pppoename || "...", t.pppoe.pppoePassword = a.data.password || "...");
+                                        0 == (a = e.sent).data.code && (t.pppoe.pppoeName = a.data.pppoename || "Нет", t.pppoe.pppoePassword = a.data.password || "Нет");
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -218,7 +218,7 @@ webpackJsonp([23], {
                             key: s
                         }, [a("a", {
                             attrs: {
-                                href: "tel:" + e.tel
+                                href: "tel: " + e.tel
                             }
                         }, [a("div", {
                             staticClass: "name"
