@@ -430,7 +430,7 @@ webpackJsonp([0, 20], {
                                 path: "/error2"
                             }
                         }
-                    }, [e._v(" 选择其他模式，继续配置")])], 1)])]), e._v(" "), s("vue-form", {
+                    }, [e._v(" Выберите другой режим")])], 1)])]), e._v(" "), s("vue-form", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -750,7 +750,7 @@ webpackJsonp([0, 20], {
                         staticStyle: {
                             "text-align": "center"
                         }
-                    }, [e._v("当前为DHCP模式，Вы также можете 选择其他模式 "), s("a", {
+                    }, [e._v("В настоящее время тип подключения DHCP. Вы также можете выбрать другой тип подключения. "), s("a", {
                         attrs: {
                             href: ""
                         },
@@ -759,7 +759,7 @@ webpackJsonp([0, 20], {
                                 return t.preventDefault(), e.goModeChoose(t)
                             }
                         }
-                    }, [e._v("手动配置")])])])])], 1), e._v(" "), s("div", {
+                    }, [e._v("Ручная настройка")])])])])], 1), e._v(" "), s("div", {
                         directives: [{
                             name: "show",
                             rawName: "v-show",
@@ -792,7 +792,7 @@ webpackJsonp([0, 20], {
                         t = this._self._c || e;
                     return t("div", {
                         staticClass: "main"
-                    }, [t("h4", [this._v("检测到Текущий режим为Получить IP адрес автоматически（DHCP）")]), this._v(" "), t("h4", [this._v("请点击Далее")])])
+                    }, [t("h4", [this._v("Обнаружено, что текущий тип подключения DHCP")]), this._v(" "), t("h4", [this._v("Далее")])])
                 }]
             };
         var w = s("VU/8")(h, P, !1, function(e) {
