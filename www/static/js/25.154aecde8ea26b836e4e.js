@@ -102,18 +102,18 @@ webpackJsonp([25], {
                         isAp: !1,
                         gotopc: 0,
                         tit: "Выберите тип подключения к Интернету",
-                        wan_type: "正在检测",
+                        wan_type: "Определение типа подключения",
                         inter_lists: [{
-                            tit1: "Имя пользователя",
+                            tit1: "PPPOE",
                             tit2: "PPPOE",
                             href: "#/pppoe"
                         }, {
-                            tit1: "Получить IP адрес автоматически",
+                            tit1: "DHCP",
                             tit2: "DHCP",
                             href: "#/dhcp"
                         }],
                         ap_lists: [{
-                            tit1: "路由模式"
+                            tit1: "Маршрутизатор"
                         }]
                     }
                 },
@@ -133,7 +133,7 @@ webpackJsonp([25], {
                                     case 0:
                                         return e.next = 2, t.axios.getWifiStatus();
                                     case 2:
-                                        (s = e.sent).data ? "wifiapmode" == s.data.mode ? (t.wan_type = "无线中继", t.apmode()) : "lanapmode" == s.data.mode ? (t.wan_type = "Точка доступа", t.apmode()) : "dhcp" == s.data.mode ? t.wan_type = "DHCP" : "pppoe" == s.data.mode ? t.wan_type = "PPPOE" : "static" == s.data.mode ? t.wan_type = "Статический IP" : t.wan_type = "未能识别" : t.wan_type = "未能识别";
+                                        (s = e.sent).data ? "wifiapmode" == s.data.mode ? (t.wan_type = "Усилитель Wi-Fi", t.apmode()) : "lanapmode" == s.data.mode ? (t.wan_type = "Точка доступа", t.apmode()) : "dhcp" == s.data.mode ? t.wan_type = "DHCP" : "pppoe" == s.data.mode ? t.wan_type = "PPPOE" : "static" == s.data.mode ? t.wan_type = "Статический IP" : t.wan_type = "Не опознано" : t.wan_type = "Не опознано";
                                     case 4:
                                     case "end":
                                         return e.stop()
@@ -193,7 +193,7 @@ webpackJsonp([25], {
                         }
                     }), t._v(" "), s("div", {
                         staticClass: "wan_type"
-                    }, [s("span", [t._v("当前模式")]), t._v("\n    " + t._s(t.wan_type) + "\n  ")]), t._v(" "), s("p", {
+                    }, [s("span", [t._v("Текущий режим")]), t._v("\n    " + t._s(t.wan_type) + "\n  ")]), t._v(" "), s("p", {
                         staticClass: "p"
                     }, [t._v(t._s(t.tit))]), t._v(" "), s("div", {
                         staticClass: "cont-item"

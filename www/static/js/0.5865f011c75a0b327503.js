@@ -792,7 +792,7 @@ webpackJsonp([0, 20], {
                         t = this._self._c || e;
                     return t("div", {
                         staticClass: "main"
-                    }, [t("h4", [this._v("检测到当前模式为Получить IP адрес автоматически（DHCP）")]), this._v(" "), t("h4", [this._v("请点击Далее")])])
+                    }, [t("h4", [this._v("检测到Текущий режим为Получить IP адрес автоматически（DHCP）")]), this._v(" "), t("h4", [this._v("请点击Далее")])])
                 }]
             };
         var w = s("VU/8")(h, P, !1, function(e) {
