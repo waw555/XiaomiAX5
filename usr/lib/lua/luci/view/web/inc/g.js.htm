@@ -28,10 +28,10 @@
 local XQFunction = require("xiaoqiang.common.XQFunction")
 local netmod = 0
 local netmod = XQFunction.getnetmode()
---2 Точка доступа
---1 Усилитель
---4 Ведущий Mesh  whc_cap
---3 Ведомый Mesh  whc_re
+--2 有线中继
+--1 无线中继
+--4 mesh主设备  whc_cap
+--3 mesh从设备  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and "true" or "false"
 %>
@@ -254,10 +254,10 @@ var rebootWait = function ( opt ) {
         tUse,
         dlgRebootWait = $.loadingDialog({
             title : '<%:Перезагрузка%>',
-            content : '<%:Выполняется перезагрузка маршрутизатора%>'
+            content : '<%:Выполняется перезагрузка маршрутизатора %>'
         }),
         online = function(){
-            dlgRebootWait.content( '<%:Перезагрузка маршрутизатора выполнена%>' );
+            dlgRebootWait.content( '<%:Перезагрузка маршрутизатора выполнена %>' );
             dlgRebootWait.time( 3*1000 );
             if( refresh ){
                 window.setTimeout( 'window.top.location.href="http://'+ip+'";',3000 );
@@ -269,7 +269,7 @@ var rebootWait = function ( opt ) {
                 dlgRebootWait.content( '<%:Не удалось автоматически подключиться к маршрутизатору, проверьте, правильно ли подключена беспроводная сеть или сетевой кабель.%>' );
                 return;
             }
-            dlgRebootWait.content( action + '<%: Ожидается автоматическое перенаправление, осталось {$time} сек.%>'.tmpl({time: tUse}) );
+            dlgRebootWait.content( action + '<%:Ожидается автоматическое перенаправление, осталось {$time} сек.%>'.tmpl({time: tUse}) );
         };
 
     window.setTimeout( function(){
@@ -433,13 +433,13 @@ function byteFormat(number, precision, isarray){
     isarray = isarray || false;
     if (number > 1024 * 1024 * 1024) {
         val = Math.floor( number / 1024 / 1024 / 1024 * precision ) / precision;
-        label = ' Гб';
+        label = 'Гб';
     } else if (number > 1024 * 1024 && number < 1024 * 1024 * 1024){
         val = Math.floor( number / 1024 / 1024 * precision ) / precision;
-        label = ' Мб';
+        label = 'Мб';
     }else{
         val = Math.floor( number / 1024 * precision ) / precision;
-        label = ' КБ';
+        label = 'КБ';
     }
 
     if (isarray) {
@@ -503,7 +503,7 @@ function secondToDate(second) {
             day;
         if (time !== null && time !== "") {
             if (time > 60 && time < 60 * 60) {
-                time = pint(time / 60.0) + '<%: м %>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%: с %>';
+                time = pint(time / 60.0) + '<%: м %>' + pint((parseFloat(time / 60.0) - pint(time / 60.0, 10)) * 60) + '<%: c %>';
                 } else if (time >= 60 * 60 && time < 60 * 60 * 24) {
                 time = secondToHour(time);
             }else if (time >= 24* 60 * 60 ) {
@@ -752,13 +752,13 @@ $(function(){
                 }
                 $('#sysnotice')[0].className = classname;
                 var msgMap = {
-                    '1': '<p><%:Обнаружена новая версия прошивки {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите "Обновить", чтобы обновить сейчас%></a>。</p>',
-                    '3': '<p><%:Не удалось запустить 5G Wi-Fi. %><a target="_blank" href="http://www.mi.com/service/contact/"><%:Обратитесь в службу поддержки Xiaomi.%></a></p>',
-                     '4': '<p><%:Обнаружен конфликт IP адресов с другим устройством, рекомендуется переключиться на%><a href="<%=luci.dispatcher.build_url("web","setting","wan")%>#netmode"><%:Режим точки доступа%></a><%:или%><a href="#" id="ipconflict" data-ip="{$ip}"><%:Избегайте конфликтов IP адресов%></p>'
+                    '1': '<p><%:Обнаружена новая версия прошивки {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите Обновить, чтобы обновить сейчас%></a>。</p>',
+                    '3': '<p><%:Не удалось запустить 5G Wi-Fi. %><a target="_blank" href="http://www.mi.com/service/contact/"><%:Обратитесь в службу поддержки Xiaomi. %></a></p>',
+                     '4': '<p><%:Обнаружен конфликт IP адресов с другим устройством, рекомендуется переключиться на%><a href="<%=luci.dispatcher.build_url("web","setting","wan")%>#netmode"><%:Режим Точка доступа%></a><%: или %><a href="#" id="ipconflict" data-ip="{$ip}"><%:Избегайте конфликтова IP адресов%></p>'
                 };
 
                 var msgMapD01 = {
-                    '1': '<p><%:Обнаружена новая версия прошивки  {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите "Обновить", чтобы обновить сейчас%></a>。</p>',
+                    '1': '<p><%:Обнаружена новая версия прошивки {$version}%>，<a href="<%=luci.dispatcher.build_url("web","setting","upgrade")%>"><%:Нажмите Обновить, чтобы обновить сейчас%></a>。</p>',
                     '3': '<p><%:Не удалось запустить 5G Wi-Fi. %><a target="_blank" href="http://www.mi.com/service/contact/"><%:Обратитесь в службу поддержки Xiaomi.%></a></p>',
                     '4': '<p><%:Обнаружен конфликт IP адресов с другим устройством. %><a href="<%=luci.dispatcher.build_url("web","setting","lannetset")%>"><%:Измените IP адрес LAN%></a></p>'
                 };
@@ -953,8 +953,8 @@ $(function(){
             var api = '<%=luci.dispatcher.build_url("api", "misystem", "r_ip_conflict")%>',
                 ip = $(this).attr('data-ip');
             $.dialog({
-                title: '<%:Избегайте конфликтов IP адресов%>',
-                content: '<%:Выполните эту операцию, IP-адрес LAN будет изменен на %>' + ip + '<br>' +'<%: Во время этого процесса беспроводная сеть перезапустится, и произойдет короткое отключение от сети.%>',
+                title: '<%:Избегайте конфликта IP адресов%>',
+                content: '<%:Выполнив эту операцию, IP-адрес LAN будет изменен на %>' + ip + '<br>' +'<%:Во время этого процесса беспроводная сеть перезапустится, и произойдет кратковременное отключение от сети.%>',
                 lock: true,
                 ok: function(){
                     $.post(api, function(rsp){
@@ -993,7 +993,7 @@ $(function(){
                                 $('#mesh-Off-5G').siblings('.switch-step').hide();
                                 $('#mesh-Off-5G').show();
                             } else {
-                                //console.log('Включена сеть 5G WiFi');
+                                //console.log('Сеть 5G WiFi включена');
                                 $.ajax({
                                     url: apiDevicesGet,
                                     type: 'GET',
@@ -1012,7 +1012,7 @@ $(function(){
                                         //         {"mac":"C6:53:77:ED:5A:51","oname":"MiWiFi-RM1800","isap":8,"parent":"","authority":{"wan":1,"pridisk":0,"admin":1,"lan":1},"push":0,"online":1,"name":"MiWiFi-RM1800","times":0,"ip":[{"downspeed":"0","online":"88932","active":1,"upspeed":"0","ip":"192.168.31.31"}],"statistics":{"downspeed":"0","online":"88932","upspeed":"0"},"icon":"","type":0}],"code":0}
                                         //
                                         // rsp = {"show":0,
-                                        //     "graph":{"locale":"Дом","ssid":"Redmi_Xiaomi_AX5","name":"Redmi_Xiaomi_AX5","channel":"release","hardware":"RM1800","mode":0,"color":100,"ip":"192.168.31.1"},"code":0}
+                                        //     "graph":{"locale":"Дом","ssid":"Redmi_9452_FBAD","name":"Redmi_9452_FBAD","channel":"release","hardware":"RM1800","mode":0,"color":100,"ip":"192.168.31.1"},"code":0}
                                         // rsp = {
                                         //     "show": 1,
                                         //     "graph": {
@@ -1020,7 +1020,7 @@ $(function(){
                                         //         "color": 100,
                                         //         "ip": "192.168.31.1",
                                         //         "locale": "Дом",
-                                        //         "name": "Redmi_Xiaomi_AX5",
+                                        //         "name": "Redmi_9452_FBAD",
                                         //         "channel": "release",
                                         //         "hardware": "RM1800",
                                         //         "mode": 0,
@@ -1029,8 +1029,8 @@ $(function(){
                                         //             "ssid": "Redmi_Xiaomi_AX5_5G",
                                         //             "color": 100,
                                         //             "ip": "192.168.31.6",
-                                        //             "locale": "Гостинная",
-                                        //             "name": "Redmi_Xiaomi_AX5",
+                                        //             "locale": "Дом",
+                                        //             "name": "Redmi_9459_FBA6",
                                         //             "channel": "release",
                                         //             "hardware": "RM1800",
                                         //             "mode": 8,
@@ -1040,8 +1040,8 @@ $(function(){
                                         //                 "ssid": "Redmi_Xiaomi_AX5_5G",
                                         //                 "color": 100,
                                         //                 "ip": "192.168.31.6",
-                                        //                 "locale": "Гостинная",
-                                        //                 "name": "Redmi_Xiaomi_AX5",
+                                        //                 "locale": "Дом",
+                                        //                 "name": "Redmi_9459_FBA6",
                                         //                 "channel": "release",
                                         //                 "hardware": "RM1800",
                                         //                 "mode": 8,
@@ -1238,7 +1238,7 @@ $(function(){
                             //  debugger;
                             $('#mesh_list_length0').siblings('.switch-step').hide();
                             $('#mesh_list_length0').show();
-                            $('.d-hd').html('не найдено доступных сетей Mesh');
+                            $('.d-hd').html('Не найдено доступных сетей Mesh');
 
                         }
 
