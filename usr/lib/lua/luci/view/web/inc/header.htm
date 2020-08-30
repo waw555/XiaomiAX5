@@ -16,10 +16,10 @@
     elseif mode == "wifiapmode" then
         netMode = 1
     elseif mode == "whc_cap" then
-        -- Ведущий mesh
+        -- Основной mesh
         netMode = 0
     elseif mode == "whc_re" then
-         --Ведомый mesh
+         --Дополнительный mesh
         netMode = 3
     end
     local hardware = string.lower( XQSysUtil.getHardware() )
@@ -28,8 +28,8 @@
     local showTopoLink = 0
     local netmod = 0
     local netmod = XQFunction.getnetmode()
-    --4 Ведущий mesh  whc_cap
-    --3 Ведомый mesh  whc_re
+    --4 Основной mesh  whc_cap
+    --3 Дополнительный mesh  whc_re
     --0 router
     local topo = XQTopology.topologicalGraph()
     local leafs = topo["leafs"]
@@ -270,8 +270,8 @@ var GLOBALHEADER = true;
     <div class="switch-step step-select" id="mesh-select" style="display:block;overflow:hidden">
         <div class="mesh_title"><%:Добавление устройства Mesh%></div>
         <div class="mesh_content">
-            1. Разместите ведомый маршрутизатор Mesh, рядом с ведущим маршрутизатором Mesh.<br/>
-            2. Расстояние от ведущего маршрутизатора Mesh - не более 3 метров.<br/>
+            1. Разместите Дополнительный маршрутизатор Mesh, рядом с основным маршрутизатором Mesh.<br/>
+            2. Расстояние от основного маршрутизатора Mesh - не более 3 метров.<br/>
             3. Включите питание и дождитесь, пока индикатор маршрутизатора станет синим.
         </div>
         <button class="mesh_buttons" id="mesh_search">Начать</button>
@@ -333,7 +333,7 @@ var GLOBALHEADER = true;
     <div class="switch-step step-add-loading"  id="mesh-add-loading">
         <div class="mesh_title"><%:Расширение Mesh сети%></div>
         <img id="loading_mesh" src="<%=resource%>/web/img/mesh_loading.png"/>
-        <p class="head"><%:Подключение к ведущему Mesh устройству%></p>
+        <p class="head"><%:Подключение к основному Mesh устройству%></p>
     </div>
 
     <div class="switch-step step-add-success"  id="mesh-add-success">
@@ -341,8 +341,8 @@ var GLOBALHEADER = true;
         <img class="success_me" src="<%=resource%>/web/img/mesh_success.png"/>
         <div class="mesh_content">
              Поздравляем, покрытие Wi-Fi увеличено!<br/>
-            1. Поместите ведомое Mesh устройство, в помещение, где необходимо расширить зону покрытия сети.<br/>
-            2. Через некоторое время ведомое устройство появится в списке управления.<br/>
+            1. Поместите дополнительное Mesh устройство, в помещение, где необходимо расширить зону покрытия сети.<br/>
+            2. Через некоторое время дополнительное устройство появится в списке управления.<br/>
             3. Информация о Wi-Fi недавно добавленных устройств Mesh остается такой же, как и раньше!
         </div>
         <button class="mesh_buttons" id="mesh_add_success"><%:Принять%></button>

@@ -10,8 +10,8 @@ local netmod = 0
 local netmod = XQFunction.getnetmode()
 --2 Точка доступа
 --1 Усилитель
---4 Ведущий mesh  whc_cap
---3 Ведомый mesh  whc_re
+--4 Основной mesh  whc_cap
+--3 Дополнительный mesh  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and true  or  false
 %>

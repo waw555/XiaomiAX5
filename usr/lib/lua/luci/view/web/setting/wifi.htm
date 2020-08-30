@@ -24,7 +24,7 @@ local romChannel = XQSysUtil.getChannel()
 local netmod = 0
 local netmod = XQFunction.getnetmode()
 --4 meshГлавное устройство  whc_cap
---3 meshВедомое устройство  whc_re
+--3 Дополнительный mesh  whc_re
 --0 router
 local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 local uci = require("luci.model.uci").cursor()
@@ -1129,7 +1129,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             id : "confirm",
             width: 390,
             title : "<%:Приоритет WI-Fi6%>",
-            content : '<p>1. Включение этой функции может повлиять на стабильность транзитного соединения между маршрутизаторами Mesh. Рекомендуется включать ее, когда индикатор маршрутизации ведомого Mesh горит синим; </p> <p> 2. Включение этой функции может вызвать ситуацию, когда ведомый маршрутизатор отключается на короткое время.</p> ',
+            content : '<p>1. Включение этой функции может повлиять на стабильность транзитного соединения между маршрутизаторами Mesh. Рекомендуется включать ее, когда индикатор маршрутизации дополнительного Mesh горит синим; </p> <p> 2. Включение этой функции может вызвать ситуацию, когда дополнительный маршрутизатор отключается на короткое время.</p> ',
             ok: function(){
               $.ajax({
                 url: '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_son_backhaul_mode")%>',
@@ -1178,7 +1178,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
             id : "confirm",
             width: 390,
             title : "<%:Приоритет Wi-Fi6%>",
-            content : '<%:Отключение этой функции может вызвать ситуацию, когда ведомый маршрутизатор отключается на короткое время.%>',
+            content : '<%:Отключение этой функции может вызвать ситуацию, когда дополнительный маршрутизатор отключается на короткое время.%>',
             ok: function(){
 
               $.ajax({
