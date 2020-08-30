@@ -27,7 +27,7 @@ function reboot_window( needconfirm ) {
 		reboot();
 		return;
 	}
-	$.confirm('<%:Обязательно перезагрузите маршрутизатор. При перезапуске маршрутизатор отключится.%>',function () {
+	$.confirm('<%:Вы точно хотите перезагрузить маршрутизатор? При перезапуске маршрутизатор отключится.%>',function () {
 			var dlg = this;
 			reboot();
 			dlg.close();
@@ -59,7 +59,7 @@ function reset_window( format ){
 			},
 			wait = function(){
 				rebootWait( {
-					action : '<%:恢复出厂设置%>',
+					action : '<%:Сброс настроек%>',
 					refresh : true,
 					lanIp: '<%=lanIp%>'
 				} );
