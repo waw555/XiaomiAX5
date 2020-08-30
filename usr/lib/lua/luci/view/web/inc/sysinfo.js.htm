@@ -45,9 +45,10 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 <div class="dialog-select-list">
     <p class="gray"><%:Выберите необходимые настройки:%></p>
     <ul>
-    <%for k,v in pairs(backupKeys) do%>
-        <li><label><input type="checkbox" name="item" data-key="<%=k%>" checked="true" /> <span class="name"><%=v%></span></label></li>
-    <%end%>
+        <li><label><input type="checkbox" name="item" data-key="<%:mi_wifi_info%>" checked="true" /> <span class="name"><%: Настройки Wi-Fi%></span></label></li>
+		<li><label><input type="checkbox" name="item" data-key="<%:mi_network_info%>" checked="true" /> <span class="name"><%: Настройки Интернета%></span></label></li>
+		<li><label><input type="checkbox" name="item" data-key="<%:mi_lan_info%>" checked="true" /> <span class="name"><%: Служба DHCP и настройки IP LAN%></span></label></li>
+		<li><label><input type="checkbox" name="item" data-key="<%:mi_basic_info%>" checked="true" /> <span class="name"><%: Настройки и пароль Панели управления%></span></label></li>
     </ul>
     <a href="#" id="btnstartbackup" class="btn btn-primary btn-l"><span><%:Сохранить%></span></a>
 </div>
