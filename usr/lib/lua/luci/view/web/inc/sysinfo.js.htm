@@ -79,9 +79,9 @@ local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
 </script>
 <script type="tmpl/text" id="selectRestoreList">
 <div class="dialog-select-list">
-    <p class="gray"><%:Восстановлены следующие настройки%></p>
+    <p class="gray"><%:Выберите настройки которые необходимо восстановить%></p>
     <ul>
-
+	
     </ul>
     <a href="#" id="btnstartrestore" class="btn btn-primary btn-l"><span><%:Восстановить%></span></a>
 </div>
@@ -652,14 +652,34 @@ $.sub( 'config:backupfail', function(evt, data){
 
 $.sub( 'config:restore', function(evt, data){
     var keys = data.keys;
-    var tpl = '<li><label><input type="checkbox" name="item" data-key="{$k}" checked="true" /> <span class="name">{$v}</span></label></li>';
+    var tpl = '<li><label><input type="checkbox" name="item" data-key="<%:mi_wifi_info%>" checked="true" /> <span class="name"><%: Настройки Wi-Fi%></span></label></li>';
+	var tpl1 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_network_info%>" checked="true" /> <span class="name"><%: Настройки Интернета%></span></label></li>';
+	var tpl2 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_lan_info%>" checked="true" /> <span class="name"><%: Служба DHCP и настройки IP LAN%></span></label></li>';
+	var tpl3 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_basic_info%>" checked="true" /> <span class="name"><%: Настройки и пароль Панели управления%></span></label></li>';
     var html = [];
     var li = '';
     for(var key in keys ){
-        li = StringH.tmpl(tpl, {
-            k: key,
-            v: keys[key]
-        });
+		if ( key == "mi_wifi_info" ){
+			li = StringH.tmpl(tpl, {
+				k: key,
+				v: keys[key]
+			});
+		} else if ( key == "mi_network_info" ){
+			li = StringH.tmpl(tpl1, {
+				k: key,
+				v: keys[key]
+			});		
+		} else if ( key == "mi_lan_info" ){
+			li = StringH.tmpl(tpl2, {
+				k: key,
+				v: keys[key]
+			});			
+		} else {
+			li = StringH.tmpl(tpl3, {
+				k: key,
+				v: keys[key]
+			});	
+		};
         html.push( li );
     }
 
