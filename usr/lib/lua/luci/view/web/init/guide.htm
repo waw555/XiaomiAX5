@@ -60,14 +60,14 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
         <div id="guide-doc">
             <div id="guide-bd">
                 <div class="mod-guide mod-guide-ipconflict">
-                    <p class="tit font18"><%:Обнаружен IP-конфликт с маршрутизатором верхнего уровня.%></p>
+                    <p class="tit font18"><%:Обнаружен конфликт IP адресов с маршрутизатором верхнего уровня.%></p>
                     <div class="hr"></div>
-                    <p class="select-tip"><%:Рекомендуется использовать режим "Точка доступа"%></p>
+                    <p class="select-tip"><%:Рекомендуется использовать режим Точка доступа%></p>
                     <div class="select-divs">
                         <div class="select-option">
                             <img src="<%=resource%>/web/img/guide_bd_ipconflict.png?v=<%=ver%>" />
                             <br />
-                            <p class="gray"><%:Этот режим может гарантировать, что ваш маршрутизатор и другое %><br><%: находятся в одной локальной сети и могут связываться друг с другом.%></p>
+                            <p class="gray"><%:Этот режим может гарантировать, что ваш маршрутизатор и другое устройство%><br><%: находятся в одной локальной сети и могут связываться друг с другом.%></p>
                             <a href="#" class="btn btn-dft btn-block skipto" data-to="lanap" data-from="ipconflict"><span><%:Точка доступа%></span></a>
                         </div>
                         <div class="select-option">
@@ -86,13 +86,13 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="select-option">
                         <img src="<%=resource%>/web/img/guide_bd_nowanselect.png?v=<%=ver%>" />
                         <br />
-                        <a href="#" class="btn btn-dft btn-block skipto" data-to="pppoeorssidpwd" data-from="nowanselect"><span><%:Режим (Усилитель)%></span></a>
+                        <a href="#" class="btn btn-dft btn-block skipto" data-to="pppoeorssidpwd" data-from="nowanselect"><span><%:Режим Усилитель%></span></a>
                     </div>
                     <%if features["apmode"]["wifiapmode"] == "1" then%>
                     <div class="select-option select-option-last">
                         <img src="<%=resource%>/web/img/guide_bd_nowanselect_rp.png?v=<%=ver%>" />
                         <br />
-                        <a href="#" class="btn btn-dft btn-block skipto" data-to="wds" data-from="nowanselect"><span><%:Режим (Усилитель)%></span></a>
+                        <a href="#" class="btn btn-dft btn-block skipto" data-to="wds" data-from="nowanselect"><span><%:Режим Усилитель%></span></a>
                     </div>
                     <%end%>
                 </div>
@@ -104,7 +104,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     </div>
                     <div class="un-for-succ">
                         <div class="pic"><img src="<%=routerSrc %>?v=<%=ver%>" ></div>
-                        <p class="tit font18"><%:Пожалуйста, введите имя пользователя и пароль, предоставленные оператором сети%></p>
+                        <p class="tit font18"><%:Пожалуйста, введите имя пользователя и пароль, предоставленные провайдером%></p>
                     </div>
                     <div class="hr"></div>
                     <form id="pppoe" name="pppoe" class="form clearfix" action="/">
@@ -129,7 +129,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         <a href="#" class="a1 skipto goback" data-to="hellopage" ><%:Назад%></a>
                         <%if (wanType==1) then%>
                             <span>|</span>
-                            <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="pppoe"><%:Набор номера не требуется (метод DHCP)%></a>
+                            <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="pppoe"><%:Набор номера не требуется (тип подключения DHCP)%></a>
                         <%end%>
                         <%if (ccode=='CN') then%>
                             <span>|</span>
@@ -147,44 +147,40 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="operators-wrap">
                         <ul>
                             <li class="clearfix">
-                                <span>10000</span>
-                                <%:Служба поддержки широкополосных сетей China Telecom%>
+                                <span>88007000611</span>
+                                <%:Билайн%>
                             </li>
                             <li class="clearfix">
-                                <span>10010</span>
-                                <%:Служба поддержки клиентов China Unicom Telecom%>
+                                <span>88003337000</span>
+                                <%:Дом.ru%>
                             </li>
                             <li class="clearfix">
-                                <span>10086</span>
-                                <%:Служба поддержки клиентов мобильного широкополосного доступа в Китае%>
+                                <span>88007071212</span>
+                                <%:Ростелеком%>
                             </li>
                             <li class="clearfix">
-                                <span>96196</span>
-                                <%:Служба поддержки клиентов компании Gehua Cable%>
+                                <span>88005500500</span>
+                                <%:Мегафон%>
                             </li>
                             <li class="clearfix">
-                                <span>952155</span>
-                                <%:Служба поддержки широкополосного доступа в Айпу%>
+                                <span>88002500890</span>
+                                <%:МТС%>
                             </li>
                             <li class="clearfix">
-                                <span>95079</span>
-                                <%:Служба поддержки клиентов Great Wall Broadband%>
+                                <span>84999400000</span>
+                                <%:Акадо%>
                             </li>
                             <li class="clearfix">
-                                <span>96877</span>
-                                <%:Проводное обслуживание клиентов%>
+                                <span>88005500007</span>
+                                <%:Yota%>
                             </li>
                             <li class="clearfix">
-                                <span>96007</span>
-                                <%:Служба широкополосной связи%>
+                                <span>88005550611</span>
+                                <%:Tele2%>
                             </li>
                             <li class="clearfix">
-                                <span>10050</span>
-                                <%:Служба поддержки клиентов Railcom Broadband%>
-                            </li>
-                            <li class="clearfix">
-                                <span>010-82529990</span>
-                                <%:Основатель Broadband%>
+                                <span>84956360636</span>
+                                <%:МГТС%>
                             </li>
                         </ul>
                     </div>
@@ -202,7 +198,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                 <!--/拨号中-->
                 <div class="mod-guide mod-guide-pppoeerror">
                     <div class="pic"><img src="<%=resource%>/web/img/guide_error.png?v=<%=ver%>" ></div>
-                    <p><%:Не удалось набрать номер (код ошибки%> :<span id="pppoeerrorcode"></span><%:), проверьте, правильно ли введены имя пользователя и пароль, или свяжитесь с оператором, чтобы проверить, не просрочен ли платеж.%></p>
+                    <p><%:Не удалось набрать номер (Код ошибки%> :<span id="pppoeerrorcode"></span><%:), проверьте, правильно ли введены имя пользователя и пароль, или свяжитесь с провайдером, чтобы проверить, не просрочен ли платеж.%></p>
                     <div class="hr"></div>
                     <div class="form-contral">
                         <button class="btn btn-primary btn-l skipto" data-to="pppoe" type="button"><span><%:Повторить%></span></button>
@@ -219,34 +215,39 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="list">
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10000</span><%:China Telecom%>
+                                <span>88007000611</span><%:Билайн%>
                             </div>
                             <div class="item r clearfix">
-                                <span>95079</span><%:Great Wall Broadband%>
+                                <span>88003337000</span><%:Дом.ru%>
                             </div>
                         </div>
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10010</span><%:China Unicom%>
+                                <span>88007071212</span><%:Ростелеком%>
                             </div>
                             <div class="item r clearfix">
-                                <span>952155</span><%:Aip Broadband%>
+                                <span>88005500500</span><%:Мегафон%>
                             </div>
                         </div>
                         <div class="clearfix line">
                             <div class="item l clearfix">
-                                <span>10086</span><%:China Mobile%>
+                                <span>88002500890</span><%:МТС%>
                             </div>
                             <div class="item r clearfix">
-                                <span>4006100008</span><%:Доктор Пэн%>
+                                <span>84999400000</span><%:Акадо%>
                             </div>
                         </div>
                         <div class="clearfix line last-line">
                             <div class="item l clearfix">
-                                <span>10050</span><%:China Railcom%>
+                                <span>88005500007</span><%:Yota%>
                             </div>
                             <div class="item r clearfix">
-                                <span>96007</span><%:Широкополосный доступ%>
+                                <span>88005550611</span><%:Tele2%>
+                            </div>
+                        </div>
+						<div class="clearfix line last-line">
+                            <div class="item l clearfix">
+                                <span>84956360636</span><%:МГТС%>
                             </div>
                         </div>
                     </div>
@@ -254,56 +255,234 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         <p><%:Код ошибки:%><span>691</span></p>
                     </div>
                     <p class="more">
-                        <a href="#" class="a1 skipto" data-to="operatorsmore" data-from="operators"><%:Дополнительная контактная информация оператора%></a> <br />
+                        <a href="#" class="a1 skipto" data-to="operatorsmore" data-from="operators"><%:Дополнительная контактная информация провайдера%></a> <br />
                     </p>
                     <p class="switchstep">
                         <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operators"><%:Назад%></a>
                         <span>|</span>
-                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operators"><%:Импортировать настройки широкополосного доступа со старого роутера%></a>
+                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operators"><%:Импортировать настройки PPPOE доступа со старого маршрутизатора%></a>
                     </p>
                 </div>
                 <!--/运营商-->
                 <div class="mod-guide mod-guide-operatorsmore">
-                    <p class="tit font18"><%:Свяжитесь с оператором, чтобы получить имя пользователя и пароль.%></p>
+                    <p class="tit font18"><%:Свяжитесь с провайдером, чтобы получить имя пользователя и пароль.%></p>
                     <div class="hr"></div>
                     <div class="operator-wrap show-select-xxx">
-                        <div class="selected-text"><%:Пожалуйста, выберите оператора%></div>
+                        <div class="selected-text"><%:Пожалуйста, выберите провайдера%></div>
                         <div class="select">
                             <div class="select-tab clearfix">
-                                <span><%:Столица провинции%></span><span class="city"><%:Город%></span><span><%:Оператор%></span>
+                                <span><%:Регион%></span><span class="city"><%:Город%></span><span><%:Провайдер%></span>
                             </div>
                             <div class="select-content">
                                 <div id="province">
                                     <dl class="clearfix">
-                                        <dt>A-G</dt>
+                                        <dt>А-Ж</dt>
                                         <dd>
-                                            <span class="current">Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+                                            <span class="current">Алтайский край</span>
+											<span>Амурская область</span>
+											<span>Архангельская область</span>
+											<span>Астраханская область</span>
+											<span>Белгородская область</span>
+											<span>Брянская область</span>
+											<span>Владимирская область</span>
+											<span>Волгоградская область</span>
+											<span>Воронежская область</span>
+											<span>Еврейская автономная область</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
-                                        <dt>H-K</dt>
+                                        <dt>З-О</dt>
                                         <dd>
-                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+											<span>Забайкальский край</span>
+											<span>Ивановская область</span>
+											<span>Иркутская область</span>
+											<span>Кабардино-Балкарская Республика</span>
+											<span>Калининградская область</span>
+											<span>Калужская область</span>
+											<span>Карачаево-Черкесская Республика</span>
+											<span>Кемеровская область</span>
+											<span>Кировская область</span>
+											<span>Костромская область</span>
+											<span>Краснодарский край</span>
+											<span>Красноярский край</span>
+											<span>Курганская область</span>
+											<span>Ленинградская область</span>
+											<span>Липецкая область</span>
+											<span>Магаданская область</span>
+											<span>Московская область</span>
+											<span>Мурманская область</span>
+											<span>Нижегородская область</span>
+											<span>Новгородская область</span>
+											<span>Новосибирская область</span>
+											<span>Омская область</span>
+											<span>Оренбургская область</span>
+											<span>Орловская область</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
-                                        <dt>L-S</dt>
+                                        <dt>П-Ц</dt>
                                         <dd>
-                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+                                            <span>Пензенская область</span>
+											<span>Пермский край</span>
+											<span>Приморский край</span>
+											<span>Псковская область</span>
+											<span>Республика Адыгея</span>
+											<span>Республика Алтай</span>
+											<span>Республика Башкортостан</span>
+											<span>Республика Бурятия</span>
+											<span>Республика Дагестан</span>
+											<span>Республика Ингушетия</span>
+											<span>Республика Калмыкия</span>
+											<span>Республика Карелия</span>
+											<span>Республика Коми</span>
+											<span>Республика Крым</span>
+											<span>Республика Марий Эл</span>
+											<span>Республика Мордовия</span>
+											<span>Республика Саха (Якутия)</span>
+											<span>Республика Северная Осетия - Алания</span>
+											<span>Республика Татарстан</span>
+											<span>Республика Тыва</span>
+											<span>Республика Хакасия</span>
+											<span>Ростовская область</span>
+											<span>Рязанская область</span>
+											<span>Самарская область</span>
+											<span>Санкт-Петербург</span>
+											<span>Саратовская область</span>
+											<span>Сахалинская область</span>
+											<span>Свердловская область</span>
+											<span>Севастополь</span>
+											<span>Смоленская область</span>
+											<span>Ставропольский край</span>
+											<span>Тамбовская область</span>
+											<span>Тверская область</span>
+											<span>Томская область</span>
+											<span>Тульская область</span>
+											<span>Тюменская область</span>
+											<span>Удмуртская Республика</span>
+											<span>Ульяновская область</span>
+											<span>Хабаровский край</span>
+											<span>Ханты-Мансийский автономный округ - Югра</span>
                                         </dd>
                                     </dl>
                                     <dl class="clearfix">
-                                        <dt>T-Z</dt>
+                                        <dt>Ч-Я</dt>
                                         <dd>
-                                            <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+                                            <span>Челябинская область</span>
+											<span>Чеченская Республика</span>
+											<span>Чувашская Республика - Чувашия</span>
+											<span>Чукотский автономный округ</span>
+											<span>Ямало-Ненецкий автономный округ</span>
+											<span>Ярославская область</span>
                                         </dd>
                                     </dl>
                                 </div>
                                 <div id="city">
-                                    <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+									<span>Абаза</span>
+									<span>Абакан</span>
+									<span>Абдулино</span>
+									<span>Абинск</span>
+									<span>Агидель</span>
+									<span>Агрыз</span>
+									<span>Адыгейск</span>
+									<span>Азнакаево</span>
+									<span>Азов</span>
+									<span>Ак-Довурак</span>
+									<span>Аксай</span>
+									<span>Алагир</span>
+									<span>Алапаевск</span>
+									<span>Алатырь</span>
+									<span>Алдан</span>
+									<span>Алейск</span>
+									<span>Александров</span>
+									<span>Александровск</span>
+									<span>Александровск-Сахалинский</span>
+									<span>Алексеевка</span>
+									<span>Алексин</span>
+									<span>Алзамай</span>
+									<span>Алупка</span>
+									<span>Алушта</span>
+									<span>Альметьевск</span>
+									<span>Амурск</span>
+									<span>Анадырь</span>
+									<span>Анапа</span>
+									<span>Ангарск</span>
+									<span>Андреаполь</span>
+									<span>Анжеро-Судженск</span>
+									<span>Анива</span>
+									<span>Апатиты</span>
+									<span>Апрелевка</span>
+									<span>Апшеронск</span>
+									<span>Арамиль</span>
+									<span>Аргун</span>
+									<span>Ардатов</span>
+									<span>Ардон</span>
+									<span>Арзамас</span>
+									<span>Аркадак</span>
+									<span>Армавир</span>
+									<span>Армянск</span>
+									<span>Арсеньев</span>
+									<span>Арск</span>
+									<span>Артём</span>
+									<span>Артёмовск</span>
+									<span>Артёмовский</span>
+									<span>Архангельск</span>
+									<span>Асбест</span>
+									<span>Асино</span>
+									<span>Астрахань</span>
+									<span>Аткарск</span>
+									<span>Ахтубинск</span>
+									<span>Ачинск</span>
+									<span>Аша</span>
+									<span>Бабаево</span>
+									<span>Бабушкин</span>
+									<span>Бавлы</span>
+									<span>Багратионовск</span>
+									<span>Байкальск</span>
+									<span>Баймак</span>
+									<span>Бакал</span>
+									<span>Баксан</span>
+									<span>Балабаново</span>
+									<span>Балаково</span>
+									<span>Балахна</span>
+									<span>Балашиха</span>
+									<span>Балашов</span>
+									<span>Балей</span>
+									<span>Балтийск</span>
+									<span>Барабинск</span>
+									<span>Барнаул</span>
+									<span>Барыш</span>
+									<span>Батайск</span>
+									<span>Бахчисарай</span>
+									<span>Бежецк</span>
+									<span>БелаяКалитва</span>
+									<span>БелаяХолуница</span>
+									<span>Белгород</span>
+									<span>Белебей</span>
+									<span>Белинский</span>
+									<span>Белово</span>
+									<span>Белогорск</span>
+									<span>Белогорск</span>
+									<span>Белозерск</span>
+									<span>Белокуриха</span>
+									<span>Беломорск</span>
+									<span>Белорецк</span>
+									<span>Белореченск</span>
+									<span>Белоусово</span>
+									<span>Белоярский</span>
+									<span>Белый</span>
+									<span>Белёв</span><span>Бердск</span><span>Березники</span><span>Берёзовский</span><span>Берёзовский</span><span>Беслан</span><span>Бийск</span><span>Бикин</span><span>Билибино</span><span>Биробиджан</span><span>Бирск</span><span>Бирюсинск</span><span>Бирюч</span><span>Благовещенск(Амурскаяобласть)</span><span>Благовещенск(Башкортостан)</span><span>Благодарный</span><span>Бобров</span><span>Богданович</span><span>Богородицк</span><span>Богородск</span><span>Боготол</span><span>Богучар</span><span>Бодайбо</span><span>Бокситогорск</span><span>Болгар</span><span>Бологое</span><span>Болотное</span><span>Болохово</span><span>Болхов</span><span>БольшойКамень</span><span>Бор</span><span>Борзя</span><span>Борисоглебск</span><span>Боровичи</span><span>Боровск</span><span>Бородино</span><span>Братск</span><span>Бронницы</span><span>Брянск</span><span>Бугульма</span><span>Бугуруслан</span><span>Будённовск</span><span>Бузулук</span><span>Буинск</span><span>Буй</span><span>Буйнакск</span><span>Бутурлиновка</span><span>Валдай</span><span>Валуйки</span><span>Велиж</span><span>ВеликиеЛуки</span><span>ВеликийНовгород</span><span>ВеликийУстюг</span><span>Вельск</span><span>Венёв</span><span>Верещагино</span><span>Верея</span><span>Верхнеуральск</span><span>ВерхнийТагил</span><span>ВерхнийУфалей</span><span>ВерхняяПышма</span><span>ВерхняяСалда</span><span>ВерхняяТура</span><span>Верхотурье</span><span>Верхоянск</span><span>Весьегонск</span><span>Ветлуга</span><span>Видное</span><span>Вилюйск</span><span>Вилючинск</span><span>Вихоревка</span><span>Вичуга</span><span>Владивосток</span><span>Владикавказ</span><span>Владимир</span><span>Волгоград</span><span>Волгодонск</span><span>Волгореченск</span><span>Волжск</span><span>Волжский</span><span>Вологда</span><span>Володарск</span><span>Волоколамск</span><span>Волосово</span><span>Волхов</span><span>Волчанск</span><span>Вольск</span><span>Воркута</span><span>Воронеж</span><span>Ворсма</span><span>Воскресенск</span><span>Воткинск</span><span>Всеволожск</span><span>Вуктыл</span><span>Выборг</span><span>Выкса</span><span>Высоковск</span><span>Высоцк</span><span>Вытегра</span><span>ВышнийВолочёк</span><span>Вяземский</span><span>Вязники</span><span>Вязьма</span><span>ВятскиеПоляны</span><span>ГавриловПосад</span><span>Гаврилов-Ям</span><span>Гагарин</span><span>Гаджиево</span><span>Гай</span><span>Галич</span><span>Гатчина</span><span>Гвардейск</span><span>Гдов</span><span>Геленджик</span><span>Георгиевск</span><span>Глазов</span><span>Голицыно</span><span>Горбатов</span><span>Горно-Алтайск</span><span>Горнозаводск</span><span>Горняк</span><span>Городец</span><span>Городище</span><span>Городовиковск</span><span>Гороховец</span><span>ГорячийКлюч</span><span>Грайворон</span><span>Гремячинск</span><span>Грозный</span><span>Грязи</span><span>Грязовец</span><span>Губаха</span><span>Губкин</span><span>Губкинский</span><span>Гудермес</span><span>Гуково</span><span>Гулькевичи</span><span>Гурьевск</span><span>Гурьевск</span><span>Гусев</span><span>Гусиноозёрск</span><span>Гусь-Хрустальный</span><span>Давлеканово</span><span>ДагестанскиеОгни</span><span>Далматово</span><span>Дальнегорск</span><span>Дальнереченск</span><span>Данилов</span><span>Данков</span><span>Дегтярск</span><span>Дедовск</span><span>Демидов</span><span>Дербент</span><span>Десногорск</span><span>Джанкой</span><span>Дзержинск</span><span>Дзержинский</span><span>Дивногорск</span><span>Дигора</span><span>Димитровград</span><span>Дмитриев</span><span>Дмитров</span><span>Дмитровск</span><span>Дно</span><span>Добрянка</span><span>Долгопрудный</span><span>Долинск</span><span>Домодедово</span><span>Донецк</span><span>Донской</span><span>Дорогобуж</span><span>Дрезна</span><span>Дубна</span><span>Дубовка</span><span>Дудинка</span><span>Духовщина</span><span>Дюртюли</span><span>Дятьково</span><span>Евпатория</span><span>Егорьевск</span><span>Ейск</span><span>Екатеринбург</span><span>Елабуга</span><span>Елец</span><span>Елизово</span><span>Ельня</span><span>Еманжелинск</span><span>Емва</span><span>Енисейск</span><span>Ермолино</span><span>Ершов</span><span>Ессентуки</span><span>Ефремов</span><span>Железноводск</span><span>Железногорск(Красноярскийкрай)</span><span>Железногорск(Курскаяобласть)</span><span>Железногорск-Илимский</span><span>Жердевка</span><span>Жигулёвск</span><span>Жиздра</span><span>Жирновск</span><span>Жуков</span><span>Жуковка</span><span>Жуковский</span><span>Завитинск</span><span>Заводоуковск</span><span>Заволжск</span><span>Заволжье</span><span>Задонск</span><span>Заинск</span><span>Закаменск</span><span>Заозёрный</span><span>Заозёрск</span><span>ЗападнаяДвина</span><span>Заполярный</span><span>Зарайск</span><span>Заречный(Пензенскаяобласть)</span><span>Заречный(Свердловскаяобласть)</span><span>Заринск</span><span>Звенигово</span><span>Звенигород</span><span>Зверево</span><span>Зеленогорск</span><span>Зеленоградск</span><span>Зеленодольск</span><span>Зеленокумск</span><span>Зерноград</span><span>Зея</span><span>Зима</span><span>Златоуст</span><span>Злынка</span><span>Змеиногорск</span><span>Знаменск</span><span>Зубцов</span><span>Зуевка</span><span>Ивангород</span><span>Иваново</span><span>Ивантеевка</span><span>Ивдель</span><span>Игарка</span><span>Ижевск</span><span>Избербаш</span><span>Изобильный</span><span>Иланский</span><span>Инза</span><span>Инкерман</span><span>Иннополис</span><span>Инсар</span><span>Инта</span><span>Ипатово</span><span>Ирбит</span><span>Иркутск</span><span>Исилькуль</span><span>Искитим</span><span>Истра</span><span>Ишим</span><span>Ишимбай</span><span>Йошкар-Ола</span><span>Кадников</span><span>Казань</span><span>Калач</span><span>Калач-на-Дону</span><span>Калачинск</span><span>Калининград</span><span>Калининск</span><span>Калтан</span><span>Калуга</span><span>Калязин</span><span>Камбарка</span><span>Каменка</span><span>Каменногорск</span><span>Каменск-Уральский</span><span>Каменск-Шахтинский</span><span>Камень-на-Оби</span><span>Камешково</span><span>Камызяк</span><span>Камышин</span><span>Камышлов</span><span></span><span>	</span><span></span><span>Канаш</span><span>Кандалакша</span><span>Канск</span><span>Карабаново</span><span>Карабаш</span><span>Карабулак</span><span>Карасук</span><span>Карачаевск</span><span>Карачев</span><span>Каргат</span><span>Каргополь</span><span>Карпинск</span><span>Карталы</span><span>Касимов</span><span>Касли</span><span>Каспийск</span><span>Катав-Ивановск</span><span>Катайск</span><span>Качканар</span><span>Кашин</span><span>Кашира</span><span>Кедровый</span><span>Кемерово</span><span>Кемь</span><span>Керчь</span><span>Кизел</span><span>Кизилюрт</span><span>Кизляр</span><span>Кимовск</span><span>Кимры</span><span>Кингисепп</span><span>Кинель</span><span>Кинешма</span><span>Киреевск</span><span>Киренск</span><span>Киржач</span><span>Кириллов</span><span>Кириши</span><span>Киров(Калужскаяобласть)</span><span>Киров(Кировскаяобласть)</span><span>Кировград</span><span>Кирово-Чепецк</span><span>Кировск(Ленинградскаяобласть)</span><span>Кировск(Мурманскаяобласть)</span><span>Кирс</span><span>Кирсанов</span><span>Киселёвск</span><span>Кисловодск</span><span>Клин</span><span>Клинцы</span><span>Княгинино</span><span>Ковдор</span><span>Ковров</span><span>Ковылкино</span><span>Когалым</span><span>Кодинск</span><span>Козельск</span><span>Козловка</span><span>Козьмодемьянск</span><span>Кола</span><span>Кологрив</span><span>Коломна</span><span>Колпашево</span><span>Кольчугино</span><span>Коммунар</span><span>Комсомольск</span><span>Комсомольск-на-Амуре</span><span>Конаково</span><span>Кондопога</span><span>Кондрово</span><span>Константиновск</span><span>Копейск</span><span>Кораблино</span><span>Кореновск</span><span>Коркино</span><span>Королёв</span><span>Короча</span><span>Корсаков</span><span>Коряжма</span><span>Костерёво</span><span>Костомукша</span><span>Кострома</span><span>Котельники</span><span>Котельниково</span><span>Котельнич</span><span>Котлас</span><span>Котово</span><span>Котовск</span><span>Кохма</span><span>Красавино</span><span>Красноармейск</span><span>Красноармейск(Саратовскаяобласть)</span><span>Красновишерск</span><span>Красногорск</span><span>Краснодар</span><span>Краснозаводск</span><span>Краснознаменск(Калининградскаяобласть)</span><span>Краснознаменск</span><span>Краснокаменск</span><span>Краснокамск</span><span>Красноперекопск</span><span>Краснослободск(Волгоградскаяобласть)</span><span>Краснослободск(Мордовия)</span><span>Краснотурьинск</span><span>Красноуральск</span><span>Красноуфимск</span><span>Красноярск</span><span>КрасныйКут</span><span>КрасныйСулин</span><span>КрасныйХолм</span><span>Кремёнки</span><span>Кропоткин</span><span>Крымск</span><span>Кстово</span><span>Кубинка</span><span>Кувандык</span><span>Кувшиново</span><span>Кудымкар</span><span>Кузнецк</span><span>Куйбышев</span><span>Кулебаки</span><span>Кумертау</span><span>Кунгур</span><span>Купино</span><span>Курган</span><span>Курганинск</span><span>Курильск</span><span>Курлово</span><span>Куровское</span><span>Курск</span><span>Куртамыш</span><span>Курчатов</span><span>Куса</span><span>Кушва</span><span>Кызыл</span><span>Кыштым</span><span>Кяхта</span><span>Лабинск</span><span>Лабытнанги</span><span>Лагань</span><span>Ладушкин</span><span>Лаишево</span><span>Лакинск</span><span>Лангепас</span><span>Лахденпохья</span><span>Лебедянь</span><span>Лениногорск</span><span>Ленинск</span><span>Ленинск-Кузнецкий</span><span>Ленск</span><span>Лермонтов</span><span>Лесной</span><span>Лесозаводск</span><span>Лесосибирск</span><span>Ливны</span><span>Ликино-Дулёво</span><span>Липецк</span><span>Липки</span><span>Лиски</span><span>Лихославль</span><span>Лобня</span><span>ЛодейноеПоле</span><span>Лосино-Петровский</span><span>Луга</span><span>Луза</span><span>Лукоянов</span><span>Луховицы</span><span>Лысково</span><span>Лысьва</span><span>Лыткарино</span><span>Льгов</span><span>Любань</span><span>Люберцы</span><span>Любим</span><span>Людиново</span><span>Лянтор</span><span>Магадан</span><span>Магас</span><span>Магнитогорск</span><span>Майкоп</span><span>Майский</span><span>Макаров</span><span>Макарьев</span><span>Макушино</span><span>МалаяВишера</span><span>Малгобек</span><span>Малмыж</span><span>Малоархангельск</span><span>Малоярославец</span><span>Мамадыш</span><span>Мамоново</span><span>Мантурово</span><span>Мариинск</span><span>МариинскийПосад</span><span>Маркс</span><span>Махачкала</span><span>Мглин</span><span>Мегион</span><span>Медвежьегорск</span><span>Медногорск</span><span>Медынь</span><span>Межгорье</span><span>Междуреченск</span><span>Мезень</span><span>Меленки</span><span>Мелеуз</span><span>Менделеевск</span><span>Мензелинск</span><span>Мещовск</span><span>Миасс</span><span>Микунь</span><span>Миллерово</span><span>МинеральныеВоды</span><span>Минусинск</span><span>Миньяр</span><span>Мирный(Архангельскаяобласть)</span><span>Мирный(Якутия)</span><span>Михайлов</span><span>Михайловка</span><span>Михайловск(Свердловскаяобласть)</span><span>Михайловск(Ставропольскийкрай)</span><span>Мичуринск</span><span>Могоча</span><span>Можайск</span><span>Можга</span><span>Моздок</span><span>Мончегорск</span><span>Морозовск</span><span>Моршанск</span><span>Мосальск</span><span>Муравленко</span><span>Мураши</span><span>Мурманск</span><span>Муром</span><span>Мценск</span><span>Мыски</span><span>Мытищи</span><span>Мышкин</span><span>НабережныеЧелны</span><span>Навашино</span><span>Наволоки</span><span>Надым</span><span>Назарово</span><span>Назрань</span><span>Называевск</span><span>Нальчик</span><span>Нариманов</span><span>Наро-Фоминск</span><span>Нарткала</span><span>Нарьян-Мар</span><span>Находка</span><span>Невель</span><span>Невельск</span><span>Невинномысск</span><span>Невьянск</span><span>Нелидово</span><span>Неман</span><span>Нерехта</span><span>Нерчинск</span><span>Нерюнгри</span><span>Нестеров</span><span>Нефтегорск</span><span>Нефтекамск</span><span>Нефтекумск</span><span>Нефтеюганск</span><span>Нея</span><span>Нижневартовск</span><span>Нижнекамск</span><span>Нижнеудинск</span><span>НижниеСерги</span><span>НижнийЛомов</span><span>НижнийНовгород</span><span>НижнийТагил</span><span>НижняяСалда</span><span>НижняяТура</span><span>Николаевск</span><span>Николаевск-на-Амуре</span><span>Никольск(Вологодскаяобласть)</span><span>Никольск(Пензенскаяобласть)</span><span>Никольское</span><span>НоваяЛадога</span><span>НоваяЛяля</span><span>Новоалександровск</span><span>Новоалтайск</span><span>Новоаннинский</span><span>Нововоронеж</span><span>Новодвинск</span><span>Новозыбков</span><span>Новокубанск</span><span>Новокузнецк</span><span>Новокуйбышевск</span><span>Новомичуринск</span><span>Новомосковск</span><span>Новопавловск</span><span>Новоржев</span><span>Новороссийск</span><span>Новосибирск</span><span>Новосиль</span><span>Новосокольники</span><span>Новотроицк</span><span>Новоузенск</span><span>Новоульяновск</span><span>Новоуральск</span><span>Новохопёрск</span><span>Новочебоксарск</span><span>Новочеркасск</span><span>Новошахтинск</span><span>НовыйОскол</span><span>НовыйУренгой</span><span>Ногинск</span><span>Нолинск</span><span>Норильск</span><span>Ноябрьск</span><span>Нурлат</span><span>Нытва</span><span>Нюрба</span><span>Нягань</span><span>Нязепетровск</span><span>Няндома</span><span>Облучье</span><span>Обнинск</span><span>Обоянь</span><span>Обь</span><span>Одинцово</span><span>Озёрск(Калининградскаяобласть)</span><span>Озёрск(Челябинскаяобласть)</span><span>Озёры</span><span>Октябрьск</span><span>Октябрьский</span><span>Окуловка</span><span>Оленегорск</span><span>Олонец</span><span>Олёкминск</span><span>Омск</span><span>Омутнинск</span><span>Онега</span><span>Опочка</span><span>Оренбург</span><span>Орехово-Зуево</span><span>Орлов</span><span>Орск</span><span>Орёл</span><span>Оса</span><span>Осинники</span><span>Осташков</span><span>Остров</span><span>Островной</span><span>Острогожск</span><span>Отрадное</span><span>Отрадный</span><span>Оха</span><span>Оханск</span><span>Очёр</span><span>Павлово</span><span>Павловск</span><span>ПавловскийПосад</span><span>Палласовка</span><span>Партизанск</span><span>Певек</span><span>Пенза</span><span>Первомайск</span><span>Первоуральск</span><span>Перевоз</span><span>Пересвет</span><span>Переславль-Залесский</span><span>Пермь</span><span>Пестово</span><span>ПетровВал</span><span>Петровск</span><span>Петровск-Забайкальский</span><span></span><span>	</span><span></span><span>Петрозаводск</span><span>Петропавловск-Камчатский</span><span>Петухово</span><span>Петушки</span><span>Печора</span><span>Печоры</span><span>Пикалёво</span><span>Пионерский</span><span>Питкяранта</span><span>Плавск</span><span>Пласт</span><span>Плёс</span><span>Поворино</span><span>Подольск</span><span>Подпорожье</span><span>Покачи</span><span>Покров</span><span>Покровск</span><span>Полевской</span><span>Полесск</span><span>Полысаево</span><span>ПолярныеЗори</span><span>Полярный</span><span>Поронайск</span><span>Порхов</span><span>Похвистнево</span><span>Почеп</span><span>Починок</span><span>Пошехонье</span><span>Правдинск</span><span>Приволжск</span><span>Приморск(Калининградскаяобласть)</span><span>Приморск(Ленинградскаяобласть)</span><span>Приморско-Ахтарск</span><span>Приозерск</span><span>Прокопьевск</span><span>Пролетарск</span><span>Протвино</span><span>Прохладный</span><span>Псков</span><span>Пугачёв</span><span>Пудож</span><span>Пустошка</span><span>Пучеж</span><span>Пушкино</span><span>Пущино</span><span>Пыталово</span><span>Пыть-Ях</span><span>Пятигорск</span><span>Радужный(Владимирскаяобласть)</span><span>Радужный(Ханты-МансийскийАО–Югра)</span><span>Райчихинск</span><span>Раменское</span><span>Рассказово</span><span>Ревда</span><span>Реж</span><span>Реутов</span><span>Ржев</span><span>Родники</span><span>Рославль</span><span>Россошь</span><span>Ростов</span><span>Ростов-на-Дону</span><span>Рошаль</span><span>Ртищево</span><span>Рубцовск</span><span>Рудня</span><span>Руза</span><span>Рузаевка</span><span>Рыбинск</span><span>Рыбное</span><span>Рыльск</span><span>Ряжск</span><span>Рязань</span><span>Саки</span><span>Салават</span><span>Салаир</span><span>Салехард</span><span>Сальск</span><span>Самара</span><span>Санкт-Петербург</span><span>Саранск</span><span>Сарапул</span><span>Саратов</span><span>Саров</span><span>Сасово</span><span>Сатка</span><span>Сафоново</span><span>Саяногорск</span><span>Саянск</span><span>Светлогорск</span><span>Светлоград</span><span>Светлый</span><span>Светогорск</span><span>Свирск</span><span>Свободный</span><span>Себеж</span><span>Севастополь</span><span>Северо-Курильск</span><span>Северобайкальск</span><span>Северодвинск</span><span>Североморск</span><span>Североуральск</span><span>Северск</span><span>Севск</span><span>Сегежа</span><span>Сельцо</span><span>Семикаракорск</span><span>Семилуки</span><span>Семёнов</span><span>Сенгилей</span><span>Серафимович</span><span>Сергач</span><span>СергиевПосад</span><span>Сердобск</span><span>Серов</span><span>Серпухов</span><span>Сертолово</span><span>Сибай</span><span>Сим</span><span>Симферополь</span><span>Сковородино</span><span>Скопин</span><span>Славгород</span><span>Славск</span><span>Славянск-на-Кубани</span><span>Сланцы</span><span>Слободской</span><span>Слюдянка</span><span>Смоленск</span><span>Снежинск</span><span>Снежногорск</span><span>Собинка</span><span>Советск(Калининградскаяобласть)</span><span>Советск(Кировскаяобласть)</span><span>Советск(Тульскаяобласть)</span><span>СоветскаяГавань</span><span>Советский</span><span>Сокол</span><span>Солигалич</span><span>Соликамск</span><span>Солнечногорск</span><span>Соль-Илецк</span><span>Сольвычегодск</span><span>Сольцы</span><span>Сорочинск</span><span>Сорск</span><span>Сортавала</span><span>Сосенский</span><span>Сосновка</span><span>Сосновоборск</span><span>СосновыйБор</span><span>Сосногорск</span><span>Сочи</span><span>Спас-Деменск</span><span>Спас-Клепики</span><span>Спасск</span><span>Спасск-Дальний</span><span>Спасск-Рязанский</span><span>Среднеколымск</span><span>Среднеуральск</span><span>Сретенск</span><span>Ставрополь</span><span>СтараяКупавна</span><span>СтараяРусса</span><span>Старица</span><span>Стародуб</span><span>СтарыйКрым</span><span>СтарыйОскол</span><span>Стерлитамак</span><span>Стрежевой</span><span>Строитель</span><span>Струнино</span><span>Ступино</span><span>Суворов</span><span>Судак</span><span>Суджа</span><span>Судогда</span><span>Суздаль</span><span>Суоярви</span><span>Сураж</span><span>Сургут</span><span>Суровикино</span><span>Сурск</span><span>Сусуман</span><span>Сухиничи</span><span>СухойЛог</span><span>Сызрань</span><span>Сыктывкар</span><span>Сысерть</span><span>Сычёвка</span><span>Сясьстрой</span><span>Тавда</span><span>Таганрог</span><span>Тайга</span><span>Тайшет</span><span>Талдом</span><span>Тамбов</span><span>Тара</span><span>Тарко-Сале</span><span>Таруса</span><span>Татарск</span><span>Таштагол</span><span>Тверь</span><span>Теберда</span><span>Тейково</span><span>Темников</span><span>Темрюк</span><span>Терек</span><span>Тетюши</span><span>Тимашёвск</span><span>Тихвин</span><span>Тихорецк</span><span>Тобольск</span><span>Тогучин</span><span>Тольятти</span><span>Томари</span><span>Томмот</span><span>Томск</span><span>Топки</span><span>Торжок</span><span>Торопец</span><span>Тосно</span><span>Тотьма</span><span>Троицк</span><span>Трубчевск</span><span>Трёхгорный</span><span>Туапсе</span><span>Туймазы</span><span>Тула</span><span>Тулун</span><span>Туран</span><span>Туринск</span><span>Тутаев</span><span>Тында</span><span>Тырныауз</span><span>Тюкалинск</span><span>Тюмень</span><span>Уварово</span><span>Углегорск</span><span>Углич</span><span>Удачный</span><span>Удомля</span><span>Ужур</span><span>Узловая</span><span>Улан-Удэ</span><span>Ульяновск</span><span>Унеча</span><span>Урай</span><span>Урень</span><span>Уржум</span><span>Урус-Мартан</span><span>Урюпинск</span><span>Усинск</span><span>Усмань</span><span>Усолье</span><span>Усолье-Сибирское</span><span>Уссурийск</span><span>Усть-Джегута</span><span>Усть-Илимск</span><span>Усть-Катав</span><span>Усть-Кут</span><span>Усть-Лабинск</span><span>Устюжна</span><span>Уфа</span><span>Ухта</span><span>Учалы</span><span>Уяр</span><span>Фатеж</span><span>Феодосия</span><span>Фокино</span><span>Фролово</span><span>Фрязино</span><span>Фурманов</span><span>Хабаровск</span><span>Хадыженск</span><span>Ханты-Мансийск</span><span>Харабали</span><span>Харовск</span><span>Хасавюрт</span><span>Хвалынск</span><span>Хилок</span><span>Химки</span><span>Холм</span><span>Холмск</span><span>Хотьково</span><span>Цивильск</span><span>Цимлянск</span><span>Циолковский</span><span>Чадан</span><span>Чайковский</span><span>Чапаевск</span><span>Чаплыгин</span><span>Чебаркуль</span><span>Чебоксары</span><span>Чегем</span><span>Чекалин</span><span>Челябинск</span><span>Чердынь</span><span>Черемхово</span><span>Черепаново</span><span>Череповец</span><span>Черкесск</span><span>Черноголовка</span><span>Черногорск</span><span>Чернушка</span><span>Черняховск</span><span>Чехов</span><span>Чистополь</span><span>Чита</span><span>Чкаловск</span><span>Чудово</span><span>Чулым</span><span>Чусовой</span><span>Чухлома</span><span>Чёрмоз</span><span>Шагонар</span><span>Шадринск</span><span>Шали</span><span>Шарыпово</span><span>Шарья</span><span>Шатура</span><span>Шахты</span><span>Шахтёрск</span><span>Шахунья</span><span>Шацк</span><span>Шебекино</span><span>Шелехов</span><span>Шенкурск</span><span>Шилка</span><span>Шимановск</span><span>Шиханы</span><span>Шлиссельбург</span><span>Шумерля</span><span>Шумиха</span><span>Шуя</span><span>Щигры</span><span>Щучье</span><span>Щёкино</span><span>Щёлкино</span><span>Щёлково</span><span>Электрогорск</span><span>Электросталь</span><span>Электроугли</span><span>Элиста</span><span>Энгельс</span><span>Эртиль</span><span>Югорск</span><span>Южа</span><span>Южно-Сахалинск</span><span>Южно-Сухокумск</span><span>Южноуральск</span><span>Юрга</span><span>Юрьев-Польский</span><span>Юрьевец</span><span>Юрюзань</span><span>Юхнов</span><span>Ядрин</span><span>Якутск</span><span>Ялта</span><span>Ялуторовск</span><span>Янаул</span><span>Яранск</span><span>Яровое</span><span>Ярославль</span><span>Ярцево</span><span>Ясногорск</span><span>Ясный</span>
+									<span>Яхрома</span>
                                 </div>
                                 <div id="operator">
-                                    <span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span><span>Аньхой</span>
+                                    <span>Билайн</span>
+									<span>Дом.ru</span>
+									<span>Ростелеком</span>
+									<span>Мегафон</span>
+									<span>МТС</span>
+									<span>Акадо</span>
+									<span>Yota</span>
+									<span>Tele2</span>
+									<span>МГТС</span>
                                 </div>
                             </div>
                         </div>
@@ -315,32 +494,32 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <p class="switchstep">
                         <a href="#" class="a1 skipto goback" data-to="pppoeerror" data-from="operatorsmore"><%:Назад%></a>
                         <span>|</span>
-                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operatorsmore"><%:从旧路由器导入宽带设置%></a>
+                        <a href="#" class="a1 skipto" data-to="pppoecatchstep1" data-from="operatorsmore"><%:Получить настройки%></a>
                     </p>
                 </div>
                 <!--/更多运营商-->
                 <div class="mod-guide mod-guide-ssidpwd">
                     <div class="pic"><img src="<%=routerSrc %>?v=<%=ver%>" ></div>
-                    <p class="tit font18"><%:请设置Wi-Fi名称与密码%></p>
+                    <p class="tit font18"><%:Пожалуйста, установите имя и пароль Wi-Fi%></p>
                     <div class="hr"></div>
                     <form id="ssidpwd" name="ssidpwd" class="form clearfix" action="/" autocomplete="off">
                         <div class="form-inputs">
                             <div class="form-item">
-                                <label class="k"><%:Wi-Fi名称%></label>
-                                <span class="v"><input id="ssidname" reqMsg="<%:Wi-Fi名称%>" datatype="ssid" minlength="1" maxlength="28" name="ssid" type="text" class="ipt-text"  autocomplete="off"></span>
+                                <label class="k"><%:Имя Wi-Fi%></label>
+                                <span class="v"><input id="ssidname" reqMsg="<%:Имя Wi-Fi%>" datatype="ssid" minlength="1" maxlength="28" name="ssid" type="text" class="ipt-text"  autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-item">
-                                <label class="k"><%:Wi-Fi密码%></label>
-                                <span class="v"><input reqMsg="<%:Wi-Fi密码%>" datatype="wifipassword" minlength="8" maxlength="63" name="wifipwd" type="password" class="android-input ipt-text" data-type="password" autocomplete="off"></span>
+                                <label class="k"><%:Пароль Wi-Fi%></label>
+                                <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="wifipassword" minlength="8" maxlength="63" name="wifipwd" type="password" class="android-input ipt-text" data-type="password" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-item form-item-ckbox gray">
-                                <label><input type="checkbox" id="kqcqms" autocomplete="off" checked="checked" /> <span><%:开启穿墙模式%></span></label>
+                                <label><input type="checkbox" id="kqcqms" autocomplete="off" checked="checked" /> <span><%:Включить%></span></label>
                             </div>
                         </div>
                         <div class="form-contral">
-                            <button class="btn btn-primary btn-block" type="submit"><span><%:下一步%></span></button>
+                            <button class="btn btn-primary btn-block" type="submit"><span><%:Далее%></span></button>
                         </div>
                     </form>
                     <%if (wanType==1) then%>
@@ -352,62 +531,62 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                             <a href="#" class="a1 goback skipto" data-to="hellopage" ><%:Назад%></a>
                         </p>
                         <p class="switchstep">
-                            <a href="#" class="a1 skipto" data-to="pppoe" data-from="ssidpwd"><%:需要拨号(PPPoE)%></a>
+                            <a href="#" class="a1 skipto" data-to="pppoe" data-from="ssidpwd"><%:Выберите тип (PPPoE)%></a>
                             <span>|</span>
                             <%if features["apmode"]["wifiapmode"] == "1" then%>
-                            <a href="#" class="a1 skipto" data-to="wds" data-from="ssidpwd"><%:无线中继%></a>
+                            <a href="#" class="a1 skipto" data-to="wds" data-from="ssidpwd"><%:Усилитель%></a>
                             <span>|</span>
                             <%end%>
-                            <a href="#" class="a1 skipto" data-to="lanap" data-from="ssidpwd"><%:有线中继%></a>
+                            <a href="#" class="a1 skipto" data-to="lanap" data-from="ssidpwd"><%:Точка доступа%></a>
                         </p>
                     <%end%>
                 </div>
                 <!--/hdcp 设置wifi ssid -->
                 <div class="mod-guide mod-guide-pppoecatchstep1">
-                    <p class="tit font18"><%:从旧路由器导入宽带设置%></p>
+                    <p class="tit font18"><%:Импортировать настройки PPPOE со старого маршрутизатора%></p>
                     <div class="hr"></div>
-                    <p class="text"><%:第一步：请将旧路由器接上电源并开启%></p>
+                    <p class="text"><%:Шаг 1. Подключите старый маршрутизатор к источнику питания и включите его.%></p>
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_pppoecatch_step1.png?v=<%=ver%>" >
-                        <span class="gray"><%:旧路由器电源%></span>
+                        <span class="gray"><%:Старый маршрутизатор%></span>
                     </div>
-                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep2"><span><%:下一步%></span></a>
+                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep2"><span><%:Далее%></span></a>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="operators"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step1-->
                 <div class="mod-guide mod-guide-pppoecatchstep2">
-                    <p class="tit font18"><%:从旧路由器导入宽带设置%></p>
+                    <p class="tit font18"><%:Импортировать настройки PPPOE со старого маршрутизатора%></p>
                     <div class="hr"></div>
-                    <p class="text"><%:第二步：请将网线接到旧路由器WAN口%></p>
+                    <p class="text"><%:Шаг 2. Подключите сетевой кабель к WAN-порту старого маршрутизатора.%></p>
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_pppoecatch_step2.png?v=<%=ver%>" >
-                        <span class="gray"><%:旧路由器WAN口%></span>
+                        <span class="gray"><%:WAN порт старого маршрутизатора%></span>
                     </div>
-                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep3" ><span><%:下一步%></span></a>
+                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoecatchstep3" ><span><%:Далее%></span></a>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="pppoecatchstep1"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step2-->
                 <div class="mod-guide mod-guide-pppoecatchstep3">
-                    <p class="tit font18"><%:从旧路由器导入宽带设置%></p>
+                    <p class="tit font18"><%:Импортировать настройки PPPOE со старого маршрутизатора%></p>
                     <div class="hr"></div>
-                    <p class="text"><%:第三步：请将网线的另一头接到Redmi路由器任一网口%></p>
+                    <p class="text"><%:Шаг 3. Подключите другой конец сетевого кабеля к любому LAN порту маршрутизатора%></p>
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_pppoecatch_step3.png?v=<%=ver%>" >
                     </div>
-                    <a href="#" id="pppoecatch" class="btn btn-primary btn-block"><span><%:立即导入%></span></a>
+                    <a href="#" id="pppoecatch" class="btn btn-primary btn-block"><span><%:Импортировать%></span></a>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2"><%:Назад%></a>
                     </p>
                 </div>
                 <!--/从旧路由器取回pppoe信息 step3-->
                 <div class="mod-guide mod-guide-pppoecatching">
-                    <p class="tit font18"><%:从旧路由器导入宽带设置%></p>
+                    <p class="tit font18"><%:Импортировать настройки PPPOE со старого маршрутизатора%></p>
                     <div class="hr"></div>
-                    <p class="text"><%:请稍候...正在从旧路由器导入配置%></p>
+                    <p class="text"><%:Импорт конфигурации со старого маршрутизатора, подождите...%></p>
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_pppoecatching.gif?v=<%=ver%>" >
                     </div>
@@ -417,23 +596,23 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_error.png?v=<%=ver%>" >
                     </div>
-                    <p><%:从旧路由器导入宽带设置失败%></p>
+                    <p><%:Ошибка получения настроек PPPOE со старого маршрутизатора%></p>
                     <div class="hr"></div>
                     <div class="clearfix">
-                        <button id="repppoecatch" class="btn btn-primary btn-m l" type="button"><span><%:重试%></span></button>
+                        <button id="repppoecatch" class="btn btn-primary btn-m l" type="button"><span><%:Повторить%></span></button>
                         <button class="btn btn-dft btn-m r skipto" data-to="pppoecatchstep1" type="button"><span><%:Назад%></span></button>
                     </div>
                 </div>
                 <!--/pppoecatcherror-->
                 <div class="mod-guide mod-guide-pppoecatchsucc">
-                    <p class="tit font18"><%:从旧路由器导入宽带设置成功%></p>
+                    <p class="tit font18"><%:Настройки PPPOE со старого маршрутизатора, успешно импортированы%></p>
                     <div class="hr"></div>
-                    <p class="text"><%:提示：请将Redmi路由器与旧路由器之间的网线断开 并确定网线已经接上蓝色WAN口%></p>
+                    <p class="text"><%:Совет: отключите сетевой кабель между вашим маршрутизатором и старым маршрутизатором и убедитесь, что сетевой кабель подключен к порту WAN порту.%></p>
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_pppoecatch_succ.png?v=<%=ver%>" >
-                        <span class="gray"><%:Redmi路由器WAN口%></span>
+                        <span class="gray"><%:WAN порт вашего марщрутизатора%></span>
                     </div>
-                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoe" data-from="pppoecatchsucc"><span><%:下一步%></span></a>
+                    <a href="#" class="skipto btn btn-primary btn-block" data-to="pppoe" data-from="pppoecatchsucc"><span><%:Далее%></span></a>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="pppoecatchstep2" data-from="pppoecatchstep3"><%:Назад%></a>
                     </p>
@@ -441,24 +620,24 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                 <!--/pppoecatchsucc-->
                 <div class="mod-guide mod-guide-routerpwd">
                     <div class="pic"><img src="<%=routerSrc %>?v=<%=ver%>" ></div>
-                    <p class="tit font18"><%:请设置管理密码%></p>
+                    <p class="tit font18"><%:Установите пароль доступа к Панели управления%></p>
                     <div class="hr"></div>
                     <form id="routerpwd" name="routerpwd" class="form clearfix" action="/" autocomplete="off">
                         <div class="form-inputs">
                             <!-- <div class="form-item">
-                                <label class="k"><%:路由器名称%></label>
-                                <span class="v"><input reqMsg="<%:路由器名称%>" datatype="bytetext" maxlength="24" name="routername" type="text" class="android-input ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Имя маршрутизатора%></label>
+                                <span class="v"><input reqMsg="<%:Имя маршрутизатора%>" datatype="bytetext" maxlength="24" name="routername" type="text" class="android-input ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div> -->
                             <div class="form-item-out toggle-element">
                                 <div class="form-item-select" id="routerpositionselect">
-                                    <label class="k"><%:位置%></label>
+                                    <label class="k"><%:Помещение%></label>
                                     <span class="v">
                                         <select name="routerlocale"  class="beautify">
-                                            <option value="<%:家%>"><%:家%></option>
-                                            <option value="<%:公司%>"><%:公司%></option>
+                                            <option value="<%:Дом%>"><%:Дом%></option>
+                                            <option value="<%:Офис%>"><%:Офис%></option>
                                             <!-- <option value="2"><%:其他%></option> -->
-                                            <option value="" class="self-define-option"><%:自定义%></option>
+                                            <option value="" class="self-define-option"><%:Сохранить%></option>
                                         </select>
                                     </span>
                                     <em class="t"></em>
@@ -466,49 +645,49 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                             </div>
                             <div class="form-item-out toggle-element hide">
                                 <div class="form-item" id="routerpositioninput">
-                                    <label class="k"><%:位置%></label>
-                                    <span class="v"><input datatype="bytetext" maxlength="24" reqMsg="<%:位置%>" type="text" class="android-input ipt-text" autocomplete="off"></span>
+                                    <label class="k"><%:Помещение%></label>
+                                    <span class="v"><input datatype="bytetext" maxlength="24" reqMsg="<%:Помещение%>" type="text" class="android-input ipt-text" autocomplete="off"></span>
                                     <em class="t"></em>
                                 </div>
                             </div>
                             <div class="form-item" id="routeradminpwd">
-                                <label class="k"><%:管理密码%></label>
-                                <span class="v"><input reqMsg="<%:管理密码%>" datatype="wifipassword" minlength="8" maxlength="63" name="routerpwd" type="password" class="android-input ipt-text" data-type="password" autocomplete="off"></span>
+                                <label class="k"><%:Пароль Панели управления%></label>
+                                <span class="v"><input reqMsg="<%:Пароль Панели управления%>" datatype="wifipassword" minlength="8" maxlength="63" name="routerpwd" type="password" class="android-input ipt-text" data-type="password" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-item form-item-ckbox gray">
-                                <label><input type="checkbox" id="samepwd" autocomplete="off" /> <span><%:与Wi-Fi 密码相同%></span></label>
+                                <label><input type="checkbox" id="samepwd" autocomplete="off" /> <span><%:Использовать пароль Wi-Fi%></span></label>
                             </div>
                         </div>
                         <div class="form-contral">
-                            <button class="btn btn-primary btn-block" type="submit"><span><%:配置完成%></span></button>
+                            <button class="btn btn-primary btn-block" type="submit"><span><%:Сохранить%></span></button>
                         </div>
                     </form>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" id="routerpwdgoback" data-to="ssidpwd" ><%:Назад%></a>
                     </p>
                 </div>
-                <!--/设置路由器名称管理密码 -->
+                <!--/设置Имя маршрутизатораПароль Панели управления -->
                 <div class="mod-guide mod-guide-reboot">
-                    <p class="tit font18"><%if wifi50IsSupport == "1" then%><%:正在创建双频WiFi%><%else%><%:正在创建WiFi%><%end%></p>
+                    <p class="tit font18"><%if wifi50IsSupport == "1" then%><%:Создание двухдиапазонного Wi-Fi%><%else%><%:Создание Wi-Fi%><%end%></p>
                     <div class="hr"></div>
                     <div class="pic-line clearfix">
                     <%if wifi50IsSupport == "1" then%>
                         <div class="info">
                             <img src="<%=resource%>/web/img/ssid24.png?v=<%=ver%>" >
                             <p class="font14" ><span class="finishwifi24"></span></p>
-                            <p class="tip" ><span><%:信号穿透力强，覆盖范围广%></span></p>
+                            <p class="tip" ><span><%:Сильное проникновение сигнала и широкий охват%></span></p>
                         </div>
                         <div class="info">
                             <img src="<%=resource%>/web/img/ssid50.png?v=<%=ver%>" >
                             <p class="font14" ><span class="finishwifi50"></span> <em>_5G</em></p>
-                            <p class="tip" ><span><%:速度快，适合距离路由器较近的设备%></span></p>
+                            <p class="tip" ><span><%:Высокая скорость, подходит для устройств, расположенных рядом с маршрутизатором%></span></p>
                         </div>
                     <%else%>
                         <div style="width:100%;" class="info">
                             <img style="width:25%;" src="<%=resource%>/web/img/ssid24.png?v=<%=ver%>" >
                             <p class="font14" ><span class="finishwifi24"></span></p>
-                            <p class="tip" ><span><%:信号穿透力强，覆盖范围广%></span></p>
+                            <p class="tip" ><span><%:Сильное проникновение сигнала и широкий охват%></span></p>
                         </div>
                     <%end%>
                     </div>
@@ -516,55 +695,55 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         <div class="reboot-progress">
                             <div class="progress-container"><span></span></div>
                         </div>
-                        <p><%:路由器配置完成后，即可连接网络%></p>
+                        <p><%:После того, как маршрутизатор сохранит настройки, вы можете подключиться к Интернету.%></p>
                     </div>
                     <div class="rebootted hide">
-                        <a href="###" class="btn btn-primary btn-block" id="connectedNext"><span><%:下一步%></span></a>
-                        <p><%:请将电脑连接WiFi后再进行下一步%></p>
+                        <a href="###" class="btn btn-primary btn-block" id="connectedNext"><span><%:Далее%></span></a>
+                        <p><%:Прежде чем продолжить, включите на вашем устройстве Wi-Fi%></p>
                     </div>
                 </div>
                 <!--/android-->
 
                 <div class="mod-guide mod-guide-bind mod-guide-phone">
-                    <p class="tit font16"><%:只差一步,通过小米WiFi APP绑定路由器%></p>
+                    <p class="tit font16"><%:Настроивайте маршрутизатор через приложение Xiaomi WiFi%></p>
                     <div class="hr"></div>
                      <ul class="info pic-line clearfix">
                         <li>
                             <div class="ico wifi"></div>
-                            <div>易用</div>
-                            <div class="des">全新小米WiFi APP 极简操作，享受生活</div>
+                            <div>Простота</div>
+                            <div class="des">Новое приложение Xiaomi WiFi - это минималистичный интерфейс.</div>
                         </li>
                         <li>
                             <div class="ico safe"></div>
-                             <div>安全</div>
-                            <div class="des">7x24小时安全防护 一键拉黑蹭网老王</div>
+                             <div>Безопасность</div>
+                            <div class="des">Безукоризненная безопасность.</div>
                         </li>
                         <li>
                             <div class="ico gamespeedup"></div>
-                            <div>加速</div>
-                            <div class="des">提高带宽，游戏加速 团战胜人一筹</div>
+                            <div>Скорость</div>
+                            <div class="des">Увеличивайте пропускную способность, ускоряйте игры, побеждайте в командных сражениях.</div>
                         </li>
                         <li>
 
                             <div class="ico money"></div>
-                            <div>赚钱</div>
-                            <div class="des">分享WiFi赚点钱 欢迎老王来蹭网</div>
+                            <div>Заработок</div>
+                            <div class="des">Делитесь Wi-Fi, и зарабатывайте деньги.</div>
                         </li>
                     </ul>
-                    <p class="tit font12" style="margin-top:20px"><%:推荐连接到新的无线服务后继续%></p>
+                    <p class="tit font12" style="margin-top:20px"><%:Рекомендуется продолжить после подключения к новой сети Wi-Fi.%></p>
                 </div>
 
                 <!--/reboot-->
                 <div class="mod-guide mod-guide-vas">
-                    <p class="tit font18"><%:路由器配置完成，我们为你准备%></p>
+                    <p class="tit font18"><%:Сохранение настроек, подождите...%></p>
                     <div class="hr"></div>
                     <div class="vas-list">
                         <ul class="clearfix" id="vasListUL">
                         </ul>
                     </div>
-                    <p class="vas-tip"><%:提示：以上设置可以在APP的“路由设置”中调整%><br/><a href="http://www1.miwifi.com/wap_download.html"><%:下载小米WiFi APP%></a></p>
+                    <p class="vas-tip"><%:Совет: Вышеуказанные настройки можно изменить в «Настройках маршрутизатора» в приложении%><br/><a href="http://www1.miwifi.com/wap_download.html"><%:Скачать приложение Xiaomi WiFi%></a></p>
                     <div class="form-contral">
-                        <a href="###" class="btn btn-primary btn-block" id="updateVasBtn"><span><%:下一步%></span></a>
+                        <a href="###" class="btn btn-primary btn-block" id="updateVasBtn"><span><%:Далее%></span></a>
                     </div>
                     <!-- <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="" ><%:Назад%></a>
@@ -572,7 +751,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                 </div>
                 <!--/vas-->
                 <div class="mod-guide mod-guide-end">
-                    <p class="tit font18"><%:使用手机客户端，全面体验智能路由器功能%></p>
+                    <p class="tit font18"><%:Используйте мобильное приложение, чтобы в полной мере ощутить все возможности маршрутизатора%></p>
                     <div class="hr"></div>
                     <div class="pic">
                         <%if ccode == "US" then %>
@@ -582,26 +761,26 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         <%end%>
 
                     </div>
-                    <p><%:手机扫描二维码安装客户端%></p>
+                    <p><%:Отсканируйте QR-код, чтобы установить приложение.%></p>
                     <div class="ap-text-tip hide">
-                        <%:重要提示：如果上级路由器不是Redmi路由器，它分配给中继路由器的管理后台地址可能会改变，因此会造成无法访问后台，建议安装小米路由手机客户端，绑定当前路由器，即可通过手机使用管理功能。%>
+                        <%:Важное примечание: если вышестоящий маршрутизатор не является маршрутизатором Xiaomi, адрес панели управления, назначенный маршрутизатору ретранслятору, может быть изменен, поэтому он не сможет получить доступ к панели управления.Рекомендуется установить приложение маршрутизатора Xiaomi, привязать текущий маршрутизатор, а затем использовать управление через мобильный телефон.%>
                     </div>
-                    <a href="<%if (ccode=='CN') then%>http://api.miwifi.com/data/redirect/hello_internet<%else%>http://www.mi.com/en/<%end%>" class="btn btn-primary btn-block"><span><%:开始上网%></span></a>
-                    <a href="<%=luci.dispatcher.build_url("web", "home")%>" class="gotohome"><span><%:管理后台%></span></a>
+                    <a href="<%if (ccode=='CN') then%>http://api.miwifi.com/data/redirect/hello_internet<%else%>http://www.mi.com/en/<%end%>" class="btn btn-primary btn-block"><span><%:Продолжить%></span></a>
+                    <a href="<%=luci.dispatcher.build_url("web", "home")%>" class="gotohome"><span><%:Панель управления%></span></a>
                 </div>
                 <!--/end-->
                 <div class="mod-guide mod-guide-wds">
                     <div id="wdsInputSelectDiv">
-                        <p class="tit font18"><%:请选择或输入需要中继的无线网络和密码%></p>
+                        <p class="tit font18"><%:Пожалуйста, выберите или введите имя и пароль Wi-Fi сети для ретрансляции%></p>
                         <div class="hr"></div>
                         <form id="wds" name="wds" class="form clearfix" action="/">
                             <div class="form-inputs">
                                 <div class="form-item-out toggle-element flag-is-select ssid-select-relative" id="ssidSelectDiv">
                                     <div class="form-item-select">
-                                        <label class="k"><%:选择网络%></label>
+                                        <label class="k"><%:Выберите сеть%></label>
                                         <span class="v">
                                              <select id="ssidselect" name="ssidselect" class="beautify">
-                                                <option value=""><%:正在扫描附近的无线网络%></option>
+                                                <option value=""><%:Поиск ближайших Wi-Fi сетей%></option>
                                             </select>
                                         </span>
                                         <em class="t"></em>
@@ -610,33 +789,33 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                                 </div>
                                 <div class="form-item-out toggle-element hide">
                                     <div class="form-item">
-                                        <label class="k"><%:网络名称%></label>
-                                        <span class="v"><input reqMsg="<%:网络名称%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinput" type="text" class="ipt-text" autocomplete="off"></span>
+                                        <label class="k"><%:Имя Wi-Fi%></label>
+                                        <span class="v"><input reqMsg="<%:Имя Wi-Fi%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinput" type="text" class="ipt-text" autocomplete="off"></span>
                                         <em class="t"></em>
                                     </div>
                                 </div>
                                 <div class="form-item-out toggle-element">
                                     <div class="form-item" id="wdsWifiInputDivForSelect">
-                                        <label class="k"><%:输入密码%></label>
-                                        <span class="v"><input reqMsg="<%:网络密码%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordforselect" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                                        <label class="k"><%:Введите пароль%></label>
+                                        <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordforselect" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
                                         <em class="t"></em>
                                     </div>
                                     <div class="form-item" id="wdsWifiInputDivForSelectWep" style="display:none;">
-                                        <label class="k"><%:输入密码%></label>
-                                        <span class="v"><input reqMsg="<%:网络密码%>" datatype="weppassword" minlength="5" maxlength="32" name="passwordforselectwep" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                                        <label class="k"><%:Введите пароль%></label>
+                                        <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="weppassword" minlength="5" maxlength="32" name="passwordforselectwep" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
                                         <em class="t"></em>
                                     </div>
                                 </div>
                                 <div class="form-item-out toggle-element hide">
                                     <div class="form-item" id="wdsWifiInputDivForInput">
-                                        <label class="k"><%:输入密码%></label>
+                                        <label class="k"><%:Введите пароль%></label>
                                         <span class="v"><input name="passwordforinput" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
                                         <em class="t"></em>
                                     </div>
                                 </div>
-                                <p class="change-select-type"><a class="a1" href="#" id="changeSelectType"><%:手工输入网络名称%></a></p>
+                                <p class="change-select-type"><a class="a1" href="#" id="changeSelectType"><%:Введите имя Wi-Fi%></a></p>
                             </div>
-                            <button class="btn btn-primary btn-l" type="submit"><span><%:下一步%></span></button>
+                            <button class="btn btn-primary btn-l" type="submit"><span><%:Далее%></span></button>
                             <div class="switchstep">
                                 <a class="a1 goback skipto" data-to="" href="#"><span><%:Назад%></span></a>
                             </div>
@@ -645,71 +824,71 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                 </div>
                 <!-- wds(wifiap)-->
                 <div class="mod-guide mod-guide-wdsnewssid">
-                    <p class="tit font18"><%:请设置新的WI-FI名称和密码%></p>
+                    <p class="tit font18"><%:Установите новое имя и пароль Wi-Fi%></p>
                     <div class="hr"></div>
                     <form id="wdsnewssid" name="wdsnewssid" class="form clearfix" action="/" autocomplete="off">
                         <div class="form-item">
-                            <label class="k"><%:2.4G网络名称%></label>
-                            <span class="v"><input reqMsg="<%:2.4G网络名称%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinputfornewssid" id="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
+                            <label class="k"><%:Имя Wi-Fi 2.4G%></label>
+                            <span class="v"><input reqMsg="<%:Имя Wi-Fi 2.4G%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinputfornewssid" id="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
                             <em class="t"></em>
                         </div>
                          <%if hardware ~= "r3l"  and hardware ~= "r4c" and hardware ~= "r1cl" and hardware ~= "r4cm" then%>
                             <div class="form-item">
-                                <label class="k"><%:5G网络名称%></label>
-                                <span class="v"><input reqMsg="<%:5G网络名称%>" datatype="ssid" minlength="1" maxlength="31" id="ssidinputfornewssid5g" name="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Имя Wi-Fi 5G%></label>
+                                <span class="v"><input reqMsg="<%:Имя Wi-Fi 5G%>" datatype="ssid" minlength="1" maxlength="31" id="ssidinputfornewssid5g" name="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                         <%end%>
                             <div class="form-item-select"  style="display:none;">
-                            <label class="k"><%:加密方式%></label>
+                            <label class="k"><%:Защита сети%></label>
                             <span class="v">
                                 <select name="encryptionkey" class="beautify">
-                                    <option value="mixed-psk" selected="selected"><%:混合加密(WPA/WPA2个人版)%></option>
-                                    <option value="psk2"><%:强加密(WPA2个人版)%></option>
-                                    <option value="none"><%:无加密(允许所有人连接)%></option>
+                                    <option value="mixed-psk" selected="selected"><%:WPA/WPA2%></option>
+                                    <option value="psk2"><%:WPA2%></option>
+                                    <option value="none"><%:Без защиты%></option>
                                 </select>
                             </span>
                             <em class="t"></em>
                         </div>
                         <div class="form-item" >
-                            <label class="k"><%:Wi-Fi密码%></label>
-                            <span class="v"><input reqMsg="<%:Wi-Fi密码%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordfornewssid" id="passwordfornewssid"data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                            <label class="k"><%:Пароль Wi-Fi%></label>
+                            <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordfornewssid" id="passwordfornewssid"data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
                             <em class="t"></em>
                         </div>
                         <div class="form-contral">
-                            <button class="btn btn-primary btn-block" type="submit"><span><%:下一步%></span></button>
+                            <button class="btn btn-primary btn-block" type="submit"><span><%:Далее%></span></button>
                         </div>
                     </form>
                     <p class="switchstep">
                         <a href="#" class="a1 goback skipto" data-to="" ><%:Назад%></a>
                         <!-- <span>|</span>
-                        <a href="#" class="a1" id="skipwdsnewssid"><%:跳过%></a> -->
+                        <a href="#" class="a1" id="skipwdsnewssid"><%:Пропустить%></a> -->
                     </p>
                 </div>
                 <!-- newssid end-->
                 <div class="mod-guide mod-guide-lanap">
                     <div id="lanapInputDiv">
-                        <p class="tit font18"><%:请设置有线中继模式的Wi-Fi名称和密码%></p>
+                        <p class="tit font18"><%:Установите имя и пароль Wi-Fi для режима Точка доступа%></p>
                         <div class="hr"></div>
                         <div class="lanap-mode-tip gray">
-                            <p class="hd"><%:有线中继模式说明%></p>
-                            <p ><%:1.确保Redmi路由器的WAN口与旧路由器通过网线连接%></p>
-                            <p ><%:2.旧路由器与小米路由处于同一局域网中，可以互访%></p>
-                            <p ><%:3.中继模式下部分功能和插件将被屏蔽%></p>
+                            <p class="hd"><%:Режим Точка доступа%></p>
+                            <p ><%:1. Убедитесь, что WAN порт вашего маршрутизатора подключен к старому маршрутизатору через сетевой кабель.%></p>
+                            <p ><%:2. Старый маршрутизатор и ваш маршрутизатор находятся в одной локальной сети и могут связываться друг с другом.%></p>
+                            <p ><%:3. Некоторые функции и плагины в режиме Точка доступа будут заблокированы%></p>
                         </div>
                         <form id="lanapform" name="lanapform" class="form clearfix" action="/">
                             <div class="form-item">
-                                <label class="k"><%:Wi-Fi名称%></label>
-                                <span class="v"><input reqMsg="<%:Wi-Fi名称%>" datatype="ssid" minlength="1" maxlength="31" name="lanapssid" type="text" class="android-input ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Имя Wi-Fi%></label>
+                                <span class="v"><input reqMsg="<%:Имя Wi-Fi%>" datatype="ssid" minlength="1" maxlength="31" name="lanapssid" type="text" class="android-input ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-item" >
-                                <label class="k"><%:Wi-Fi密码%></label>
-                                <span class="v"><input reqMsg="<%:Wi-Fi密码%>" datatype="wifipassword" minlength="8" maxlength="63" name="lanappassword" data-type="password"  type="password" class="android-input ipt-text" autocomplete="off"></span>
+                                <label class="k"><%:Пароль Wi-Fi%></label>
+                                <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="wifipassword" minlength="8" maxlength="63" name="lanappassword" data-type="password"  type="password" class="android-input ipt-text" autocomplete="off"></span>
                                 <em class="t"></em>
                             </div>
                             <div class="form-contral">
-                                <button class="btn btn-primary btn-block" type="submit"><span><%:下一步%></span></button>
+                                <button class="btn btn-primary btn-block" type="submit"><span><%:Далее%></span></button>
                             </div>
                             <div class="switchstep">
                                 <a class="a1 goback skipto" data-to="" href="#" ><span><%:Назад%></span></a>
@@ -717,7 +896,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                         </form>
                     </div>
                     <div id="lanapSettingDiv" class="wds-setting-div hide">
-                        <p><%:正在设置中，请稍候...%><br /><%:请不要关闭浏览器或断开路由器%></p>
+                        <p><%:Настройка, подождите ...%><br /><%:Пожалуйста, не закрывайте браузер и не отключайте маршрутизатор%></p>
                         <span class="loading"></span>
                     </div>
                 </div>
@@ -726,14 +905,14 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_error.png?v=<%=ver%>" >
                     </div>
-                    <p><%:Redmi路由器检测未连接到网线 请确认蓝色WAN口是否连接正常%></p>
+                    <p><%:Маршрутизатор обнаружил, что сетевой кабель не подключен. Убедитесь, что сетевой кабель подключен в синий порт WAN.%></p>
                     <div class="hr"></div>
                     <div class="clearfix">
-                        <button class="btn btn-primary btn-m l skipto retry" data-to="lanap" type="button"><span><%:重试%></span></button>
+                        <button class="btn btn-primary btn-m l skipto retry" data-to="lanap" type="button"><span><%:Повторить%></span></button>
                         <button class="btn btn-dft btn-m r skipto goback" data-to="ssidpwd" type="button"><span><%:Назад%></span></button>
                     </div>
                     <p class="switchstep">
-                        <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="tipswannolink"><%:跳过此步骤%></a>
+                        <a href="#" class="a1 skipto" data-to="ssidpwd" data-from="tipswannolink"><%:Пропустить%></a>
                     </p>
                 </div>
                 <!--/tipswannolink-->
@@ -741,7 +920,7 @@ local wifi50IsSupport = features["wifi"]["wifi50"]
                     <div class="pic">
                         <img src="<%=resource%>/web/img/guide_error.png?v=<%=ver%>" >
                     </div>
-                    <p class="cont"><%:出错了%></p>
+                    <p class="cont"><%:Ошибка%></p>
                     <div class="hr"></div>
                     <p class="switchstep">
                         <a href="#" class="goback skipto btn btn-dft btn-l" data-to=""><span><%:Назад%></span></a>
@@ -937,7 +1116,7 @@ var isMobile = {
 
                         showHideWifiInput();
                     }else{
-                        setError( '<%:未能扫描到Wi-Fi,请确保射频开启%>' );
+                        setError( '<%:Не удалось просканировать Wi-Fi сеть, убедитесь, что Wi-Fi включен.%>' );
                         $.pub( 'init:toStep', {step: 'tipserror', from: 'wds'} );
                     }
                 }
@@ -1018,8 +1197,8 @@ var isMobile = {
         var tpl = $('#tmplVaslist').html();
         for( var key in res.web ){
             if( res.web.hasOwnProperty(key) ){
-                 // delete 比价助手
-                if(rsp.web[key]['title'] != "比价助手"){
+                 // delete Сравнить
+                if(rsp.web[key]['title'] != "Сравнить"){
                     var li = StringH.tmpl(tpl, {
                         icon: res.web[key]['icon'],
                         title: res.web[key]['title'],
@@ -1123,7 +1302,7 @@ var isMobile = {
                        }
 
                     }else{
-                        $('.mod-guide-reboot').find('.tit').html('<%:WiFi创建成功，请手动连接%>');
+                        $('.mod-guide-reboot').find('.tit').html('<%:Wi-Fi успешно создан, подключитесь к сети Wi-Fi%>');
                         $('.mod-guide-reboot').find('.is-rebootting').hide();
                         $('.mod-guide-reboot').find('.rebootted').show();
                         $('#connectedNext').on('click', function(){
@@ -1199,7 +1378,7 @@ var isMobile = {
     var setWanDHCP = function(){
         if ( setWanPPPOE ){
             setWanPPPOE.abort();
-            $('#pppoe').find( '[type="submit"]' ).removeClass('btn-primary-disabled').find('span').text('<%:下一步%>');
+            $('#pppoe').find( '[type="submit"]' ).removeClass('btn-primary-disabled').find('span').text('<%:Далее%>');
         }
         var requestData = {
             wanType: 'dhcp'
@@ -1229,7 +1408,7 @@ var isMobile = {
             }
         }
         if ( data.step == 'routerpwd' ){
-            $('#routerpwd .btn-primary').removeClass('btn-primary-disabled').find('span').text('<%:配置完成%>');
+            $('#routerpwd .btn-primary').removeClass('btn-primary-disabled').find('span').text('<%:Сохранить%>');
             // if( obj.wifiPassword ){
             //     $('#routerpwd .form-item-ckbox').show();
             // }else{
@@ -1295,7 +1474,7 @@ var isMobile = {
                     pppoeName: $.trim( this.elements['ppoename'].value ),
                     pppoePwd: $.trim( this.elements['ppoepwd'].value )
                 };
-                btn.addClass('btn-primary-disabled').find('span').text('<%:处理中...%>');
+                btn.addClass('btn-primary-disabled').find('span').text('<%:Обработка, подождите...%>');
                 setWanPPPOE = $.ajax({
                     url: '<%=luci.dispatcher.build_url("api", "xqnetwork","set_wan")%>',
                     type: "POST",
@@ -1310,7 +1489,7 @@ var isMobile = {
                             setError( res.msg );
                             $.pub( 'init:toStep', {step: 'tipserror', from: 'pppoe'} );
                         }
-                        btn.removeClass('btn-primary-disabled').find('span').text('<%:下一步%>');
+                        btn.removeClass('btn-primary-disabled').find('span').text('<%:Далее%>');
                     }
                 });
             }
@@ -1533,7 +1712,7 @@ var isMobile = {
                     }
                 }
 
-                btn.addClass('btn-primary-disabled').find('span').text('<%:处理中...%>');
+                btn.addClass('btn-primary-disabled').find('span').text('<%:Обработка, подождите...%>');
                 var hardware = '<%=hardware%>';
                 postajax = $.ajax({
                     url: requestUrl,
@@ -1633,7 +1812,7 @@ var isMobile = {
                     if( postajax ){
                         postajax.abort();
                     }
-                    btn.removeClass('btn-primary-disabled').find('span').text('<%:配置完成%>');
+                    btn.removeClass('btn-primary-disabled').find('span').text('<%:Сохранить%>');
                 });
             }
         });
@@ -1664,12 +1843,12 @@ var isMobile = {
             clearTimeout( pppoeStatusTimer );
             $.pub( 'init:toStep', {step: 'pppoe'} );
         });
-        //从旧路由器导入宽带设置
+        //Импортировать настройки PPPOE со старого маршрутизатора
         $('#pppoecatch').on( 'click', function(e){
             e.preventDefault();
             pppoeCatch();
         });
-        //从旧路由器导入宽带设置--重试
+        //Импортировать настройки PPPOE со старого маршрутизатора--Повторить
         $('#repppoecatch').on( 'click', function(e){
             e.preventDefault();
             pppoeCatch();
@@ -1680,14 +1859,14 @@ var isMobile = {
             $('#wds .toggle-element').toggle();
             $('#ssidSelectDiv').toggleClass('flag-is-select');
             if( /<%:输入%>/.test( $(this).text() ) ){
-                $(this).html('<%:选择已有网络%>');
+                $(this).html('<%:Выберите Wi-Fi сеть%>');
             }else{
-                $(this).html('<%:手工输入网络名称%>');
+                $(this).html('<%:Введите имя Wi-Fi%>');
             }
         });
         //刷新附近wifi
         $('#btnFreshenWIFI').on('click', function(e){
-            $('#ssidselect').next('.dummy').html('<%:正在扫描附近的无线网络%>');
+            $('#ssidselect').next('.dummy').html('<%:Поиск доступных Wi-Fi сетей%>');
             updateWifiList();
         });
         //无线中继下拉选择
@@ -1695,7 +1874,7 @@ var isMobile = {
             e.preventDefault();
             showHideWifiInput();
         });
-        // 路由器位置输入框失去焦点
+        // 路由器Помещение输入框失去焦点
         $('#routerpositioninput').find('input').on('focus', function(){
             console.log(' input is focus ');
         });
@@ -1718,13 +1897,13 @@ var isMobile = {
                 }
             }, 100);
         });
-        //路由器位置自定义
+        //路由器ПомещениеСохранить
         $('body').delegate('.self-define-option', 'click', function(e){
             e.preventDefault();
             $('#routerpwd .toggle-element').toggle();
             $('#routerpositioninput').find('input').trigger('focus');
         })
-        //与Wi-Fi 密码相同
+        //Использовать пароль Wi-Fi
         $('#samepwd').on('click', function(){
             var wifipassword = '';
             if( obj.npassword ){
