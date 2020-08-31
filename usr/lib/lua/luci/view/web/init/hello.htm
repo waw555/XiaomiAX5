@@ -82,9 +82,9 @@ local ccode = xqCountryCode.getBDataCountryCode()
                             </a>
                         <%end%>
                         <%:Вы согласны?%></p>
-                        <a id="btnStart" href="#" class="btn btn-primary btn-l"><span><%:Согласен%></span></a>
+                        <a id="btnStart" href="#" class="btn btn-primary btn-l"><span><%:Прочитал и согласен%></span></a>
                          <%if (ccode ~= 'US') then%>
-                                 <p class="privacy"><label for="privacy"><input type="checkbox" name="privacy" id="privacy" checked="checked" autocomplete="off" /><%:Согласен%></label><a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "privacy")%>"><%:«Программа улучшения качества»%></a></p>
+                                 <p class="privacy"><label for="privacy"><input type="checkbox" name="privacy" id="privacy" checked="checked" autocomplete="off" /><%:Прочитал и согласен%></label><a class="a1" target="_blank" href="<%=luci.dispatcher.build_url("web", "init", "privacy")%>"><%:«Программа улучшения качества»%></a></p>
                         <%end%>
                     </div>
                 </div>

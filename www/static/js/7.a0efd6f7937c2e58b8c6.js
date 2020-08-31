@@ -233,7 +233,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             name: "ip",
                             type: "text",
-                            placeholder: "Введите пароль",
+                            placeholder: "Введите IP адрес",
                             ipaddr: "",
                             required: ""
                         },
@@ -287,7 +287,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             name: "mask",
                             type: "text",
-                            placeholder: "Введите пароль",
+                            placeholder: "Введите маску подсети",
                             ipaddr: "",
                             required: ""
                         },
@@ -341,7 +341,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             name: "gateway",
                             type: "text",
-                            placeholder: "Введите пароль",
+                            placeholder: "Введите адрес шлюза",
                             ipaddr: "",
                             required: ""
                         },
@@ -395,7 +395,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             name: "dns1",
                             type: "text",
-                            placeholder: "Введите пароль",
+                            placeholder: "Введите адрес основного DNS сервера",
                             ipaddr: "",
                             required: ""
                         },
@@ -449,7 +449,7 @@ webpackJsonp([7, 20], {
                         attrs: {
                             name: "dns2",
                             type: "text",
-                            placeholder: "Введите пароль"
+                            placeholder: "Введите адрес дополнительного DNS сервера"
                         },
                         domProps: {
                             value: t.form.dns2

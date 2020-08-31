@@ -52,7 +52,7 @@ webpackJsonp([27], {
                         staticClass: "container"
                     }, [n("Header", {
                         attrs: {
-                            name: "Провайдеру"
+                            name: "Провайдеры"
                         }
                     }), t._v(" "), n("ul", {
                         staticClass: "operators"

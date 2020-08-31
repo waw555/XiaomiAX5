@@ -201,7 +201,7 @@ webpackJsonp([17], {
                             },
                             expression: "planProtocal"
                         }
-                    }), t._v("Согласен\n                  "), a("a", {
+                    }), t._v(" Прочитал и согласен\n                  "), a("a", {
                         attrs: {
                             href: "javascript:void(0)"
                         },
@@ -222,9 +222,9 @@ webpackJsonp([17], {
                         on: {
                             click: t.start
                         }
-                    }, [t._v("Присоединиться")])]), t._v(" "), a("div", {
+                    }, [t._v("Продолжить")])]), t._v(" "), a("div", {
                         staticClass: "desc"
-                    }, [t._v("\n          Авторские права Xiaomi Mobile Software Co., Ltd.\n      ")])]), t._v(" "), a("Toast", {
+                    }, [t._v("\n          Xiaomi Mobile Software Co., Ltd.\n      ")])]), t._v(" "), a("Toast", {
                         ref: "tip"
                     })], 1)
                 },

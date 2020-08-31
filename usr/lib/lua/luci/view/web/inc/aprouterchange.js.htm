@@ -150,7 +150,7 @@ $(function(){
             if( /<%:Войти%>/.test( $(this).text() ) ){
                 $(this).html('<%:Выберите существующую сеть%>');
             }else{
-                $(this).html('<%:Введите имя сети вручную%>');
+                $(this).html('<%:Ввести имя сети вручную%>');
             }
         });
         $('body').delegate('#wdsAprouter', 'submit', function(e){
@@ -222,7 +222,7 @@ $(function(){
             aprouterChangeDialog.close();
         });
         $('body').delegate('#btnFreshenWIFIAprouter', 'click', function(e){
-            $('#ssidselect').next('.dummy').html('<%:Поиск беспроводных сетей%>');
+            $('#ssidselect').next('.dummy').html('<%:Поиск Wi-Fi сетей%>');
             updateWifiList();
         });
         $('body').delegate('#dummydata .wds-wifi-option', 'click', function(e){
