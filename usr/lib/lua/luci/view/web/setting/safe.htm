@@ -32,7 +32,7 @@ local netmod = XQFunction.getnetmode()
     <div id="bd">
         <div class="mod-set mod-macfilter" id="modMacfilter" style="display:none;">
             <div class="hd">
-                <h3><%:Конроль доступа Wi-Fi%></h3>
+                <h3><%:Контроль доступа к Wi-Fi%></h3>
                 <div class="switch">
                     <a data-enable="1" class="btn-switch btn-switch-off" id="macfilterswitch" href="#"></a>
                 </div>
@@ -43,10 +43,10 @@ local netmod = XQFunction.getnetmode()
                     <h4><%:Режим блокировки%>：</h4>
                     <p>
                         <label for="filtertype1">
-                            <input id="filtertype1" type="radio" name="filtertype" value="0" class="filtertype"> <span><%:Черный список%></span>
+                            <input id="filtertype1" type="radio" name="filtertype" value="0" class="filtertype"> <span><%:Черный список (Блокировать устройства)%></span>
                         </label>
                         <label for="filtertype2">
-                            <input id="filtertype2" type="radio" name="filtertype" value="1" class="filtertype"> <span><%:Белый список%></span>
+                            <input id="filtertype2" type="radio" name="filtertype" value="1" class="filtertype"> <span><%:Белый список (Разрешить устройства)%></span>
                         </label>
                     </p>
                 </div>
@@ -89,14 +89,14 @@ local netmod = XQFunction.getnetmode()
             </div>
             <div class="bd" id="manageFilterBody">
                 <div class="isoff" style="display:none;">
-                    <p><%:При включении функции "Белый список", только устройства из белого списка смогут получить доступ к панели управления.%></p>
+                    <p><%:При включении функции Белый список, только устройства из белого списка смогут получить доступ к панели управления.%></p>
                 </div>
                 <div class="ison" style="display:none;">
                      <table class="table">
                         <thead>
                             <tr>
                                 <th><%:MAC адрес%></th>
-                                <th width="80" class="center"><%:Действие%></th>
+                                <th width="80" class="center"><%:Действия%></th>
                             </tr>
                         </thead>
                         <tbody id="manageFilterList">
@@ -118,7 +118,7 @@ local netmod = XQFunction.getnetmode()
         <form action='<%=luci.dispatcher.build_url("api", "xqnetwork", "manually_add")%>' class="form" name="selfadd" id="selfAdd">
             <div class="form-item">
                 <label class="k">
-                    <%:名称%>
+                    <%:Устройство%>
                 </label>
                 <span class="v">
 <input type="text" id="macname" name="macname" class="ipt-text" reqMsg="<%:Устройство%>" />
@@ -149,8 +149,8 @@ local netmod = XQFunction.getnetmode()
                     <tr>
                         <th><%:Устройство%></th>
                         <th><%:Адрес%></th>
-                        <th><%:В сети%></th>
-                        <th width="80"><%:Выбор%></th>
+                        <th><%:В стеи%></th>
+                        <th width="80"><%:Действия%></th>
                     </tr>
                 </thead>
                 <tbody id="dialogdeviceslist">
@@ -261,10 +261,10 @@ local netmod = XQFunction.getnetmode()
             var model = res.model;
             if (model == 0) {
                 $('#filtertype1').prop('checked', true);
-                $('#typeText').html('<%:Список устройств в "Черном списке"%>');
+                $('#typeText').html('<%:Список устройств в Черном списке%>');
             } else {
                 $('#filtertype2').prop('checked', true);
-                $('#typeText').html('<%:Список устройств в "Белом списке"%>');
+                $('#typeText').html('<%:Список устройств в Белом списке%>');
             }
         };
         var isEnable = function (res) {
@@ -288,7 +288,7 @@ local netmod = XQFunction.getnetmode()
                 if ($('#deviceslist td').length == 1) {
                     $.dialog({
                         title: '<%:Фильтр MAC адресов%>',
-                        content: '<%:Вы не добавили ни одного устройства в "Белый список", после сохраненияч ни одно устройство не сможет получить доступ к сети.%>',
+                        content: '<%:Вы не добавили ни одного устройства в Белый список, после сохранения настроек, ни одно устройство не сможет получить доступ к сети.%>',
                         ok: function () {
                             this.close();
                         }
@@ -305,7 +305,7 @@ local netmod = XQFunction.getnetmode()
                 if( !hasSelf && lanType != 0 ){
                     $.dialog({
                         title: '<%:Фильтр MAC адресов%>',
-                        content: '<%:Вы не добавили текущее устройство в "Белый список", устройство не сможет получить доступ к сети после сохранения.%>',
+                        content: '<%:Вы не добавили текущее устройство в Белый список, после сохранения настроек, устройство не сможет получить доступ к сети.%>',
                         ok: function(){
                             this.close();
                         }
@@ -324,7 +324,7 @@ local netmod = XQFunction.getnetmode()
                 if( hasSelf ){
                     $.dialog({
                         title: '<%:Фильтр MAC адресов%>',
-                        content: '<%:Вы добавляете текущее устройство в "Черный список", после сохранения, ваше устройство не сможет получить доступ к сети.%>',
+                        content: '<%:Вы добавляете текущее устройство в Черный список, после сохранения, ваше устройство не сможет получить доступ к сети.%>',
                         ok: function(){
                             this.close();
                         }
@@ -406,7 +406,7 @@ local netmod = XQFunction.getnetmode()
                             //
                         }else if(res.code == 1658){
                             selfaddDialog.close();
-                            $.alert( "Не удалось добавить устройство, устройство сети Mesh не может быть добавлено в "Черный список"". );
+                            $.alert( "Не удалось добавить устройство, устройство сети Mesh не может быть добавлено в Черный список" );
                         }else{
                             $('#selfAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
                             msg = res.msg;
@@ -502,9 +502,9 @@ local netmod = XQFunction.getnetmode()
             $('.filtertype').on('click', function (e) {
                 var val = $(this).val();
                 if (val == 0) {
-                    $('#typeText').html('<%:Список устройств в "Черном списке"%>');
+                    $('#typeText').html('<%:Список устройств в Черном списке%>');
                 } else {
-                    $('#typeText').html('<%:Список устройств в "Белом списке"%>');
+                    $('#typeText').html('<%:Список устройств в Белом списке%>');
                 }
                 getWifiFilterInfo({
                     model: val
@@ -513,7 +513,7 @@ local netmod = XQFunction.getnetmode()
                     getAddedList(res);
                 });
             });
-            //从列表添加
+            //从列表Добавить
             $('#btnListAdd').on('click', function (e) {
                 e.preventDefault();
                 listaddDialog = $.dialog({
@@ -525,7 +525,7 @@ local netmod = XQFunction.getnetmode()
                 });
                 getOnlineList();
             });
-            //手工添加
+            //Добавить
             $('#btnSelfAdd').on('click', function (e) {
                 e.preventDefault();
                 selfaddDialog = $.dialog({
