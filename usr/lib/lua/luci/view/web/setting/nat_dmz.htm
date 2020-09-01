@@ -27,7 +27,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                     -->
                 </div>
                 <div class="bd">
-                    <h3><%:Список правил перенаправление портов%></h3>
+                    <h3><%:Список правил перенаправления портов%></h3>
                     <form name="portFormEdit">
                         <table class="table table-nat">
                             <thead>
@@ -50,7 +50,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 
             <div class="mod-set mod-nat">
                 <div class="bd">
-                    <h3><%:Список правил переадресации диапазона портов%></h3>
+                    <h3><%:Список правил перенаправления диапазона портов%></h3>
                     <form name="rangeFormEdit">
                         <table class="table  table-nat">
                             <thead>
@@ -435,7 +435,7 @@ var modelNat = (function(){
             // newRange
             $('body').on('click', '.newRange', function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило переадресации области портов%>',
+                    title: '<%:Новое правило перенапрвления диапазона портов%>',
                     content: $('#tpl_new_range').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -806,7 +806,7 @@ var modelDMZ = (function(){
             if ( status == '2' ) {
                 $.dialog({
                     title: 'DMZ',
-                    content: '<%:Включена функция "Перенаправление портов", вы не можете включеть функцию "DMZ"%>',
+                    content: '<%:Включена функция Перенаправление портов, вы не можете включеть функцию DMZ%>',
                     lock: true,
                     time: 1000
                 });

@@ -27,7 +27,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                     -->
                 </div>
                 <div class="bd">
-                    <h3><%:Список правил перенаправление портов%></h3>
+                    <h3><%:Список правил перенаправления портов%></h3>
                     <form name="portFormEdit">
                         <table class="table table-nat">
                             <thead>
@@ -311,7 +311,7 @@ var modelNat = (function(){
         // newPost
             $('body').on('click', '.newPort' ,function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило переадресации портов%>',
+                    title: '<%:Новое правило перенаправления портов%>',
                     content: $('#tpl_new_port').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -422,7 +422,7 @@ var modelNat = (function(){
             // newRange
             $('body').on('click', '.newRange', function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило переадресации диапазона портов%>',
+                    title: '<%:Новое правило перенаправления диапазона портов%>',
                     content: $('#tpl_new_range').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -628,7 +628,7 @@ var modelNat = (function(){
             modelNat.savedItem = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменить правило перенаправление порта%>',
+                title: '<%:Изменить правило перенаправления порта%>',
                 content: StringH.tmpl($('#tpl_tr_port_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -649,7 +649,7 @@ var modelNat = (function(){
                     var validator = FormValidator.checkAll('portForm', [
                         {
                             name: 'ip',
-                            display :'<%:Последняя цифра IP-адреса%>',
+                            display :'<%:Последняя цифра IP адреса%>',
                             rules: 'required|is_natural|less_than[255]|greater_than[1]'
                         },
                         {
@@ -682,7 +682,7 @@ var modelNat = (function(){
             modelNat.savedItemRange = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменить правила переадресации диапазона портов%>',
+                title: '<%:Изменить правила перенаправления диапазона портов%>',
                 content: StringH.tmpl($('#tpl_tr_range_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
