@@ -1,6 +1,6 @@
 <%
 --[[
-    Перенаправление портов
+    Переадресация портов
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local XQLanWanUtil = require("xiaoqiang.util.XQLanWanUtil")
@@ -19,7 +19,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
         <div id="bd" data-ip="<%=ip%>">
             <div class="mod-set mod-nat">
                 <div class='hd'>
-                    <h3><%:Перенаправление портов%></h3>
+                    <h3><%:Переадресация портов%></h3>
                     <!--
                     <div class='switch'>
                         <a href="#" data-status="0" class="btn-switch btn-switch-on" id="btnnat"></a>
@@ -27,7 +27,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                     -->
                 </div>
                 <div class="bd">
-                    <h3><%:Список правил перенаправления портов%></h3>
+                    <h3><%:Список правил переадресации портов%></h3>
                     <form name="portFormEdit">
                         <table class="table table-nat">
                             <thead>
@@ -50,7 +50,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 
             <div class="mod-set mod-nat">
                 <div class="bd">
-                    <h3><%:Список правил перенаправления диапазона портов%></h3>
+                    <h3><%:Список правил переадресации диапазона портов%></h3>
                     <form name="rangeFormEdit">
                         <table class="table  table-nat">
                             <thead>
@@ -90,7 +90,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                 </div>
                 <div class="bd">
                     <div class="mod-dmz" id="dmzinfo" style="">
-                        <%:Включение функции DMZ может сопоставить IP-адрес определенного устройства во внутренней сети с внешней сетью, чтобы облегчить доступ к устройству из внешней сети.%>
+                        <%:DMZ - (англ. Demilitarized Zone — демилитаризованная зона, ДМЗ) — сегмент сети, содержащий общедоступные сервисы и отделяющий их от частных. В качестве общедоступного может выступать, например, веб-сервис: обеспечивающий его сервер, который физически размещён в локальной сети (Интранет), должен отвечать на любые запросы из внешней сети (Интернет), при этом другие локальные ресурсы (например, файловые серверы, рабочие станции) необходимо изолировать от внешнего доступа.%>
                     </div>
                     <div class="mod-dmz" id="appdmz" style="display:none;">
                         <form class="form form-dmz" name="dmzset" id="dmzset">
@@ -342,7 +342,7 @@ var modelNat = (function(){
         // newPost
             $('body').on('click', '.newPort' ,function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило перенаправления портов%>',
+                    title: '<%:Новое правило переадресации портов%>',
                     content: $('#tpl_new_port').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -375,7 +375,7 @@ var modelNat = (function(){
                 var port = $(this).data('port');
                 var proto = $(this).data('proto');
                 var dlg = window.art.dialog({
-                    title: '<%:Перенаправление портов%>',
+                    title: '<%:Переадресация портов%>',
                     content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
@@ -435,7 +435,7 @@ var modelNat = (function(){
             // newRange
             $('body').on('click', '.newRange', function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило перенапрвления диапазона портов%>',
+                    title: '<%:Новое правило переадресации диапазона портов%>',
                     content: $('#tpl_new_range').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -471,7 +471,7 @@ var modelNat = (function(){
                 var proto = $(this).data('proto');
 
                 var dlg = window.art.dialog({
-                    title: '<%:Перенаправление портов%>',
+                    title: '<%:Переадресация портов%>',
                     content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
@@ -533,7 +533,7 @@ var modelNat = (function(){
             $('#apply').on('click', function(e) {
                 var $btn = $(e.currentTarget);
                 var dlg = $.dialog({
-                    title: '<%:Перенаправление портов%>',
+                    title: '<%:Переадресация портов%>',
                     content: '<%:Подождите...%>',
                     lock: true,
                     fixed: true,
@@ -562,7 +562,7 @@ var modelNat = (function(){
                     }
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -580,7 +580,7 @@ var modelNat = (function(){
                     }
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -596,7 +596,7 @@ var modelNat = (function(){
                     modelNat.getRedirectPort();
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         lock: true,
                         fixed: true,
@@ -611,7 +611,7 @@ var modelNat = (function(){
                     modelNat.getRedirectRange();
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -628,7 +628,7 @@ var modelNat = (function(){
             modelNat.savedItem = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменение правила перенаправления портов%>',
+                title: '<%:Изменение правила переадресации портов%>',
                 content: StringH.tmpl($('#tpl_tr_port_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -661,7 +661,7 @@ var modelNat = (function(){
             modelNat.savedItemRange = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменение правила перенаправления диапазона портов%>',
+                title: '<%:Изменение правила переадресации диапазона портов%>',
                 content: StringH.tmpl($('#tpl_tr_range_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -698,7 +698,7 @@ var modelNat = (function(){
                     }
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         lock: true,
                         fixed: true,
@@ -720,7 +720,7 @@ var modelNat = (function(){
                     }
                 } else {
                     $.dialog({
-                        title: '<%:Перенаправление портов%>',
+                        title: '<%:Переадресация портов%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -806,7 +806,7 @@ var modelDMZ = (function(){
             if ( status == '2' ) {
                 $.dialog({
                     title: 'DMZ',
-                    content: '<%:Включена функция Перенаправление портов, вы не можете включеть функцию DMZ%>',
+                    content: '<%:Включена функция Переадресация портов, вы не можете включеть функцию DMZ%>',
                     lock: true,
                     time: 1000
                 });

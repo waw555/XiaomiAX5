@@ -1,6 +1,6 @@
 <%
 --[[
-    Info    路由器Перенаправление порта
+    Info    路由器Переадресация порта
 ]]--
 local ver = require("xiaoqiang.XQVersion").webVersion
 local XQLanWanUtil = require("xiaoqiang.util.XQLanWanUtil")
@@ -19,7 +19,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
         <div id="bd" data-ip="<%=ip%>">
             <div class="mod-set mod-nat">
                 <div class='hd'>
-                    <h3><%:Перенаправление портов%></h3>
+                    <h3><%:Переадресация портов%></h3>
                     <!--
                     <div class='switch'>
                         <a href="#" data-status="0" class="btn-switch btn-switch-on" id="btnnat"></a>
@@ -27,7 +27,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
                     -->
                 </div>
                 <div class="bd">
-                    <h3><%:Список правил перенаправления портов%></h3>
+                    <h3><%:Список правил переадресация портов%></h3>
                     <form name="portFormEdit">
                         <table class="table table-nat">
                             <thead>
@@ -50,7 +50,7 @@ local ip = XQLanWanUtil.getLanWanInfo("lan")["ipv4"][1]["ip"]
 
             <div class="mod-set mod-nat">
                 <div class="bd">
-                    <h3><%:Список правил перенаправления диапазона портов%></h3>
+                    <h3><%:Список правил переадресация диапазона портов%></h3>
                     <form name="rangeFormEdit">
                         <table class="table  table-nat">
                             <thead>
@@ -311,7 +311,7 @@ var modelNat = (function(){
         // newPost
             $('body').on('click', '.newPort' ,function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило перенаправления портов%>',
+                    title: '<%:Новое правило переадресация портов%>',
                     content: $('#tpl_new_port').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -362,7 +362,7 @@ var modelNat = (function(){
                 e.preventDefault();
                 var port = $(this).data('port');
                 var dlg = window.art.dialog({
-                    title: '<%:Перенаправление порта%>',
+                    title: '<%:Переадресация порта%>',
                     content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
@@ -422,7 +422,7 @@ var modelNat = (function(){
             // newRange
             $('body').on('click', '.newRange', function(e) {
                 var dlg = window.art.dialog({
-                    title: '<%:Новое правило перенаправления диапазона портов%>',
+                    title: '<%:Новое правило переадресация диапазона портов%>',
                     content: $('#tpl_new_range').html(),
                     initialize: function() {
                         $.selectBeautify();
@@ -472,7 +472,7 @@ var modelNat = (function(){
                 var port = $(this).data('port');
 
                 var dlg = window.art.dialog({
-                    title: '<%:Перенаправление порта%>',
+                    title: '<%:Переадресация порта%>',
                     content: '<%:Вы уверены, что хотите удалить это правило?%>',
                     lock: true,
                     fixed: true,
@@ -534,7 +534,7 @@ var modelNat = (function(){
             $('#apply').on('click', function(e) {
                 var $btn = $(e.currentTarget);
                 var dlg = window.top.art.dialog({
-                    title: '<%:Перенаправление порта%>',
+                    title: '<%:Переадресация порта%>',
                     content: '<%:Подождите...%>',
                     lock: true,
                     fixed: true,
@@ -562,7 +562,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
+                        title: '<%:Переадресация порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -580,7 +580,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
+                        title: '<%:Переадресация порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -596,22 +596,7 @@ var modelNat = (function(){
                     modelNat.getRedirectPort();
                 } else {
                     window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
-                        content: rsp.msg,
-                        lock: true,
-                        fixed: true,
-                        time: 5*1000
-                    });
-                }
-            }, 'json');
-        },
-        delRange: function(port) {
-            $.post(modelNat.url.delRedirect, 'port=' + port, function(rsp) {
-                if (rsp.code === 0) {
-                    modelNat.getRedirectRange();
-                } else {
-                    window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
+                        title: '<%:Переадресация порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,
@@ -628,7 +613,7 @@ var modelNat = (function(){
             modelNat.savedItem = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменить правило перенаправления порта%>',
+                title: '<%:Изменить правило переадресация порта%>',
                 content: StringH.tmpl($('#tpl_tr_port_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -682,7 +667,7 @@ var modelNat = (function(){
             modelNat.savedItemRange = $tr.html();
 
             var dlg = window.art.dialog({
-                title: '<%:Изменить правила перенаправления диапазона портов%>',
+                title: '<%:Изменить правила переадресация диапазона портов%>',
                 content: StringH.tmpl($('#tpl_tr_range_edit').html(), {item: item}),
                 initialize: function() {
                     $.selectBeautify();
@@ -741,7 +726,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
+                        title: '<%:Переадресация порта%>',
                         content: rsp.msg,
                         lock: true,
                         fixed: true,
@@ -764,7 +749,7 @@ var modelNat = (function(){
                     }
                 } else {
                     window.top.art.dialog({
-                        title: '<%:Перенаправление порта%>',
+                        title: '<%:Переадресация порта%>',
                         content: rsp.msg,
                         fixed: true,
                         lock: true,

@@ -28,7 +28,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                         <span class="arrow2"></span>
                     </span>
                 </div>
-                <h3><%:Настройка VPN сетей%></h3>
+                <h3><%:Настройка VPN%></h3>
             </div>
             <div class="bd">
                 <div class="section section-help" id="helpSection">
@@ -142,7 +142,7 @@ local hardware = string.lower( XQSysUtil.getHardware() )
                 </div>
             </div>
             <div class="bd">
-                <p><%:Если вам нужно использовать Интернет через VPN, вы можете включить эту функцию.%></p>
+                <p><%:Если нужно использовать Интернет через VPN, включите эту функцию.%></p>
             </div>
              <%end%>
         </div>
@@ -681,7 +681,7 @@ var modelVpn = (function(){
             var self = this;
             var open = $(this).hasClass('btn-switch-on') ? 0 : 1;
             if( open == 1 ){
-                $.confirm('<%:Эта настройка вступит в силу после повторного подключения к vpn, и функция "Интернет через VPN" будет отключена.%>', function(){
+                $.confirm('<%:Эта настройка вступит в силу после повторного подключения к VPN, и функция "Интернет через VPN" будет отключена.%>', function(){
                     checkConnected(function(){
                         // var enable = $(self).hasClass('btn-switch-on') ? 0 : 1;
                         var mode = $('#smartvpnmode li.active').attr('data-mode');
