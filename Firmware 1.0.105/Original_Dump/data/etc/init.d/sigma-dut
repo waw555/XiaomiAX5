@@ -1,0 +1,77 @@
+#!/bin/sh /etc/rc.common
+#Copyright (c) 2013, 2018 Qualcomm Technologies, Inc.
+#
+#All Rights Reserved.
+#Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+#2013 Qualcomm Atheros, Inc.
+#
+#All Rights Reserved.
+#Qualcomm Atheros Confidential and Proprietary.
+#
+#START=90
+SERVICE_PID_FILE=/var/run/sigma-dut.pid
+SERVICE_DAEMONIZE=1
+SERVICE_WRITE_PID=1
+
+start () {
+	config_load sigma-dut
+	local ARGS
+
+	local enable
+	config_get_bool enable global enable 0
+	[ "${enable}" -gt 0 ] || return
+
+	local port radio_name debug unload
+	local driver_type main_intf sec_intf
+	local program
+
+	config_get driver_type global driver_type
+	if [ "${driver_type}" == ATHEROS ]; then
+		[ -n "${driver_type}" ] && append ARGS "-c ${driver_type} "
+
+		config_get sec_intf global sec_intf
+		[ -n "${sec_intf}" ] && append ARGS "-S ${sec_intf} "
+
+		config_get main_intf global main_intf
+		[ -n "${main_intf}" ] && append ARGS "-M ${main_intf} " &&  append ARGS "-w /var/run/wpa_supplicant-${main_intf}/ "
+	else
+		[ -n "${driver_type}" ] && append ARGS "-c ${driver_type} "
+	fi
+
+	config_get port global port
+	[ -n "${port}" ] && append ARGS "-p ${port} "
+
+	append_radio_name() {
+		[ -n "$1" ] && append ARGS "-R ${1} "
+	}
+	config_list_foreach global radio_name append_radio_name
+
+	config_get program global program
+	if [ "${program}" == DPP ]; then
+		[ -n "${program}" ] && append ARGS "-w /var/run/hostapd "
+	fi
+
+	config_get vendor global vendor
+	[ -n "${vendor}" ] && append ARGS "-N ${vendor} "
+
+	config_get model global model
+	[ -n "${model}" ] && append ARGS "-o ${model} "
+
+	config_get version global version
+	[ -n "${version}" ] && append ARGS "-O ${version} "
+
+	config_get debug global debug
+	if [ "${debug}" == on ]; then
+		[ -n "${debug}" ] && append ARGS "-Y -d "
+	fi
+
+       config_get target_opt global target_opt
+       [ -n "${target_opt}" ] && append ARGS "-Z ${target_opt} "
+
+	service_start /usr/sbin/sigma_dut ${ARGS}
+}
+
+stop() {
+	service_stop /usr/sbin/sigma_dut
+}

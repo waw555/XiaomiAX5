@@ -1,0 +1,12 @@
+{
+	"model": {
+		"id": "ap-cp03-c1",
+		"name": "Qualcomm Technologies, Inc. IPQ6018\/AP-CP03-C1"
+	},
+	"network": {
+		"lan": {
+			"ifname": "eth0",
+			"protocol": "static"
+		}
+	}
+}

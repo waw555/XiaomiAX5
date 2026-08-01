@@ -1,0 +1,6 @@
+root:$1$jYBXjhy8$VasgFzlUXPl64YXxnP0Fl.:20374:0:99999:7:::
+daemon:*:0:0:99999:7:::
+ftp:*:0:0:99999:7:::
+network:*:0:0:99999:7:::
+nobody:*:0:0:99999:7:::
+dnsmasq:x:0:0:99999:7:::

@@ -1,0 +1,1452 @@
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.243552] irq: no irq domain found for /soc/smp2p-wcss/slave-kernel !
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.256809] <CORE> glink_init: IPC Logging Disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.257088] <CORE> glink_core_register_transport: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.257153] msm_glink_smem_native_xprt	rx fifo not found
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.257451] <CORE> glink_core_register_transport: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.259644] IPC logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.259651] IPC logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.259656] IPC logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.259661] IPC logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.259665] IPC logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.316839] IPC_RTR: ipc_router_create_log_ctx: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.316853] qmi_log_init: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.316859] qmi_log_init: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.318257] TZ Log : Will warn on Access Violation, as paniconaccessviolation is not set
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    0.999476] nand: Could not find valid ONFI parameter page; aborting
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.161680] mtdsplit: no squashfs found in "rootfs"
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.471238] Unable to create IPC log context!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.525784] of_graph_get_next_endpoint(): no port node found in /soc/csr@6001000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.538233] of_graph_get_next_endpoint(): no port node found in /soc/cti@6010000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.543211] of_graph_get_next_endpoint(): no port node found in /soc/cti@6011000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.550771] of_graph_get_next_endpoint(): no port node found in /soc/cti@6012000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.558149] of_graph_get_next_endpoint(): no port node found in /soc/cti@6013000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.565528] of_graph_get_next_endpoint(): no port node found in /soc/cti@6014000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.572891] of_graph_get_next_endpoint(): no port node found in /soc/cti@6015000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.580282] of_graph_get_next_endpoint(): no port node found in /soc/cti@6016000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.587670] of_graph_get_next_endpoint(): no port node found in /soc/cti@6017000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.595051] of_graph_get_next_endpoint(): no port node found in /soc/cti@6018000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.602415] of_graph_get_next_endpoint(): no port node found in /soc/cti@6019000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.609801] of_graph_get_next_endpoint(): no port node found in /soc/cti@601a000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.617186] of_graph_get_next_endpoint(): no port node found in /soc/cti@601b000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.624537] of_graph_get_next_endpoint(): no port node found in /soc/cti@601c000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.631901] of_graph_get_next_endpoint(): no port node found in /soc/cti@601d000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.639295] of_graph_get_next_endpoint(): no port node found in /soc/cti@601e000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.646676] of_graph_get_next_endpoint(): no port node found in /soc/cti@601f000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.654051] of_graph_get_next_endpoint(): no port node found in /soc/cti@6198000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.661519] of_graph_get_next_endpoint(): no port node found in /soc/cti@6199000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.668916] of_graph_get_next_endpoint(): no port node found in /soc/cti@619a000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.676317] of_graph_get_next_endpoint(): no port node found in /soc/cti@619b000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.683734] of_graph_get_next_endpoint(): no port node found in /soc/cti@610c000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.691074] sps_register_bam_device : unable to create IPC Logging 0 for bam 0x06064000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.698160] sps_register_bam_device : unable to create IPC Logging 1 for bam 0x06064000sps_register_bam_device : unable to create IPC Logging 2 for bam 0x06064000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.713865] sps_register_bam_device : unable to create IPC Logging 3 for bam 0x06064000sps_register_bam_device : unable to create IPC Logging 4 for bam 0x06064000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [    1.810630] of_graph_get_next_endpoint(): no port node found in /soc/hwevent@6101000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel:   12.862414] urandom-seed: Seed file not found (/etc/urandom.seed)
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.008705] cgroup: mkdir (386) created nested cgroup for controller "memory" which has incomplete hierarchy support. Nested cgroups may change behavior in the future.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.008752] cgroup: "memory" requires setting use_hierarchy to 1 on the root
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.633133] ssdk_switch_device_num_init[998]:INFO:ess-switch dts node number: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.636903] ssdk_dt_get_switch_node[836]:INFO:ess-switch DT exist!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.643763] ssdk_dt_parse_access_mode[737]:INFO:switch_access_mode: local bus
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.649911] ssdk_dt_parse_access_mode[750]:INFO:switchreg_base_addr: 0x3a000000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.657041] ssdk_dt_parse_access_mode[751]:INFO:switchreg_size: 0x1000000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.664331] ssdk_dt_parse_mac_mode[242]:INFO:mac mode = 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.670741] ssdk_dt_parse_mac_mode[251]:INFO:mac mode1 = 0xff
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.676309] ssdk_dt_parse_mac_mode[260]:INFO:mac mode2 = 0xff
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.682074] ssdk_dt_parse_uniphy[279]:INFO:ess-uniphy DT exist!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.687914] ssdk_dt_parse_intf_mac[683]:INFO:dp1 MAC 8a:de:be:a1:a3:0f
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.693707] ssdk_dt_parse_intf_mac[683]:INFO:dp2 MAC 28:d1:27:5a:8f:2b
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.700202] ssdk_dt_parse_intf_mac[683]:INFO:dp3 MAC 28:d1:27:5a:8f:2b
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.706728] ssdk_dt_parse_intf_mac[683]:INFO:dp4 MAC 28:d1:27:5a:8f:2b
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.713224] ssdk_dt_parse_intf_mac[683]:INFO:dp5 MAC 88:c3:97:74:b2:f2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.719752] ssdk_plat_init start
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.795102] ssdk_ppe_clock_init[517]:INFO:ppe and uniphy clock init successfully!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.798758] HPPE initializing...
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.801800] malibu_phy_api_ops_init[2849]:INFO:qca probe malibu phy driver succeeded!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   15.813168] regi_init[3359]:INFO:Initializing HPPE!!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.033664] ssdk_ppe_reset_init[798]:INFO:ppe reset successfully!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.039623] qca_hppe_tdm_hw_init[737]:INFO:tdm setup num=96
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.042985] qca_hppe_portctrl_hw_init[159]:INFO:Cypress PPE port initializing
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.154123] __adpt_hppe_uniphy_psgmii_mode_set[620]:INFO:uniphy 0 psgmii channel selection
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.369864] ssdk_switch_register[1617]:INFO:Chip version 0x1501
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.372848] qca_link_polling_select[1279]:INFO:link-polling-required node does not exist
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.379086] ssdk_switch_register[1642]:INFO:polling is selected
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.386823] regi_init[3363]:INFO:Initializing HPPE Done!!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.391746] regi_init[3407]:INFO:qca-ssdk module init succeeded!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.564321] qca-nss 39000000.nss: Direct firmware load for qca-nss0.bin failed with error -2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   16.564357] qca-nss 39000000.nss: Falling back to user helper
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.358469] nss_driver - fw of size 725584  bytes copied to load addr: 40000000, nss_id : 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.359876] Supported Frequencies - 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.365639] 187.2 MHz 748.8 MHz 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.371603] 1.4976 GHz <1>[   17.372556] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.375095] node size 2 # items 4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.376382] memory: 40000000 268435456 (avl 218525696) items 4 active_cores 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.379603] addr/size storage words 2 2 # words 4 in DTS, ddr size 800000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.386876] 7f24af80: NSS core 0 DDR from 40000000 to 40800000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.393653] 7f24af80: meminfo init succeed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.430462] node size 2 # items 4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.430512] memory: 40000000 268435456 (avl 218525696) items 4 active_cores 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.432732] Invalid macid 6
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.437488] QCA multicast snooping installed successfully
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.454391] addr/size storage words 2 2 # words 4 in DTS, ddr size 800000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.457343] 7f24af80: nss core 0 booted successfully
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.457870] QCA Hy-Fi multicast installation successfully
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.474400] diag: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.491457] cannot find nss-macsec0 node
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.494282] cannot find nss-macsec1 node
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.498305] cannot find nss-macsec2 node
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.502119] nss_macsec init success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.534260] ipaccount: ifname [lo] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.534288] ipaccount: ifname [miireg] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.537261] ipaccount: ifname [eth0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.541769] ipaccount: ifname [eth1] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.546323] ipaccount: ifname [eth2] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.550625] ipaccount: ifname [eth3] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.554989] ipaccount: ifname [eth4] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.559305] ipaccount: ifname [ip6tnl0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.563695] ipaccount: ifname [gre0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.568338] ipaccount: ifname [gretap0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.572588] ipaccount: ifname [bond0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.577323] ipaccount: ifname [teql0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.612238] nf_conntrack_rtsp v0.6.21 loading
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   17.618431] nf_nat_rtsp v0.6.21 loading
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   18.698833] Not a bridge device, or device not found: br-lan
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   21.443365] mem_manager: module license 'unspecified' taints kernel.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   21.443394] Disabling lock debugging due to kernel taint
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   21.479720] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   21.479720]  MINIDUMP VA .bss start=7f612240 module=qdf
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   25.489463] wlan: [1231:E:CONFIG] cfg_uint_item_handler: 142: allow_mon_vaps_in_sr=  - Invalid format (status 16); Using default 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   25.489567] wlan: [1231:E:CONFIG] cfg_uint_item_handler: 171: gScanProbeRepeatTime=50 - Out of range [0, 30]; Using 50
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   25.500617] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   25.500617]  MINIDUMP VA .bss start=7f8762c0 module=umac
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   26.192597] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   26.192597]  MINIDUMP VA .bss start=7fa23b40 module=qca_ol<3>[   26.402557] wlan: [1370:I:ANY] =======ol_if_register_wifi3_0==========
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   26.402557] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   26.402601] wlan: [1370:I:ANY] osif_nss_register_module: 90: NSS wifi ops registered for target_type:1 with soc_ops:7fb10ad4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   26.512448] wlan: [1370:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   27.909920] IPC_RTR: ipc_router_create_log_ctx: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   27.934944] wlan: [1370:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 3
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   27.935230] diag: In diag_send_feature_mask_update, control channel is not open, p: 2, 7f3f1ac4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   27.973345] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   27.990044] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.047486] wlan: [1370:I:ANY] pld_ahb_wlan_enable: 689: cnss_mode: Mission mode 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.053472] wlan: [1370:I:ANY] qca_napi_create: 369: qca_napi_create: napi instance 0 created on pipe 4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.054151] wlan: [1370:I:ANY] __ol_ath_attach: 3520: Allocated soc 88f00500
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.063351] wlan: [1370:E:CONFIG] cfg_uint_item_handler: 171: dp_int_timer_threshold_tx=1000 - Out of range [8, 100]; Using 1000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.070516] wlan: [1370:E:CONFIG] cfg_uint_item_handler: 171: dp_nss_comp_ring_size=4096 - Out of range [8192, 49152]; Using 8192
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.082264] wlan: [1370:I:ANY] osif_nss_wifi_soc_setup: 177: nss-wifili:#1 register wifili function for soc 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.093547] wlan: [1370:I:ANY] osif_nss_wifi_soc_setup: 189: nss register id -1 nss config 3 Target Type 19 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.103480] wlan: [1370:I:ANY] __ol_ath_attach: 3746: dev name soc0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.113446] wlan: [1370:I:ANY] ol_ath_soc_attach: 7023: WMI attached. wmi_handle 88e9e600 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.119394] wlan: [1370:I:ANY] htc_wmi_init: 6324: htc_wmi_init() HT Create . 8dd5c000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.127591] wlan: [1370:I:ANY] htc_wmi_init: 6331: htc_wmi_init() Skipping BMI Done. 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.135482] wlan: [1370:I:ANY] htc_wmi_init: 6388: [htc_wmi_init:6388] host_enable 0 nss_nwifi_offload 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.148694] wlan: [1370:I:ANY] ol_target_init_complete: 6506: CDP soc attach success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.152916] wlan: [1370:I:ANY] ol_target_init_complete: 6513: Soc attach success NSS config 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.160784] wlan: [1370:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 8dd5c000, ep 2, value 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.169177] wlan: [1370:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 8dd5c000, ep 3, value 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.179661] wlan: [6:I:TIF] HE_CAP Info = 1a08010d
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.189424] wlan: [6:I:TIF] Num HW modes = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.193766] wlan: [6:I:TIF] Num PHY = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.199137] wlan: [6:I:TIF] Preferred HW Mode = 1 Num Radios = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.201090] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.214647] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 0 wireless modes = 391f9001
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.215408] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.226540] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 1 wireless modes = 680680c
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.233526] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 0 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.243299] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 1 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.252086] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 0 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.262715] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 1 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.274040] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : wlan_dfs_pdev_obj_create_notification: 389: dfs_offload 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.280392] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : dfs_agile_soc_obj_init: 1579: dfs->dfs_psoc_idx: 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.290526] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : dfs_agile_soc_obj_init: 1585: dfs_soc_obj->num_dfs_privs: 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.299932] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : wlan_dfs_pdev_obj_create_notification: 361: Do not allocate DFS object for 2G, pdev_id = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.318170] wlan: [6:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.324915] wlan: [6:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.431532] wlan: [6:I:ANY] copy_fw_abi_version_tlv: 6649: copy_fw_abi_version_tlv: INIT_CMD version: 1, 0, 0x5f414351, 0x4c4d, 0x0, 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.514801] wlan: [6:I:ANY] dp_peer_map_attach_wifi3: 8665: dp_peer_map_attach_wifi3 max_peers 167, max_ast_index: 528
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.514801] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.514895] wlan: [6:I:ANY] ready_extract_init_status_tlv: 8473: ready_extract_init_status_tlv:0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.525866] wlan: [1370:I:ANY] ol_ath_connect_htc: 1236: WMI is ready
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.548721] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 141 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.548756] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 137 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.556263] wlan: [1370:I:ANY] ol_ath_soc_attach: 7110: connect HTC
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.564830] wlan: [1370:I:ANY] ol_ath_soc_attach: 7111: bypasswmi : 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.570984] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 38 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.577593] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 138 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.586099] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 139 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.594615] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 55 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.603191] wlan: [1370:E:WMI] wmi_unified_register_event_handler: Event id 49 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.611801] wlan: [1370:I:ANY] ol_ath_soc_attach: 7191: ol_ath_soc_attach() UMAC attach . 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.620342] wlan: [1370:I:ANY] __ol_ath_attach: 3862: pdev_netdev name wifi0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.628470] wlan: [1370:I:ANY] __ol_ath_attach: 3908: Skip txrx_pdev_attach_target
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.635665] wlan: [1370:I:ANY] __ol_ath_attach: 3933: BURSTING enabled by default
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.643091] wlan: [1370:I:ANY] ol_ath_pdev_attach: 8488: interface_id 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.650605] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7352:  phy id = 0 Modes supported
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.657023] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7359:  11b = 0 11g = 0 11a = 1 11n = 1 11ac = 1 11ax = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.665361] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7368:  Reg cap - phy_id = 0 supp_bnd = 2, modes = 391f9001, lo_2g = 0, hi_2g = 0 lo_g5 = 4910, hi_5g = 6100
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.675609] wlan: [1370:I:ANY] ol_ath_update_wireless_modes: 1351: wireless_modes = 391f9001 before update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.689929] wlan: [1370:I:ANY] ol_ath_update_wireless_modes: 1366: Wireless_modes = 391f9001 after update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.699643] wlan: [1370:I:ANY] ol_ath_update_ext_caps: 1918: 11ax 5G supported case
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.709441] wlan: [1370:I:ANY] ol_resmgr_create: 223: OL Resmgr Init-ed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.716826] wlan: [1370:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.723317] wlan: [1370:I:ANY] CBS Inited
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.723317] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.728214] wlan: [1370:I:ANY] acfg_attach: 3473: acfg_attach: 3473: Netlink socket created:8e855000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.733676] wlan: [1370:I:ANY] ol_if_eeprom_attach: 1459: rate power table override is only supported for AR98XX
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.742949] wlan: [1370:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.754171] wlan: [1370:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 25
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.760506] wlan: [0:I:ANY] ol_ath_pdev_attach: 8852: Set global_ic[1], ptr:7f8765f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.767871] wlan: [0:I:ANY] dp_lag_soc_enable: 91: pdev(8e934604) Enabling DBDC Repeater 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.775615] wlan: [0:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(8e934604) is_primary 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.775647] wlan: [0:E:NSS] [nss-wifili]: NSS Wifili DBDC Repeater enable message passed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.792003] wlan: [1370:I:ANY] ol_ath_pdev_attach: 8981: Pdev = 0 Number of peers = 69
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.800386] wlan: [1370:I:ANY] ol_ath_pri20_cfg_blockchanlist_parse: 560: cfg block channel list is empty
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.800630] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.800630] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.817701] wlan: [1370:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 0 tx_desc_limit = 4096
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.827264] wlan: [1370:I:ANY] osif_wrap_attach: 239: osif wrap attached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.827264] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.837228] wlan: [1370:I:ANY] osif_wrap_devt_init: 201: osif wrap dev table init done
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.837228] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.845306] wlan: [1370:I:ANY] osif_wrap_attach: 247:  Wrap Attached: Wrap_com =875f9200 ic->ic_wrap_com=875f9200 &wrap_com->wc_devt=875f9200 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.845306] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.854535] wlan: [1370:I:ANY] __ol_ath_attach: 4114: needed_headroom reservation 44
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.868740] wlan: [1370:I:ANY] ol_ath_enable_fraglist: 3010: Enabled Fraglist bit for the radio wifi0 features 41 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.876790] wlan: [1370:I:ANY] wlan_cfg80211_init: 10892: Number of 5G channels: 25 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.887365] wlan: [1370:I:ANY] ieee80211_cfg80211_radio_attach: 10986: ic: 0x87c20500, wdev: 0x87c2fc5c, wiphy: 0x8e8e7960, netdev: 0x87c20000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.894826] ipaccount: ifname [wifi0] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.908696] ipaccount: ifname [wifi0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.912067] wlan: [1370:I:ANY] __ol_ath_attach: 3862: pdev_netdev name wifi1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.916452] wlan: [1370:I:ANY] __ol_ath_attach: 3908: Skip txrx_pdev_attach_target
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.923592] wlan: [1370:I:ANY] __ol_ath_attach: 3933: BURSTING enabled by default
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.931109] wlan: [1370:I:ANY] ol_ath_pdev_attach: 8488: interface_id 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.938589] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7352:  phy id = 1 Modes supported
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.944999] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7359:  11b = 1 11g = 1 11a = 0 11n = 1 11ac = 1 11ax = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.953289] wlan: [1370:I:TIF] ol_ath_pdev_regdmn_init: 7368:  Reg cap - phy_id = 1 supp_bnd = 1, modes = 680680c, lo_2g = 2312, hi_2g = 2732 lo_g5 = 0, hi_5g = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.963584] wlan: [1370:I:ANY] ol_ath_update_wireless_modes: 1351: wireless_modes = 680680c before update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.977902] wlan: [1370:I:ANY] ol_ath_update_wireless_modes: 1366: Wireless_modes = 680680c after update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.987530] wlan: [1370:I:ANY] ol_ath_update_ext_caps: 1926: 11ax 2G supported case
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   28.997241] wlan: [1370:I:ANY] ol_resmgr_create: 223: OL Resmgr Init-ed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.004521] wlan: [1370:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.010998] wlan: [1370:I:ANY] CBS Inited
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.010998] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.015963] wlan: [1370:I:ANY] acfg_attach: 3448: Offload using existing sock 8e855000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.021345] wlan: [1370:I:ANY] ol_if_eeprom_attach: 1459: rate power table override is only supported for AR98XX
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.029303] wlan: [1370:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.040010] wlan: [1370:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 11
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.047060] wlan: [0:I:ANY] ol_ath_pdev_attach: 8852: Set global_ic[2], ptr:7f8765f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.054365] wlan: [0:I:ANY] dp_lag_soc_enable: 91: pdev(8e934a04) Enabling DBDC Repeater 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.062085] wlan: [0:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(8e934a04) is_primary 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.062112] wlan: [0:E:NSS] [nss-wifili]: NSS Wifili DBDC Repeater enable message passed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.078539] wlan: [1370:I:ANY] ol_ath_pdev_attach: 8981: Pdev = 1 Number of peers = 69
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.086904] wlan: [1370:I:ANY] ol_ath_pri20_cfg_blockchanlist_parse: 560: cfg block channel list is empty
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.087136] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.087136] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.104169] wlan: [1370:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 1 tx_desc_limit = 4096
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.113739] wlan: [1370:I:ANY] osif_wrap_attach: 239: osif wrap attached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.113739] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.123690] wlan: [1370:I:ANY] osif_wrap_devt_init: 201: osif wrap dev table init done
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.123690] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.131752] wlan: [1370:I:ANY] osif_wrap_attach: 247:  Wrap Attached: Wrap_com =875f9e00 ic->ic_wrap_com=875f9e00 &wrap_com->wc_devt=875f9e00 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.131752] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.140996] wlan: [1370:I:ANY] __ol_ath_attach: 4114: needed_headroom reservation 44
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.155201] wlan: [1370:I:ANY] ol_ath_enable_fraglist: 3010: Enabled Fraglist bit for the radio wifi1 features 41 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.163194] wlan: [1370:I:ANY] wlan_cfg80211_init: 10880: Number of 2G channels: 11 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.173616] wlan: [1370:I:ANY] ieee80211_cfg80211_radio_attach: 10986: ic: 0x87c40500, wdev: 0x87c4fc5c, wiphy: 0x8e8e3160, netdev: 0x87c40000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.181284] ipaccount: ifname [wifi1] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.194565] ipaccount: ifname [wifi1] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.198530] wlan: [1370:I:Dynamic Mode Change] ol_ath_check_and_reconfig_hw_mode: 3420: Running with HW mode = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.202884] ipaccount: ifname [soc0] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.213964] ipaccount: ifname [soc0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.217471] wlan: [1370:E:QLD] qld_register: 108: Handle or address is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.221887] wlan: [1370:I:ANY] wlan_pdev_operation: 744: num_radios=1, wifi_radios[0].sc = 87c20500_radio_type = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.228705] wlan: [1370:I:ANY] wlan_pdev_operation: 744: num_radios=2, wifi_radios[1].sc = 87c40500_radio_type = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.239125] wlan: [1370:I:ANY] init_ath_pci_3_0: 151: 6ath_ol_pci_wifi3.0:  (Atheros/multi-bss)
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.249566] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   29.249566]  MINIDUMP VA .bss start=7fb10d80 module=wifi_3_0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   32.628224] wlan: [1859:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   32.628270] wlan: [1859:I:ANY] ol_ath_ahb_ssr: 238: nss-wifi: soc_stop soc->soc_idx: 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   32.634536] wlan: [1859:E:NSS] [nss-wifili]: sending soc stop message to NSS
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.142652] wlan: [1859:I:ANY] ol_ath_ahb_remove: 813: Suspending Target - with disable_intr set :soc0 (sc 8f2fe000) soc=88f00500
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.142699] wlan: [1859:I:ANY] wlan_pdev_operation: 847: wlan_pdev_operation: disable_target_intr val is 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.153340] wlan: [1859:I:ANY] wlan_pdev_operation: 847: wlan_pdev_operation: disable_target_intr val is 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.162867] wlan: [1859:I:ANY] ol_ath_ahb_remove: 816: waiting for target paused event from target :soc0 (sc 8f2fe000)
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.172487] wlan: [1859:I:ANY] ol_ath_ahb_remove: 834: AHB Call to nss detach 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.183157] wlan: [1859:I:ANY] ol_ath_ahb_remove: 837: Call to nss detach ops 7fb10ad4 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.190360] wlan: [1859:I:ANY] ol_ath_ahb_remove: 839: nss-wifi: detach 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.198258] wlan: [1859:E:NSS] [nss-wifili]: sending soc stop message to NSS
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.705366] wlan: [1859:E:NSS] [nss-wifili]: calling pdev de-attach with id 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.707138] wlan: [1859:E:NSS] [nss-wifili]: calling pdev de-attach with id 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.714622] wlan: [1859:E:NSS] nss-wifili: Free Host Pool Memory
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.718701] wlan: [1859:E:QLD] qld_register: 108: Handle or address is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.724903] wlan: [1859:I:ANY] osif_wrap_devt_detach: 217: osif wrap dev table detached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.724903] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.731532] wlan: [1859:I:ANY] osif_wrap_detach: 271: osif wrap detached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.731532] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.741420] wlan: [1859:I:ANY] acfg_detach: 3500: acfg_detach Netlink socket released
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.749349] wlan: [0:I:ANY] ol_ath_pdev_detach: 9421: ol_ath_pdev_detach: remove global_ic[1]..gloabl_ic ptr:7f8765f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.757161] wlan: [1859:I:ANY] ieee80211_cfg80211_radio_detach: 11019: ieee80211_cfg80211_radio_detach: ic: 0x87c20500, wdev: 0x87c2fc5c, netdev: 0x87c20000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.833684] ipaccount: ifname [wifi0] event[6]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.863707] ipaccount: ifname [wifi0] event[17]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.913801] PCIe: User of event deregistration is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.943789] wlan: [1859:E:QLD] qld_register: 108: Handle or address is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.943879] wlan: [1859:I:ANY] osif_wrap_devt_detach: 217: osif wrap dev table detached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.943879] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.949556] wlan: [1859:I:ANY] osif_wrap_detach: 271: osif wrap detached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.949556] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.959394] wlan: [0:I:ANY] ol_ath_pdev_detach: 9421: ol_ath_pdev_detach: remove global_ic[0]..gloabl_ic ptr:7f8765f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   33.967373] wlan: [1859:I:ANY] ieee80211_cfg80211_radio_detach: 11019: ieee80211_cfg80211_radio_detach: ic: 0x87c40500, wdev: 0x87c4fc5c, netdev: 0x87c40000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.043678] ipaccount: ifname [wifi1] event[6]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.093731] ipaccount: ifname [wifi1] event[17]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.133843] PCIe: User of event deregistration is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.173968] ipaccount: ifname [soc0] event[6]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.233747] ipaccount: ifname [soc0] event[17]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.233835] wlan: [1859:I:ANY] ol_ath_phyerr_detach: 351: 6ol_ath_phyerr_detach: called
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.237089] wlan: [1859:E:WMI] Event id 55 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.245444] wlan: [1859:E:WMI] Event id 141 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.250621] wlan: [1859:E:WMI] Event id 137 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.266046] wlan: [1859:I:ANY] 6ath_ahb_remove
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.266046] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.319006] wlan: [1859:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.448198] wlan: [1950:E:QLD] qld_list_deinit: 63: Handle NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.448367] wlan: [1950:F:SER] wlan_serialization_deinit: 618: deregistered callbacks with obj mgr successfully
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.779843] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   34.779843]  MINIDUMP VA .bss start=7fb58240 module=qdf
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.282434] wlan: [2002:E:CONFIG] cfg_uint_item_handler: 142: allow_mon_vaps_in_sr=  - Invalid format (status 16); Using default 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.282536] wlan: [2002:E:CONFIG] cfg_uint_item_handler: 171: gScanProbeRepeatTime=50 - Out of range [0, 30]; Using 50
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.293364] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.293364]  MINIDUMP VA .bss start=7f84a2c0 module=umac
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.850556] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   38.850556]  MINIDUMP VA .bss start=7f9f7b40 module=qca_ol<3>[   39.021558] wlan: [2120:I:ANY] =======ol_if_register_wifi3_0==========
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.021558] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.021602] wlan: [2120:I:ANY] osif_nss_register_module: 90: NSS wifi ops registered for target_type:1 with soc_ops:7fae4ad4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.063093] wlan: [2120:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.391087] IPC_RTR: ipc_router_create_log_ctx: IPC Logging disabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.393906] wlan: [2120:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 3
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.442352] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.459126] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.499589] wlan: [2120:I:ANY] pld_ahb_wlan_enable: 689: cnss_mode: Mission mode 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.505391] wlan: [2120:I:ANY] qca_napi_create: 369: qca_napi_create: napi instance 0 created on pipe 4
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.506251] wlan: [2120:I:ANY] __ol_ath_attach: 3520: Allocated soc 8a240500
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.515584] wlan: [2120:E:CONFIG] cfg_uint_item_handler: 171: dp_int_timer_threshold_tx=1000 - Out of range [8, 100]; Using 1000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.522651] wlan: [2120:E:CONFIG] cfg_uint_item_handler: 171: dp_nss_comp_ring_size=4096 - Out of range [8192, 49152]; Using 8192
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.534506] wlan: [2120:I:ANY] osif_nss_wifi_soc_setup: 177: nss-wifili:#1 register wifili function for soc 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.545711] wlan: [2120:I:ANY] osif_nss_wifi_soc_setup: 189: nss register id -1 nss config 3 Target Type 19 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.555619] wlan: [2120:I:ANY] __ol_ath_attach: 3746: dev name soc0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.565629] wlan: [2120:I:ANY] ol_ath_soc_attach: 7023: WMI attached. wmi_handle 87aa9e00 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.571495] wlan: [2120:I:ANY] htc_wmi_init: 6324: htc_wmi_init() HT Create . 8ebda000
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.579907] wlan: [2120:I:ANY] htc_wmi_init: 6331: htc_wmi_init() Skipping BMI Done. 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.587677] wlan: [2120:I:ANY] htc_wmi_init: 6388: [htc_wmi_init:6388] host_enable 0 nss_nwifi_offload 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.601195] wlan: [2120:I:ANY] ol_target_init_complete: 6506: CDP soc attach success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.605063] wlan: [2120:I:ANY] ol_target_init_complete: 6513: Soc attach success NSS config 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.612904] wlan: [2120:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 8ebda000, ep 2, value 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.621265] wlan: [2120:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 8ebda000, ep 3, value 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.631757] wlan: [6:I:TIF] HE_CAP Info = 1a08010d
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.640435] wlan: [6:I:TIF] Num HW modes = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.645199] wlan: [6:I:TIF] Num PHY = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.649620] wlan: [6:I:TIF] Preferred HW Mode = 1 Num Radios = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.653185] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.659446] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 0 wireless modes = 391f9001
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.667518] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.676545] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 1 wireless modes = 680680c
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.684882] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 0 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.693909] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 1 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.703535] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 0 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.713180] wlan: [6:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 1 wireless modes = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.723107] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : wlan_dfs_pdev_obj_create_notification: 389: dfs_offload 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.732457] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : dfs_agile_soc_obj_init: 1579: dfs->dfs_psoc_idx: 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.742434] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : dfs_agile_soc_obj_init: 1585: dfs_soc_obj->num_dfs_privs: 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.751887] wlan: [6:I:dfs] WLAN_DEBUG_DFS_ALWAYS : wlan_dfs_pdev_obj_create_notification: 361: Do not allocate DFS object for 2G, pdev_id = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.769342] wlan: [6:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.776781] wlan: [6:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.883312] wlan: [6:I:ANY] copy_fw_abi_version_tlv: 6649: copy_fw_abi_version_tlv: INIT_CMD version: 1, 0, 0x5f414351, 0x4c4d, 0x0, 0x0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.965626] wlan: [6:I:ANY] dp_peer_map_attach_wifi3: 8665: dp_peer_map_attach_wifi3 max_peers 167, max_ast_index: 528
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.965626] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.965753] wlan: [6:I:ANY] ready_extract_init_status_tlv: 8473: ready_extract_init_status_tlv:0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   39.977505] wlan: [2120:I:ANY] ol_ath_connect_htc: 1236: WMI is ready
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.003798] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 141 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.004070] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 137 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.011569] wlan: [2120:I:ANY] ol_ath_soc_attach: 7110: connect HTC
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.020151] wlan: [2120:I:ANY] ol_ath_soc_attach: 7111: bypasswmi : 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.026294] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 38 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.032882] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 138 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.041418] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 139 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.049985] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 55 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.058509] wlan: [2120:E:WMI] wmi_unified_register_event_handler: Event id 49 is unavailable
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.067159] wlan: [2120:I:ANY] ol_ath_soc_attach: 7191: ol_ath_soc_attach() UMAC attach . 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.075874] wlan: [2120:I:ANY] __ol_ath_attach: 3862: pdev_netdev name wifi0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.084054] wlan: [2120:I:ANY] __ol_ath_attach: 3908: Skip txrx_pdev_attach_target
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.091139] wlan: [2120:I:ANY] __ol_ath_attach: 3933: BURSTING enabled by default
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.099827] wlan: [2120:I:ANY] ol_ath_pdev_attach: 8488: interface_id 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.105974] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7352:  phy id = 0 Modes supported
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.112349] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7359:  11b = 0 11g = 0 11a = 1 11n = 1 11ac = 1 11ax = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.120755] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7368:  Reg cap - phy_id = 0 supp_bnd = 2, modes = 391f9001, lo_2g = 0, hi_2g = 0 lo_g5 = 4910, hi_5g = 6100
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.130996] wlan: [2120:I:ANY] ol_ath_update_wireless_modes: 1351: wireless_modes = 391f9001 before update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.145346] wlan: [2120:I:ANY] ol_ath_update_wireless_modes: 1366: Wireless_modes = 391f9001 after update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.154968] wlan: [2120:I:ANY] ol_ath_update_ext_caps: 1918: 11ax 5G supported case
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.165275] wlan: [2120:I:ANY] ol_resmgr_create: 223: OL Resmgr Init-ed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.171902] wlan: [2120:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.178447] wlan: [2120:I:ANY] CBS Inited
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.178447] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.183312] wlan: [2120:I:ANY] acfg_attach: 3473: acfg_attach: 3473: Netlink socket created:88ec7800
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.188837] wlan: [2120:I:ANY] ol_if_eeprom_attach: 1459: rate power table override is only supported for AR98XX
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.198075] wlan: [2120:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.209319] wlan: [2120:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 25
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.215686] wlan: [0:I:ANY] ol_ath_pdev_attach: 8852: Set global_ic[1], ptr:7f84a5f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.222942] wlan: [0:I:ANY] dp_lag_soc_enable: 91: pdev(8773d404) Enabling DBDC Repeater 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.230742] wlan: [0:E:NSS] [nss-wifili]: NSS Wifili DBDC Repeater enable message passed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.239053] wlan: [0:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(8773d404) is_primary 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.247129] wlan: [2120:I:ANY] ol_ath_pdev_attach: 8981: Pdev = 0 Number of peers = 69
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.255272] wlan: [2120:I:ANY] ol_ath_pri20_cfg_blockchanlist_parse: 560: cfg block channel list is empty
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.263181] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.263181] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.272869] wlan: [2120:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 0 tx_desc_limit = 4096
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.282401] wlan: [2120:I:ANY] osif_wrap_attach: 239: osif wrap attached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.282401] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.292400] wlan: [2120:I:ANY] osif_wrap_devt_init: 201: osif wrap dev table init done
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.292400] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.300413] wlan: [2120:I:ANY] osif_wrap_attach: 247:  Wrap Attached: Wrap_com =869c4000 ic->ic_wrap_com=869c4000 &wrap_com->wc_devt=869c4000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.300413] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.309657] wlan: [2120:I:ANY] __ol_ath_attach: 4114: needed_headroom reservation 44
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.324101] wlan: [2120:I:ANY] ol_ath_enable_fraglist: 3010: Enabled Fraglist bit for the radio wifi0 features 41 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.331885] wlan: [2120:I:ANY] wlan_cfg80211_init: 10892: Number of 5G channels: 25 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.342399] wlan: [2120:I:ANY] ieee80211_cfg80211_radio_attach: 10986: ic: 0x88ca0500, wdev: 0x88cafc5c, wiphy: 0x86658960, netdev: 0x88ca0000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.349927] ipaccount: ifname [wifi0] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.363252] ipaccount: ifname [wifi0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.367342] wlan: [2120:I:ANY] __ol_ath_attach: 3862: pdev_netdev name wifi1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.371528] wlan: [2120:I:ANY] __ol_ath_attach: 3908: Skip txrx_pdev_attach_target
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.378780] wlan: [2120:I:ANY] __ol_ath_attach: 3933: BURSTING enabled by default
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.386312] wlan: [2120:I:ANY] ol_ath_pdev_attach: 8488: interface_id 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.393995] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7352:  phy id = 1 Modes supported
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.400117] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7359:  11b = 1 11g = 1 11a = 0 11n = 1 11ac = 1 11ax = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.408546] wlan: [2120:I:TIF] ol_ath_pdev_regdmn_init: 7368:  Reg cap - phy_id = 1 supp_bnd = 1, modes = 680680c, lo_2g = 2312, hi_2g = 2732 lo_g5 = 0, hi_5g = 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.418820] wlan: [2120:I:ANY] ol_ath_update_wireless_modes: 1351: wireless_modes = 680680c before update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.433080] wlan: [2120:I:ANY] ol_ath_update_wireless_modes: 1366: Wireless_modes = 680680c after update
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.442803] wlan: [2120:I:ANY] ol_ath_update_ext_caps: 1926: 11ax 2G supported case
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.452412] wlan: [2120:I:ANY] ol_resmgr_create: 223: OL Resmgr Init-ed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.459703] wlan: [2120:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.466236] wlan: [2120:I:ANY] CBS Inited
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.466236] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.471410] wlan: [2120:I:ANY] acfg_attach: 3448: Offload using existing sock 88ec7800
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.476506] wlan: [2120:I:ANY] ol_if_eeprom_attach: 1459: rate power table override is only supported for AR98XX
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.484419] wlan: [2120:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.495341] wlan: [2120:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 11
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.502188] wlan: [0:I:ANY] ol_ath_pdev_attach: 8852: Set global_ic[2], ptr:7f84a5f0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.509449] wlan: [0:I:ANY] dp_lag_soc_enable: 91: pdev(8773d904) Enabling DBDC Repeater 1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.517361] wlan: [0:E:NSS] [nss-wifili]: NSS Wifili DBDC Repeater enable message passed
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.525309] wlan: [0:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(8773d904) is_primary 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.533703] wlan: [2120:I:ANY] ol_ath_pdev_attach: 8981: Pdev = 1 Number of peers = 69
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.541964] wlan: [2120:I:ANY] ol_ath_pri20_cfg_blockchanlist_parse: 560: cfg block channel list is empty
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.549890] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.549890] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.559291] wlan: [2120:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 1 tx_desc_limit = 4096
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.568944] wlan: [2120:I:ANY] osif_wrap_attach: 239: osif wrap attached
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.568944] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.578805] wlan: [2120:I:ANY] osif_wrap_devt_init: 201: osif wrap dev table init done
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.578805] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.586887] wlan: [2120:I:ANY] osif_wrap_attach: 247:  Wrap Attached: Wrap_com =869c5800 ic->ic_wrap_com=869c5800 &wrap_com->wc_devt=869c5800 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.586887] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.596171] wlan: [2120:I:ANY] __ol_ath_attach: 4114: needed_headroom reservation 44
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.610346] wlan: [2120:I:ANY] ol_ath_enable_fraglist: 3010: Enabled Fraglist bit for the radio wifi1 features 41 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.618377] wlan: [2120:I:ANY] wlan_cfg80211_init: 10880: Number of 2G channels: 11 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.628953] wlan: [2120:I:ANY] ieee80211_cfg80211_radio_attach: 10986: ic: 0x87400500, wdev: 0x8740fc5c, wiphy: 0x866a0160, netdev: 0x87400000 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.636386] ipaccount: ifname [wifi1] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.649735] ipaccount: ifname [wifi1] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.653723] wlan: [2120:I:Dynamic Mode Change] ol_ath_check_and_reconfig_hw_mode: 3420: Running with HW mode = 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.658052] ipaccount: ifname [soc0] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.669177] ipaccount: ifname [soc0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.672601] wlan: [2120:E:QLD] qld_register: 108: Handle or address is NULL
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.677059] wlan: [2120:I:ANY] wlan_pdev_operation: 744: num_radios=1, wifi_radios[0].sc = 88ca0500_radio_type = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.683804] wlan: [2120:I:ANY] wlan_pdev_operation: 744: num_radios=2, wifi_radios[1].sc = 87400500_radio_type = 2
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.694326] wlan: [2120:I:ANY] init_ath_pci_3_0: 151: 6ath_ol_pci_wifi3.0:  (Atheros/multi-bss)
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.704881] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   40.704881]  MINIDUMP VA .bss start=7fae4d80 module=wifi_3_0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   41.417134] Not a bridge device, or device not found: br-lan
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   42.432784] ipaccount: ifname [bond0] event[11]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   45.510894] xt_connbytes: Forcing CT accounting to be enabled
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.385634] ipaccount: ifname [br-lan] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.387510] ipaccount: ifname [br-lan] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.390440] ipaccount: ifname [eth1] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.396924] ipaccount: ifname [eth1] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.398205] ipaccount: ifname [eth1] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.404204] ipaccount: ifname [eth1] event[20]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.407647] ipaccount: ifname [eth1] event[26]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.412110] ipaccount: ifname [eth1] event[21]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.416587] ipaccount: ifname [eth1] event[11]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.427143] ipaccount: ifname [br-lan] event[11]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.429623] ipaccount: ifname [br-lan] event[8]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.434815] ipaccount: ifname [eth1] event[27]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.439157] ipaccount: ifname [br-lan] event[8]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.442913] ipaccount: ifname [br-lan] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.448026] ipaccount: ifname [br-lan] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.460541] ipaccount: ifname [eth2] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.464852] ipaccount: ifname [eth2] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.466283] ipaccount: ifname [eth2] event[20]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.468594] ipaccount: ifname [eth2] event[26]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.472941] ipaccount: ifname [eth2] event[21]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.477348] ipaccount: ifname [eth2] event[11]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.496215] ipaccount: ifname [eth2] event[27]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.501517] ipaccount: ifname [br-lan] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.508536] ipaccount: ifname [eth3] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.510731] ipaccount: ifname [eth3] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.516201] ipaccount: ifname [eth3] event[20]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.519334] ipaccount: ifname [eth3] event[26]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.523726] ipaccount: ifname [eth3] event[21]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.527966] ipaccount: ifname [eth3] event[11]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.546955] ipaccount: ifname [eth3] event[27]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.593737] ipaccount: ifname [eth4] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.594324] ipaccount: ifname [eth4] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.597972] ipaccount: ifname [lo] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.601900] ipaccount: ifname [lo] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   47.945504] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   48.393977] ipaccount: ifname [eth2] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   48.409977] ipaccount: ifname [eth3] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   48.410240] ipaccount: ifname [eth4] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   48.446533] ipaccount: ifname [eth3] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   48.451920] ipaccount: ifname [eth4] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   49.393769] ipaccount: ifname [br-lan] event[4]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   49.954106] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.098407] wlan: [5205:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.099256] wlan: [5205:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.105082] wlan: [5205:I:ANY] number of channels: 2G = 0 5G = 13
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.112261] wlan: [5205:I:ANY] wlan_cfg80211_set_country: 6058: wlan_cfg80211_set_country: Country: CN ret: 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.123727] wlan: [4355:I:ANY] ol_acfg_handle_wifi_ioctl: 417: ol_acfg_handle_wifi_ioctl: req->cmd=75 not valid for radio interface, it's for VAP
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.364961] __mc_netlink_receive: Enable bridge snooping!
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.597058] wlan: [5370:I:ANY] wlan_cfg80211_set_hwaddr: 6131: wlan_cfg80211_set_hwaddr :28:d1:27:5a:8f:2c ret: 0 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.659660] wlan: [5395:I:ANY] ol_ath_set_config_param: 1577: set TXBF_SND_PERIOD: value 100 wmi_status 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.863807] wlan: [0:I:ANY] ol_ath_set_config_param: 2328: Disconnect_timeout value: 10
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   50.938931] wlan: [0:I:ANY] ol_ath_set_config_param: 2334: Reconfiguration_timeout value:60
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.068514] ipaccount: ifname [wifi0] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.068818] ipaccount: ifname [wifi0] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.222065] wlan: [5643:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl0 : clone params: 0x00000001 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.222140] wlan: [5643:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 28:d1:27:5a:8f:2c
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.233134] wlan: [5643:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.241253] wlan: [5643:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x88ca0500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.241253] 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.250163] wlan: [5643:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.262332] wlan: [5643:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.269310] wlan: [5643:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.282874] wlan: [5643:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.289884] wlan: [5643:I:ANY] MBO Initialized
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.303818] wlan: [5643:I:ANY] OCE Initialized
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.308165] wlan: [5643:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 33 nss_id -1 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.312576] wlan: [5643:I:ANY] NSS radio_if 30
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.322288] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.326632] wlan: [5643:I:ANY] osif_nss_ol_vap_create: 1376: vap create 8669c500 : if_num 33 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.334885] wlan: [5643:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.343728] wlan: [5643:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.348853] wlan: [5643:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.357716] ipaccount: ifname [wl0] event[16]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.365171] ipaccount: ifname [wl0] event[5]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   51.368197] wlan: [5643:I:ANY] VAP device wl0 created osifp: (8669c500) os_if: (853f8000)
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   52.659391] wlan: [6179:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:64
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   52.678851] wlan: [6198:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   52.678932] wlan: [6198:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   52.699199] wlan: [6201:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:41:22+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of loopback ifup
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.193185] ipaccount: ifname [wl0] event[13]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.197484] ipaccount: ifname [wl0] event[1]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.202932] ipaccount: ifname [wl0] event[20]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.207435] ipaccount: ifname [wl0] event[26]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.211018] ipaccount: ifname [wl0] event[21]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.229797] ipaccount: ifname [wl0] event[27]
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.236137] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-0(wl0):ACS Params
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.238812] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:30|chwidth:20|
+2020-12-30T15:41:22+08:00 XiaoQiang kernel: [   53.247079] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x853f8000
+2020-12-30T15:41:23+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of eth4 ifup
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.190237] __mc_netlink_receive: Enable bridge snooping!
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.443531] ipaccount: refresh dev ifname to [eth1 eth2 eth3 wl0 wl1 wl14] 
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.449204] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.455925] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.462475] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.469101] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.475706] ipaccount: landev_init_all() get dev [wl1] not found.
+2020-12-30T15:41:23+08:00 XiaoQiang kernel: [   54.482258] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   54.655748] wlan: [7066:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   54.655863] wlan: [7066:I:ANY] number of channels: 2G = 13 5G = 0
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   54.663767] wlan: [7066:I:ANY] wlan_cfg80211_set_country: 6058: wlan_cfg80211_set_country: Country: CN ret: 0 
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   55.091503] wlan: [7190:I:ANY] wlan_cfg80211_set_hwaddr: 6131: wlan_cfg80211_set_hwaddr :28:d1:27:5a:8f:2d ret: 0 
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   55.155229] wlan: [7198:I:ANY] ol_ath_set_config_param: 1577: set TXBF_SND_PERIOD: value 100 wmi_status 0
+2020-12-30T15:41:24+08:00 XiaoQiang datacenter[7097]: datacenter daemon started.
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   55.368150] wlan: [0:I:ANY] ol_ath_set_config_param: 2328: Disconnect_timeout value: 10
+2020-12-30T15:41:24+08:00 XiaoQiang kernel: [   55.428068] wlan: [0:I:ANY] ol_ath_set_config_param: 2334: Reconfiguration_timeout value:60
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.551458] ipaccount: ifname [wifi1] event[13]
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.555355] ipaccount: ifname [wifi1] event[1]
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.580273] wlan: [7326:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl1 : clone params: 0x00000001 
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.580350] wlan: [7326:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 28:d1:27:5a:8f:2d
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.592095] wlan: [7326:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.599986] wlan: [7326:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x87400500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.599986] 
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.608509] wlan: [7326:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.620564] wlan: [7326:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.627556] wlan: [7326:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.641699] wlan: [7326:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.648124] wlan: [7326:I:ANY] MBO Initialized
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.662562] wlan: [7326:I:ANY] OCE Initialized
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.666386] wlan: [7326:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 34 nss_id -1 
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: no primary disk info
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Ebit plugin path is exist! or needUninstallEbitPluginKey is empty or true, need to uninstall Ebit!
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Now uninstallPlugin ebit, plugin id is 2882303761517410304
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: getPluginList installedlist count is 0
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: begin execute system command : pluginControllor --uninstall 2882303761517410304
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.670785] wlan: [7326:I:ANY] NSS radio_if 31
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.680961] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.684801] wlan: [7326:I:ANY] osif_nss_ol_vap_create: 1376: vap create 8a338500 : if_num 34 
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.693020] wlan: [7326:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.702342] wlan: [7326:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.707318] wlan: [7326:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.715965] ipaccount: ifname [wl1] event[16]
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.723511] ipaccount: ifname [wl1] event[5]
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.726374] ipaccount: landev_init set ifname [wl1]
+2020-12-30T15:41:25+08:00 XiaoQiang kernel: [   55.730828] wlan: [7326:I:ANY] VAP device wl1 created osifp: (8a338500) os_if: (8a088000)
+2020-12-30T15:41:25+08:00 XiaoQiang pluginControllor[7345]: no primary disk info
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: uninstallFromLocal changePluginStatus ERROR, code:2530
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: after uninstall, result is { "code": 2530, "msg": "" }
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Now delete ebit plugin path & ebit manifest.
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: begin execute system command : pluginControllor --uninstall 2882303761517236139
+2020-12-30T15:41:25+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos  off
+2020-12-30T15:41:25+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:41:25+08:00 XiaoQiang pluginControllor[7453]: no primary disk info
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: uninstallFromLocal changePluginStatus ERROR, code:2530
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: begin execute system command : /etc/init.d/ad_filter on
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: execute system command :/etc/init.d/ad_filter on fail,and return code: 127,exit status value = [0x7f00] and error msg is:No such file or directory
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Lt plugin path is exist! or needUninstallLtPluginKey is empty or true, need to uninstall Lt!
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Now uninstallPlugin lt, plugin id is 2882303761789789789
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: begin execute system command : pluginControllor --uninstall 2882303761789789789
+2020-12-30T15:41:25+08:00 XiaoQiang miqos: disable dev_redirect caused by qos off.
+2020-12-30T15:41:25+08:00 XiaoQiang miqos: execute cmd: /usr/sbin/miqosd noifb
+2020-12-30T15:41:25+08:00 XiaoQiang pluginControllor[7520]: no primary disk info
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: uninstallFromLocal changePluginStatus ERROR, code:2530
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: after uninstall, result is { "code": 2530, "msg": "" }
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: Now delete lt plugin path & lt manifest.
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: sMoveTimeMachineData begin
+2020-12-30T15:41:25+08:00 XiaoQiang plugincenter[7263]: sMoveTimeMachineData end
+2020-12-30T15:41:26+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.066162] wlan: [7667:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:64
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.084465] wlan: [7705:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.084514] wlan: [7705:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.102890] wlan: [7707:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.258885] wlan: [2105:I:ANY] vap-0(wl0): ACS result PCH 149, SCH 157, hw_mode 2 chwidth 80, vht_seg0 155, vht_seg1 0 
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.258949] wlan: [2105:I:ANY] ieee80211_acs_scan_evhandler: 3732: lock held duration: 0(ms)
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.270391] wlan: [2836:I:ANY] DES SSID SET=Redmi_B2F2_4D0D_5G
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.277250] wlan: [2836:I:ANY] wlan_cfg80211_set_phymode: 1211: desired hw mode: 30
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.283797] ipaccount: ifname [wl0] event[4]
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.374328] wlan: [0:I:CMN_MLME] vdev[0] ieee chan:149
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.374801] wlan: [0:I:ANY] vdev[0]: Mgt Rate:6000(kbps)
+2020-12-30T15:41:26+08:00 XiaoQiang kernel: [   57.378470] wlan: [0:I:ANY] vdev[0]: Mgt Rate:6000(kbps)
+2020-12-30T15:41:26+08:00 XiaoQiang pluginControllor[7732]: no primary disk info
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.527007] ipaccount: ifname [wl1] event[13]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.530493] ipaccount: ifname [wl1] event[1]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.536912] ipaccount: ifname [wl1] event[20]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.540689] ipaccount: ifname [wl1] event[26]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.544922] ipaccount: ifname [wl1] event[21]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.563686] ipaccount: ifname [wl1] event[27]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.569515] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-1(wl1):ACS Params
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.572631] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:29|chwidth:20|
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.580434] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x8a088000
+2020-12-30T15:41:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:27+08:00 XiaoQiang : WAN_CHECK:check_wan_status service ubus binding....
+2020-12-30T15:41:27+08:00 XiaoQiang : WAN_CHECK:Router is in Router mode.
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.979736] wlan: [7980:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl13 : clone params: 0x00000001 
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.981368] wlan: [7980:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 2e:d1:27:5a:8f:2d
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   57.993501] wlan: [7980:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.001521] wlan: [7980:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x87400500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.001521] 
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.010385] wlan: [7980:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.022581] wlan: [7980:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.029572] wlan: [7980:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.043339] wlan: [7980:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.050168] wlan: [7980:I:ANY] MBO Initialized
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.064079] wlan: [7980:I:ANY] OCE Initialized
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.068402] wlan: [7980:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 35 nss_id -1 
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.072834] wlan: [7980:I:ANY] NSS radio_if 31
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.082570] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.086858] wlan: [7980:I:ANY] osif_nss_ol_vap_create: 1376: vap create 87ab2500 : if_num 35 
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.095583] wlan: [7980:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.103929] wlan: [7980:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.109110] wlan: [7980:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.117914] ipaccount: ifname [wl13] event[16]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.126315] ipaccount: ifname [wl13] event[5]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.133722] ipaccount: landev_init set ifname [wl1]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.138385] wlan: [7980:I:ANY] VAP device wl13 created osifp: (87ab2500) os_if: (844e0000)
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.142974] ipaccount: ifname [br-miot] event[16]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.156926] ipaccount: ifname [br-miot] event[5]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.163632] ipaccount: ifname [wl13] event[13]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.176289] ipaccount: ifname [wl13] event[1]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.183121] ipaccount: ifname [wl13] event[20]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.186951] ipaccount: ifname [wl13] event[26]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.190638] ipaccount: ifname [wl13] event[21]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.199304] ipaccount: ifname [br-miot] event[11]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.204853] ipaccount: ifname [br-miot] event[8]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.208587] ipaccount: ifname [wl13] event[27]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.214601] ipaccount: ifname [br-miot] event[8]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.217328] ipaccount: ifname [br-miot] event[13]
+2020-12-30T15:41:27+08:00 XiaoQiang kernel: [   58.233316] ipaccount: ifname [br-miot] event[1]
+2020-12-30T15:41:27+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of miot ifup
+2020-12-30T15:41:27+08:00 XiaoQiang xqled:   xqled [sys_ok], called by ppid[7995],</bin/sh/etc/rc.common/etc/rc.d/S99boot_checkboot>
+2020-12-30T15:41:27+08:00 XiaoQiang : INFO: rcS  timing 45.781670289s seconds.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.546680] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.546713] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.552099] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.558728] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.565319] ipaccount: landev_init_all() add dev [wl1] is_wireless: 1.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   58.571900] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:41:28+08:00 XiaoQiang boot_check: boot_check[7995]: Booting up finished.
+2020-12-30T15:41:28+08:00 XiaoQiang kernel: [   59.153749] ipaccount: ifname [br-miot] event[4]
+2020-12-30T15:41:28+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:41:29+08:00 XiaoQiang trafficd: arp_update(330):error,ip_node(192.168.31.2):0x76fb84b0 or hw_node(34:97:f6:33:7b:11):0 is NONE
+2020-12-30T15:41:29+08:00 XiaoQiang dnsmasq[4442]: overflow: 24 log entries lost
+2020-12-30T15:41:29+08:00 XiaoQiang kernel: [   60.299829] wlan: [8557:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:20
+2020-12-30T15:41:29+08:00 XiaoQiang kernel: [   60.364566] wlan: [8569:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:41:29+08:00 XiaoQiang kernel: [   60.364624] wlan: [8569:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:41:29+08:00 XiaoQiang kernel: [   60.387404] wlan: [8585:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:41:29+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of wan ifup
+2020-12-30T15:41:30+08:00 XiaoQiang ip-conflict: "cr_ip_conflict start"
+2020-12-30T15:41:30+08:00 XiaoQiang ip-conflict: "No IP conflict"
+2020-12-30T15:41:30+08:00 XiaoQiang procd: Got unexpected signal 1
+2020-12-30T15:41:30+08:00 XiaoQiang luci: "request:/cgi-bin/luci/api/misystem/device_info"
+2020-12-30T15:41:30+08:00 XiaoQiang kernel: [   61.080255] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-2(wl13):ACS Params
+2020-12-30T15:41:30+08:00 XiaoQiang kernel: [   61.080295] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:29|chwidth:20|
+2020-12-30T15:41:30+08:00 XiaoQiang kernel: [   61.086845] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x844e0000
+2020-12-30T15:41:30+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   61.689929] wlan: [2836:I:ANY] Skip bcast de-auth reason code 3, handled in VDEV down
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   61.774033] ipaccount: ifname [wl13] event[4]
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   61.881623] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.198263] wlan: [2105:I:ANY] ACS failed to derive the channel. So,selecting random channel 
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.198307] wlan: [2105:I:ANY] ******** ACS report ******** 
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.205871] wlan: [2105:I:ANY]  Channel | BSS  | minrssi | maxrssi | NF | Ch load | spect load | sec_chan | SR bss | SR load | Ch Avil | Chan eff | NearBSS | Med BSS | Far BSS | Eff BSS | chan grade
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.211528] wlan: [2105:I:ANY] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.229040] wlan: [2105:I:ANY]  2412(  1)    4       38        64   -107      45           0          0        0         0        25       253         1         3         0       395       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.246668] wlan: [2105:I:ANY]  2417(  2)    2       12        15   -106      25           0          0        0         0        28         0         0         0         2       353       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.258507] __mc_netlink_receive: Enable bridge snooping!
+2020-12-30T15:41:31+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos show_band
+2020-12-30T15:41:31+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.281199] wlan: [2105:I:ANY]  2422(  3)    5       39        40   -105      37           0          0        0         0        25         0         0         2         3       399       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.286780] wlan: [2105:I:ANY]  2427(  4)    2       16        16   -104      22           0          0        0         0        34         0         0         0         2       290       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.303931] wlan: [2105:I:ANY]  2432(  5)    1       18        18   -104      33           0          0        0         0        40         0         0         0         1       245       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.321311] wlan: [2105:I:ANY]  2437(  6)    2       22        47   -106      45           0          0        0         0        42       335         0         1         1       236       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.338694] wlan: [2105:I:ANY]  2442(  7)    0        0         0    -98      24           0          0        0         0        51         0         0         0         0       195       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.356012] wlan: [2105:I:ANY]  2447(  8)    2       38        40   -105      52           0          0        0         0        37         0         0         2         0       266       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.373393] wlan: [2105:I:ANY]  2452(  9)    0        0         0    -93      47           0          0        0         0        37         0         0         0         0       270       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.390726] wlan: [2105:I:ANY]  2457( 10)    3       14        43   -106      27           0          0        0         0        28         0         0         2         1       353       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.408088] wlan: [2105:I:ANY]  2462( 11)    6       13        54   -101      40           0          0        0         0        25       256         0         1         5       390       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.425452] wlan: [2105:I:ANY]  2467( 12)    1       14        14   -108      21           0          0        0         0        31         0         0         0         1       315       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.442842] wlan: [2105:I:ANY]  2472( 13)    5       10        17   -108      38           0          0        0         0        33         0         0         0         5       295       100   
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.460683] wlan: [2105:I:ANY] vap-1(wl1): ACS result PCH 11, SCH 7, hw_mode 1 chwidth 40, vht_seg0 9, vht_seg1 0 
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.477614] wlan: [2105:I:ANY] vap-2(wl13): ACS result PCH 11, SCH 7, hw_mode 1 chwidth 40, vht_seg0 9, vht_seg1 0 
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.486087] wlan: [2836:I:ANY] DES SSID SET=Redmi_B2F2_4D0D
+2020-12-30T15:41:31+08:00 XiaoQiang kernel: [   62.486102] wlan: [2836:I:ANY] wlan_cfg80211_chan_to_phymode: 1235: wlan_cfg80211_chan_to_phymode: band:0 width: 2 channel_cfreq: 2462 center_freq1: 2452 chandef.center_freq2: 0 flags: 0 
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.503873] wlan: [2105:I:ANY] ieee80211_acs_scan_evhandler: 3732: lock held duration: 306(ms)
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.505596] ipaccount: ifname [wl1] event[4]
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.567336] wlan: [0:I:CMN_MLME] vdev[1] ieee chan:11
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.567665] wlan: [0:E:WMI] event handler already registered 0x2a001
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.571431] wlan: [0:I:ANY] vdev[1]: Mgt Rate:1000(kbps)
+2020-12-30T15:41:32+08:00 XiaoQiang kernel: [   62.577871] wlan: [0:I:ANY] vdev[1]: Mgt Rate:1000(kbps)
+2020-12-30T15:41:32+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:32+08:00 XiaoQiang miqos: Note: try to get lock failed .
+2020-12-30T15:41:32+08:00 XiaoQiang miqos: Note: try to get lock failed .
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.899976] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.900009] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.905430] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.911993] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.918627] ipaccount: landev_init_all() add dev [wl1] is_wireless: 1.
+2020-12-30T15:41:33+08:00 XiaoQiang kernel: [   63.925206] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:41:33+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos show_cfg
+2020-12-30T15:41:33+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:41:33+08:00 XiaoQiang : WAN_CHECK:Router is in Router mode.
+2020-12-30T15:41:34+08:00 XiaoQiang datacenter[7097]: input json is: {"macs":{},"api":70}
+2020-12-30T15:41:34+08:00 XiaoQiang datacenter[7097]: output is: { "code": -1, "msg": "api not exists." }
+2020-12-30T15:41:34+08:00 XiaoQiang trafficd_device_example: mac:34:97:F6:33:7B:11,type:router,event:3,ifname:,is_repeat:0,ip:192.168.31.2
+2020-12-30T15:41:34+08:00 XiaoQiang trafficd_notify: mac:34:97:F6:33:7B:11,type:router,event:3,ifname:,is_repeat:0,ip:192.168.31.2
+2020-12-30T15:41:34+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos show_guest
+2020-12-30T15:41:34+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/api/misystem/device_info"
+2020-12-30T15:41:35+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:41:35+08:00 XiaoQiang : WAN_CHECK:WAN state Changed:  -> yellow
+2020-12-30T15:41:35+08:00 XiaoQiang xqled:   xqled [link_connfail], called by ppid[9712],<sh-c[ -f "/usr/sbin/xqled" ] && /usr/sbin/xqled link_connfail>
+2020-12-30T15:41:35+08:00 XiaoQiang plugincenter[7263]: getPluginList installedlist count is 3
+2020-12-30T15:41:37+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:42+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:43+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:41:44+08:00 XiaoQiang trafficd_device_example: mac:00:12:42:92:62:DC,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:41:44+08:00 XiaoQiang trafficd_notify: mac:00:12:42:92:62:DC,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:41:44+08:00 XiaoQiang trafficd_device_example: mac:78:24:AF:BC:FC:A6,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:41:44+08:00 XiaoQiang trafficd_notify: mac:78:24:AF:BC:FC:A6,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:41:44+08:00 XiaoQiang kernel: [   74.784492] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:41:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:52+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:52+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:41:54+08:00 XiaoQiang trafficd_device_example: mac:34:97:F6:33:7B:11,type:router,event:1,ifname:,is_repeat:0,ip:192.168.31.2
+2020-12-30T15:41:54+08:00 XiaoQiang trafficd_notify: mac:34:97:F6:33:7B:11,type:router,event:1,ifname:,is_repeat:0,ip:192.168.31.2
+2020-12-30T15:41:57+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:41:58+08:00 XiaoQiang kernel: [   88.645522] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:42:02+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:02+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:11+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:12+08:00 XiaoQiang kernel: [  102.611310] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:42:12+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:17+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:20+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:22+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:25+08:00 XiaoQiang plugincenter[7263]: getPluginList installedlist count is 3
+2020-12-30T15:42:25+08:00 XiaoQiang kernel: [  116.472551] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:42:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:30+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:32+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:37+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:39+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:39+08:00 XiaoQiang kernel: [  130.334490] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:42:42+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:49+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:42:52+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:53+08:00 XiaoQiang kernel: [  144.195390] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:42:57+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:42:58+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:02+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:43:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:43:07+08:00 XiaoQiang kernel: [  158.056426] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:43:07+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:17+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:21+08:00 XiaoQiang kernel: [  171.917314] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:43:26+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:43:35+08:00 XiaoQiang kernel: [  185.778376] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:43:36+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:45+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:43:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:43:49+08:00 XiaoQiang kernel: [  199.639588] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:43:55+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:02+08:00 XiaoQiang kernel: [  213.500409] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:44:04+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:44:13+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:16+08:00 XiaoQiang kernel: [  227.361264] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:44:23+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:44:30+08:00 XiaoQiang kernel: [  241.222155] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:44:32+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:42+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:44+08:00 XiaoQiang kernel: [  255.183084] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:44:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:44:51+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:44:58+08:00 XiaoQiang kernel: [  269.043792] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:45:00+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:45:08+08:00 XiaoQiang luci: "request:/cgi-bin/luci/web"
+2020-12-30T15:45:09+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/web"
+2020-12-30T15:45:09+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=f0ba0e2700185afc4e994c0ce5ed2035/api/misystem/router_info"
+2020-12-30T15:45:09+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=f0ba0e2700185afc4e994c0ce5ed2035/api/misystem/set_log"
+2020-12-30T15:45:09+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=f0ba0e2700185afc4e994c0ce5ed2035/api/misystem/set_log"
+2020-12-30T15:45:09+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=f0ba0e2700185afc4e994c0ce5ed2035/api/misystem/router_info"
+2020-12-30T15:45:10+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:12+08:00 XiaoQiang kernel: [  282.904792] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:45:19+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:26+08:00 XiaoQiang kernel: [  296.865850] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:45:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:45:29+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:38+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:40+08:00 XiaoQiang kernel: [  310.726905] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:45:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:45:47+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:45:54+08:00 XiaoQiang kernel: [  324.587687] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:45:57+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:06+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:46:07+08:00 XiaoQiang kernel: [  338.448610] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:46:16+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:21+08:00 XiaoQiang kernel: [  352.309540] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:46:25+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:46:31+08:00 XiaoQiang ip-conflict: "cr_ip_conflict start"
+2020-12-30T15:46:32+08:00 XiaoQiang ip-conflict: "No IP conflict"
+2020-12-30T15:46:34+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:35+08:00 XiaoQiang kernel: [  366.170559] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:46:44+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:46:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:46:49+08:00 XiaoQiang kernel: [  380.031586] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:46:53+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:03+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:03+08:00 XiaoQiang kernel: [  393.892887] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:47:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:47:12+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:17+08:00 XiaoQiang kernel: [  407.853951] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:47:18+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:47:21+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:47:31+08:00 XiaoQiang kernel: [  421.714933] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:47:31+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:40+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:45+08:00 XiaoQiang kernel: [  435.575717] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:47:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:47:50+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:47:59+08:00 XiaoQiang kernel: [  449.536786] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:47:59+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:48:08+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:12+08:00 XiaoQiang kernel: [  463.397839] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:48:18+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:26+08:00 XiaoQiang kernel: [  477.259263] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:48:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:48:27+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:37+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:40+08:00 XiaoQiang kernel: [  491.220404] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:48:46+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:48:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:48:54+08:00 XiaoQiang kernel: [  505.080924] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:48:55+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:05+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:49:08+08:00 XiaoQiang kernel: [  518.941750] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:49:14+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:22+08:00 XiaoQiang kernel: [  532.802533] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:49:24+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:49:33+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:36+08:00 XiaoQiang kernel: [  546.663550] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:49:42+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:49:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:49:50+08:00 XiaoQiang kernel: [  560.524196] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:49:52+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:01+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:03+08:00 XiaoQiang kernel: [  574.385019] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:50:05+08:00 XiaoQiang trafficd_device_example: mac:B8:27:EB:49:63:D1,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:50:05+08:00 XiaoQiang trafficd_notify: mac:B8:27:EB:49:63:D1,type:router,event:1,ifname:,is_repeat:0,ip:
+2020-12-30T15:50:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:50:11+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:17+08:00 XiaoQiang kernel: [  588.245860] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:50:20+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:50:29+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:31+08:00 XiaoQiang kernel: [  602.106814] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:50:39+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:45+08:00 XiaoQiang kernel: [  615.967648] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:50:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:50:48+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:58+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:50:59+08:00 XiaoQiang kernel: [  629.828761] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:51:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:51:07+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:13+08:00 XiaoQiang kernel: [  643.789690] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:51:16+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:26+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:27+08:00 XiaoQiang kernel: [  657.650732] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:51:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:51:34+08:00 XiaoQiang ip-conflict: "cr_ip_conflict start"
+2020-12-30T15:51:34+08:00 XiaoQiang ip-conflict: "No IP conflict"
+2020-12-30T15:51:35+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:40+08:00 XiaoQiang kernel: [  671.511718] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:51:45+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:51:54+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:51:54+08:00 XiaoQiang kernel: [  685.472702] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:52:03+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:52:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:52:08+08:00 XiaoQiang kernel: [  699.333594] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:52:13+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:52:17+08:00 XiaoQiang luci: "request:/cgi-bin/luci/api/misystem/router_info"
+2020-12-30T15:52:17+08:00 XiaoQiang luci: "request:/cgi-bin/luci/api/misystem/set_log"
+2020-12-30T15:52:17+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/api/misystem/set_log"
+2020-12-30T15:52:17+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/api/misystem/router_info"
+2020-12-30T15:52:18+08:00 XiaoQiang luci: "request:/cgi-bin/luci/api/xqsystem/login"
+2020-12-30T15:52:19+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/api/xqsystem/login"
+2020-12-30T15:52:19+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/xqnetwork/check_wan_type"
+2020-12-30T15:52:22+08:00 XiaoQiang kernel: [  713.194416] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:52:22+08:00 XiaoQiang : WAN_CHECK:ERROR: dnsmasq resolve domain NOK, but ping ip OK !!!!
+2020-12-30T15:52:26+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of wan ifdown
+2020-12-30T15:52:26+08:00 XiaoQiang : WAN_CHECK:Router is in Router mode.
+2020-12-30T15:52:26+08:00 XiaoQiang : WAN_CHECK:WAN state Changed:  -> yellow
+2020-12-30T15:52:26+08:00 XiaoQiang xqled:   xqled [link_connfail], called by ppid[15210],<sh-c[ -f "/usr/sbin/xqled" ] && /usr/sbin/xqled link_connfail>
+2020-12-30T15:52:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:52:29+08:00 XiaoQiang dnsmasq[8674]: no servers found in /tmp/resolv.conf.auto, will retry
+2020-12-30T15:52:30+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/xqnetwork/check_wan_type"
+2020-12-30T15:52:30+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:30+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:33+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:33+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:35+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/xqnetwork/set_wan_new"
+2020-12-30T15:52:36+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/xqnetwork/set_wan_new"
+2020-12-30T15:52:36+08:00 XiaoQiang kernel: [  727.055456] wlan: [8438:I:ANY] ieee80211_ioctl_siwscan: 3381: preempt_scan
+2020-12-30T15:52:46+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/vas_switch"
+2020-12-30T15:52:46+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/vas_switch"
+2020-12-30T15:52:46+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_router_normal"
+2020-12-30T15:52:47+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:52:48+08:00 XiaoQiang dnsmasq[15797]: no servers found in /tmp/resolv.conf.auto, will retry
+2020-12-30T15:52:48+08:00 XiaoQiang : WAN_CHECK:Router is in Router mode.
+2020-12-30T15:52:48+08:00 XiaoQiang : WAN_CHECK:WAN state Changed:  -> yellow
+2020-12-30T15:52:48+08:00 XiaoQiang xqled:   xqled [link_connfail], called by ppid[15879],<sh-c[ -f "/usr/sbin/xqled" ] && /usr/sbin/xqled link_connfail>
+2020-12-30T15:52:49+08:00 XiaoQiang passwd: password for root changed by root
+2020-12-30T15:52:49+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_router_normal"
+2020-12-30T15:52:49+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:49+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=b8a39036dc6e2fc8b40d842842ebd8c8/api/misystem/set_log"
+2020-12-30T15:52:54+08:00 XiaoQiang xqwhc_wifi: **arg=, ppid 15899, cmd=</bin/sh-csleep 5; /sbin/wifi >/dev/null 2>/dev/null; /etc/init.d/minidlna restart; /etc/init.d/samba restart; /etc/init.d/minet restart; ubus call trafficd reload;/usr/bin/gettraffic flush_wl_dev >/dev/null 2>/dev/null>
+2020-12-30T15:52:54+08:00 XiaoQiang xqwhc_wifi:  *parent ppid 1, cmd=</sbin/procd>
+2020-12-30T15:52:54+08:00 XiaoQiang xqwhc_wifi:  run in NON xqwhc mode, ignore whc_handle! 
+2020-12-30T15:52:54+08:00 XiaoQiang kernel: [  745.415637] ipaccount: ifname [eth4] event[9]
+2020-12-30T15:52:54+08:00 XiaoQiang kernel: [  745.418362] ipaccount: ifname [eth4] event[2]
+2020-12-30T15:52:54+08:00 XiaoQiang kernel: [  745.425519] ipaccount: ifname [eth4] event[13]
+2020-12-30T15:52:54+08:00 XiaoQiang kernel: [  745.434621] ipaccount: ifname [eth4] event[1]
+2020-12-30T15:52:54+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of eth4 ifdown
+2020-12-30T15:52:54+08:00 XiaoQiang kernel: [  745.486947] ipaccount: ifname [eth4] event[4]
+2020-12-30T15:52:55+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of eth4 ifup
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.965025] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.965058] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.970453] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.977086] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.983672] ipaccount: landev_init_all() add dev [wl1] is_wireless: 1.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  745.990238] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.063006] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:52:55+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of wan ifup-failed
+2020-12-30T15:52:55+08:00 XiaoQiang luci: "request:/cgi-bin/luci/web"
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.363788] wlan: [16220:I:ANY] acfg_handle_vap_ioctl: 2095: 
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.363788]  the cmd id is 32
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.364162] wlan: [16220:I:ANY] acfg_handle_vap_ioctl: 2095: 
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.364162]  the cmd id is 32
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.371707] wlan: [16220:I:ANY] acfg_handle_vap_ioctl: 2095: 
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.371707]  the cmd id is 32
+2020-12-30T15:52:55+08:00 XiaoQiang kernel: [  746.414375] wlan: [2836:I:ANY] Skip bcast de-auth reason code 3, handled in VDEV down
+2020-12-30T15:52:55+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.514074] ipaccount: ifname [wl0] event[28]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.521950] ipaccount: ifname [wl0] event[26]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.527825] ipaccount: ifname [wl0] event[21]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.573932] ipaccount: ifname [wl0] event[9]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.576632] ipaccount: ifname [wl0] event[2]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.663763] ipaccount: ifname [wl0] event[6]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.663789] ipaccount: landev_uninit clear ifname [wl0]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.667725] wlan: [16343:I:ANY] osif_nss_ol_vap_delete: 1802: vap detach 8669c500: if_num 33 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.672064] wlan: [16343:I:ANY] osif_nss_vdev_detach: 1601: Dealloc Dynamic interface Node :33 of type:6
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.681838] wlan: [16343:E:mlme] IF_STOP: V:0 Serialization queue disable
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.695821] wlan: [16343:I:ANY] ieee80211_node_latevdetach: vap still has nodes, vap->iv_node_count: 1, refcnt: 0xffffffff
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.695821] 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.696993] ieee80211_mbo_vdetach: MBO terminated
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.712403] ieee80211_oce_vdetach: OCE terminated
+2020-12-30T15:52:56+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/web"
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.715023] wlan: [16343:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.719355] wlan: [16343:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.726387] wlan: [16343:I:ANY] CBS Inited
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.726387] 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.731271] ipaccount: ifname [wifi0] event[9]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.738754] ipaccount: ifname [wifi0] event[2]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.793748] ipaccount: ifname [wl0] event[17]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.793846] wlan: [16220:I:ANY] ol_acfg_handle_wifi_ioctl: 417: ol_acfg_handle_wifi_ioctl: req->cmd=75 not valid for radio interface, it's for VAP
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.943467] wlan: [2836:I:ANY] Skip bcast de-auth reason code 3, handled in VDEV down
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.983953] ipaccount: ifname [wl1] event[28]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.991795] ipaccount: ifname [wl1] event[26]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  746.996786] ipaccount: ifname [wl1] event[21]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.043898] ipaccount: ifname [wl1] event[9]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.046413] ipaccount: ifname [wl1] event[2]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.103766] ipaccount: ifname [wl1] event[6]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.103793] ipaccount: landev_uninit clear ifname [wl1]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.107095] ipaccount: landev_uninit clear ifname [wl14]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.113746] wlan: [16404:I:ANY] osif_nss_ol_vap_delete: 1802: vap detach 8a338500: if_num 34 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.117623] wlan: [16404:I:ANY] osif_nss_vdev_detach: 1601: Dealloc Dynamic interface Node :34 of type:6
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.126304] wlan: [16404:E:mlme] IF_STOP: V:1 Serialization queue disable
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.140888] wlan: [16404:I:ANY] ieee80211_node_latevdetach: vap still has nodes, vap->iv_node_count: 1, refcnt: 0xffffffff
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.140888] 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.142290] ieee80211_mbo_vdetach: MBO terminated
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.154827] ieee80211_oce_vdetach: OCE terminated
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.203703] ipaccount: ifname [wl1] event[17]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.217337] ipaccount: ifname [wl13] event[9]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.220925] ipaccount: ifname [wl13] event[2]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.226934] ipaccount: ifname [br-miot] event[4]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.235033] ipaccount: ifname [wl13] event[28]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.239411] ipaccount: ifname [wl13] event[26]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.245531] ipaccount: ifname [wl13] event[21]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.249146] ipaccount: ifname [br-miot] event[11]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.283746] ipaccount: ifname [wl13] event[6]
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.284361] wlan: [16419:I:ANY] osif_nss_ol_vap_delete: 1802: vap detach 87ab2500: if_num 35 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.287099] wlan: [16419:I:ANY] osif_nss_vdev_detach: 1601: Dealloc Dynamic interface Node :35 of type:6
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.296348] wlan: [16419:E:mlme] IF_STOP: V:2 Serialization queue disable
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.311423] wlan: [16419:I:ANY] ieee80211_node_latevdetach: vap still has nodes, vap->iv_node_count: 1, refcnt: 0xffffffff
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.311423] 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.311856] ieee80211_mbo_vdetach: MBO terminated
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.324568] ieee80211_oce_vdetach: OCE terminated
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.329430] wlan: [16419:I:ANY] ol_ath_soc_stop: 9615: Suspending Target  soc=8a240500
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.333758] wlan: [16419:I:ANY] wlan_pdev_operation: 847: wlan_pdev_operation: disable_target_intr val is 1
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.341854] wlan: [16419:I:ANY] wlan_pdev_operation: 847: wlan_pdev_operation: disable_target_intr val is 1
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.351327] wlan: [16419:I:ANY] ol_ath_soc_stop: 9618: ol_ath_soc_stop: waiting for target paused event from target 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.361198] wlan: [16419:I:ANY] ol_ath_soc_stop: 9638: nss-wifi: detach soc->soc_idx: 0 - 100 delay 
+2020-12-30T15:52:56+08:00 XiaoQiang kernel: [  747.371721] wlan: [16419:E:NSS] [nss-wifili]: sending soc stop message to NSS
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.881051] wlan: [16419:E:NSS] [nss-wifili]: calling pdev de-attach with id 0 
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.884726] wlan: [16419:E:NSS] [nss-wifili]: calling pdev de-attach with id 1 
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.891676] wlan: [16419:E:NSS] nss-wifili: Free Host Pool Memory
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.894579] wlan: [16419:I:ANY] ol_ath_soc_stop: 9644: disable dp interrupts:: soc: 8ebd9000
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.905971] wlan: [16419:E:WMI] send_thermal_mitigation_param_cmd_tlv:6362, htc_send_pkt failed, status:4
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.909222] wlan: [16419:E:WMI] Failed to send WMI_THERM_THROT_SET_CONF_CMDID command
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.919948] wlan: [16419:E:WMI] send_thermal_mitigation_param_cmd_tlv:6362, htc_send_pkt failed, status:4
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.926525] wlan: [16419:E:WMI] Failed to send WMI_THERM_THROT_SET_CONF_CMDID command
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.937465] wlan: [16419:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 0
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.944010] wlan: [16419:I:ANY] ol_ath_ahb_ssr: 238: nss-wifi: soc_stop soc->soc_idx: 0 
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  747.951318] wlan: [16419:E:NSS] [nss-wifili]: stop ERROR - Null nss context
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.003695] IPC_RTR: ipc_router_glink_xprt_write: mpss_IPCRTR chnl reset
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.019079] wlan: [16419:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 1
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.032016] wlan: [16419:I:ANY] ieee80211_cbs_init 
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.038267] wlan: [16419:I:ANY] CBS Inited
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.038267] 
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.043148] ipaccount: ifname [wifi1] event[9]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.059968] ipaccount: ifname [wifi1] event[2]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.064223] ipaccount: ifname [br-miot] event[9]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.068517] ipaccount: ifname [br-miot] event[2]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.071892] ipaccount: ifname [br-miot] event[8]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.082669] ipaccount: ifname [br-miot] event[6]
+2020-12-30T15:52:57+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of miot ifdown
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.123785] ipaccount: ifname [wl13] event[17]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.173751] ipaccount: ifname [br-miot] event[17]
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.389896] wlan: [16578:I:ANY] ol_acfg_get_profile: 186: Target stopped: cannot get wifi param
+2020-12-30T15:52:57+08:00 XiaoQiang kernel: [  748.393330] wlan: [16578:I:ANY] ol_acfg_get_profile: 186: Target stopped: cannot get wifi param
+2020-12-30T15:52:58+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:52:58+08:00 XiaoQiang luci: "request:/cgi-bin/luci/api/xqsystem/login"
+2020-12-30T15:52:58+08:00 XiaoQiang kernel: [  749.332220] wlan: [16904:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 2
+2020-12-30T15:52:59+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/api/xqsystem/login"
+2020-12-30T15:52:59+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/home"
+2020-12-30T15:52:59+08:00 XiaoQiang kernel: [  750.165020] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:52:59+08:00 XiaoQiang kernel: [  750.399333] __mc_netlink_receive: Enable bridge snooping!
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  750.791438] IPC_RTR: ipc_router_create_log_ctx: IPC Logging disabled
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  750.801693] wlan: [16904:I:ANY] ol_ath_ahb_ssr: 192: ol_ath_ahb_ssr: SSR event 3
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  750.808005] wlan: [16904:I:ANY] ol_ath_target_start: 10274: subsystem_get success
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  750.906942] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  750.923659] cnss: BDF download response , result: 0, err: 0x0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.023330] wlan: [16904:I:ANY] pld_ahb_wlan_enable: 689: cnss_mode: Mission mode 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.029467] wlan: [16904:I:ANY] qca_napi_create: 369: qca_napi_create: napi instance 0 created on pipe 4
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.029835] wlan: [16904:I:ANY] htc_wmi_init: 6324: htc_wmi_init() HT Create . 87aba000
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.039457] wlan: [16904:I:ANY] htc_wmi_init: 6331: htc_wmi_init() Skipping BMI Done. 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.047179] wlan: [16904:I:ANY] htc_wmi_init: 6388: [htc_wmi_init:6388] host_enable 0 nss_nwifi_offload 0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.059870] wlan: [16904:I:ANY] ol_target_init_complete: 6506: CDP soc attach success
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.064813] wlan: [16904:I:ANY] ol_target_init_complete: 6513: Soc attach success NSS config 0 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.072658] wlan: [16904:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 87aba000, ep 2, value 1
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.081182] wlan: [16904:I:ANY] htc_set_async_ep: 428: htc_set_async_ep: htc_handle 87aba000, ep 3, value 1
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.091765] wlan: [68:I:TIF] HE_CAP Info = 1a08010d
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.100708] wlan: [68:I:TIF] Num HW modes = 2
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.105511] wlan: [68:I:TIF] Num PHY = 2
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.109974] wlan: [68:I:TIF] Preferred HW Mode = 1 Num Radios = 2
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.113985] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.119990] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 0 wireless modes = 391f9001
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.128495] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1440: Adding 11ax regulatory modes,
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.137636] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1444:  phy_id = 1 wireless modes = 680680c
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.146197] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 0 wireless modes = 0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.154791] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 1 phy_id = 1 wireless modes = 0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.164527] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 0 wireless modes = 0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.174280] wlan: [68:I:TIF] init_deinit_add_11ax_modes: 1467: hw_mode_id = 5 phy_id = 1 wireless modes = 0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.188213] wlan: [68:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.195564] wlan: [68:I:TIF] init_deinit_update_pdev_tgt_info: 1082: CDP PDEV ATTACH success
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.302755] wlan: [68:I:ANY] copy_fw_abi_version_tlv: 6649: copy_fw_abi_version_tlv: INIT_CMD version: 1, 0, 0x5f414351, 0x4c4d, 0x0, 0x0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.383402] wlan: [68:I:ANY] dp_peer_map_attach_wifi3: 8665: dp_peer_map_attach_wifi3 max_peers 167, max_ast_index: 528
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.383402] 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.383506] wlan: [68:I:ANY] ready_extract_init_status_tlv: 8473: ready_extract_init_status_tlv:0
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.395226] wlan: [16904:I:ANY] ol_ath_connect_htc: 1236: WMI is ready
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.417169] wlan: [16904:I:ANY] ol_ath_soc_start: 9921: Skip txrx_pdev_attach_target
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.417207] wlan: [16904:I:ANY] ol_ath_soc_start: 9955: BURSTING enabled by default
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.424138] wlan: [16904:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.424628] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.424628] 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.440176] wlan: [16904:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 25
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.448712] wlan: [16904:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 0 tx_desc_limit = 4096
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.456145] wlan: [16904:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(844c7a04) is_primary 1 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.466027] wlan: [16904:I:ANY] ol_ath_soc_start: 9921: Skip txrx_pdev_attach_target
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.474521] wlan: [16904:I:ANY] ol_ath_soc_start: 9955: BURSTING enabled by default
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.482697] wlan: [16904:I:ANY] ol_ath_stats_attach: 2133: periodic_chan_stats: 1
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.483022] wlan: [0:I:ANY] ol_ath_twt_enable_complete_event_handler: 13830: twt enabled.
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.483022] 
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.497902] wlan: [16904:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 11
+2020-12-30T15:53:00+08:00 XiaoQiang kernel: [  751.507196] wlan: [16904:I:ANY] ol_ath_configure_cong_ctrl_max_msdus: 3451: pdev_idx = 1 tx_desc_limit = 4096
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.514647] wlan: [16904:I:ANY] dp_lag_pdev_set_primary_radio: 44: pdev(844c7604) is_primary 0 
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.524550] wlan: [16904:I:Dynamic Mode Change] ol_ath_check_and_reconfig_hw_mode: 3420: Running with HW mode = 1
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.535614] wlan: [16904:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.544227] wlan: [16904:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.550986] wlan: [16904:I:ANY] number of channels: 2G = 0 5G = 13
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.558376] wlan: [16904:I:ANY] wlan_cfg80211_set_country: 6058: wlan_cfg80211_set_country: Country: CN ret: 0 
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.567844] wlan: [16578:I:ANY] ol_acfg_handle_wifi_ioctl: 417: ol_acfg_handle_wifi_ioctl: req->cmd=75 not valid for radio interface, it's for VAP
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  751.968653] wlan: [17149:I:ANY] wlan_cfg80211_set_hwaddr: 6131: wlan_cfg80211_set_hwaddr :28:d1:27:5a:8f:2c ret: 0 
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  752.028139] wlan: [17156:I:ANY] ol_ath_set_config_param: 1577: set TXBF_SND_PERIOD: value 100 wmi_status 0
+2020-12-30T15:53:01+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/home"
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  752.228547] wlan: [0:I:ANY] ol_ath_set_config_param: 2328: Disconnect_timeout value: 10
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  752.288273] wlan: [0:I:ANY] ol_ath_set_config_param: 2334: Reconfiguration_timeout value:60
+2020-12-30T15:53:01+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  752.477957] ipaccount: ifname [wifi0] event[13]
+2020-12-30T15:53:01+08:00 XiaoQiang kernel: [  752.478231] ipaccount: ifname [wifi0] event[1]
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetdetect/nettb"
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.539588] wlan: [17289:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl0 : clone params: 0x00000001 
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.539665] wlan: [17289:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 28:d1:27:5a:8f:2c
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.551140] wlan: [17289:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.558935] wlan: [17289:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x88ca0500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.558935] 
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.586781] wlan: [17289:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.586851] wlan: [17289:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.593349] wlan: [17289:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.607397] wlan: [17289:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.613703] wlan: [17289:I:ANY] MBO Initialized
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/bandwidth_test"
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.627813] wlan: [17289:I:ANY] OCE Initialized
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.632156] wlan: [17289:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 37 nss_id -1 
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.641814] wlan: [17289:I:ANY] NSS radio_if 28
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.663619] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.663703] wlan: [17289:I:ANY] osif_nss_ol_vap_create: 1376: vap create 87b85500 : if_num 37 
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.670808] wlan: [17289:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.683941] wlan: [17289:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.684935] wlan: [17289:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.706471] ipaccount: ifname [wl0] event[16]
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.707941] ipaccount: ifname [wl0] event[5]
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.709809] ipaccount: landev_init set ifname [wl0]
+2020-12-30T15:53:02+08:00 XiaoQiang kernel: [  752.714438] wlan: [17289:I:ANY] VAP device wl0 created osifp: (87b85500) os_if: (87530000)
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/newstatus"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "init disabled =0 ifname: wl0"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/bandwidth_test"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetdetect/nettb"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "init disabled =0 ifname: wl1"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "init disabled =0 ifname: wl13"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: true
+2020-12-30T15:53:02+08:00 XiaoQiang luci: nil
+2020-12-30T15:53:02+08:00 XiaoQiang luci: true
+2020-12-30T15:53:02+08:00 XiaoQiang luci: nil
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:02+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/newstatus"
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  753.906593] wlan: [17539:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:64
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  753.924093] wlan: [17542:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  753.924143] wlan: [17542:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  753.943030] wlan: [17544:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.263341] ipaccount: ifname [wl0] event[13]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.266887] ipaccount: ifname [wl0] event[1]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.273417] ipaccount: ifname [wl0] event[20]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.276879] ipaccount: ifname [wl0] event[26]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.281042] ipaccount: ifname [wl0] event[21]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.299560] ipaccount: ifname [wl0] event[27]
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.305578] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-0(wl0):ACS Params
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.308958] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:30|chwidth:20|
+2020-12-30T15:53:03+08:00 XiaoQiang kernel: [  754.316497] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x87530000
+2020-12-30T15:53:04+08:00 XiaoQiang dnsmasq[17640]: no servers found in /tmp/resolv.conf.auto, will retry
+2020-12-30T15:53:04+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/setting/wifi"
+2020-12-30T15:53:04+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/setting/wifi"
+2020-12-30T15:53:04+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_son_backhaul_mode"
+2020-12-30T15:53:04+08:00 XiaoQiang kernel: [  755.489632] wlan: [18002:I:ANY] wlan_scan_update_channel_list: 1090: num_chan: 13
+2020-12-30T15:53:04+08:00 XiaoQiang kernel: [  755.489824] wlan: [18002:I:ANY] number of channels: 2G = 13 5G = 0
+2020-12-30T15:53:04+08:00 XiaoQiang kernel: [  755.499506] wlan: [18002:I:ANY] wlan_cfg80211_set_country: 6058: wlan_cfg80211_set_country: Country: CN ret: 0 
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqsystem/country_code"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "get 2.4G backhaul_mode：0"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_miotrelay_switch"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_son_backhaul_mode"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqsystem/country_code"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_miotrelay_switch"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_miscan_switch"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/get_miscan_switch"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: true
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:05+08:00 XiaoQiang luci: true
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.063269] wlan: [18155:I:ANY] wlan_cfg80211_set_hwaddr: 6131: wlan_cfg80211_set_hwaddr :28:d1:27:5a:8f:2d ret: 0 
+2020-12-30T15:53:05+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.121735] wlan: [18165:I:ANY] ol_ath_set_config_param: 1577: set TXBF_SND_PERIOD: value 100 wmi_status 0
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.289741] wlan: [0:I:ANY] ol_ath_set_config_param: 2328: Disconnect_timeout value: 10
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.349807] wlan: [0:I:ANY] ol_ath_set_config_param: 2334: Reconfiguration_timeout value:60
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.497019] ipaccount: ifname [wifi1] event[13]
+2020-12-30T15:53:05+08:00 XiaoQiang kernel: [  756.497282] ipaccount: ifname [wifi1] event[1]
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.519313] wlan: [18224:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl1 : clone params: 0x00000001 
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.519386] wlan: [18224:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 28:d1:27:5a:8f:2d
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.530441] wlan: [18224:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.538573] wlan: [18224:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x87400500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.538573] 
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.547624] wlan: [18224:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.559834] wlan: [18224:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.567220] wlan: [18224:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.580978] wlan: [18224:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.587591] wlan: [18224:I:ANY] MBO Initialized
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.601665] wlan: [18224:I:ANY] OCE Initialized
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.606099] wlan: [18224:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 38 nss_id -1 
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.610592] wlan: [18224:I:ANY] NSS radio_if 29
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.620370] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.624769] wlan: [18224:I:ANY] osif_nss_ol_vap_create: 1376: vap create 8a33a500 : if_num 38 
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.633087] wlan: [18224:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.641918] wlan: [18224:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.647246] wlan: [18224:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.656048] ipaccount: ifname [wl1] event[16]
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.663689] ipaccount: ifname [wl1] event[5]
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.666575] ipaccount: landev_init set ifname [wl1]
+2020-12-30T15:53:06+08:00 XiaoQiang kernel: [  756.671166] wlan: [18224:I:ANY] VAP device wl1 created osifp: (8a33a500) os_if: (853f8000)
+2020-12-30T15:53:07+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  757.816652] wlan: [18357:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:64
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  757.833431] wlan: [18360:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  757.833481] wlan: [18360:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  757.852140] wlan: [18362:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:53:07+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/setting/wan"
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.198829] ipaccount: ifname [wl1] event[13]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.202325] ipaccount: ifname [wl1] event[1]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.209361] ipaccount: ifname [wl1] event[20]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.212312] ipaccount: ifname [wl1] event[26]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.223843] ipaccount: ifname [wl1] event[21]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.237359] ipaccount: ifname [wl1] event[27]
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.243904] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-1(wl1):ACS Params
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.246633] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:29|chwidth:20|
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.254230] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x853f8000
+2020-12-30T15:53:07+08:00 XiaoQiang luci: true
+2020-12-30T15:53:07+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.328677] wlan: [2105:I:ANY] vap-0(wl0): ACS result PCH 149, SCH 157, hw_mode 2 chwidth 80, vht_seg0 155, vht_seg1 0 
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.328753] wlan: [2105:I:ANY] ieee80211_acs_scan_evhandler: 3732: lock held duration: 1(ms)
+2020-12-30T15:53:07+08:00 XiaoQiang luci: true
+2020-12-30T15:53:07+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.412468] wlan: [2836:I:ANY] DES SSID SET=waw555_5G
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.412501] wlan: [2836:I:ANY] wlan_cfg80211_set_phymode: 1211: desired hw mode: 30
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.416970] wlan: [0:I:dfs] WLAN_DEBUG_DFS_ALWAYS : dfs_set_current_channel: 807: dfs_curchan already updated
+2020-12-30T15:53:07+08:00 XiaoQiang kernel: [  758.425813] ipaccount: ifname [wl0] event[4]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.515043] wlan: [0:I:CMN_MLME] vdev[0] ieee chan:149
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.515408] wlan: [0:E:WMI] event handler already registered 0x2a001
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.519157] wlan: [0:I:ANY] vdev[0]: Mgt Rate:6000(kbps)
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.525723] wlan: [0:I:ANY] vdev[0]: Mgt Rate:6000(kbps)
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/setting/wan"
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wan_info"
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.651310] wlan: [18555:I:ANY] wlan_cfg80211_add_virtual_intf: 325: proprietary mode 6 for interface: wl13 : clone params: 0x00000001 
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.651388] wlan: [18555:I:ANY] osifp_create_wlan_vap: 10411: VDEV Create 2e:d1:27:5a:8f:2d
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.662596] wlan: [18555:E:CMN_MLME] mlme_vdev_ext_obj_create: 1389:  VDEV MLME obj is creation
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.670675] wlan: [18555:I:ANY] wlan_vap_create: 1594: enter. devhandle=0x87400500, opmode=IEEE80211_M_HOSTAP, flags=0x1
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.670675] 
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.679832] wlan: [18555:I:ANY] ol_ath_vap_set_param: 1121: Setting SGI value: 1
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.692014] wlan: [18555:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:1|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.699336] wlan: [18555:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x3b
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.713077] wlan: [18555:I:ANY] ol_ath_vap_set_param: 2174: VDEV params:AC/VHT sounding mode:HE|SU/MU sounding mode:SU|Trig/Non-Trig sounding mode:Non-Trigged
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.719752] wlan: [18555:I:ANY] MBO Initialized
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.733785] wlan: [18555:I:ANY] OCE Initialized
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.738174] wlan: [18555:I:ANY] osif_nss_ol_vap_create: 1268: NSS wifi offload VAP create IF 39 nss_id -1 
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.742685] wlan: [18555:I:ANY] NSS radio_if 29
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.752806] wlan: [0:I:ANY] osif_nss_vdev_cfg_callback: 1020: VDEV configuration success: 0
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.756863] wlan: [18555:I:ANY] osif_nss_ol_vap_create: 1376: vap create 8a339500 : if_num 39 
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.765229] wlan: [18555:I:ANY] wlan_vap_create: 1627: exit
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.774034] wlan: [18555:I:ANY] osif_create_vap_complete: 10609: TX Checksum:1|SG:1|TSO:1|LRO:0
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.779318] wlan: [18555:I:ANY] WLAN-NSS: VAP NSS ops initialized 
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.788570] ipaccount: ifname [wl13] event[16]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.795854] ipaccount: ifname [wl13] event[5]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.798657] ipaccount: landev_init set ifname [wl1]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.804119] wlan: [18555:I:ANY] VAP device wl13 created osifp: (8a339500) os_if: (86c00000)
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.807890] ipaccount: ifname [br-miot] event[16]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.819153] ipaccount: ifname [br-miot] event[5]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.824364] ipaccount: ifname [wl13] event[20]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.826128] ipaccount: ifname [wl13] event[26]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.833302] ipaccount: ifname [wl13] event[21]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.839176] ipaccount: ifname [br-miot] event[11]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.844362] ipaccount: ifname [br-miot] event[8]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.848401] ipaccount: ifname [wl13] event[27]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.854320] ipaccount: ifname [br-miot] event[8]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.857356] ipaccount: ifname [br-miot] event[13]
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  758.866734] ipaccount: ifname [br-miot] event[1]
+2020-12-30T15:53:08+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of miot ifup
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wan_info"
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/pppoe_status"
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.159466] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.159499] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.164943] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.171484] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.178120] ipaccount: landev_init_all() add dev [wl1] is_wireless: 1.
+2020-12-30T15:53:08+08:00 XiaoQiang kernel: [  759.184708] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:53:08+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/pppoe_status"
+2020-12-30T15:53:09+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:53:09+08:00 XiaoQiang kernel: [  760.124906] wlan: [18974:I:ANY] ieee80211_ucfg_setparam: 1456: Setting Max Stations:20
+2020-12-30T15:53:09+08:00 XiaoQiang kernel: [  760.144794] wlan: [18999:I:ANY] ol_ath_vap_set_param: 2149: VDEV params:HE su_bfee:1|su_bfer:1|mu_bfee:0|mu_bfer:0|dl_muofdma:1|ul_muofdma:1|ul_mumimo:0
+2020-12-30T15:53:09+08:00 XiaoQiang kernel: [  760.144844] wlan: [18999:I:ANY] ol_ath_vap_set_param: 2159: he_bf_cap=0x33
+2020-12-30T15:53:09+08:00 XiaoQiang kernel: [  760.165108] wlan: [19004:I:ANY] wlan_set_param: 2899:  HE UL MU MIMO already set with this value =0 
+2020-12-30T15:53:09+08:00 XiaoQiang procd: Got unexpected signal 1
+2020-12-30T15:53:09+08:00 XiaoQiang dnsmasq[19070]: no servers found in /tmp/resolv.conf.auto, will retry
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.515808] ipaccount: ifname [wl13] event[13]
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.530232] ipaccount: ifname [wl13] event[1]
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.540263] ipaccount: ifname [br-miot] event[4]
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.548698] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3474: vap-2(wl13):ACS Params
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.551356] wlan: [2836:I:ANY] wlan_cfg80211_do_acs: 3477: ht_enabled:1|ht40_enabled:0|vht_enabled:1|hw_mode:29|chwidth:20|
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.558847] wlan: [2836:I:ANY] ieee80211_autoselect_infra_bss_channel: 3995: ACS started: vap:0x86c00000
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.872593] wlan: [2836:I:ANY] Skip bcast de-auth reason code 3, handled in VDEV down
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.953956] ipaccount: ifname [wl13] event[4]
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.954235] ipaccount: ifname [wl13] event[9]
+2020-12-30T15:53:10+08:00 XiaoQiang kernel: [  760.961837] ipaccount: ifname [wl13] event[2]
+2020-12-30T15:53:10+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/pppoe_status"
+2020-12-30T15:53:10+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/pppoe_status"
+2020-12-30T15:53:11+08:00 XiaoQiang kernel: [  761.533717] ipaccount: ifname [br-miot] event[4]
+2020-12-30T15:53:11+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:53:11+08:00 XiaoQiang kernel: [  761.680684] __mc_netlink_receive: Disable bridge snooping!
+2020-12-30T15:53:11+08:00 XiaoQiang kernel: [  761.966062] __mc_netlink_receive: Enable bridge snooping!
+2020-12-30T15:53:11+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/home"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/web/home"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/newstatus"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/messages"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/bandwidth_test"
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.869210] wlan: [2105:I:ANY] ACS failed to derive the channel. So,selecting random channel 
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.869256] wlan: [2105:I:ANY] ******** ACS report ******** 
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.876799] wlan: [2105:I:ANY]  Channel | BSS  | minrssi | maxrssi | NF | Ch load | spect load | sec_chan | SR bss | SR load | Ch Avil | Chan eff | NearBSS | Med BSS | Far BSS | Eff BSS | chan grade
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.882509] wlan: [2105:I:ANY] ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.899986] wlan: [2105:I:ANY]  2412(  1)   12       17        53   -107      40           0          0        0         0        18       181         0         4         8       550       100   
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.917682] wlan: [2105:I:ANY]  2417(  2)    0        0         0   -100      20           0          0        0         0        26         0         0         0         0       383       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.934798] wlan: [2105:I:ANY]  2422(  3)    4       30        39   -105      30           0          0        0         0        25         0         0         2         2       395       100   
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetdetect/nettb"
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.952145] wlan: [2105:I:ANY]  2427(  4)    1       13        13   -103      23           0          0        0         0        38         0         0         0         1       258       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.969534] wlan: [2105:I:ANY]  2432(  5)    0        0         0   -105      28           0          0        0         0        36         0         0         0         0       274       100   
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/bandwidth_test"
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  762.986885] wlan: [2105:I:ANY]  2437(  6)    4       22        51   -106      30           0          0        0         0        30       264         0         3         1       328       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.004239] wlan: [2105:I:ANY]  2442(  7)    3       14        14   -105      25           0          0        0         0        31         0         0         0         3       315       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.021620] wlan: [2105:I:ANY]  2447(  8)    1       10        10    -99      21           0          0        0         0        31         0         0         0         1       315       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.038964] wlan: [2105:I:ANY]  2452(  9)    5       15        16   -107      34           0          0        0         0        28         0         0         0         5       345       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.056316] wlan: [2105:I:ANY]  2457( 10)    2       43        44    -97      22           0          0        0         0        30         0         0         2         0       328       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.073678] wlan: [2105:I:ANY]  2462( 11)    4       20        22   -105      34           0          0        0         0        26       268         0         0         4       373       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.091050] wlan: [2105:I:ANY]  2467( 12)    1       14        14   -108      20           0          0        0         0        38         0         0         0         1       258       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.108407] wlan: [2105:I:ANY]  2472( 13)    4       16        17   -110      26           0          0        0         0        40         0         0         0         4       245       100   
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.126026] wlan: [2105:I:ANY] vap-1(wl1): ACS result PCH 6, SCH 2, hw_mode 1 chwidth 40, vht_seg0 4, vht_seg1 0 
+2020-12-30T15:53:12+08:00 XiaoQiang luci: true
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetdetect/nettb"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: true
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.146049] wlan: [2105:I:ANY] ieee80211_acs_scan_evhandler: 3732: lock held duration: 274(ms)
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "0"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/newstatus"
+2020-12-30T15:53:12+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/xqnetwork/wifi_detail_all"
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.206527] wlan: [2836:I:ANY] DES SSID SET=waw555
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.206566] wlan: [2836:I:ANY] wlan_cfg80211_chan_to_phymode: 1235: wlan_cfg80211_chan_to_phymode: band:0 width: 2 channel_cfreq: 2437 center_freq1: 2427 chandef.center_freq2: 0 flags: 0 
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.211926] ipaccount: ifname [wl1] event[4]
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.271881] wlan: [0:I:CMN_MLME] vdev[1] ieee chan:6
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.272194] wlan: [0:E:WMI] event handler already registered 0x2a001
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.275990] wlan: [0:I:ANY] vdev[1]: Mgt Rate:1000(kbps)
+2020-12-30T15:53:12+08:00 XiaoQiang kernel: [  763.282307] wlan: [0:I:ANY] vdev[1]: Mgt Rate:1000(kbps)
+2020-12-30T15:53:27+08:00 XiaoQiang smartcontroller[7764]: Can not find ntp status file: /tmp/ntp.status
+2020-12-30T15:53:27+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2020-12-30T15:53:27+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2020-12-30T15:53:34+08:00 XiaoQiang hotplug.d: 10-phy_check.sh: run because of wan ifup
+2020-12-30T15:53:34+08:00 XiaoQiang ip-conflict: "cr_ip_conflict start"
+2020-12-30T15:53:34+08:00 XiaoQiang ip-conflict: "No IP conflict"
+2020-12-30T15:53:35+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos  shutdown
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: QOS_VER: NOIFB shutdown!
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: disable dev_redirect caused by qos off.
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: [NOIFB_QOS_CMD]: miqos  off
+2020-12-30T15:53:35+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:53:36+08:00 XiaoQiang miqos: disable dev_redirect caused by qos off.
+2020-12-30T15:53:36+08:00 XiaoQiang miqos: execute cmd: /usr/sbin/miqosd noifb
+2020-12-30T15:53:36+08:00 XiaoQiang miqos: ======= Cleanup  default 
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.446400] ipaccount: landev_init_all() add dev [eth1] is_wireless: 0.
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.446432] ipaccount: landev_init_all() add dev [eth2] is_wireless: 0.
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.451820] ipaccount: landev_init_all() add dev [eth3] is_wireless: 0.
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.458446] ipaccount: landev_init_all() add dev [wl0] is_wireless: 1.
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.465027] ipaccount: landev_init_all() add dev [wl1] is_wireless: 1.
+2020-12-30T15:53:36+08:00 XiaoQiang kernel: [  787.471607] ipaccount: landev_init_all() get dev [wl14] not found.
+2020-12-30T15:53:37+08:00 XiaoQiang : WAN_CHECK:Router is in Router mode.
+2020-12-30T15:53:37+08:00 XiaoQiang : WAN_CHECK:WAN state Changed:  -> blue
+2020-12-30T15:53:37+08:00 XiaoQiang xqled:   xqled [link_conned], called by ppid[20607],<sh-c[ -f "/usr/sbin/xqled" ] && /usr/sbin/xqled link_conned>
+2025-10-14T00:40:35+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:40:35+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:40:40+08:00 XiaoQiang smartcontroller[7764]: ntp status ok
+2025-10-14T00:40:49+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:40:49+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:40:54+08:00 XiaoQiang crond[4056]: time disparity of 2517647 minutes detected
+2025-10-14T00:41:07+08:00 XiaoQiang luci: "request:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:41:07+08:00 XiaoQiang luci: "finished:/cgi-bin/luci/;stok=0104111626ba6ab9772ab1568f723e13/api/misystem/set_config_iotdev"
+2025-10-14T00:41:07+08:00 XiaoQiang passwd: password for root changed by root
+2025-10-14T00:41:47+08:00 XiaoQiang trafficd_device_example: mac:B8:27:EB:49:63:D1,type:router,event:0,ifname:,is_repeat:0,ip:
+2025-10-14T00:41:47+08:00 XiaoQiang trafficd_notify: mac:B8:27:EB:49:63:D1,type:router,event:0,ifname:,is_repeat:0,ip:
+2025-10-14T00:42:54+08:00 XiaoQiang dropbear[21781]: Bad password attempt for 'root' from 192.168.31.2:29478
+2025-10-14T00:42:58+08:00 XiaoQiang dropbear[21781]: Bad password attempt for 'root' from 192.168.31.2:29478
+2025-10-14T00:45:02+08:00 XiaoQiang odhcpd[3641]: A default route is present but there is no public prefix on br-lan thus we don't announce a default route!
+2025-10-14T00:45:29+08:00 XiaoQiang ip-conflict: "cr_ip_conflict start"
+2025-10-14T00:45:29+08:00 XiaoQiang ip-conflict: "No IP conflict"

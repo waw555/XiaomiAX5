@@ -1,0 +1,22 @@
+
+config global 'global'
+	option disabled '1'
+
+config summary 'DEDE977F7C16'
+	option mac 'DE:DE:97:7F:7C:16'
+	option disabled '0'
+	option mark '1'
+	option mode 'none'
+
+config summary '0E714CE1733C'
+	option mac '0E:71:4C:E1:73:3C'
+	option disabled '0'
+	option mark '1'
+	option mode 'none'
+
+config summary 'C2D3E38E1F53'
+	option mac 'C2:D3:E3:8E:1F:53'
+	option disabled '0'
+	option mark '1'
+	option mode 'none'
+

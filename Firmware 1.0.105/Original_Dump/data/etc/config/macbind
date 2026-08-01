@@ -1,0 +1,156 @@
+
+config host '1c740d7f722c'
+	option mac '1c:74:0d:7f:72:2c'
+	option name '1c740d7f722c'
+	option ip '192.168.1.2'
+
+config host '3497f6337b11'
+	option mac '34:97:f6:33:7b:11'
+	option name '3497f6337b11'
+	option ip '192.168.1.6'
+
+config host '7824afbcfca6'
+	option mac '78:24:af:bc:fc:a6'
+	option name '7824afbcfca6'
+	option ip '192.168.1.3'
+
+config host '0012429262dc'
+	option mac '00:12:42:92:62:dc'
+	option name '0012429262dc'
+	option ip '192.168.1.5'
+
+config host '587eff366800'
+	option mac '58:7e:ff:36:68:00'
+	option name '587eff366800'
+	option ip '192.168.1.30'
+
+config host '44783eb645bb'
+	option mac '44:78:3e:b6:45:bb'
+	option name '44783eb645bb'
+	option ip '192.168.1.26'
+
+config host '90de80d780d3'
+	option mac '90:de:80:d7:80:d3'
+	option name '90de80d780d3'
+	option ip '192.168.1.8'
+
+config host '46f2257b2f7a'
+	option mac '46:f2:25:7b:2f:7a'
+	option name '46f2257b2f7a'
+	option ip '192.168.1.15'
+
+config host 'ae6f878dd0fe'
+	option mac 'ae:6f:87:8d:d0:fe'
+	option name 'ae6f878dd0fe'
+	option ip '192.168.1.32'
+
+config host '7cc294bbebcc'
+	option mac '7c:c2:94:bb:eb:cc'
+	option name '7cc294bbebcc'
+	option ip '192.168.1.11'
+
+config host 'b8876e1ae561'
+	option mac 'b8:87:6e:1a:e5:61'
+	option name 'b8876e1ae561'
+	option ip '192.168.1.20'
+
+config host 'b4e62d72118a'
+	option mac 'b4:e6:2d:72:11:8a'
+	option name 'b4e62d72118a'
+	option ip '192.168.1.24'
+
+config host '6490c11a5f1f'
+	option mac '64:90:c1:1a:5f:1f'
+	option name '6490c11a5f1f'
+	option ip '192.168.1.10'
+
+config host '88c39774b2f2'
+	option mac '88:c3:97:74:b2:f2'
+	option name '88c39774b2f2'
+	option ip '192.168.1.2'
+
+config host '1e740d0f722c'
+	option mac '1e:74:0d:0f:72:2c'
+	option name '1e740d0f722c'
+	option ip '192.168.1.2'
+
+config host '00e037381f15'
+	option mac '00:e0:37:38:1f:15'
+	option name '00e037381f15'
+	option ip '192.168.1.8'
+
+config host '70662a5da6db'
+	option mac '70:66:2a:5d:a6:db'
+	option name '70662a5da6db'
+	option ip '192.168.1.9'
+
+config host '902b3434ac54'
+	option mac '90:2b:34:34:ac:54'
+	option name '902b3434ac54'
+	option ip '192.168.1.3'
+
+config host '34ea34f43fc3'
+	option mac '34:ea:34:f4:3f:c3'
+	option name '34ea34f43fc3'
+	option ip '192.168.1.4'
+
+config host 'e4aee41646bb'
+	option mac 'e4:ae:e4:16:46:bb'
+	option name 'e4aee41646bb'
+	option ip '192.168.1.200'
+
+config host '20f1b2c3ba8c'
+	option mac '20:f1:b2:c3:ba:8c'
+	option name '20f1b2c3ba8c'
+	option ip '192.168.1.201'
+
+config host 'e4aee416549d'
+	option mac 'e4:ae:e4:16:54:9d'
+	option name 'e4aee416549d'
+	option ip '192.168.1.202'
+
+config host 'e4aee41651c2'
+	option mac 'e4:ae:e4:16:51:c2'
+	option name 'e4aee41651c2'
+	option ip '192.168.1.203'
+
+config host 'e4aee4165124'
+	option mac 'e4:ae:e4:16:51:24'
+	option name 'e4aee4165124'
+	option ip '192.168.1.204'
+
+config host 'b06b11cebc01'
+	option mac 'b0:6b:11:ce:bc:01'
+	option name 'b06b11cebc01'
+	option ip '192.168.1.51'
+
+config host '7c64563c4576'
+	option mac '7c:64:56:3c:45:76'
+	option name '7c64563c4576'
+	option ip '192.168.1.50'
+
+config host 'dc71449b290e'
+	option mac 'dc:71:44:9b:29:0e'
+	option name 'dc71449b290e'
+	option ip '192.168.1.53'
+
+config host 'ac1e9edcbfd4'
+	option mac 'ac:1e:9e:dc:bf:d4'
+	option name 'ac1e9edcbfd4'
+	option ip '192.168.1.101'
+
+config host 'd2987381c77b'
+	option mac 'd2:98:73:81:c7:7b'
+	option name 'd2987381c77b'
+	option ip '192.168.1.100'
+
+config host 'a83b76c5d713'
+	option mac 'a8:3b:76:c5:d7:13'
+	option name 'a83b76c5d713'
+	option ip '192.168.1.61'
+
+config host 'be185da05143'
+	option mac 'be:18:5d:a0:51:43'
+	option name 'be185da05143'
+	option ip '192.168.1.102'
+

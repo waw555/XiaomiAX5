@@ -1,0 +1,8 @@
+Package: kmod-qca-nss-drv-vlan-mgr
+Version: 4.4.60+miwifi_git-2
+Depends: kernel (=4.4.60-1-9620c814968126b2db137ee63e97d166), kmod-qca-nss-drv, kmod-bonding
+Source: qca_qsdk/qca_qsdk_spf11.0/feeds/nss-host/qca-nss-clients
+Section: kernel
+Architecture: arm_cortex-a7
+Installed-Size: 12075
+Description:  Kernel driver for NSS vlan manager

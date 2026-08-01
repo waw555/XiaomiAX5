@@ -1,0 +1,10 @@
+Package: kmod-slhc
+Version: 4.4.60-1
+Depends: kernel (=4.4.60-1-9620c814968126b2db137ee63e97d166), kmod-lib-crc-ccitt
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: arm_cortex-a7
+Installed-Size: 3556
+Description:  Serial Line Header Compression

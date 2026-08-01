@@ -1,0 +1,11 @@
+Package: file
+Version: 5.25-2
+Depends: libc, libmagic
+Source: feeds/packages/libs/file
+License: BSD-2c
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Marko Ratkaj <marko.ratkaj@sartura.hr>
+Architecture: arm_cortex-a7
+Installed-Size: 127880
+Description:  File type determination utility

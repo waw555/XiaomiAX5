@@ -1,0 +1,8 @@
+Package: wan_check
+Version: 1-1.0
+Depends: libc, libubus, libuci
+Source: package/miwifi/wan_check
+Section: util
+Architecture: arm_cortex-a7
+Installed-Size: 7147
+Description:  Check status of net and port, then light the led.

@@ -1,0 +1,7 @@
+network.lan.up='1'
+network.lan.ifname='br-lan'
+network.loopback.up='1'
+network.eth4.up='1'
+network.miot.up='1'
+network.miot.ifname='br-miot'
+network.wan.up='1'

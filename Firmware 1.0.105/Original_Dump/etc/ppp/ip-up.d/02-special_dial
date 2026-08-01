@@ -1,0 +1,7 @@
+#!/bin/sh
+
+special='/etc/ppp/pppoe_special'
+[ -n "$SPECDIAL_NO" -a "$SPECDIAL_NO" != "0" ] && {
+    echo $SPECDIAL_NO > $special
+    logger stat_points_none "specdial=no_$SPECDIAL_NO"
+}

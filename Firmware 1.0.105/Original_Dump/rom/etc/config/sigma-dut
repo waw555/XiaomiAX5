@@ -1,0 +1,23 @@
+config sigma-dut global
+	option enable		'1'
+	option port		'9000'
+	option debug		'on'
+	# 5G intf is listed first under radio_name.
+	# If wifi1 is 5G radio, please modify accordingly.
+	# For single radio, comment out radio not needed.
+	list radio_name		'wifi0'
+	list radio_name		'wifi1'
+	# model, vendor and version values to be
+	# modified as per requirement for device_get_info.
+	option model		'LinuxAP'
+	option vendor		'QTI'
+	option version		'Metaversion'
+	# Change driver_type 'ATHEROS' for sta mode
+	option driver_type	'OPENWRT'
+	# main_intf and sec_intf needed for sta mode
+	option main_intf	'ath0'
+	option sec_intf		'ath0'
+	# Change program 'DPP' for dpp program
+	option program          'NA'
+        # target option for specific AP.
+	option target_opt       'ap1'

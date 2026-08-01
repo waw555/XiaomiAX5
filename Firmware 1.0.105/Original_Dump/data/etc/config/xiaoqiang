@@ -1,0 +1,13 @@
+
+config core 'common'
+	option PRIVACY '1'
+	option ROUTER_NAME_PENDING '1'
+	option INITTED 'YES'
+	option MESH_VERSION '2'
+	option DDNS_FLAG '1'
+	option ROUTER_NAME 'XIAOMI AX5'
+	option ROUTER_LOCALE 'Коридор'
+	option MANUAL '1'
+	option BANDWIDTH '1024'
+	option BANDWIDTH2 '1024'
+

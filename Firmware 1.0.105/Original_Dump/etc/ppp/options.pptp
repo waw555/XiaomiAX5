@@ -1,0 +1,12 @@
+logfile /tmp/ppp/pptp.log
+error_state_file /tmp/state/pptp_last_error
+maxfail 0
+persist
+holdoff 15
+
+noipdefault
+noauth
+nobsdcomp
+nodeflate
+idle 0
+mppe required,no40,no56,stateless

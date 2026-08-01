@@ -1,0 +1,16 @@
+#debug
+logfile /tmp/ppp/pppoe.log
+error_state_file /tmp/state/pppoe_last_error
+maxfail 0
+persist
+holdoff 15
+
+noipdefault
+noaccomp
+nopcomp
+nocrtscts
+lock
+lcp-echo-failure 5
+lcp-echo-interval 20
+lcp-echo-adaptive
+lcp-max-terminate 1
