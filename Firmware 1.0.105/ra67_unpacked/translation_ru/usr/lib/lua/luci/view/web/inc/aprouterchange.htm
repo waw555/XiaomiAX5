@@ -1,0 +1,114 @@
+<div class="mod-set mod-aprouterswitch">
+    <div class="hd">
+        <h3><%:Режим повторителя%></h3>
+    </div>
+    <div class="bd">
+        <p><%:Переключение маршрутизатора в режим повторителя%></p>
+        <a href="#" type="submit" id="btnApRouterSwitch" class="btn btn-primary btn-l"><span><%:Переключить%></span></a>
+    </div>
+</div>
+<script type="tmpl/html" id="tmplApRouterSwitch">
+<div class="netmode-switch-dialog-cont ap-router-switch-dialog-cont">
+    <div class="switch-step step-wds" style="display:block;">
+        <p class="tit"><%:Пожалуйста, выберите беспроводную сеть, чтобы расширить диапазон%></p>
+        <form id="wdsAprouter" name="wdsAprouter" class="form clearfix" action="/">
+            <div class="form-item-out toggle-element flag-is-select ssid-select-relative" id="ssidSelectDiv">
+                <div class="form-item-select">
+                    <label class="k"><%:Выберите сеть%></label>
+                    <span class="v">
+                         <select id="ssidselect" name="ssidselect" class="beautify" >
+
+                            <option value=""><%:Поиск Wi-Fi сетей%></option>
+                        </select>
+                    </span>
+                    <em class="t"></em>
+                </div>
+                <span id="btnFreshenWIFIAprouter" class="icon-freshen"></span>
+            </div>
+            <div class="form-item-out toggle-element hide">
+                <div class="form-item">
+                    <label class="k"><%:Имя сети%></label>
+                    <span class="v"><input reqMsg="<%:Имя сети%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinput" type="text" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <div class="form-item-out toggle-element">
+                <div class="form-item" id="wdsWifiInputDivForSelect">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input reqMsg="<%:Пароль%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordforselect" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+                <div class="form-item" id="wdsWifiInputDivForSelectWep" style="display:none;">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input reqMsg="<%:Пароль%>" datatype="weppassword" minlength="5" maxlength="32" name="passwordforselectwep" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <div class="form-item-out toggle-element hide">
+                <div class="form-item" id="wdsWifiInputDivForInput">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input name="passwordforinput" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <p class="change-select-type"><a class="a1" href="#" id="changeSelectTypeAprouter"><%:Ввести имя сети вручную%></a></p>
+            <div class="form-new-ssid">
+            <div class="contral" style="display:none;">
+                <label for="newssidtextInnetmod">
+                    <input type="checkbox" id="newssidtextInnetmod" checked="checked" />
+                    <span><%:Имя и пароль беспроводной сети такие же, как у основного маршрутизатора.%></span>
+                </label>
+            </div>
+                <div class="contral-div hide" id="newssiddiv">
+                    <p class="title"><%:Установите имя и пароль WiFi%></p>
+                    <div class="form-item">
+                        <label class="k"><%:Имя WiFi%></label>
+                        <span class="v"><input  reqMsg="<%:Имя Wi-Fi%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
+                        <em class="t"></em>
+                    </div>
+                    <div class="form-item-select">
+                        <label class="k"><%:Защита сети%></label>
+                        <span class="v">
+                            <select name="encryptionkey" id="encryptionkey" class="beautify" >
+                                <option value="mixed-psk"><%:WPA/WPA2%></option>
+                                <option value="psk2"><%:WPA2%></option>
+                                <option value="none"><%:Без защиты%></option>
+                            </select>
+                        </span>
+                        <em class="t"></em>
+                    </div>
+                    <div class="form-item" id="newssidpassitem">
+                        <label class="k"><%:Пароль WiFi%></label>
+                        <span class="v"><input reqMsg="<%:Пароль Wi-Fi%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordfornewssid" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                        <em class="t"></em>
+                    </div>
+                </div>
+            </div>
+            <div class="tip-div">
+                <span class="text"><%:Не удалось найти сеть%></span><span class="ico-tip"></span>
+                <div class="tip-wrap hide">
+                    <div class="arrow"></div>
+                    <div class="inner">
+                        <%:Убедитесь, что Wi-Fi основного маршрутизатора включена.%>
+                    </div>
+                </div>
+            </div>
+            <div class="form-contral">
+                <button class="btn btn-primary btn-l" type="submit"><span><%:Единая беспроводная сеть%></span></button>
+            </div>
+        </form>
+    </div>
+    <div class="switch-step step-setting">
+        <p><%:Настройка, подождите ...%><br /><%:Пожалуйста, не закрывайте браузер и не отключайте маршрутизатор%></p>
+        <span class="loading"></span>
+    </div>
+    <div class="switch-step step-succ">
+        <h3><%:Поздравляем, настройка единой беспроводной сети на маршрутизаторе выполнена успешно!%></h3>
+        <p class="text"><%:1. Текущее имя беспроводной сети%>：</p>
+        <p class="center"><span id="newssid"></span></p>
+        <p class="text"><%:2. IP-адрес текущего маршрутизатора%>：</p>
+        <p class="center"><span id="newip"></span></p>
+        <a id="btnSuccAprouter" href="#" class="btn btn-primary btn-large"><span><%:Определить%></span></a>
+    </div>
+</div>
+</script>

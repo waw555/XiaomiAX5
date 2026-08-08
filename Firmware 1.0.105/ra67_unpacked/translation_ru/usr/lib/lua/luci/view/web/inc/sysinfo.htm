@@ -1,0 +1,150 @@
+<%
+local XQSysUtil = require("xiaoqiang.util.XQSysUtil")
+local romChannel = XQSysUtil.getChannel()
+local uci = require("luci.model.uci").cursor()
+local features = require("xiaoqiang.XQFeatures").FEATURES
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local hardware = string.lower( XQSysUtil.getHardware() )
+local XQFunction = require("xiaoqiang.common.XQFunction")
+local netmod = 0
+local netmod = XQFunction.getnetmode()
+--2 Точка доступа
+--1 Усилитель
+--4 Основной mesh  whc_cap
+--3 Дополнительный mesh  whc_re
+--0 router
+local isMesh = (netmod == 3 or netmod == 4) and true  or  false
+%>
+<div class="mod-upgrade" data="<%=netmod%>">
+    <div class="hd"><h3><%:Обновление устройства%></h3></div>
+
+<!--    < isMesh >-->
+<!--    <div class="bd bd-01" id="meshUpgrade">-->
+<!--         <div class="one div1 clearfix">-->
+<!--            <div class="left">-->
+<!--                 <img class="icon-d01" src="/xiaoqiang/web/img/icons/router_d01_101_on.png">-->
+<!--                 <img class="icon-internet" src="/xiaoqiang/web/img/icons/icon_internet_on.png">-->
+<!--            </div>-->
+<!--            <div class="left left-item">-->
+<!--                <p id="blue">&#45;&#45;</p>-->
+<!--                 <p class="upgradeinfo"></p>-->
+<!--                  <a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btnUpgread btn btn-primary btn-l left">-->
+<!--                     <span><%:Обновить%></span>-->
+<!--                  </a>-->
+<!--                <a href="#" class="btnUpload btn btn-dft btn-l right">-->
+<!--                    <span><%:手动升级%></span>-->
+<!--                 </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--     <else>-->
+    <div class="bd">
+            <h4><%:Версия прошивки%></h4>
+            <p id="upgradeinfo"></p>
+            <p class="hasnewver" style="display:none;"><a href="<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=download" class="btn btn-primary btn-l" id="btnUpgread"><span><%:Обновить%></span></a></p>
+            <p><a href="#" id="btnUpload" class="btn btn-dft btn-l"><span><%:Загрузить%></span></a></p>
+            <div class="logs" style="display:none;">
+                <h4><%:Журнал обновлений%></h4>
+                <div id="changelog" style="display:none;">
+                    <iframe name="setting" id="changelogUrl" style="width:100%; border:0;background:none;" src="about:blank" frameborder="0" height="500" scrolling="yes"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <end>-->
+
+<div class="mod-uploadlog">
+    <div class="hd">
+        <h3><%:Загрузить журнал%></h3>
+    </div>
+    <div class="bd">
+        <div style="margin-bottom:15px;"><button type="button" id="btnUploadlog" class="btn btn-primary btn-l"><span><%:Загрузить журнал%></span></button></div>
+        <%if features["system"]["downloadlogs"] == "1" then%>
+        <div><button type="button" id="btnDownloadlog" class="btn btn-primary btn-l"><span><%:Скачать журнал%></span></button></div>
+        <%end%>
+    </div>
+</div>
+
+<div class="mod-uploadlog">
+    <div class="hd">
+        <h3><%:Сброс настроек%></h3>
+    </div>
+    <div class="bd">
+        <button type="button" id="btnReset" class="btn btn-primary btn-l"><span><%:Сбросить%></span></button>
+    </div>
+</div>
+
+ <%if not isMesh then%>
+<div class="mod-set mod-backupconfig">
+    <div class="hd">
+        <h3><%:Резервное копирование и восстановление настроек%></h3>
+    </div>
+    <div class="bd">
+        <p><%:Резервную копию конфигурации маршрутизатора можно использовать для восстановления после прошивки или сброса настроек маршрутизатора.%></p>
+        <div class="btns">
+            <a href="#" id="btnBackupconfig" class="btn btn-dft btn-m"
+            ><span><%:Сохранить%></span></a>
+            <a href="#" id="btnUploadconfig" class="btn btn-dft btn-m"><span><%:Восстановить%></span></a>
+        </div>
+    </div>
+</div>
+<%end%>
+
+<%if romChannel == "release" and features["system"]["i18n"] == "1"  then%>
+<div class="mod-uploadlog">
+    <div class="hd">
+        <h3><%:Язык системы%></h3>
+    </div>
+    <div class="bd">
+        <div class="clearfix">
+            <div class="form-item-select">
+                <label class="k"><%:Выбранный язык%></label>
+                <span class="v"><select name="lang" id="lang" class="beautify"></select></span>
+            </div>
+        </div>
+    </div>
+</div>
+<%end%>
+
+<div class="mod-set mod-systime">
+    <div class="hd">
+        <h3><%:Настройка часового пояса%></h3>
+    </div>
+
+    <%if netmod == 4 then%>
+     <!-- 主mesh -->
+    <div class="bd" id="zhumesh"  style="display:block">
+        <div class="group" >
+            Текущее время: <span id="datetiemval"></span>
+        </div>
+        <div class="group">
+            <p id="timezoneval"></p>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
+        </div>
+
+    </div>
+    <%elseif netmod == 3 then%>
+    <div class="bd" id="zimesh" style="display:block">
+        <div class="group">
+            <p>Текущее время: <span id="datetiemval2"></span></p>
+            <p>Часовой пояс: <span id="timezoneval2"></span></p>
+            <p>* Если вам нужно изменить часовой пояс, переключитесь на основной маршрутизатор Mesh для изменения настроек, он автоматически синхронизируется с дополнительным маршрутизатором Mesh</p>
+        </div>
+
+    </div>
+
+    <%else%>
+    <div class="bd">
+        <div class="group">
+            <p id="timezoneval"></p>
+            <button type="button" id="btnTimezone" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
+        </div>
+        <div class="group">
+            <p id="datetiemval"></p>
+            <button type="button" id="btnDatetime" class="btn btn-dft btn-m"><span><%:Изменить%></span></button>
+        </div>
+    </div>
+
+    <%end%>
+
+</div>

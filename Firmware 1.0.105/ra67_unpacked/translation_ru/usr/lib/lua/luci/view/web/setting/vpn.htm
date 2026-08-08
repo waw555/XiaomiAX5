@@ -1,0 +1,1044 @@
+<%
+--[[
+    Info    PPTP L2TP
+]]--
+local ver = require("xiaoqiang.XQVersion").webVersion
+local uci = require("luci.model.uci").cursor()
+local hardwareModel = tostring(uci:get("misc", "hardware", "model"))
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local hardware = string.lower( XQSysUtil.getHardware() )
+
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/vpn.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include("web/inc/header")%>
+    <div id="bd">
+        <div class="mod-set mod-vpn">
+            <div class="hd">
+                <div class="help">
+                    <span class="ico"></span>
+                    <span class="arrow-wrap" id="helpArrow">
+                        <span class="arrow1"></span>
+                        <span class="arrow2"></span>
+                    </span>
+                </div>
+                <h3><%:Настройка VPN%></h3>
+            </div>
+            <div class="bd">
+                <div class="section section-help" id="helpSection">
+                    <div class="help-cont">
+                        <span class="help-close"></span>
+                        <div class="what">
+                            <h3><%:Что такое VPN%></h3>
+                            <p><%:VPN (Виртуальная Частная Сеть)- это технология удаленного доступа. Пример использования: Сотрудники, находящиеся в командировках, получают доступ к корпоративной внутренней сети через службы VPN.%></p>
+                            <p><%:PPTP (Туннельный протокол типа точка-точка, позволяющий компьютеру устанавливать защищённое соединение с сервером за счёт создания специального туннеля в стандартной, незащищённой сети.) и L2TP (Протокол туннелирования второго уровня — в компьютерных сетях туннельный протокол, использующийся для поддержки виртуальных частных сетей) - это два протокола туннелирования, оба из которых относятся к разным методам классификации протоколов VPN (Виртуальная Частная Сеть).%></p>
+                        </div>
+                        <div class="qa">
+                            <h3><%:Описание%></h3>
+                            <h4><%:Как включить VPN%></h4>
+                            <p><%:1. Вам необходимо зарегистрировать учетную запись на сайте поставщика услуг VPN, получить имя пользователя, пароль, адрес сервера, тип протокола и другую информацию.%></p>
+                            <p><%:2. Ввести полученные данные в соответствующие поля и включить службу VPN.%></p>
+                            <h4><%:Как настроить VPN%>:</h4>
+                            <p><%:1. Имя пользователя, пароль, адрес сервера, тип протокола и другую информацию необходимо ввести в соответствующие поля, на странице параметров VPN%></p>
+                            <p><%:2. Если вы не знаете тип протокола VPN, вы можете выбрать автоматический режим.%></p>
+                            <p><%:3. Адрес сервера предоставленный поставщиком услуги VPN, может быть доменным именем или IP-адресом.%></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-list">
+                    <h4><%:Список VPN сетей%></h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><%:Имя сети%></th>
+                                <th><%:Тип сети%></th>
+                                <th><%:Адрес сервера%></th>
+                                <th><%:Пользователь%></th>
+                                <th><%:Состояние%></th>
+                                <th class="center" width="244"><%:Действия%></th>
+                            </tr>
+                        </thead>
+                        <tbody id="vpnlist">
+                            <tr>
+                                <td class="center" colspan="6"><%:Подождите...%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btns">
+                        <a href="#" class="btn btn-dft btn-l" id="btnadditem"><span><%:Добавить%></span></a>
+                    </div>
+                </div>
+                <div class="section-set" style="display:none">
+                    <span class="k"><%:Автоматическое подключение при загрузке%></span>
+                    <a href="#" id="autostart" class="btn-switch btn-switch-off"></a>
+                </div>
+            </div>
+            <%if hardware ~= "d01" then%>
+            <div class="hd">
+                <h3><%:Доступ к VPN сети%></h3>
+                <div class="switch">
+                    <a href="#" id="smartvpnswitch" class="btn-switch btn-switch-off"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <div id="smartvpnoff"><p><%:Вы можете настроить, какие IP адреса или устройства смогут использовать сеть VPN.%></p></div>
+                <div id="smartvpnon" class="smartvpnon" style="display:none;">
+                    <div id="smartvpnmode" class="tab">
+                        <ul class="clearfix">
+                            <li class="first active" data-mode="1">
+                                <%:IP адреса%>
+                            </li>
+                            <li data-mode="2">
+                                <%:Устройства%>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="smartvpnmodedesc" class="smartvpnmodedesc">
+                        <p><%:Вы можете установить, трафик с каких IP адресов будет проходить через VPN, добавив IP адреса.%></p>
+                        <p><%:Вы можете добавить устройства, которые смогут использовать сеть VPN.%></p>
+                    </div>
+                    <div id="smartvpnmodecont">
+                        <div style="display:none;">
+                            <table class="table">
+                                <thead>
+                                    <th><%:IP адрес%></th>
+                                    <th style="width:80px; text-align:center;"><%:Действия%></th>
+                                </thead>
+                                <tbody id="smartvpnurlTbody">
+                                </tbody>
+                            </table>
+                            <div class="btn-wrap">
+                                <button class="btn btn-dft btn-l" id="addsmartvpnurl"><span><%:Добавить IP адрес%></span></button>
+                            </div>
+                        </div>
+                        <div style="display:none;">
+                            <table class="table">
+                                <thead>
+                                    <th><%:Имя устройства%></th>
+                                    <th><%:MAC адрес%></th>
+                                    <th style="width:80px; text-align:center;"><%:Действия%></th>
+                                </thead>
+                                <tbody id="smartvpnmacTbody">
+                                </tbody>
+                            </table>
+                            <div class="btn-wrap">
+                                <button class="btn btn-dft" id="addsmartvpndevicelist"><span><%:Выбрать устройство%></span></button>
+                                <button class="btn btn-dft" id="addsmartvpnmac"><span><%:Добавить по MAC адресу%></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hd">
+                <h3><%:Интернет через VPN%></h3>
+                <div class="switch">
+                    <a href="#" id="mivpnswitch" class="btn-switch btn-switch-off"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <p><%:Если нужно использовать Интернет через VPN, включите эту функцию.%></p>
+            </div>
+             <%end%>
+        </div>
+    </div>
+    <%include("web/inc/footer")%>
+</div>
+<%include("web/inc/g.js")%>
+<script type="tmpl/html" id="tpladdvpn">
+<form action="<%=luci.dispatcher.build_url("api", "xqsystem", "set_vpn")%>" class="form form-vpnadd" method="post" name="vpn" id="vpn">
+    {if($id && $id !='')}
+        <input type="hidden" name="id" value="{$id}">
+    {/if}
+    <div class="form-item">
+        <label class="k"><%:Имя сети%></label>
+        <span class="v"><input type="text" name="oname" reqMsg = "<%:Имя сети%>" class="ipt-text" value="{$oname}"></span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item-select">
+        <label class="k"><%:Протокол%></label>
+        <span class="v">
+            <select name="proto" class="beautify vpntype">
+                <option value="pptp" {if($proto == 'pptp')}selected="selected"{/if}>PPTP</option>
+                <%if (hardwareModel ~="R3L") then%>
+                <option value="l2tp" {if($proto == 'l2tp')}selected="selected"{/if}>L2TP</option>
+                <%end%>
+            </select>
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item">
+        <label class="k"><%:Адрес сервера%></label>
+        <span class="v"><input type="text" name="server" reqMsg = "<%:Адрес сервера%>" class="ipt-text" value="{$server}"></span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item">
+        <label class="k"><%:Имя пользователя%></label>
+        <span class="v"><input type="text" name="username" reqMsg = "<%:Имя пользователя%>" class="ipt-text" value="{$username}"></span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item">
+        <label class="k"><%:Пароль%></label>
+        <span class="v"><input type="password" name="password" reqMsg = "<%:Пароль%>" class="ipt-text" data-type="password" value="{$password}"></span>
+        <em class="t"></em>
+    </div>
+    <div class="item-contral">
+        <button type="submit" class="btn btn-primary btn-l" id="btnSave"><span><%:Сохранить%></span></button>
+    </div>
+</form>
+</script>
+<script type="tmpl/html" id="tplvpnlist">
+{if($vpnlist.length > 0)}
+{for(var i=0; i<$vpnlist.length; i++)}
+<tr id="{$vpnlist[i].id}" class="{if($vpnlist[i].iscurrent == 1)}conn-st-5{else}conn-st-3{/if}">
+    <td>{$vpnlist[i].oname}</td>
+    <td>{$vpnlist[i].proto}</td>
+    <td>{$vpnlist[i].server}</td>
+    <td>{$vpnlist[i].username}</td>
+    <td class="conn-st-text">
+        <span class="vpn-status">
+            <span class="val">
+            {if($vpnlist[i].iscurrent == 1)}
+                <%:Подождите...%>
+            {else}
+                <%:Не подключен%>
+            {/if}
+            </span>
+            <span class="uptime"></span>
+        </span>
+    </td>
+    <td>
+        <div class="conn-opt conn-opt-1">
+            <button class="btn btn-primary btn-block btn-conn-stop" data-id={$vpnlist[i].id}><span><%:Остановить%></span></button>
+        </div>
+        <div class="conn-opt conn-opt-2">
+            <button class="btn btn-primary btn-block btn-conn-cancel" data-id={$vpnlist[i].id}><span><%:Отключить%></span></button>
+        </div>
+        <div class="conn-opt conn-opt-3">
+            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:Включить%></span></button>
+            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:Изменить%></span></button>
+            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:Удалить%></span></button>
+        </div>
+        <div class="conn-opt conn-opt-4">
+            <button class="l btn btn-dft btn-conn-start" data-id={$vpnlist[i].id}><span><%:Включить%></span></button>
+            <button class="l btn btn-dft btn-edit" data-id={$vpnlist[i].id}><span><%:Изменить%></span></button>
+            <button class="r btn btn-dft btn-del" data-id={$vpnlist[i].id}><span><%:Удалить%></span></button>
+        </div>
+    </td>
+</tr>
+{/for}
+{else}
+<tr>
+    <td colspan="6" class="center"><%:Нет ни одной VPN сети%></td>
+</tr>
+{/if}
+</script>
+<script type="tmpl/html" id="tmplErrtip">
+<div class="status-err-tips">
+    <span class="arrow"></span>
+    {$cont}
+</div>
+</script>
+<script type="tmpl/html" id="tmplsmartvpnurl">
+<tr>
+    <td>{$url}</td>
+    <td><button class="btn btn-dft smartvpn-del" data-url="{$url}"><span><%:Удалить%></span></button></td>
+</tr>
+</script>
+<script type="tmpl/html" id="tmplsmartvpnmac">
+<tr>
+    <td>{$name}</td>
+    <td>{$mac}</td>
+    <td><button class="btn btn-dft smartvpn-del" data-macs="{$mac}"><span><%:Удалить%></span></button></td>
+</tr>
+</script>
+<script type="tmpl/html" id="tmplAddList">
+    <div class="dialog-listadd-form-wrap">
+        <form  class="form" id="listAdd">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><%:Устройство%></th>
+                        <th width="90"><%:Состояние%></th>
+                        <th><%:MAC адрес%></th>
+                        <th width="50"><%:Выбор%></th>
+                    </tr>
+                </thead>
+                <tbody id="dialogdeviceslist">
+                    <tr>
+                        <td colspan="4"><%:Подождите...%></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-contral">
+                <button type="submit" class="btn btn-primary" id="listAddSubmit"><span><%:Сохранить%></span>
+                </button>
+                <button type="submit" class="btn btn-dft" id="listAddClose"><span><%:Отменить%></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="tmpl/html" id="tmplDevice">
+    <tr>
+        <td>{$name}</td>
+        <td>{$status}</td>
+        <td>{$mac}</td>
+        <td>
+            <input class="deviceinput" type="checkbox" name="nowmac" value="{$mac}" />
+        </td>
+    </tr>
+</script>
+<script type="tmpl/html" id="tmplAddmac">
+    <div class="dialog-add-bymac">
+        <form class="form" name="addbymac" id="addbymac">
+            <p><%:Введите MAC адрес устройства%></p>
+            <div class="form-item">
+                <label class="k">
+                    <%:MAC адрес%>
+                </label>
+                <span class="v">
+                    <input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC адрес%>" />
+                </span>
+                <em class="t"></em>
+            </div>
+            <div class="form-contral">
+                <button type="submit" class="btn btn-primary" id="macAddSubmit"><span><%:Сохранить%></span>
+                </button>
+                <button type="submit" class="btn btn-dft" id="macAddClose"><span><%:Отменить%></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="tmpl/html" id="tmplAddurl">
+    <div class="dialog-add-bymac">
+        <form class="form" name="addbyurl" id="addbyurl">
+            <p><%:Введите IP адрес%></p>
+            <div class="form-item">
+                <label class="k">
+                    <%:IP адрес%>
+                </label>
+                <span class="v">
+                    <input type="text" id="urladdr" name="urladdr" class="ipt-text" reqMsg="<%:IP адрес%>" />
+                </span>
+                <em class="t"></em>
+            </div>
+            <div class="form-contral">
+                <button type="submit" class="btn btn-primary" id="urlAddSubmit"><span><%:Сохранить%></span>
+                </button>
+                <button type="submit" class="btn btn-dft" id="urlAddClose"><span><%:Отменить%></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</script>
+<script>
+var modelVpn = (function(){
+    var timer = null,
+        dlgform,
+        currentId,
+        ajaxdone = true;
+    var vpnConnectStatus = -1;
+    function vpnInfo(){
+        var xhr = $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn")%>', {}, function(rsp){
+            if (rsp.code == 0) {
+                var tpl = $('#tplvpnlist').html(),
+                    tpldata = [],
+                    list = rsp.list,
+                    current = rsp.current,
+                    iscurrent = 0;
+
+                currentId = current.id;
+                $('.section-set').hide();
+
+                if (list.length > 0) {
+                    for (var i = 0; i < list.length; i++) {
+                        if ( list[i].id == current.id) {
+                             iscurrent = 1;
+                             $('.section-set').show();
+                             if ( current.auto == '1' ) {
+                                 $('#autostart')[0].className = 'btn-switch btn-switch-on';
+                             } else {
+                                 $('#autostart')[0].className = 'btn-switch btn-switch-off';
+                             }
+                         } else {
+                             iscurrent = 0;
+                         }
+                        var item = {
+                            id: list[i].id,
+                            proto: list[i].proto.toUpperCase(),
+                            server: list[i].server,
+                            username: StringH.encode4HtmlValue(list[i].username),
+                            oname: StringH.encode4HtmlValue(list[i].oname),
+                            id: list[i].id,
+                            iscurrent: iscurrent
+                        }
+                        tpldata.push(item);
+                    }
+                }
+                $('#vpnlist').html(tpl.tmpl({vpnlist: tpldata}) );
+            }
+        });
+        return xhr;
+    }
+
+    function vpnStatus(){
+        ajaxdone = false;
+        var xhr = $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_status")%>', {}, function(rsp){
+            ajaxdone = true;
+            if (rsp.code == 0) {
+                var status = rsp.status,
+                    uptime = '',
+                    statusCode = 2,
+                    trstatus,
+                    statusText;
+                vpnConnectStatus = rsp.status;
+                // 0 connected 1 connecting 2 failed 3 close
+                switch(status){
+                    case 0:
+                        statusText = '<%:Подключен%>';
+                        trstatus = 'conn-st-1';
+                        uptime = secondToDate(rsp.uptime);
+                        break;
+                    case 1:
+                        trstatus = 'conn-st-2';
+                        statusText = '<%:Подключение...%>';
+                        break;
+                    case 2:
+                        statusText = '<%:Ошибка подключения%>';
+                        trstatus = 'conn-st-4';
+                        break;
+                    case 3:
+                        statusText = '<%:Отключен%>';
+                        trstatus = 'conn-st-3';
+                        break;
+                    case 4:
+                        statusText = '<%:Выключен%>';
+                        trstatus = 'conn-st-3';
+                        break;
+                    default:
+                        statusText = '<%:Нестабильное подключение%>';
+                        trstatus = 'conn-st-4';
+                        break;
+                }
+
+                if (rsp.errcode) {
+                    trstatus = 'conn-st-4';
+                    // statusText = rsp.errmsg;
+                    statusText = '<span class="errmsg-wrap" data-error="' + rsp.errmsg + '"><%:Ошибка подключения%></span>';
+                    uptime = '';
+                };
+                var el = document.getElementById(currentId);
+                if ( el ) {
+                    el.className = trstatus;
+                    $('.vpn-status .val', el).html(statusText);
+                    $('.vpn-status .uptime', el).html(uptime);
+                }
+            }
+        });
+        return xhr;
+    };
+    function listenStatus(){
+        timer = window.setInterval(function(){
+            if ( ajaxdone ) {
+                vpnStatus();
+            }
+        },5000);
+    };
+    function stopListenStatus(){
+        window.clearInterval(timer);
+    }
+    function vpnSwitch(){
+        $('body').delegate('.btn-conn-start', 'click', function(e){
+            e.preventDefault();
+            var root = $(this).parents('tr'),
+                id = $(this).attr('data-id');
+            // root[0].className = 'conn-st-2';
+            // root.find('.vpn-status .uptime').html('');
+            // root.find('.vpn-status .val').html('<%:正在拨号...%>');
+            stopListenStatus();
+            $.pub( 'loading:start' );
+            $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 1, id: id}, function(rsp){
+                if (rsp.code == 0) {
+                    currentId = id;
+                    vpnInfo().always( function(){
+                        setTimeout( function(){
+                            vpnStatus().always( function(){
+                                listenStatus();
+                                $.pub( 'loading:stop' );
+                            } );
+                        }, 4000 );
+                    } );
+                } else {
+                    $.pub( 'loading:stop' );
+                    $.alert( rsp.msg );
+                    location.reload( 1 );
+                }
+
+            });
+        });
+
+        $('body').delegate('.btn-conn-stop, .btn-conn-cancel', 'click', function(e){
+            e.preventDefault();
+            var root = $(this).parents('tr'),
+                id = $(this).attr('data-id');
+            // root[0].className = 'conn-st-5';
+            // root.find('.vpn-status .uptime').html('');
+            // root.find('.vpn-status .val').html('<%:正在断开...%>');
+            stopListenStatus();
+            $.pub( 'loading:start' );
+            $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 0, id: id}, function(rsp){
+                if (rsp.code == 0) {
+                    currentId = id;
+                    setTimeout( function(){
+                        vpnStatus().always( function(){
+                            listenStatus();
+                            $.pub( 'loading:stop' );
+                        } );
+                    }, 1000 );
+                } else {
+                    $.pub( 'loading:stop' );
+                    $.alert( rsp.msg );
+                    location.reload( 1 );
+                }
+
+            });
+        });
+
+        $('body').delegate('.btn-edit', 'click', function( e ){
+            e.preventDefault();
+            var that = this,
+                $this = $(that),
+                id = $this.attr('data-id'),
+                tpl = $('#tpladdvpn').html(),
+                tpldata = {
+                    oname: '',
+                    password: '',
+                    server: '',
+                    username: '',
+                    proto: 'pptp'
+                };
+            $.pub( 'loading:start' );
+            $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn")%>', {}, function(rsp){
+                if ( rsp.code == 0 ) {
+                    var list = rsp.list;
+                    if ( list.length > 0 ) {
+                        for (var i = 0; i < list.length; i++) {
+                             if ( list[i].id == id) {
+                                tpldata.proto = list[i].proto;
+                                tpldata.oname = StringH.encode4HtmlValue(list[i].oname);
+                                tpldata.password = list[i].password;
+                                tpldata.server = list[i].server;
+                                tpldata.username = StringH.encode4HtmlValue(list[i].username);
+                                tpldata.password = StringH.encode4HtmlValue(list[i].password);
+                                tpldata.id = list[i].id;
+                            }
+                        }
+                    }
+                    console.log( tpldata );
+                    dlgform = $.dialog({
+                        title: '<%:Добавить%>',
+                        width: 600,
+                        content: tpl.tmpl(tpldata),
+                        lock: true
+                    });
+                    setTimeout( function(){
+                        $.selectBeautify();
+                        $.formInit();
+                    }, 100 );
+                }
+                $.pub( 'loading:stop' );
+            });
+        });
+
+        $( 'body' ).delegate( '.btn-del', 'click', function( e ){
+            e.preventDefault();
+            var that = this,
+                $this = $(that),
+                id = $this.attr('data-id'),
+                ok = function(){
+                    $.pub( 'loading:start' );
+                    $.getJSON('<%=luci.dispatcher.build_url("api","xqsystem","del_vpn")%>', {id: id}, function( rsp ){
+                        if ( rsp.code == 0 ) {
+                            location.reload( 1 );
+                        } else {
+                            $.alert( rsp.msg );
+                        }
+                        $.pub( 'loading:stop' );
+                    });
+                };
+            $.confirm( '<%:Вы уверены, что хотите удалить этот элемент?%>', ok );
+        });
+
+         $('#autostart').on('click', function( e ){
+             e.preventDefault();
+             var that = this,
+                 $this = $(that),
+                 ison = $this.hasClass('btn-switch-on'),
+                 data = {auto: 1},
+                 classname = 'btn-switch btn-switch-on';
+             if ( ison ) {
+                 data = {auto: 0};
+                 classname = 'btn-switch btn-switch-off';
+             }
+             $.getJSON('<%=luci.dispatcher.build_url("api","xqsystem","set_vpnauto")%>', data, function( rsp ){
+                 that.className = classname;
+             });
+         });
+    }
+
+    function vpnset(){
+        $('#btnadditem').on('click', function(e){
+            e.preventDefault();
+            var tpl = $('#tpladdvpn').html(),
+                tpldata = {
+                    oname: '',
+                    password: '',
+                    server: '',
+                    username: '',
+                    proto: 'pptp'
+                };
+            dlgform = $.dialog({
+                title: '<%:Добавить%>',
+                width: 600,
+                content: tpl.tmpl(tpldata),
+                lock: true
+            });
+            setTimeout( function(){
+                $.selectBeautify();
+                $.formInit();
+            }, 100 );
+        });
+
+        $('body').delegate('#vpn', 'submit', function(e){
+            e.preventDefault();
+            var url = this.action,
+                method = this.method,
+                param = $(this).serialize(),
+                formName = this.name,
+                validator = Valid.checkAll( this );
+            if (validator) {
+                $.pub( 'wait', {id: '#btnSave'});
+                $.ajax({
+                    url: url,
+                    type: method,
+                    data: param,
+                    dataType: 'json',
+                    success: function(rsp){
+                        var msg;
+                        if (rsp.code == 0) {
+                            dlgform.close();
+                            location.reload( 1 );
+                        }else{
+                            $.alert(rsp.msg);
+                        }
+                        $.pub( 'done', {id: '#btnSave'});
+                    }
+                });
+            }
+        });
+
+    }
+    function displayHelp( flag ){
+        var arrow = $('#helpArrow');
+        var section = $('#helpSection');
+        if( flag == 'block'){
+            arrow.show();
+            section.show();
+        }else{
+            arrow.hide();
+            section.hide();
+        }
+    }
+    function showErrMsg( ele ){
+        var cont = $(ele).attr('data-error');
+        var tpl = $('#tmplErrtip').html();
+        var html = StringH.tmpl(tpl, {
+            cont: cont
+        });
+        $('.status-err-tips').remove();
+        $('body').append(html);
+        $('.status-err-tips').css({
+            left: $(ele).offset().left - $('.status-err-tips').width() / 2 + 20,
+            top: $(ele).offset().top + 28
+        });
+        $('body').click(function(e){
+            if( !$(e.target).is(".errmsg-wrap") ){
+                $('.status-err-tips').remove();
+            }
+        });
+    }
+    function smartvpnSwitch(){
+        var btn = $('#smartvpnswitch');
+        btn.on('click', function(e){
+            e.preventDefault();
+            var self = this;
+            var open = $(this).hasClass('btn-switch-on') ? 0 : 1;
+            if( open == 1 ){
+                $.confirm('<%:Эта настройка вступит в силу после повторного подключения к VPN, и функция "Интернет через VPN" будет отключена.%>', function(){
+                    checkConnected(function(){
+                        // var enable = $(self).hasClass('btn-switch-on') ? 0 : 1;
+                        var mode = $('#smartvpnmode li.active').attr('data-mode');
+                        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_switch")%>', {'enable': open, 'mode': mode}, function(rsp){
+                            if( rsp.code == 0 ){
+                                getSmartVPNInfo();
+                                miVPNInfo();
+                            }else{
+                                $.alert( rsp.msg );
+                            }
+                        });
+                    });
+                });
+            }else{
+                checkConnected(function(){
+                    // var enable = $(self).hasClass('btn-switch-on') ? 0 : 1;
+                    var mode = $('#smartvpnmode li.active').attr('data-mode');
+                    $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_switch")%>', {'enable': open, 'mode': mode}, function(rsp){
+                        if( rsp.code == 0 ){
+                            getSmartVPNInfo();
+                        }else{
+                            $.alert( rsp.msg );
+                        }
+                    });
+                });
+            }
+        });
+    }
+    function getSmartVPNInfo( ){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_info")%>', {}, function(rsp){
+            if( rsp.code == 0 ){
+                if( rsp.info.switch == 1 ){
+                    var tabs = $('#smartvpnmode li');
+                    var desc = $('#smartvpnmodedesc p');
+                    var conts = $('#smartvpnmodecont > div');
+                    $('#smartvpnswitch')[0].className = 'btn-switch btn-switch-on';
+                    $('#smartvpnoff').hide();
+                    $('#smartvpnon').show();
+                    if( rsp.info.mode == 1 ){
+                        //按服务地址分流
+                        tabs.removeClass('active').eq(0).addClass('active');
+                        desc.hide().eq(0).show();
+                        conts.hide().eq(0).show();
+                        var list = rsp.info.ulist;
+                        var trarr = [];
+                        var tpl = $('#tmplsmartvpnurl').html();
+                        if($.isArray(list) && list.length > 0){
+                            for(var i = 0, len = list.length; i < len; i++){
+                                var tr = StringH.tmpl(tpl, {
+                                    url: list[i]
+                                });
+                                trarr.push(tr);
+                            }
+                            $('#smartvpnurlTbody').html(trarr.join(''));
+                        }else{
+                            $('#smartvpnurlTbody').html('<tr><td colspan="2" style="text-align:center;"><%:Адрес не добавлен%></td></tr>');
+                        }
+                    }else{
+                        tabs.removeClass('active').eq(1).addClass('active');
+                        desc.hide().eq(1).show();
+                        conts.hide().eq(1).show();
+                        var mlist = rsp.info.mlist;
+                        var mnamelist = rsp.info.name;
+                        var mtrarr = [];
+                        var mtpl = $('#tmplsmartvpnmac').html();
+                        if( $.isArray(mlist) && mlist.length > 0 ){
+                            for(var j = 0, l = mlist.length; j < l; j++){
+                                var mtr = StringH.tmpl(mtpl, {
+                                    mac: mlist[j],
+                                    name: mnamelist[ mlist[j] ]
+                                });
+                                mtrarr.push(mtr);
+                            }
+                            $('#smartvpnmacTbody').html(mtrarr.join(''));
+                        }else{
+                            $('#smartvpnmacTbody').html('<tr><td colspan="3" style="text-align:center;"><%:Устройство не добавлено%></td></tr>');
+                        }
+                    }
+                }else{
+                    $('#smartvpnswitch')[0].className = 'btn-switch btn-switch-off';
+                    $('#smartvpnoff').show();
+                    $('#smartvpnon').hide();
+                }
+            }else{
+                $.alert( rsp.msg );
+            }
+        });
+    }
+    function addSmartvpnByDeviceList(){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem","devicelist")%>', {}, function(rsp){
+            if( rsp.code == 0 ){
+                var list = rsp.list;
+                var trarr = [];
+                var tpl = $('#tmplDevice').html();
+                if($.isArray(list) && list.length > 0){
+                    for(var i = 0, len = list.length; i < len; i++){
+            if(list[i].isap != 8){
+                            var tr = StringH.tmpl(tpl, {
+                                name: list[i].name,
+                                status: list[i].online == 1 ? '<%:В сети%>' : '<%:Не в сети%>',
+                                mac: list[i].mac
+                            });
+                            trarr.push(tr);
+            }
+                    }
+                    $('#dialogdeviceslist').html(trarr.join(''));
+                    $('#listAddClose').on('click', function(e){
+                        e.preventDefault();
+                        devicelistDialog.close();
+                    });
+                    $('#listAddSubmit').on('click', function(e){
+                        e.preventDefault();
+                        var inputs = $('.deviceinput:checked');
+                        var valarr = [];
+                        if( inputs.length < 1 ){
+                            alert("<%:Выберите хотя бы одно устройство%>");
+                        }else{
+                            inputs.each(function (index, item) {
+                                valarr.push( $.trim( item.value ) );
+                            });
+                            mac = valarr.join(',');
+                            devicelistDialog.close();
+                            setSmartVPNMac(mac, 0);
+                        }
+                    });
+                }else{
+                    $('#dialogdeviceslist').html('<tr><td colspan="4" style="text-align:center;"><%:Устройство не в сети%></td></tr>');
+                }
+            }
+        });
+    }
+    function addSmartvpnByMac(){
+        $('#macAddClose').on('click', function(e){
+            e.preventDefault();
+            addSmartVPNmacDialog.close();
+        });
+        $('#macAddSubmit').on('click', function(e){
+            e.preventDefault();
+            var validator = Valid.checkAll($('#addbymac')[0]);
+            if(validator){
+                var mac = $.trim( $('#macaddr').val() );
+                addSmartVPNmacDialog.close();
+                setSmartVPNMac(mac, 0);
+            }
+        });
+    }
+    function setSmartVPNMac( macs, opt ){
+        checkConnected(function(){
+            $.ajax({
+                url: '<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_mac")%>',
+                type: 'POST',
+                data: {'macs': macs, 'opt': opt},
+                dataType: 'json',
+                success: function(rsp){
+                    if( rsp.code == 0 ){
+                        getSmartVPNInfo();
+                    }else{
+                        $.alert( rsp.msg );
+                    }
+                }
+            });
+        });
+    }
+    function setSmartVPNUrl(url, opt ){
+        $.ajax({
+            url: '<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_url")%>',
+            type: 'POST',
+            data: {'url': url, 'opt': opt},
+            dataType: 'json',
+            success: function(rsp){
+                if( rsp.code == 0 ){
+                    getSmartVPNInfo();
+                }else{
+                    $.alert( rsp.msg );
+                }
+            }
+        });
+    }
+    function addSmartvpnByUrl(){
+        $('#urlAddClose').on('click', function(e){
+            e.preventDefault();
+            addSmartVPNurlDialog.close();
+        });
+        $('#urlAddSubmit').on('click', function(e){
+            e.preventDefault();
+            var validator = Valid.checkAll($('#addbyurl')[0]);
+            if(validator){
+                var url = $.trim( $('#urladdr').val() );
+                addSmartVPNurlDialog.close();
+                checkConnected(function(){
+                    setSmartVPNUrl(url, 0);
+                });
+            }
+        });
+    }
+    function delSmartVPN( ele ){
+        var mode = $('#smartvpnmode li.active').attr('data-mode');
+        var para = '';
+        if( mode == 1 ){
+            para = $(ele).attr('data-url');
+            setSmartVPNUrl( para, 1 );
+        }else{
+            para = $(ele).attr('data-macs');
+            setSmartVPNMac( para, 1 );
+        }
+    }
+    function miVPNInfo(){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "mi_vpn_info")%>', {}, function(rsp){
+            if( rsp.code == 0 ){
+                if( rsp.status == 1 ){
+                    $('#mivpnswitch')[0].className = 'btn-switch btn-switch-on';
+                }else{
+                    $('#mivpnswitch')[0].className = 'btn-switch btn-switch-off';
+                }
+            }else{
+                $.alert( rsp.msg );
+            }
+        });
+    }
+    function miVPNSwitch(){
+        var btn = $('#mivpnswitch');
+        btn.on('click', function(e){
+            e.preventDefault();
+            var open = $(this).hasClass('btn-switch-on') ? 0 : 1;
+            if( open == 1 ){
+                $.confirm('<%:После включения этой функции вам необходимо повторно подключиться к VPN. Если после включения вы обнаружите, что удаленный доступ к маршрутизатору не работает, выключите эту функцию.%>', function(){
+                    stopListenStatus();
+                    $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 0, id: currentId}, function(rsp){
+                        if (rsp.code == 0) {
+                            // nextfn && nextfn();
+                            $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "mi_vpn")%>', {'open': open}, function(rsp){
+                                if( rsp.code == 0 ){
+                                    miVPNInfo();
+                                    //close smart vpn ui
+                                    $('#smartvpnswitch')[0].className = 'btn-switch btn-switch-off';
+                                    $('#smartvpnoff').show();
+                                    $('#smartvpnon').hide();
+                                }else{
+                                    $.alert( rsp.msg );
+                                }
+                            });
+                            listenStatus();
+                        } else {
+                            $.alert( rsp.msg );
+                        }
+                    });
+                });
+            }else{
+                $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "mi_vpn")%>', {'open': open}, function(rsp){
+                    if( rsp.code == 0 ){
+                        miVPNInfo();
+                    }else{
+                        $.alert( rsp.msg );
+                    }
+                });
+            }
+        });
+    }
+    function addEvent(){
+        $('.help .ico').on('click', function(){
+            displayHelp( 'block' );
+        });
+        $('.help-close').on('click', function(){
+            displayHelp( 'none' );
+        });
+        $('body').delegate('#vpnlist .errmsg-wrap', 'click', function(){
+            showErrMsg( this )
+        });
+        $( '#smartvpnmode li' ).on( 'click', function( e ){
+            var checked = $( this ).hasClass( 'active' );
+            var mode = $( this ).attr('data-mode');
+            if ( !checked ) {
+                checkConnected(function(){
+                    $.getJSON( '<%=luci.dispatcher.build_url("api", "misystem", "smartvpn_switch")%>', { 'enable': 1, 'mode': mode }, function( rsp ){
+                        if ( rsp.code === 0 ) {
+                            getSmartVPNInfo();
+                        } else {
+                            $.alert( rsp.msg );
+                        }
+                    } );
+                });
+            }
+        } );
+        $('#addsmartvpndevicelist').on('click', function(){
+            devicelistDialog = $.dialog({
+                title: '<%:Выбор устройства%>',
+                content: $('#tmplAddList').html(),
+                lock: true,
+                width: 600,
+                initialize: function(){
+                    addSmartvpnByDeviceList();
+                }
+            });
+        });
+        $('#addsmartvpnmac').on('click', function(){
+            addSmartVPNmacDialog = $.dialog({
+                title: '<%:Добавление устройства по MAC адресу%>',
+                content: $('#tmplAddmac').html(),
+                lock: true,
+                width: 390,
+                initialize: function(){
+                    addSmartvpnByMac();
+                }
+            });
+        });
+        $('#addsmartvpnurl').on('click', function(){
+            addSmartVPNurlDialog = $.dialog({
+                title: '<%:Добавление адреса%>',
+                content: $('#tmplAddurl').html(),
+                lock: true,
+                width: 390,
+                initialize: function(){
+                    addSmartvpnByUrl();
+                }
+            });
+        });
+        $('body').delegate('.smartvpn-del', 'click', function(){
+            var self = this;
+            checkConnected(function(){
+                delSmartVPN( self );
+            });
+        });
+    }
+    function checkConnected( nextfn ){
+        if( vpnConnectStatus == 0 ){
+            $.confirm('<%:Текущий подключенный VPN будет отключен, и настройка вступит в силу после повторного подключения.%>', function(){
+                stopListenStatus();
+                $.getJSON('<%=luci.dispatcher.build_url("api", "xqsystem", "vpn_switch")%>', {'conn': 0, id: currentId}, function(rsp){
+                    if (rsp.code == 0) {
+                        nextfn && nextfn();
+                        listenStatus();
+                    } else {
+                        $.alert( rsp.msg );
+                    }
+                });
+            });
+        }else{
+            nextfn && nextfn();
+        }
+    }
+    return {
+        init : function(){
+            vpnInfo();
+            vpnset();
+            vpnSwitch();
+            listenStatus();
+            getSmartVPNInfo();
+            smartvpnSwitch();
+            miVPNInfo();
+            miVPNSwitch();
+            addEvent();
+        }
+    }
+}());
+$(function(){
+    modelVpn.init();
+});
+</script>
+</body>
+</html>

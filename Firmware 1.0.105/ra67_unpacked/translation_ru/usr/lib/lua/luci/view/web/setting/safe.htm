@@ -1,0 +1,720 @@
+
+<%
+--[[
+    Info    安全中心
+]]--
+local ver = require("xiaoqiang.XQVersion").webVersion
+local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
+local request_uri = luci.http.getenv("REMOTE_URI")
+local remote_addr = luci.http.getenv("REMOTE_ADDR")
+local mac = luci.sys.net.ip4mac(remote_addr)
+local lanType = wifiUtil.getDeviceWifiIndex(mac)
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local hardware = string.lower( XQSysUtil.getHardware() )
+local XQFunction = require("xiaoqiang.common.XQFunction")
+local netmod = 0
+local netmod = XQFunction.getnetmode()
+--2 有线中继
+--1 无线中继
+--4 mesh主设备  whc_cap
+--3 mesh从设备  whc_re
+--0 router
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/safe.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include( "web/inc/header")%>
+    <div id="bd">
+        <div class="mod-set mod-macfilter" id="modMacfilter" style="display:none;">
+            <div class="hd">
+                <h3><%:Контроль доступа к Wi-Fi%></h3>
+                <div class="switch">
+                    <a data-enable="1" class="btn-switch btn-switch-off" id="macfilterswitch" href="#"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <%if netmod == 0 or netmod == 4 then%>
+                <div class="section" style="display:none;">
+                    <h4><%:Режим блокировки%>：</h4>
+                    <p>
+                        <label for="filtertype1">
+                            <input id="filtertype1" type="radio" name="filtertype" value="0" class="filtertype"> <span><%:Черный список (Блокировать устройства)%></span>
+                        </label>
+                        <label for="filtertype2">
+                            <input id="filtertype2" type="radio" name="filtertype" value="1" class="filtertype"> <span><%:Белый список (Разрешить устройства)%></span>
+                        </label>
+                    </p>
+                </div>
+                <%end%>
+                <div class="section" style="display:none;">
+                    <h4 id="typeText"><%:Подождите...%></h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th><%:Устройство%></th>
+                                <th><%:MAC адрес%></th>
+                                <th width="80" style="padding-left:21px;"><%:Действия%></th>
+                            </tr>
+                        </thead>
+                        <tbody id="deviceslist">
+                            <tr>
+                                <td colspan="3"><%:Подождите...%></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="add-contral">
+                        <a id="btnListAdd" href="#" class="btn btn-dft btn-m"><span><%:Выбрать%></span></a><a id="btnSelfAdd" href="#" class="btn btn-dft btn-m"><span><%:Добавить%></span></a>
+                    </div>
+                </div>
+                <div class="form-contral">
+                    <button style="display:none;" id="setWifiMacfilter" class="btn btn-primary btn-l" type="submit"><span><%:Сохранить%></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <%include( "web/inc/password")%>
+
+        <%if netmod == 0 then%>
+        <div class="mod-set mod-manage-filter">
+            <div class="hd">
+                <h3><%:Доступ к Панели управления%></h3>
+                <div class="switch">
+                    <a data-enable="1" class="btn-switch btn-switch-off" id="managefilterswitch" href="#"></a>
+                </div>
+            </div>
+            <div class="bd" id="manageFilterBody">
+                <div class="isoff" style="display:none;">
+                    <p><%:При включении функции Белый список, только устройства из белого списка смогут получить доступ к панели управления.%></p>
+                </div>
+                <div class="ison" style="display:none;">
+                     <table class="table">
+                        <thead>
+                            <tr>
+                                <th><%:MAC адрес%></th>
+                                <th width="80" class="center"><%:Действия%></th>
+                            </tr>
+                        </thead>
+                        <tbody id="manageFilterList">
+                        </tbody>
+                    </table>
+                    <div class="btns" style="padding:20px 0;">
+                        <button class="btn btn-primary btn-l" id="manageFilterAdd"><span><%:Добавить%></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%end%>
+    </div>
+    <%include( "web/inc/footer")%>
+</div>
+<%include( "web/inc/g.js")%>
+<script type="tmpl/html" id="tmplAddSelf">
+    <div class="dialog-selfadd-form-wrap">
+        <form action='<%=luci.dispatcher.build_url("api", "xqnetwork", "manually_add")%>' class="form" name="selfadd" id="selfAdd">
+            <div class="form-item">
+                <label class="k">
+                    <%:Устройство%>
+                </label>
+                <span class="v">
+<input type="text" id="macname" name="macname" class="ipt-text" reqMsg="<%:Устройство%>" />
+</span>
+                <em class="t"></em>
+            </div>
+            <div class="form-item">
+                <label class="k">
+                    <%:MAC адрес%>
+                </label>
+                <span class="v">
+<input type="text" id="macaddr" name="addr" class="ipt-text" datatype="macaddr" reqMsg="<%:MAC адрес%>" />
+</span>
+                <em class="t"></em>
+            </div>
+            <div class="form-contral">
+                <button type="submit" class="btn btn-primary btn-l" id="selfAddSubmit"><span><%:Сохранить%></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="tmpl/html" id="tmplAddList">
+    <div class="dialog-listadd-form-wrap">
+        <form action='<%=luci.dispatcher.build_url("api", "xqnetwork", "edit_device")%>' class="form" name="listAdd" id="listAdd">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th><%:Устройство%></th>
+                        <th><%:Адрес%></th>
+                        <th><%:В стеи%></th>
+                        <th width="80"><%:Действия%></th>
+                    </tr>
+                </thead>
+                <tbody id="dialogdeviceslist">
+                    <tr>
+                        <td colspan="4"><%:Подождите...%></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="form-contral">
+                <button type="submit" class="btn btn-primary btn-l" id="listAddSubmit"><span><%:Добавить%></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="tmpl/html" id="tmplAddedDevice">
+    <tr data-mac="{$addr}">
+        <td>{$name}</td>
+        <td>{$addr}</td>
+        <td><a href="#" class="btn btn-dft btn-s del"><span><%:Удалить%></span></a>
+        </td>
+    </tr>
+</script>
+<script type="tmpl/html" id="tmplOnlineDevice">
+    <tr>
+        <td>{$name}</td>
+        <td>{$ip}
+            <br />{$addr}</td>
+        <td>{$time}</td>
+        <td>
+            <input class="onlinemacinput" type="checkbox" name="nowmac" value="{$addr}" />
+        </td>
+    </tr>
+</script>
+<script>
+    (function () {
+        var listaddDialog;
+        var selfaddDialog;
+        var enableLast;
+        var selfMac = '<%=mac%>'.toUpperCase();
+        var lanType = '<%=lanType%>';
+        var switchbtn = $('#macfilterswitch');
+        var hardware = '<%=hardware%>';
+        var netmod = '<%=netmod%>';
+        var isMesh = netmod == '3' || netmod == '4';
+
+        var getWifiFilterInfo = function (data, callback) {
+            $.getJSON('<%=luci.dispatcher.build_url("api", "xqnetwork", "wifi_macfilter_info")%>', data, function (rsp) {
+                if (rsp.code == 0) {
+                    enableLast = rsp.enable;
+                    callback(rsp);
+                }
+                $('#modMacfilter').show();
+                // else {
+                //     alert(rsp.msg);
+                // }
+            });
+        };
+        var getAddedList = function (res) {
+            var list = res.macfilter;
+            var trarr = [];
+            var tpl = $('#tmplAddedDevice').html();
+            if ($.isArray(list) && list.length > 0) {
+                for (var i = 0, len = list.length; i < len; i++) {
+                    var tr = StringH.tmpl(tpl, {
+                        name: StringH.encode4Html(list[i].name),
+                        addr: list[i].mac
+                    });
+                    trarr.push(tr);
+                }
+                $('#deviceslist').html(trarr.join(''));
+            } else {
+                $('#deviceslist').html('<tr><td colspan="3"><%:Нет устройств%></td></tr>');
+            }
+        };
+        var getOnlineList = function () {
+            var model = $('.filtertype:checked').val();
+            getWifiFilterInfo({model: model}, function (res) {
+                //改动lyt
+                var list = res.flist;
+                var trarr = [];
+                var tpl = $('#tmplOnlineDevice').html();
+                if ($.isArray(list) && list.length > 0) {
+                    for (var i = 0, len = list.length; i < len; i++) {
+                        //改动lyt
+                        // if(list[i].added == 0){
+                        if(list[i].isap != 8){
+                            var tr = StringH.tmpl(tpl, {
+                                name: StringH.encode4Html(list[i].name),
+                                ip: list[i].ip,
+                                addr: list[i].mac,
+                                time: secondToDate(list[i].statistics.online)
+                            });
+                            trarr.push(tr);
+                        }
+                    }
+                    if( trarr.length > 0 ){
+                        $('#dialogdeviceslist').html(trarr.join(''));
+                    }else{
+                        $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Все устройства добавлены%></td></tr>');
+                    }
+                } else {
+                    $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Устройство не в сети%></td></tr>');
+                }
+            });
+        };
+        var getFilterType = function (res) {
+            var model = res.model;
+            if (model == 0) {
+                $('#filtertype1').prop('checked', true);
+                $('#typeText').html('<%:Список устройств в Черном списке%>');
+            } else {
+                $('#filtertype2').prop('checked', true);
+                $('#typeText').html('<%:Список устройств в Белом списке%>');
+            }
+        };
+        var isEnable = function (res) {
+            $.pub('wifiFilter:switch', {
+                enable: res.enable
+            });
+        };
+        var setWifiMacfilter = function(){
+            var model = $('.filtertype:checked').val(),
+                requestURL = '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi_macfilter")%>',
+                enable = $('#macfilterswitch').attr('data-enable') == '1' ? 0 : 1;
+                //D01 没有白名单 所以没有model参数 默认设置成0 表示黑名单
+                // if(typeof(model) == 'undefined'  && isMesh){
+                //     model = 0
+                // }
+             var  requestData = {
+                    model: model,
+                    enable: enable
+                };
+            if (model == 1 && enable == 1) {
+                if ($('#deviceslist td').length == 1) {
+                    $.dialog({
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы не добавили ни одного устройства в Белый список, после сохранения настроек, ни одно устройство не сможет получить доступ к сети.%>',
+                        ok: function () {
+                            this.close();
+                        }
+                    }).lock();
+                    return;
+                }
+                var hasSelf = false;
+                $('#deviceslist td').each(function(){
+                    var text = this.innerHTML;
+                    if( text == selfMac ){
+                        hasSelf = true;
+                    }
+                });
+                if( !hasSelf && lanType != 0 ){
+                    $.dialog({
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы не добавили текущее устройство в Белый список, после сохранения настроек, устройство не сможет получить доступ к сети.%>',
+                        ok: function(){
+                            this.close();
+                        }
+                    }).lock();
+                    return;
+                }
+            }
+            if( model ==0 && enable == 1 ){
+                var hasSelf = false;
+                $('#deviceslist td').each(function(){
+                    var text = this.innerHTML;
+                    if( text == selfMac ){
+                        hasSelf = true;
+                    }
+                });
+                if( hasSelf ){
+                    $.dialog({
+                        title: '<%:Фильтр MAC адресов%>',
+                        content: '<%:Вы добавляете текущее устройство в Черный список, после сохранения, ваше устройство не сможет получить доступ к сети.%>',
+                        ok: function(){
+                            this.close();
+                        }
+                    }).lock();
+                    return;
+                }
+            }
+            $.getJSON(requestURL, requestData, function (res) {
+                if (res.code == 0) {
+                    location.reload(1);
+                }else if(res.code == 401){
+                    //
+                }else{
+                    alert(res.msg);
+                }
+            });
+        };
+        $.sub('wifiFilter:switch', function (e, data) {
+            if (data.enable == 1) {
+                switchbtn.attr('data-enable', 0);
+                switchbtn[0].className = 'btn-switch btn-switch-on';
+                $('.mod-macfilter .section').fadeIn();
+            } else {
+                switchbtn.attr('data-enable', 1);
+                switchbtn[0].className = 'btn-switch btn-switch-off';
+                $('.mod-macfilter .section').fadeOut();
+            }
+            if( data.enable == 0 && data.enable == enableLast ){
+                $('#setWifiMacfilter').hide();
+            }else{
+                $('#setWifiMacfilter').show();
+            }
+        });
+        switchbtn.on('click', function (e) {
+            e.preventDefault();
+            var enable = $(this).attr('data-enable');
+            $.pub('wifiFilter:switch', {
+                enable: enable
+            });
+            getWifiFilterInfo({}, function(res){
+                res.enable = enable;
+                getAddedList( res );
+                getFilterType( res );
+            });
+        });
+        $.sub('wifiFilter:addBySelf', function () {
+            var formName = 'selfAdd';
+            var validator = Valid.checkAll($('#selfAdd')[0]);
+            if (validator) {
+                $('#selfAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
+                var mac = $('#macaddr').val(),
+                    name = $('#macname').val(),
+                    model = $('.filtertype:checked').val(),
+                    option = 0;
+                    //mesh 没有白名单
+                    // if(isMesh){
+                    //     model = 0
+                    // }
+                $.ajax({
+                    url: $('#' + formName).attr('action'),
+                    type: 'GET',
+                    data: {
+                        name: $.trim( name ),
+                        mac: $.trim( mac ),
+                        model: model,
+                        option: option
+                    },
+                    dataType: 'json',
+                    success: function (res) {
+                        var msg;
+                        if (res.code == 0) {
+                            selfaddDialog.close();
+                            getWifiFilterInfo({
+                                model: model
+                            }, function (res) {
+                                getAddedList(res);
+                            });
+                        } else if(res.code == 401){
+                            //
+                        }else if(res.code == 1658){
+                            selfaddDialog.close();
+                            $.alert( "Не удалось добавить устройство, устройство сети Mesh не может быть добавлено в Черный список" );
+                        }else{
+                            $('#selfAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
+                            msg = res.msg;
+                            alert(msg);
+                        }
+                    }
+                });
+            }
+        });
+        $.sub('wifiFilter:addByList', function () {
+            var formName = 'listAdd';
+
+            var mac = '';
+            var valarr = [];
+            var model = $('.filtertype:checked').val();
+            //mesh 没有白名单
+            // if(isMesh){
+            //    model = 0
+            // }
+            var option = 0;
+
+            var inputs = $('.onlinemacinput:checked');
+            if (inputs.length < 1) {
+                alert("<%:Выберите хотя бы одно устройство%>");
+            } else {
+                $('#listAddSubmit').addClass('btn-primary-disabled').prop('disabled', true).find('span').text('<%:Подождите...%>');
+                inputs.each(function (index, item) {
+                    valarr.push( $.trim( item.value ) );
+                });
+                mac = valarr.join(';');
+                $.ajax({
+                    url: $('#' + formName).attr('action'),
+                    type: 'GET',
+                    data: {
+                        mac: mac,
+                        model: model,
+                        option: option
+                    },
+                    dataType: 'json',
+                    success: function (res) {
+                        var msg;
+                        if (res.code == 0) {
+                            listaddDialog.close();
+                            getWifiFilterInfo({
+                                model: model
+                            }, function (res) {
+                                getAddedList(res);
+                            });
+                        } else if(res.code == 401){
+                            //
+                        }else {
+                            $('#listAddSubmit').removeClass('btn-primary-disabled').prop('disabled', false).find('span').text('<%:Добавить%>');
+                            msg = res.msg;
+                            alert(msg);
+                        }
+                    }
+                });
+            }
+        });
+        $.sub('wifiFilter:delDevice', function (e, data) {
+            var targetElement = data.targetElement;
+            var tr = $(targetElement).closest('tr');
+            var mac = tr.attr('data-mac');
+            var model = $('.filtertype:checked').val();
+            var option = 1;
+            var requestURL = '<%=luci.dispatcher.build_url("api", "xqnetwork", "edit_device")%>';
+            //mesh 没有白名单
+            // if(isMesh){
+            //    model = 0
+            // }
+            var requestData = {
+                mac: mac,
+                model: model,
+                option: option
+            };
+
+
+            $.getJSON(requestURL, requestData, function (res) {
+                if (res.code == 0) {
+                    getWifiFilterInfo({
+                        model: model
+                    }, function (res) {
+                        getAddedList(res);
+                    });
+                } else if(res.code == 401){
+                    //
+                }else {
+                    alert(res.msg);
+                }
+            });
+        });
+        $.sub('addEvent', function () {
+            $('.filtertype').on('click', function (e) {
+                var val = $(this).val();
+                if (val == 0) {
+                    $('#typeText').html('<%:Список устройств в Черном списке%>');
+                } else {
+                    $('#typeText').html('<%:Список устройств в Белом списке%>');
+                }
+                getWifiFilterInfo({
+                    model: val
+                }, function (res) {
+                    // getFilterType( res );
+                    getAddedList(res);
+                });
+            });
+            //从列表Добавить
+            $('#btnListAdd').on('click', function (e) {
+                e.preventDefault();
+                listaddDialog = $.dialog({
+                    title: '<%:Список устройств%><a id="devicesRefresh" class="ico-dev-refresh" href="#"></a>',
+                    content: $('#tmplAddList').html(),
+                    lock: true,
+                    padding: 0,
+                    width: 770
+                });
+                getOnlineList();
+            });
+            //Добавить
+            $('#btnSelfAdd').on('click', function (e) {
+                e.preventDefault();
+                selfaddDialog = $.dialog({
+                    title: '<%:Добавить%>',
+                    content: $('#tmplAddSelf').html(),
+                    lock: true,
+                    padding: 0
+                });
+                setTimeout(function () {
+                    $.formInit();
+                }, 100);
+            });
+            //del
+            $('body').delegate('#deviceslist .del', 'click', function (e) {
+                e.preventDefault();
+                $.pub('wifiFilter:delDevice', {
+                    targetElement: this
+                });
+            });
+            //
+            $('body').delegate('#selfAdd', 'submit', function (e) {
+                e.preventDefault();
+                $.pub('wifiFilter:addBySelf');
+            });
+            //
+            $('body').delegate('#listAdd', 'submit', function (e) {
+                e.preventDefault();
+                $.pub('wifiFilter:addByList');
+            });
+            //save and run
+            $('#setWifiMacfilter').on('click', function (e) {
+                e.preventDefault();
+                setWifiMacfilter();
+            });
+            //refresh
+            $('body').delegate('#devicesRefresh', 'click', function(e){
+                e.preventDefault();
+                $('#dialogdeviceslist').html('<tr><td colspan="4"><%:Подождите...%></td></tr>');
+                getOnlineList();
+            });
+        });
+        $.sub('wifiFilter:init', function () {
+            getWifiFilterInfo({}, function (res) {
+                getFilterType(res);
+                getAddedList(res);
+                isEnable(res);
+            });
+        });
+
+        $(function () {
+            $.pub('addEvent');
+            $.pub('wifiFilter:init');
+        });
+    }());
+</script>
+<%include( "web/inc/password.js")%>
+<script type="text/tmpl" id="tplManageFilterlist">
+{for(var i=0, len=$data.length; i < len; i++)}
+<tr>
+    <td>{$data[i].mac}{if($data[i].self)}(<%:Текущее устройство%>){/if}</td>
+    <td class="center">
+        {if(len > 1)}
+            {if(!$data[i].self)}<a class="btn btn-dft btn-s del" data-mac="{$data[i].mac}"><span><%:Удалить%></span></a>{/if}
+        {/if}
+    </td>
+</tr>
+{/for}
+</script>
+<script type="text/tmpl" id="tplManageFilterForm">
+<div class="form-managefilter">
+    <form action="#" class="form" id="manageFilterForm" style="text-align:center;">
+        <div class="form-item" style="float:none;">
+            <label class="k" style="left:115px;"><%:MAC адрес%></label>
+            <span class="v">
+                <input type="text" name="mac" id="macaddr" class="ipt-text"  maxlength="17" datatype="macaddr" reqMsg="<%:MAC адрес%>">
+            </span>
+            <em class="t"></em>
+        </div>
+        <div class="form-contral">
+            <button type="submit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
+        </div>
+    </form>
+<div>
+</script>
+<script>
+(function(){
+    var selfMac = '<%=mac%>'.toUpperCase();
+    var lanType = '<%=lanType%>';
+    var switchbtn = $('#managefilterswitch');
+    var listcont = $('#manageFilterList');
+    var addBtn = $('#manageFilterAdd');
+    var tpl = $('#tplManageFilterlist');
+    var apiOpt = '<%=luci.dispatcher.build_url("api", "misystem", "web_access_opt")%>';
+    var apiGet = '<%=luci.dispatcher.build_url("api", "misystem", "web_access_info")%>';
+    var hardware = '<%=hardware%>';
+    var netmod = '<%=netmod%>';
+    var isMesh = netmod == '3' || netmod == '4';
+
+    function getInfo(){
+        $.get(apiGet, function(rsp){
+            rsp = $.parseJSON(rsp);
+            if (rsp.code === 0 ) {
+                if (rsp.open) {
+                    switchbtn[0].className = 'btn-switch btn-switch-on';
+                    var data = [];
+                    for (var i = 0; i < rsp.list.length; i++) {
+                        var tmp = {};
+                        var mac = rsp.list[i].toUpperCase();
+                        tmp.mac = mac;
+                        tmp.self = mac === selfMac;
+                        data.push(tmp);
+                    };
+                    listcont.html( tpl.html().tmpl({data: data}) );
+                    $('#manageFilterBody .isoff').hide();
+                    $('#manageFilterBody .ison').show();
+                } else {
+
+                    if(isMesh ){
+
+                    }else{
+                         switchbtn[0].className = 'btn-switch btn-switch-off';
+                        $('#manageFilterBody .isoff').show();
+                        $('#manageFilterBody .ison').hide();
+                    }
+                }
+            }
+        });
+    }
+
+    switchbtn.on('click', function(e){
+        e.preventDefault();
+        var open = 1;
+        if($(this).hasClass('btn-switch-on')){
+            open = 0;
+        }
+        $.pub('loading:start');
+        $.post(apiOpt, {open:open}, function(rsp){
+            rsp = $.parseJSON(rsp)
+            if (rsp.code === 0) {
+                getInfo();
+                $.pub('loading:stop');
+            }
+        });
+    });
+
+    listcont.delegate('.del', 'click', function(e){
+        $.pub('loading:start');
+        e.preventDefault();
+        var mac = $(this).attr('data-mac');
+        $.post(apiOpt, {open:1, opt: 1, mac: mac}, function(rsp){
+            rsp = $.parseJSON(rsp)
+            if (rsp.code === 0) {
+                getInfo();
+                $.pub('loading:stop');
+            }
+        });
+    });
+
+    addBtn.on('click', function(e){
+        e.preventDefault();
+        $.dialog({
+            title: '<%:Добавить%>',
+            content: $('#tplManageFilterForm').html(),
+            lock: true
+        });
+        setTimeout(function(){
+            $.formInit('.form-managefilter');
+        }, 10);
+    });
+
+    $('body').delegate('#manageFilterForm', 'submit', function(e){
+        e.preventDefault();
+        var formName = this.name;
+        var validator = Valid.checkAll( this );
+        if ( validator ) {
+            var params = {mac: $('#macaddr').val(), open: 1, opt: 0};
+            $.pub('loading:start');
+            $.post(apiOpt, params, function(rsp){
+                rsp = $.parseJSON(rsp);
+                if (rsp.code === 0) {
+                    window.self.location.reload(true);
+                }
+            });
+        }
+    });
+
+    getInfo();
+}());
+
+</script>
+</body>
+</html>

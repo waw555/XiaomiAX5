@@ -1,0 +1,1399 @@
+<%
+-- 系统信息js
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local XQBackup = require("xiaoqiang.module.XQBackup")
+local romVersion = XQSysUtil.getRomVersion()
+local uploadUrl = luci.dispatcher.build_url("api", "xqsystem","upload_rom")
+local backupKeys = XQBackup.defaultKeys()
+local hardware = string.lower( XQSysUtil.getHardware() )
+local backupKeys = XQBackup.defaultKeys()
+local XQFunction = require("xiaoqiang.common.XQFunction")
+local netmod = 0
+local netmod = XQFunction.getnetmode()
+--2 Сетевое подключение
+--1 Беспроводное подключение
+--4 Подключение mesh  whc_cap
+--3 Подключение mesh  whc_re
+--0 router
+local isMesh = (netmod == 3 or netmod == 4) and 'true'  or  'false'
+%>
+
+<script type="tmpl/text" id="uploadform">
+<p><%:Во время работы маршрутизатора, система автоматически проверяет наличие обновлений. Если система не находит обновления ​​или прошивку необходимо понизить до предыдущей версии, загрузите файл прошивки в ручную.%></p>
+<div class="uploadprogress" id="uploadprogress" style="display:none;">
+    <div class="progress-text">0%</div>
+    <div class="progress"><div class="value"></div></div>
+</div>
+<div class="uploadloading" id="uploadloading" style="display:none;">
+    <div class="loading-bar"></div>
+</div>
+<form class="form form-upload" name="uploadForm" id="uploadForm" method="post" enctype="multipart/form-data" >
+    <div class="item">
+        <label class="k"><%:Выберите файл прошивки:%></label>
+        <span class="v">
+            <input type="file" name="image" id="image" />
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="item item-contral">
+        <button type="button" class="btn btn-block btn-primary-disabled" id="uploadFormBtn" disabled><span><%:Обновить%></span></button>
+    </div>
+</form>
+</script>
+
+<script type="tmpl/text" id="selectBackupList">
+<div class="dialog-select-list">
+    <p class="gray"><%:Выберите необходимые настройки:%></p>
+    <ul>
+        <li><label><input type="checkbox" name="item" data-key="<%:mi_wifi_info%>" checked="true" /> <span class="name"><%: Настройки Wi-Fi%></span></label></li>
+        <li><label><input type="checkbox" name="item" data-key="<%:mi_network_info%>" checked="true" /> <span class="name"><%: Настройки Интернета%></span></label></li>
+        <li><label><input type="checkbox" name="item" data-key="<%:mi_lan_info%>" checked="true" /> <span class="name"><%: Служба DHCP и настройки IP LAN%></span></label></li>
+        <li><label><input type="checkbox" name="item" data-key="<%:mi_basic_info%>" checked="true" /> <span class="name"><%: Настройки и пароль Панели управления%></span></label></li>
+    </ul>
+    <a href="#" id="btnstartbackup" class="btn btn-primary btn-l"><span><%:Сохранить%></span></a>
+</div>
+</script>
+<script type="tmpl/text" id="backupFail">
+<div class="dialog-backup-tips">
+    <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
+    <p ><%:Из-за %> <span></span> <%:не удалось выполнить резервное копирование настроек роутера!%></p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Повторить%></span></a>
+</div>
+</script>
+<script type="tmpl/text" id="configUpload">
+<div class="config-upload">
+    <img src="<%=resource%>/web/img/ico_back.png?v=<%=ver%>">
+    <form class="form form-upload" name="configuploadForm" id="configuploadForm" method="post" enctype="multipart/form-data" >
+    <div class="item">
+        <label class="k"><%:Пожалуйста, выберите файл резервной копии%></label>
+        <span class="v">
+            <input type="file" name="image" id="configimage" />
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="item item-contral">
+        <button type="button" class="btn btn-block btn-primary-disabled" id="configuploadFormBtn" disabled><span><%:Восстановить%></span></button>
+    </div>
+    </form>
+</div>
+</script>
+<script type="tmpl/text" id="selectRestoreList">
+<div class="dialog-select-list">
+    <p class="gray"><%:Выберите настройки которые необходимо восстановить%></p>
+    <ul>
+
+    </ul>
+    <a href="#" id="btnstartrestore" class="btn btn-primary btn-l"><span><%:Восстановить%></span></a>
+</div>
+</script>
+<script type="tmpl/text" id="restoresucc">
+<div class="dialog-backup-tips">
+    <img src="<%=resource%>/web/img/ico_ok.png?v=<%=ver%>">
+    <p ><%:Для применения новых настроек, необходимо перезагрузить маршрутизатор.%> </p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Перезагрузить%></span></a>
+</div>
+</script>
+<script type="tmpl/text" id="restorefail">
+<div class="dialog-backup-tips">
+    <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
+    <p ><%:Из-за%> <span></span> <%:не удалось выполнить резервное копирование настроек роутера!%></p>
+    <a href="#" class="btn btn-primary btn-l"><span><%:Повторить%></span></a>
+</div>
+</script>
+<script type="tmpl/text" id="resettip">
+<div class="dialog-reset-tips">
+    <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
+    <p ><%:Операция восстановления маршрутизатора к заводским настройкам, приведет к удалению всех настроек маршрутизатора. Перед восстановлением маршрутизатора к заводским настройкам, рекомендуется выполнить резервное копирование текущих настроек маршрутизатора.%><br>
+    </p>
+    <div class="btns">
+        <a href="#" id="toconfigbackup" class="btn btn-primary btn-m"><span><%:Резервная копия%></span></a>
+        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:Сбросить настройки%></span></a>
+    </div>
+</div>
+</script>
+<script type="tmpl/text" id="resettip_d01">
+<div class="dialog-reset-tips">
+    <img src="<%=resource%>/web/img/ico_warn.png?v=<%=ver%>">
+    <p class="text-left">
+    <span><%:1. Операция восстановления маршрутизатора к заводским настройкам, приведет к удалению всех настроек маршрутизатора.%></span>
+    <span><%:2. Так же будут сброшены настройки сети Mesh%></span>
+    </p>
+    <div class="btns">
+        <a href="#" id="toresetwindow" class="btn btn-primary btn-m"><span><%:Сбросить настройки%></span></a>
+    </div>
+</div>
+</script>
+<script type="tmpl/text" id="tpltimezone">
+<div class="dialog-timezone">
+    <div class="clearfix">
+        <div class="form-item-select">
+            <label class="k"></label>
+            <span class="v"><select name="timezone" id="timezone" class="beautify"></select></span>
+        </div>
+    </div>
+
+    <div>
+        <button type="button" id="btnTimezoneSubmit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
+    </div>
+</div>
+</script>
+<script type="tmpl/text" id="tpldatetime">
+<div class="dialog-datetime">
+    <div>
+        <span><%:День %><select name="day" id="day" style="width:80px;"></select></span>
+        <span> <%:Месяц %><select name="month" id="month" style="width:80px;"></select></span>
+        <span> <%:Год %><select name="year" id="year" style="width:80px;"></select></span>
+
+    </div>
+    <div>
+        <span> <%:  %><select name="hour" id="hour" style="width:80px;"></select></span>
+        <span> <%: : %><select name="minute" id="minute" style="width:80px;"></select></span>
+        <span> <%: : %><select name="second" id="second" style="width:80px;"></select></span>
+    </div>
+    <p><button type="button" id="btnGetNowDate" class="btn btn-dft btn-l"><span><%:Вермя вашего устройства %></span></button></p>
+    <p><button type="button" id="btnDatetimeSubmit" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button></p>
+</div>
+</script>
+<script>
+// upload method
+(function( $ ){
+    $.fn.ajaxUpload = function(options){
+
+        var that = this,
+            uploadbyiframe = function( options ){
+                var d = new Date().getTime(),
+                    iframeName = 'iframeUpload' + d,
+                    iframeContents,
+                    iframe = $('<iframe name="'+iframeName+'" id="'+iframeName+'" style="display: none" />');
+                $("body").append(iframe);
+
+                var form = $(that);
+                form.attr("action", options.url);
+                form.attr("method", "post");
+                form.attr("enctype", "multipart/form-data");
+                form.attr("encoding", "multipart/form-data");
+                form.attr("target", iframeName);
+                form.submit();
+
+                form.hide();
+                $('#uploadloading').show();
+                $(document.getElementById(iframeName))
+                    .load(function () {
+                        try{
+                            iframeContents = document.getElementById(iframeName).contentWindow.document.body.innerHTML;
+                            var rsp = iframeContents.match(/^\{.*?\}/);
+                            if ( rsp ) {
+                                rsp = $.parseJSON(rsp[0]);
+                                options.success(rsp);
+                            } else {
+                                options.error();
+                                form.show();
+                                $('#uploadloading').hide();
+                            }
+                        } catch( e ) {
+                            options.error();
+                            form.show();
+                            $('#uploadloading').hide();
+                        }
+                    })
+                    .error(function(){
+                        options.error();
+                        form.show();
+                        $('#uploadloading').hide();
+                    });
+                return false;
+
+            },
+            uploadbyajax = function( options ) {
+                var form = $(that);
+                var formData = new FormData( form[0] );
+                var progressBar = form.find( '.progress' );
+                var progressBar = $('#uploadprogress');
+                var progressBarVal = progressBar.find( '.progress .value' );
+                var progressBarText = progressBar.find( '.progress-text' );
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', options.url, true);
+                xhr.onload = function(e) {
+                    if ( xhr.status === 200) {
+                        var rsp = $.parseJSON(e.target.responseText);
+                        options.success(rsp);
+                    } else {
+                        options.error();
+                        form.show();
+                        progressBar.hide();
+                    }
+                };
+                xhr.onerror = function(e) {
+                    options.error();
+                    form.show();
+                    progressBar.hide();
+                };
+                xhr.upload.onprogress = function ( e ) {
+                    console.log( e, progressBar );
+                    if (e.lengthComputable) {
+                        form.hide();
+                        progressBar.show();
+                        var pct = (e.loaded / e.total) * 100;
+                        progressBarVal.css({
+                            width: pct + '%'
+                        });
+                        progressBarText.text( parseInt(pct, 10) + '%' );
+                    }
+                }
+                xhr.send(formData);  // multipart/form-data
+
+            };
+
+        if ( window.FormData ) {
+            uploadbyajax( options );
+        } else {
+            uploadbyiframe( options );
+        }
+    };
+})(jQuery);
+//check ota
+var hardware = '<%=hardware%>';
+var isMesh = <%=isMesh%>;
+
+$.sub( 'upgrade:check', function() {
+    var requestData = {},
+        requestURL = '<%=luci.dispatcher.build_url("api","xqsystem","check_rom_update")%>',
+        tplChecking = '<%:Текущая версия прошивки: {$romVersion}. {$ret}%>',
+        tplHasnew = '<%:Обнаружена новая версия прошивки, размер пакета обновления: {$size}.%>',
+        requestURL2 = '<%=luci.dispatcher.build_url("api","misystem","topo_graph")%>',
+        listHtml = '',
+        mainMeshVersion;
+
+    $( '#upgradeinfo' ).html( tplChecking.tmpl( {
+        romVersion: '<em class="em"><%=romVersion%></em>',
+        ret: '<%:Выполняется поиск новых версий...%>'
+    } ) );
+
+    //topo
+    function toNum(a){
+        var a=a.toString();
+        //也可以这样写 var c=a.split(/\./);
+        var c=a.split('.');
+          var num_place=["","0","00","000","0000"],r=num_place.reverse();
+          for (var i=0;i<c.length;i++){
+            var len=c[i].length;
+                     c[i]=r[len]+c[i];
+           }
+         var res= c.join('');
+         return res;
+     }
+    function cpr_version_latest(a,b){
+            var _a=toNum(a),_b=toNum(b);
+            // if(_a>=_b)  false;
+            // if(_a<_b)  true;
+            if(_b>=_a){
+                return true;
+            }else{
+                return false;
+            }
+    }
+
+
+    $.getJSON( requestURL, requestData, function(rsp) {
+        if(rsp.code == 0){
+            mainMeshVersion = rsp.version;
+
+            if(isMesh){
+            //topo
+                    $.getJSON( requestURL2, {}, function(rsp) {
+                        if(rsp.code == 0){
+                            //console.log(2222)
+                            if(rsp.graph.mode==0){
+                                $('#blue').html('Маршрутизатор'+rsp.graph.locale+'(Шлюз)');
+                            }else{
+                                $('#blue').html('Маршрутизатор'+rsp.graph.locale);
+                            }
+
+
+                            // var meshlist = rsp.graph.leafs;
+                            //
+                            // meshlist.forEach(function(item,i){
+                            //     listHtml+='<div class="one div'+(i+2)+' clearfix"><div class="left"><img class="icon-d01" src="/xiaoqiang/web/img/icons/router_d01_101_on.png"><img class="icon-internet" src="/xiaoqiang/web/img/icons/icon_internet_on.png"></div><div class="left left-item"><p id="blue">'+item.name+'_'+item.locale;
+                            //
+                            //     if(cpr_version_latest( mainMeshVersion ,item.version)){
+                            //         listHtml +='</p><p style="margin-bottom:15px">当前版本<span class="blue">'+item.version+'</span>，你的版本是最新的，无需升级。</p><a href="http://'+item.ip+'" class="btnUpload btn btn-dft btn-l right"><span><%:手动升级%></span></a></div></div>';
+                            //     }else{
+                            //         listHtml += '</p><p style="margin-bottom:15px">当前版本<span class="blue">'+item.version+'</span>，发现新版本，请立即升级。</p><a href="http://'+item.ip+'" class="btnUpgread btn btn-primary btn-l left"><span><%:立即升级%></span></a></div></div>';
+                            //     }
+                            // });
+                            // $("#meshUpgrade").append(listHtml);
+
+                        }
+                    });
+                }
+
+
+            if( rsp.needUpdate == 1 ){
+                $( '#upgradeinfo,.upgradeinfo' ).html( tplHasnew.tmpl( {
+                    size: '<em class="em">' + byteFormat( rsp.fileSize ) + '</em>'
+                } ) );
+                $( '.hasnewver' ).show();
+                $( '.logs' ).show();
+            } else {
+                $( '#upgradeinfo,.upgradeinfo' ).html( tplChecking.tmpl( {
+                    romVersion: '<em class="em"><%=romVersion%></em>',
+                    ret: '<%:Установлена самая последняя версия прошивки.%>'
+                } ) );
+                $(".hasnewver").hide();
+                if(isMesh){
+                    $('.div1 .btnUpgread').remove()
+                }
+            }
+
+            // if ( rsp.changeLog && rsp.changeLog != "" ){
+            //     $( '#changelog' ).html( rsp.changeLog );
+            // }
+            if (rsp.changelogUrl && rsp.changelogUrl != ""){
+                $('#changelogUrl').attr('src', rsp.changelogUrl);
+                $('#changelogUrl').load(function(){
+                    $('#changelog').show();
+                });
+            }
+        } else {
+            $( '#upgradeinfo,.upgradeinfo' ).html( tplChecking.tmpl( {
+                romVersion: '<em class="em"><%=romVersion%></em>',
+                ret: '<%:Не удалось связаться с сервером обновлений.%>'
+            } ) );
+        }
+    });
+
+
+});
+
+$.sub( 'upgrade:download', function() {
+
+    $( '#btnUpgread' ).on( 'click', function( e ){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var getUsb = function(){
+            return $.ajax({
+                url: '<%=luci.dispatcher.build_url("api", "xqsystem", "usbmode")%>',
+                type: 'POST',
+                dataType: 'json'
+            });
+        };
+        var dlgUpgradeConfirm = $.confirm(
+            '<div class="mod-downflash"><%:Обратите внимание: процесс обновления приведет к отключению от маршрутизатора всех подключенных устройств. Пожалуйста, не отключайте маршрутизатор и не закрывайте эту страницу во время процесса обновления!%></div>',
+            function() {
+                window.location.href = url;
+            }
+        );
+    });
+});
+
+$.sub( 'upgrade:upload', function() {
+
+    function usbservice(enbale) {
+        if ( parseInt(G_FEATURES['hardware']['usb_deploy'], 10) == 0) {
+            return {
+                done: function( f ){ f(); }
+            };
+        }
+        var requestURL = '<%=luci.dispatcher.build_url("api", "xqsystem","usbservice")%>',
+            requestData = {'enable': enbale};
+
+        return $.ajax({
+            url: requestURL,
+            type: 'get',
+            dataType: 'json',
+            data: requestData
+        });
+    }
+
+    function uploadfile(){
+        var apiUpload = '<%=uploadUrl%>',
+            options;
+        var useInfileUpload = G_FEATURES['system']['infileupload'] === '1';
+        if ( useInfileUpload ) {
+            apiUpload = '/uploadfile' + apiUpload;
+        }
+
+        options = {
+            type: 'post',
+            dataType: "json",
+            url: apiUpload,
+            success: function( rsp ) {
+                if ( rsp.code == 0 ) {
+                    var redirectUrl = '<%=luci.dispatcher.build_url("web", "syslock")%>?flashtype=upload';
+                    if ( rsp.downgrade ) {
+                        redirectUrl += '&downgrade=1';
+                    }
+                    window.location.href = redirectUrl;
+                } else {
+                    $('#uploadprogress, #uploadloading').hide();
+                    $( '#uploadForm' ).show();
+                    $.alert( rsp.msg ).lock();
+                    usbservice(1);
+                }
+                $('#uploadFormBtn').show();
+            },
+            error: function() {
+                $.alert( '<%:Ошибка обновления, системная ошибка или память маршрутизатора переполнена.%>' ).lock();
+                $('#uploadFormBtn').show();
+            }
+        };
+        $('#uploadFormBtn').hide();
+        usbservice(0).done(function(){
+            $( '#uploadForm' ).ajaxUpload( options );
+        });
+    }
+
+    $( 'body' ).delegate( '#image', 'change', function( e ){
+
+        $( '#uploadFormBtn' ).on( 'enable', function( e, data ) {
+            if ( data.disabled ) {
+                this.className = 'btn btn-primary-disabled btn-block';
+                this.disabled = true;
+            } else {
+                this.className = 'btn btn-primary btn-block';
+                this.disabled = false;
+            }
+        });
+
+        var image = $( '#image' );
+        var err = $( '#uploadForm .t' );
+        var item = $( '#uploadForm .item' ).eq( 0 );
+        if ( image.val() == '' ) {
+            err.html( '<%:Выберите файл%>' ).show();
+            item.addClass( 'item-err' );
+            $( '#uploadFormBtn' ).trigger( 'enable', {disabled: true} );
+            return false;
+        }
+        var val = image.val();
+        var ext = val.substring( val.lastIndexOf( '.' ) + 1 );
+        ext = $.trim( ext );
+        var validExt = ext == 'bin' || ext == 'BIN';
+        if ( !validExt ) {
+            err.html( '<%:Неверный формат файла прошивки%>' ).show();
+            item.addClass( 'item-err' );
+            $( '#uploadFormBtn' ).trigger( 'enable', {disabled: true} );
+            return false;
+        }
+        err.hide();
+        item.removeClass( 'item-err' );
+        $( '#uploadFormBtn' ).trigger( 'enable', {disabled: false} );
+    } );
+
+    var uploadHander = $.throttle(function( e ) {
+        e.preventDefault();
+        var uploadform = $( '#uploadform' ).html();
+        $.dialog({
+            id: 'usbcheck_upload',
+            width: 390,
+            title: '<%:Ручное обновление прошивки%>',
+            content: '<div class="mod-uploadflash">' + uploadform + '</div>'
+        }).lock();
+    }, 1000);
+
+    $( '#btnUpload,.btnUpload' ).on( 'click', uploadHander);
+
+    $( 'body' ).delegate( '#uploadFormBtn', 'click', function( e ){
+        e.preventDefault();
+        uploadfile();
+        return false;
+    });
+
+    $.sub( 'uploadlog', function(){
+        // upload logs
+        $( '#btnUploadlog' ).on( 'click', function( e ){
+            e.preventDefault();
+            var requestURL = '<%=luci.dispatcher.build_url("api", "xqsystem","upload_log")%>',
+                requestData = {};
+
+            $.pub( 'wait', {id: '#btnUploadlog'} );
+
+            $.getJSON( requestURL, requestData, function( rsp ){
+                if( rsp.code===0 ){
+                    $.alert( '<%:Журнал успешно загружен%>');
+                } else {
+                    $.alert( rsp.msg );
+                }
+                $.pub( 'done', {id: '#btnUploadlog'} );
+            })
+        } );
+
+        // download log
+        $( '#btnDownloadlog' ).on( 'click', function( e ){
+            e.preventDefault();
+            var requestURL = '<%=luci.dispatcher.build_url("api", "misystem","sys_log")%>',
+                requestData = {};
+
+            $.pub( 'wait', {id: '#btnDownloadlog'} );
+
+            $.getJSON( requestURL, requestData, function( rsp ){
+                if( rsp.code===0 ){
+                    window.top.location.href = 'http://' + rsp.path;
+                } else {
+                    $.alert( rsp.msg );
+                }
+                $.pub( 'done', {id: '#btnDownloadlog'} );
+            })
+        });
+    } );
+
+    $.sub( 'reset', function(){
+        // reset
+        $( '#btnReset' ).on( 'click', function( e ){
+            e.preventDefault();
+            // reset_window();
+            $.pub( 'reset:tip' )
+        } );
+    } );
+
+    $.sub( 'langset', function(){
+        $.i18nSet('#lang').done(function(){
+            $.selectBeautify();
+        });
+    } );
+});
+
+ var hardware = '<%=hardware%>';
+$.sub( 'reset:tip', function(){
+    if(isMesh){
+        var tipDialog = $.dialog({
+        title: '<%:ВНИМАНИЕ!%>',
+        content: $('#resettip_d01').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('#toconfigbackup').on('click', function(e){
+                e.preventDefault();
+                tipDialog.close();
+                $.pub( 'config:backup' );
+            });
+            $('#toresetwindow').on('click', function(e){
+                e.preventDefault();
+                tipDialog.close();
+                reset_window();
+            });
+        }
+    });
+    }else{
+        var tipDialog = $.dialog({
+        title: '<%:ВНИМАНИЕ!%>',
+        content: $('#resettip').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('#toconfigbackup').on('click', function(e){
+                e.preventDefault();
+                tipDialog.close();
+                $.pub( 'config:backup' );
+            });
+            $('#toresetwindow').on('click', function(e){
+                e.preventDefault();
+                tipDialog.close();
+                reset_window();
+            });
+        }
+    });
+    }
+
+} );
+
+$.sub( 'config:backup', function(){
+    var showList = $.dialog({
+        title: '<%:Резервное копирование настроек%>',
+        content: $('#selectBackupList').html(),
+        lock: true,
+        width: 390
+    });
+
+    $('#btnstartbackup').on('click', function(e){
+        e.preventDefault();
+        var requestURL = '<%=luci.dispatcher.build_url("api", "misystem","c_backup")%>';
+        var requestData = {};
+        var keys = [];
+        var inputed = $('.dialog-select-list input:checked');
+        if( inputed.length > 0 ){
+            $( inputed ).each(function(index, item){
+                keys.push( $(item).attr('data-key') );
+            });
+            keys = keys.join(',');
+            requestData.keys = keys;
+            $.getJSON( requestURL, requestData, function( rsp ){
+                showList.close();
+                if( rsp.code==0 ){
+                    // download
+                    window.location.href = 'http://' + rsp.url;
+                } else {
+                    $.pub( 'config:backupfail', {msg: rsp.msg} );
+                }
+            });
+        }else{
+            $.alert('<%:Выберите хотя бы 1 пункт%>');
+        }
+    });
+});
+
+$.sub( 'config:backupfail', function(evt, data){
+    var msg = data.msg;
+    var failDialog = $.dialog({
+        title: '<%:Резервное копирование настроек%>',
+        content: $('#backupFail').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('.dialog-backup-tips p span').text( msg );
+            $('.dialog-backup-tips .btn').on('click', function(e){
+                e.preventDefault();
+                failDialog.close();
+                $.pub( 'config:backup' );
+            });
+        }
+    });
+});
+
+$.sub( 'config:restore', function(evt, data){
+    var keys = data.keys;
+    var tpl = '<li><label><input type="checkbox" name="item" data-key="<%:mi_wifi_info%>" checked="true" /> <span class="name"><%: Настройки Wi-Fi%></span></label></li>';
+    var tpl1 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_network_info%>" checked="true" /> <span class="name"><%: Настройки Интернета%></span></label></li>';
+    var tpl2 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_lan_info%>" checked="true" /> <span class="name"><%: Служба DHCP и настройки IP LAN%></span></label></li>';
+    var tpl3 = '<li><label><input type="checkbox" name="item" data-key="<%:mi_basic_info%>" checked="true" /> <span class="name"><%: Настройки и пароль Панели управления%></span></label></li>';
+    var html = [];
+    var li = '';
+    for(var key in keys ){
+        if ( key == "mi_wifi_info" ){
+            li = StringH.tmpl(tpl, {
+                k: key,
+                v: keys[key]
+            });
+        } else if ( key == "mi_network_info" ){
+            li = StringH.tmpl(tpl1, {
+                k: key,
+                v: keys[key]
+            });
+        } else if ( key == "mi_lan_info" ){
+            li = StringH.tmpl(tpl2, {
+                k: key,
+                v: keys[key]
+            });
+        } else {
+            li = StringH.tmpl(tpl3, {
+                k: key,
+                v: keys[key]
+            });
+        };
+        html.push( li );
+    }
+
+    var showRestoreList = $.dialog({
+        title: '<%:Восстановление настроек%>',
+        content: $('#selectRestoreList').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('.dialog-select-list ul').html( html.join('') );
+        }
+    });
+
+    $('#btnstartrestore').on('click', function(e){
+        e.preventDefault();
+        var requestURL = '<%=luci.dispatcher.build_url("api", "misystem","c_restore")%>';
+        var requestData = {};
+        var keys = [];
+        var inputed = $('.dialog-select-list input:checked');
+        if( inputed.length > 0 ){
+            $( inputed ).each(function(index, item){
+                keys.push( $(item).attr('data-key') );
+            });
+            keys = keys.join(',');
+            requestData.keys = keys;
+            $.getJSON( requestURL, requestData, function( rsp ){
+                showRestoreList.close();
+                if( rsp.code==0 ){
+                    $.pub( 'config:restoresucc' );
+                } else {
+                    $.pub( 'config:restorefail', {msg: rsp.msg} );
+                }
+            });
+        }else{
+            $.alert('<%:Выберите хотя бы 1 пункт%>');
+        }
+    });
+});
+
+$.sub( 'config:restoresucc', function(evt, data){
+
+    var succDialog = $.dialog({
+        title: '<%:Восстановление настроек%>',
+        content: $('#restoresucc').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('.dialog-backup-tips .btn').on('click', function(e){
+                e.preventDefault();
+                succDialog.close();
+                reboot_window();
+            });
+        }
+    });
+});
+
+$.sub( 'config:restorefail', function(evt, data){
+    var msg = data.msg;
+    var failDialog = $.dialog({
+        title: '<%:Восстановление настроек%>',
+        content: $('#restorefail').html(),
+        lock: true,
+        width: 390,
+        initialize: function(){
+            $('.dialog-backup-tips p span').text( msg );
+            $('.dialog-backup-tips .btn').on('click', function(e){
+                e.preventDefault();
+                failDialog.close();
+                $.pub( 'config:upload' );
+            });
+        }
+    });
+});
+
+$.sub( 'config:upload', function(){
+    var showUpload = $.dialog({
+        title: '<%:Восстановление настроек%>',
+        content: $('#configUpload').html(),
+        lock: true,
+        width: 390
+    });
+    function uploadfile(){
+
+        var options = {
+            type: 'post',
+            dataType: "json",
+            url: '<%=luci.dispatcher.build_url("api", "misystem","c_upload")%>',
+            success: function( rsp ) {
+                console.log( rsp );
+                if( rsp.code == 0 ){
+                    showUpload.close();
+                    $.pub( 'config:restore', rsp.des );
+                }else{
+                    $.alert( rsp.msg );
+                }
+            },
+            error: function() {
+                $.alert( '<%:Системная ошибка%>' ).lock();
+                $('#configuploadFormBtn').show();
+            }
+        };
+        $('#configuploadFormBtn').hide();
+        $( '#configuploadForm' ).ajaxUpload( options );
+    }
+    $( 'body' ).delegate( '#configimage', 'change', function( e ){
+        $( '#configuploadFormBtn' ).on( 'enable', function( e, data ) {
+            if ( data.disabled ) {
+                this.className = 'btn btn-primary-disabled btn-block';
+                this.disabled = true;
+            } else {
+                this.className = 'btn btn-primary btn-block';
+                this.disabled = false;
+            }
+        });
+
+        var image = $( '#configimage' );
+        var err = $( '#configuploadForm .t' );
+        var item = $( '#configuploadForm .item' ).eq( 0 );
+        if ( image.val() == '' ) {
+            err.html( '<%:Выберите файл%>' ).show();
+            item.addClass( 'item-err' );
+            $( '#configuploadFormBtn' ).trigger( 'enable', {disabled: true} );
+            return false;
+        }
+        var val = image.val();
+        var ext = val.substring( val.lastIndexOf( '.' ) + 1 );
+        ext = $.trim( ext );
+        var validExt = ext == 'gz' || ext == 'GZ';
+        if ( !validExt ) {
+            err.html( '<%:Ошибка формата файла%>' ).show();
+            item.addClass( 'item-err' );
+            $( '#configuploadFormBtn' ).trigger( 'enable', {disabled: true} );
+            return false;
+        }
+        err.html('');
+        item.removeClass( 'item-err' );
+        $( '#configuploadFormBtn' ).trigger( 'enable', {disabled: false} );
+    } );
+    $( 'body' ).undelegate( '#configuploadFormBtn', 'click' );
+    $( 'body' ).delegate( '#configuploadFormBtn', 'click', function( e ){
+        e.preventDefault();
+        uploadfile();
+        return false;
+    });
+});
+
+$.sub( 'config:init', function(){
+    $('#btnBackupconfig').on('click', function(e){
+        e.preventDefault();
+        $.pub( 'config:backup' );
+    });
+    $('#btnUploadconfig').on('click', function(e){
+        e.preventDefault();
+        $.pub( 'config:upload' );
+    });
+});
+
+$.sub('datetime', function(){
+    var TIMEZONES =  [
+    ['CST+12', '<%:(UTC-12) Международная линия перемены дат - запад%>'],
+    ['CST+11', '<%:(UTC-11) Самоа%>'],
+    ['CST+11', '<%:(UTC-11) Всемирное координированное время%>'],
+    ['CST+10', '<%:(UTC-10) Гавайи%>'],
+    ['CST+9:30', '<%:(UTC-9:30) Стандартное время Маркизских островов%>'],
+    ['CST+9', '<%:(UTC-9) Аляска%>'],
+    ['CST+8', '<%:(UTC-8) Тихоокеанское время (США и Канада)%>'],
+    ['CST+8', '<%:(UTC-8) Нижняя Калифорния%>'],
+    ['CST+7', '<%:(UTC-7) Чиуауа, Ла-Пас, Масатлан%>'],
+    ['CST+7', '<%:(UTC-7) Горное время (США и Канада)%>'],
+    ['CST+7', '<%:(UTC-7) Аризона%>'],
+    ['CST+6', '<%:(UTC-6) Гвадалахара, Мехико, Монтеррей%>'],
+    ['CST+6', '<%:(UTC-6) Саскачеван%>'],
+    ['CST+6', '<%:(UTC-6) Центральное время (США и Канада)%>'],
+    ['CST+6', '<%:(UTC-6) Центральная Америка%>'],
+    ['CST+5', '<%:(UTC-5) Богота, Лима, Кито%>'],
+    ['CST+5', '<%:(UTC-5) Восточное время (США и Канада)%>'],
+    ['CST+5', '<%:(UTC-5) Индиана (восток)%>'],
+    ['CST+4:30', '<%:(UTC-4:30) Каракас%>'],
+    ['CST+4', '<%:(UTC-4) Атлантическое время (Канада)%>'],
+    ['CST+4', '<%:(UTC-4) Куяба%>'],
+    ['CST+4', '<%:(UTC-4) Джорджтаун, Ла-Пас, Манаус, Священное озеро%>'],
+    ['CST+4', '<%:(UTC-4) Сан Диего%>'],
+    ['CST+4', '<%:(UTC-4) Асунсьон%>'],
+    ['CST+3:30', '<%:(UTC-3:30) Ньюфаундленд%>'],
+    ['CST+3', '<%:(UTC-3) Бразилия%>'],
+    ['CST+3', '<%:(UTC-3) Буэнос айрес%>'],
+    ['CST+3', '<%:(UTC-3) Гренландия%>'],
+    ['CST+3', '<%:(UTC-3) Кайенна, Форталеза%>'],
+    ['CST+3', '<%:(UTC-3) Монтевидео%>'],
+    ['CST+2', '<%:(UTC-2) Всемирное координированное время-02%>'],
+    ['CST+2', '<%:(UTC-2) Среднеатлантический%>'],
+    ['CST+1', '<%:(UTC-1) Острова Зеленого Мыса%>'],
+    ['CST+1', '<%:(UTC-1) Азорские острова%>'],
+    ['CST', '<%:(UTC) Дублин, Эдинбург, Лиссабон, Лондон%>'],
+    ['CST', '<%:(UTC) Касабланка%>'],
+    ['CST', '<%:(UTC) Монровия, Рейкьявик%>'],
+    ['CST', '<%:(UTC) Всемирное координированное время%>'],
+    ['CST-1', '<%:(UTC+1) Амстердам, Берлин, Берн, Рим, Стокгольм, Вена%>'],
+    ['CST-1', '<%:(UTC+1) Белград, Братислава, Будапешт, Любляна%>'],
+    ['CST-1', '<%:(UTC+1) Брюссель, Копенгаген, Мадрид, Париж%>'],
+    ['CST-1', '<%:(UTC+1) Сараево, Скопье, Варшава, Загреб%>'],
+    ['CST-1', '<%:(UTC+1) Виндхук%>'],
+    ['CST-1', '<%:(UTC+1) Западная Центральная Африка%>'],
+    ['CST-2', '<%:(UTC+2) Амман%>'],
+    ['CST-2', '<%:(UTC+2) Бейрут%>'],
+    ['CST-2', '<%:(UTC+2) Дамаск%>'],
+    ['CST-2', '<%:(UTC+2) Хараре, Претория%>'],
+    ['CST-2', '<%:(UTC+2) Хельсинки, Киев, Рига, София, Таллинн, Вильнюс%>'],
+    ['CST-2', '<%:(UTC+2) Каир%>'],
+    ['CST-2', '<%:(UTC+2) Минск%>'],
+    ['CST-2', '<%:(UTC+2) Афины, Бухарест%>'],
+    ['CST-2', '<%:(UTC+2) Иерусалим%>'],
+    ['CST-2', '<%:(UTC+2) Стамбул%>'],
+    ['CST-3', '<%:(UTC+3) Багдад%>'],
+    ['CST-3', '<%:(UTC+3) Калининград%>'],
+    ['CST-3', '<%:(UTC+3) Кувейт, Эр-Рияд%>'],
+    ['CST-3', '<%:(UTC+3) Найроби%>'],
+    ['CST-3:30', '<%:(UTC+3:30) Тегеран%>'],
+    ['CST-4', '<%:(UTC+4) Абу-Даби, Маскат%>'],
+    ['CST-4', '<%:(UTC+4) Ереван%>'],
+    ['CST-4', '<%:(UTC+4) Баку%>'],
+    ['CST-4', '<%:(UTC+4) Тбилиси%>'],
+    ['CST-4', '<%:(UTC+4) Порт-Луи%>'],
+    ['CST-4', '<%:(UTC+4) Москва, Санкт-Петербург, Волгоград%>'],
+    ['CST-4:30', '<%:(UTC+4:30) Кабул%>'],
+    ['CST-5', '<%:(UTC+5) Ташкент%>'],
+    ['CST-5', '<%:(UTC+5) Исламабад, Карачи%>'],
+    ['CST-5:30', '<%:(UTC+5:30) Ченнаи, Калькутта, Мумбаи, Нью-Дели%>'],
+    ['CST-5:30', '<%:(UTC+5:30) Шри Гая Воденпура%>'],
+    ['CST-5:45', '<%:(UTC+5:45) Катманду%>'],
+    ['CST-6', '<%:(UTC+6) Астана%>'],
+    ['CST-6', '<%:(UTC+6) Дакка%>'],
+    ['CST-6', '<%:(UTC+6) Екатеринбург%>'],
+    ['CST-6:30', '<%:(UTC+6:30) Янгон%>'],
+    ['CST-7', '<%:(UTC+7) Бангкок, Ханой, Джакарта%>'],
+    ['CST-7', '<%:(UTC+7) Новосибирск%>'],
+    ['CST-8', '<%:(UTC+8) Пекин, Чунцин, Особый административный район Гонконг, Урумчи%>'],
+    ['CST-8', '<%:(UTC+8) Куала-Лумпур, Сингапур%>'],
+    ['CST-8', '<%:(UTC+8) Красноярск%>'],
+    ['CST-8', '<%:(UTC+8) Перт%>'],
+    ['CST-8', '<%:(UTC+8) Тайбэй%>'],
+    ['CST-8', '<%:(UTC+8) Улан-Батор%>'],
+    ['CST-8:30', '<%:(UTC+8:30) Стандартное время Северной Кореи%>'],
+    ['CST-9', '<%:(UTC+9) Осака, Саппоро, Токио%>'],
+    ['CST-9', '<%:(UTC+9) Сеул%>'],
+    ['CST-9', '<%:(UTC+9) Иркутск%>'],
+    ['CST-9:30', '<%:(UTC+9:30) Аделаида%>'],
+    ['CST-9:30', '<%:(UTC+9:30) Дарвин%>'],
+    ['CST-10', '<%:(UTC+10) Брисбен%>'],
+    ['CST-10', '<%:(UTC+10) Гуам, Порт-Морсби%>'],
+    ['CST-10', '<%:(UTC+10) Хобарт%>'],
+    ['CST-10', '<%:(UTC+10) Канберра, Мельбурн, Сидней%>'],
+    ['CST-10', '<%:(UTC+10) Якутск%>'],
+    ['CST-10:30', '<%:(UTC+10:30) Стандартное время Дальнего Востока Австралии%>'],
+    ['CST-11', '<%:(UTC+11) Владивосток%>'],
+    ['CST-11', '<%:(UTC+11) Соломоновы Острова, Новая Каледония%>'],
+    ['CST-11:30', '<%:(UTC+11:30) Стандартное время острова Норфолк%>'],
+    ['CST-12', '<%:(UTC+12) Окленд, Веллингтон%>'],
+    ['CST-12', '<%:(UTC+12) Фиджи%>'],
+    ['CST-12', '<%:(UTC+12) Магадан%>'],
+    ['CST-12', '<%:(UTC+12) Всемирное координированное время +12%>'],
+    ['CST-12:45', '<%:(UTC+12:45) Стандартное время островов Чатем%>'],
+    ['CST-13', '<%:(UTC+13) Нукуалофа%>'],
+    ['CST-14', '<%:(UTC+14) Кирибати%>']
+],indexDict = {
+    "CST+3:30": [
+        24
+    ],
+    "CST-6": [
+        71,
+        72,
+        73
+    ],
+    "CST-12:45": [
+        102
+    ],
+    "CST+6": [
+        11,
+        12,
+        13,
+        14
+    ],
+    "CST+11": [
+        1,
+        2
+    ],
+    "CST": [
+        34,
+        35,
+        36,
+        37
+    ],
+    "CST-8": [
+        77,
+        78,
+        79,
+        80,
+        81,
+        82
+    ],
+    "CST-9": [
+        84,
+        85,
+        86
+    ],
+    "CST-5:30": [
+        68,
+        69
+    ],
+    "CST-9:30": [
+        87,
+        88
+    ],
+    "CST-4:30": [
+        65
+    ],
+    "CST+10": [
+        3
+    ],
+    "CST+3": [
+        25,
+        26,
+        27,
+        28,
+        29
+    ],
+    "CST-8:30": [
+        83
+    ],
+    "CST-10": [
+        89,
+        90,
+        91,
+        92,
+        93
+    ],
+    "CST-10:30": [
+        94
+    ],
+    "CST-2": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53
+    ],
+    "CST+12": [
+        0
+    ],
+    "CST-14": [
+        104
+    ],
+    "CST-12": [
+        98,
+        99,
+        100,
+        101
+    ],
+    "CST-5": [
+        66,
+        67
+    ],
+    "CST+4:30": [
+        18
+    ],
+    "CST-1": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43
+    ],
+    "CST-3": [
+        54,
+        55,
+        56,
+        57
+    ],
+    "CST+9": [
+        5
+    ],
+    "CST-7": [
+        75,
+        76
+    ],
+    "CST-4": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+    ],
+    "CST-13": [
+        103
+    ],
+    "CST-11:30": [
+        97
+    ],
+    "CST-11": [
+        95,
+        96
+    ],
+    "CST-3:30": [
+        58
+    ],
+    "CST-5:45": [
+        70
+    ],
+    "CST+8": [
+        6,
+        7
+    ],
+    "CST+1": [
+        32,
+        33
+    ],
+    "CST+9:30": [
+        4
+    ],
+    "CST+2": [
+        30,
+        31
+    ],
+    "CST+7": [
+        8,
+        9,
+        10
+    ],
+    "CST-6:30": [
+        74
+    ],
+    "CST+4": [
+        19,
+        20,
+        21,
+        22,
+        23
+    ],
+    "CST+5": [
+        15,
+        16,
+        17
+    ]
+},
+        getMaxDays = function(year, month) {
+            var tmpDate = new Date(year, month-1, 1),
+                d = 28, m;
+            m = tmpDate.getMonth();
+            d = 28;
+            while (tmpDate.getMonth() == m) {
+                d ++;
+                tmpDate.setDate(d);
+            }
+            return d - 1;
+        },
+        randerYear = function(y){
+            var min = y - 10,
+                max = y + 10;
+            var options = [];
+            for (var i = min; i <= max; i++) {
+                if (y === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerMonth = function(m){
+            var options = [];
+            for (var i = 1; i <= 12; i++) {
+                if (m === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerDay = function(year, month, day){
+            var days = getMaxDays(year, month);
+            var options = [];
+            for (var i = 1; i <= days; i++) {
+                if (day === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerHour = function(h){
+            var options = [];
+            for (var i = 0; i <= 23; i++) {
+                if (h === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerMin = function(m){
+            var options = [];
+            for (var i = 0; i <= 59; i++) {
+                if (m === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerSec = function(s){
+            var options = [];
+            for (var i = 0; i <= 59; i++) {
+                if (s === i) {
+                    options.push('<option value="'+ i +'" selected="selected">'+ i +'</option>');
+                } else {
+                    options.push('<option value="'+ i +'">'+ i +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        randerTimezone = function(now,index){
+            var options = [],val;
+             for(var attr in indexDict){
+                    if(attr === now ) {
+                         val = indexDict[attr][index];
+
+                    }
+            }
+            for (var i = 0; i < TIMEZONES.length; i++) {
+                if ( i === val) {
+                    options.push('<option value="'+ TIMEZONES[i][0] +'" selected="selected">'+ TIMEZONES[i][1] +'</option>');
+                } else {
+                    options.push('<option value="'+ TIMEZONES[i][0] +'">'+ TIMEZONES[i][1] +'</option>');
+                }
+            }
+            return options.join('');
+        },
+        getTimezone = function(now,index){
+            var val;
+            for(var attr in indexDict){
+                    if(attr === now ) {
+                         val = TIMEZONES[indexDict[attr][index]][1];
+
+                    }
+            }
+            return val;
+        };
+
+    var routerDatetime;
+    $.getJSON('<%=luci.dispatcher.build_url("api","misystem","sys_time")%>', function(rsp){
+        if (rsp.code === 0) {
+            var timezone = rsp.time.timezone;
+            var index = rsp.time.index;
+            var tpldatetime = '<%:{$day} - {$month} - {$year} г {$hour}:{$min}:{$sec}%>';
+            var datetiem = StringH.tmpl(tpldatetime, rsp.time);
+
+            routerDatetime = rsp.time;
+
+            var roterDate = new Date(rsp.time.year, rsp.time.month - 1, rsp.time.day, rsp.time.hour, rsp.time.min, rsp.time.sec).getTime();
+            var clientDate = new Date().getTime();
+            var dateDiff = clientDate - roterDate;
+            $('#timezoneval').html(getTimezone(timezone,index));
+            $('#timezoneval2').html(getTimezone(timezone,index));
+
+            setInterval(function(){
+                var d = new Date(new Date().getTime() - dateDiff);
+                var dStr = DateH.format(d,"<%:dd - MM - yyyy г hh:mm:ss%>");
+                $('#datetiemval').html(dStr);
+                $('#datetiemval2').html(dStr);
+            }, 1000);
+            $('#datetiemval').html(datetiem);
+            $('#datetiemval2').html(datetiem);
+
+            if(rsp.role === "whc_cap"){
+                $('#zhumesh').show();
+            }else if(rsp.role === "whc_re"){
+                $('#zimesh').show();
+            }
+        }
+    });
+
+    var dlgTimezone, dlgDatetime, updateDatetime;
+    updateDatetime = function(d){
+        var optionsYear = randerYear(d.year);
+        $('#year').html(optionsYear);
+        var optionsMonth = randerMonth(d.month);
+        $('#month').html(optionsMonth);
+        var optionsDay = randerDay(d.year, d.month, d.day);
+        $('#day').html(optionsDay);
+
+        var optionsHour = randerHour(d.hour);
+        $('#hour').html(optionsHour);
+        var optionsMin = randerMin(d.min);
+        $('#minute').html(optionsMin);
+        var optionsSec = randerSec(d.sec);
+        $('#second').html(optionsSec);
+    };
+
+    $('#btnTimezone').click(function(e){
+        e.preventDefault();
+        dlgTimezone = $.dialog({
+            width: 390,
+            title: '<%:Изменение часового пояса%>',
+            content: $('#tpltimezone').html(),
+            lock: true
+        });
+
+        setTimeout(function(){
+            var options = randerTimezone(routerDatetime.timezone,routerDatetime.index);
+            console.log(options);
+            $('#timezone').html(options);
+            $.selectBeautify({container: '.dialog-timezone'});
+        }, 200);
+    });
+
+    $('#btnDatetime').click(function(e){
+        e.preventDefault();
+        dlgDatetime = $.dialog({
+            width: 430,
+            title: '<%:Изменение даты и времени%>',
+            content: $('#tpldatetime').html(),
+            lock: true
+        });
+        setTimeout(function(){
+
+            updateDatetime(routerDatetime);
+
+            var updateDays = function(){
+                var y = $('#year').val(),
+                    m = $('#month').val(),
+                    d = new Date().getDate();
+                var optionsDay = randerDay(y, m, d);
+                $('#day').html(optionsDay);
+            }
+            $('#year').on('change', updateDays);
+            $('#month').on('change', updateDays);
+        }, 200);
+    });
+
+    $('body').delegate('#btnGetNowDate', 'click', function(e){
+        e.preventDefault();
+        var dObj = {},
+            d = new Date();
+        dObj.year = d.getFullYear();
+        dObj.month = d.getMonth() + 1;
+        dObj.day = d.getDate();
+        dObj.hour = d.getHours();
+        dObj.min = d.getMinutes();
+        dObj.sec = d.getSeconds();
+        updateDatetime(dObj);
+    });
+
+    $('body').delegate('#btnTimezoneSubmit', 'click', function(e){
+        e.preventDefault();
+        var timezone = $('#timezone').val();
+        var index;
+        $('#timezone option').each(function(i){
+            if (this.selected == true) {
+                for(var j = 0; j < indexDict[timezone].length; j++){
+                    if (indexDict[timezone][j] == i) {
+                        index = j;
+                    }
+                 }
+
+            }
+        })
+        $.post('<%=luci.dispatcher.build_url("api","misystem","set_sys_time")%>', {timezone: timezone,index: index}, function(rsp){
+            rsp = $.parseJSON(rsp);
+            if (rsp.code === 0) {
+                dlgTimezone.close();
+                location.reload();
+            } else {
+                $.alert(rsp.msg);
+            }
+        });
+    });
+
+    $('body').delegate('#btnDatetimeSubmit', 'click', function(e){
+        e.preventDefault();
+        var time = $('#day').val() + '-' + $('#month').val() + '-' + $('#year').val() + ' ' + $('#hour').val() + ':' + $('#minute').val() + ':' + $('#second').val();
+        $.post('<%=luci.dispatcher.build_url("api","misystem","set_sys_time")%>', {time: time}, function(rsp){
+            rsp = $.parseJSON(rsp);
+            if (rsp.code === 0) {
+                dlgDatetime.close();
+                $.alert('<%:Настройка выполнена успешно и вступит в силу немного позже.%>');
+            } else {
+                $.alert(rsp.msg);
+            }
+        });
+    });
+
+});
+
+$(function(){
+    $.pub( 'upgrade:check' );
+    $.pub( 'upgrade:download' );
+    $.pub( 'upgrade:upload' );
+    $.pub( 'uploadlog' );
+    $.pub( 'reset' );
+    if (document.getElementById('lang')) {
+        $.pub( 'langset' );
+    }
+    $.pub( 'config:init' );
+    $.pub('datetime');
+});
+</script>

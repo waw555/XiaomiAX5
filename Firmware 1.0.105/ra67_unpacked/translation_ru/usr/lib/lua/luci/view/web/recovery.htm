@@ -1,0 +1,77 @@
+<%
+    local XQVersion = require "xiaoqiang.XQVersion"
+    local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+    local ver = XQVersion.webVersion
+    local hasDisk = 2
+    if XQSysUtil.diskExist() then
+        hasDisk = 1
+    end
+
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/recovery.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include("web/inc/header")%>
+    <div id="bd">
+        <div class="mod-rtstatus net-check-err" id="netstatus">
+            <div class="inner">
+                <h1><%:Активирован безопасный режим.%></h1>
+                <div class="disk" id="diskok">
+                    <div class="ico-diskst ico-diskst-ok"></div>
+                    <p><%:Ошибка запуска системы%></p>
+                </div>
+                <div class="disk" id="diskerr">
+                    <div class="ico-diskst ico-diskst-err"></div>
+                    <p><%:Ошибка запуска системы, нет жесткого диска.%></p>
+                </div>
+            </div>
+        </div>
+        <div class="mod-recovery">
+            <p><%:Ошибка запуска системы%></p>
+            <p><%:Безопасный режим можно использовать для получения доступа в Интернет%></p>
+            <div class="recovery" id="recoveryiserr">
+                <p><%:Маршрутизатор не может использовать другие функции без жесткого диска.%></p>
+                <p><%:Рекомендуется отключить маршрутизатор, подключить жесткий диск и войти в режим востановления%></p>
+            </div>
+            <div class="recovery" id="recoveryisok">
+                <p><%:Вы можете восстановить систему одним щелчком мыши, так же как и обновление системы.%></p>
+                <div class="btns">
+                    <a href="<%=luci.dispatcher.build_url("web", "setting","upgrade")%>" class="btn btn-dft"><span><%:Восстановить систему%></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include("web/inc/footer")%>
+</div>
+
+<%include("web/inc/g.js")%>
+<script>
+$(function(){
+    var recovery = $( '.recovery' ),
+        recoveryisok = $( '#recoveryisok' ),
+        recoveryiserr = $( '#recoveryiserr' ),
+        disk = $( '.disk' ),
+        diskok = $( '#diskok' ),
+        diskerr = $( '#diskerr' ),
+        diskType = <%=hasDisk%>;
+    if ( diskType === 1 ) {
+        recovery.hide();
+        disk.hide();
+        recoveryisok.show();
+        diskok.show();
+    } else {
+        recovery.hide();
+        disk.hide();
+        recoveryiserr.show();
+        diskerr.show();
+    }
+
+});
+</script>
+</body>
+</html>
