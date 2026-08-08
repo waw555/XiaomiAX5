@@ -1,0 +1,8 @@
+Package: uboot-2016-ipq6018
+Version: miwifi_git-1
+Depends: libc
+Source: package/miwifi/system/uboot-qca
+Section: boot
+Architecture: arm_cortex-a7
+Installed-Size: 105
+Description:  U-boot for IPQ6018 based platforms

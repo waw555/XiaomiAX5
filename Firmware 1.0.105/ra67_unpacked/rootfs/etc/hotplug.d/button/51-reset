@@ -1,0 +1,37 @@
+
+
+XQLOGTAG="xqwhc_button_hotp"
+
+reset_hold=5
+ft_mode=`cat /proc/xiaoqiang/ft_mode`
+[ 1 -eq "$ft_mode" ] && {
+     echo -e "\n button:$BUTTON, action:$ACTION \n" | tee /dev/console /dev/pts/*
+     exit 0
+}
+
+# trace caller
+ppid=$PPID
+logger -s -p 1 -t "$XQLOGTAG" "**ppid=$ppid, cmd=<`cat /proc/${ppid}/cmdline`>"
+ppid=`cat /proc/${ppid}/status | grep PPid | grep -o "[0-9]*"`
+logger -s -p 1 -t "$XQLOGTAG" " *parent ppid $ppid, cmd=<`cat /proc/${ppid}/cmdline`>"
+
+
+if [ "$ACTION" = "released" -a "$BUTTON" = "wps" ]; then
+    if [ "$SEEN" -lt "$reset_hold" ]; then
+        exit 0
+    fi
+
+    if [ "$SEEN" -ge $reset_hold ]; then
+        echo "" > /dev/console
+        echo "RESET TO FACTORY SETTING EVENT DETECTED" > /dev/console
+        echo "PLEASE WAIT WHILE REBOOTING THE DEVICE..." > /dev/console
+
+        #rm -rf /overlay/*
+        nvram set restore_defaults=1
+        nvram commit
+
+        reboot -f
+    fi
+fi
+
+

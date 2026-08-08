@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. /lib/functions.sh
+. /lib/functions/system.sh
+
+
+usage() {
+	echo "setmac_all <mac>, the mac is lan mac"
+	echo "example: setmac_all 00:11:22:33:44:55"
+}
+
+[ ! $# -eq 1 ] && usage && exit 0
+
+wanmac=$(macaddr_add $1 1)
+wl0mac=$(macaddr_add $1 2)
+wl2mac=$(macaddr_add $1 3)
+setmac lan $1
+setmac wan $wanmac
+setmac wl0 $wl0mac
+setmac wl2 $wl2mac

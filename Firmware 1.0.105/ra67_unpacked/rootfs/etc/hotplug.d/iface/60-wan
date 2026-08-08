@@ -1,0 +1,82 @@
+#!/bin/sh
+
+logger -p notice -t "hotplug.d" "60-wan: run because of $INTERFACE $ACTION"
+
+
+
+
+
+
+[ "$ACTION" = "ifup" ] && [ "$INTERFACE" = "wan" ] && {
+    . /lib/network/config.sh
+    [ -f /usr/sbin/smartdns.lua ] && /usr/bin/lua /usr/sbin/smartdns.lua &
+    ubus_call network.interface.wan status
+    json_select "route"
+    __idx=1
+    while json_is_a "$__idx" object; do
+        json_select "$((__idx++))"
+        json_get_var target "target"
+        json_get_var mask "mask"
+        json_get_var nexthop "nexthop"
+        route add -net $target/$mask gw $nexthop metric 50
+        json_select ".."
+    done
+}
+
+mode=$(uci -q get ipv6.settings.mode)
+[ "$INTERFACE" = "wan6" -o "$INTERFACE" = "wan_6" ] && [ "$mode" = "native" -o "$mode" = "nat" ] && {
+    #flush all deprecated address
+    ip -6 address flush scope global deprecated dynamic
+    ip6_addr=$(ip addr show dev br-lan | grep inet6 | grep -v fe80:: | awk 'NR==1 {print $2}')
+    if [ "$ACTION" == "ifupdate" ]; then
+        ip -6 route | grep default 2>&- >&-
+        # no ip6 default route
+        if [ $? -ne 0 ]; then
+            ip address change $ip6_addr dev br-lan preferred_lft 0
+        else
+            if [ "$mode" == "nat" ]; then
+                ip address change $ip6_addr dev br-lan preferred_lft forever
+            fi
+        fi
+    elif [ "$ACTION" == "ifdown" ]; then
+        ip address change $ip6_addr dev br-lan preferred_lft 0
+    elif [ "$ACTION" == "ifup" ]; then
+        if [ "$mode" = "nat" ]; then
+            ip address change $ip6_addr dev br-lan preferred_lft forever
+        fi
+    fi
+}
+
+[ "$mode" = "native" ] && [ "$INTERFACE" = "wan6" -o "$INTERFACE" = "wan_6" ] && {
+    res=$(ip -6 route | grep "default from")
+    wan6_gw=$(echo $res | awk 'NR==1 {print $5}')
+    wan6_itf=$(echo $res | awk 'NR==1 {print $7}')
+    [ -z "$wan6_gw" -o -z "$wan6_itf" ] && return
+    wan6_old=$(ip -6 route | grep "default via" | awk 'NR==1 {print $3}')
+    if [ "$ACTION" == "ifup" ]; then
+        [ -n "$wan6_old" ] && ip -6 route del default via $wan6_old
+        ip -6 route add default via $wan6_gw dev $wan6_itf
+    fi
+}
+
+[ "$mode" = "nat" ] && [ "$INTERFACE" = "wan6" -o "$INTERFACE" = "wan_6" ] && {
+	res=$(ip -6 route | grep "default from")
+	wan6_gw=$(echo $res | awk 'NR==1 {print $5}')
+	wan6_itf=$(echo $res | awk 'NR==1 {print $7}')
+	[ -z $wan6_gw -o -z $wan6_itf ] && return
+
+	if [ "$ACTION" == "ifup" ]; then
+		ip -6 route | grep "default via" 2>&- >&-
+		if [ $? -ne 0 ]; then
+		        ip -6 route add default via $wan6_gw dev $wan6_itf
+		else
+		        ip -6 route change default via $wan6_gw dev $wan6_itf
+		fi
+	elif [ "$ACTION" == "ifupdate" ]; then
+                ip -6 route change default via $wan6_gw dev $wan6_itf
+	elif [ "$ACTION" == "ifdown" ]; then
+		wan6_old=$(ip -6 route | grep "default via" | awk 'NR==1 {print $3}')
+		[ -z $wan6_old ] && return
+		ip -6 route del default via $wan6_old
+	fi
+}

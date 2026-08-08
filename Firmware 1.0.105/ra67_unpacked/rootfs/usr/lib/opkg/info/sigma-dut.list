@@ -1,0 +1,3 @@
+/etc/init.d/sigma-dut
+/usr/sbin/sigma_dut
+/etc/config/sigma-dut

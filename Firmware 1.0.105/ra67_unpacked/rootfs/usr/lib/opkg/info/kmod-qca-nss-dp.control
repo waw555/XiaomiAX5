@@ -1,0 +1,8 @@
+Package: kmod-qca-nss-dp
+Version: 4.4.60+miwifi_git-1
+Depends: kernel (=4.4.60-1-9620c814968126b2db137ee63e97d166), kmod-qca-ssdk-nohnat
+Source: qca_qsdk/qca_qsdk_spf11.0/feeds/nss-host/qca-nss-dp
+Section: kernel
+Architecture: arm_cortex-a7
+Installed-Size: 23362
+Description:  Kernel driver for NSS data plane
