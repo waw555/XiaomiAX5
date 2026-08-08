@@ -1,0 +1,903 @@
+<%
+--[[
+    Информация о QoS
+]]--
+local ver = require("xiaoqiang.XQVersion").webVersion
+local sys = require "xiaoqiang.util.XQSysUtil"
+local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
+local request_uri = luci.http.getenv("REMOTE_URI")
+local remote_addr = luci.http.getenv("REMOTE_ADDR")
+local mac = luci.sys.net.ip4mac(remote_addr)
+local lanType = wifiUtil.getDeviceWifiIndex(mac)
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local hardware = string.lower( XQSysUtil.getHardware() )
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/qos.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include( "web/inc/header")%>
+    <div id="bd">
+        <div class="mod-set mod-bandwidth">
+            <div class="hd">
+                <h3><%:Настройка скорости%></h3>
+            </div>
+            <div class="bd">
+                <div class="speed-needtest nospeed" style="display:none;">
+                <div class="speed-result">
+                        <div id="">
+                             <div class="mod-speed-result" style="text-align:left;">
+                                <ul class="clearfix">
+                                    <li class="first">
+                                        <span class="num" id="outband-up">--</span>
+                                        <span class="con">
+                                            Мб/Сек<br>
+                                            <%:Максимальная скорость загрузки%>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="num" id="outband-down">--</span>
+                                        <span class="con">
+                                            Mб/Сек<br>
+                                            <%:Максимальная скорость отдачи%>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <div class="btns">
+                                    <a href="#" id="btnBandset" class="btn btn-dft btn-m" data-upband="" data-downband=""><span><%:Настроить%></span></a>
+                                     <div class="result-tip" style="display:none"><%:Ограничения скорости не установлены.%></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="mod-qos-speedtest hasspeed" style="display:none;">
+                    <div class="speed-result">
+                        <div id="speedresult"></div>
+                    </div>
+                </div>
+                <div class="mod-qos-alert" style="display:none">
+                    <p><%:Не рекомендуется включать функцию QoS, когда скорость Интернета превышает 50 Мбит/сек.%></p>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <div class="mod-set mod-qos">
+            <div class="hd" style="margin-bottom:0px;">
+                <h3><%:QoS%></h3>
+                <div class="switch">
+                    <a data-enable="1" class="btn-switch btn-switch-on" id="btnqos" href="#"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <div class="mod-qos-set hasspeed">
+                    <div class="isoff" id="qosoff" style="display:none;"><%:Служба QoS (Служба интеллектуального распределения скорости)%></div>
+                    <div class="ison" id="qosset" style="display:none;">
+                        <%if hardware ~= "d01" then%>
+                        <div class="models settings" style="padding-top:40px;">
+                            <h4 class="tit"><%:Установите приоритет скорости сети в зависимости от потребности%></h4>
+                            <div id="qosmode" class="tab clearfix">
+                                <ul>
+                                    <li data-value="0" style="display:none;"><%:Автоматический режим%></li>
+                                    <li data-value="1" style="display:none;"><%:Приоритетный режим%></li>
+                                    <li data-value="2" style="display:none;"><%:Ручной режим%></li>
+                                    <li data-value="3" class="first active"><%:Авто%></li>
+                                    <li data-value="4"><%:Игры%></li>
+                                    <li data-value="5"><%:Интернет%></li>
+                                    <li data-value="6"><%:Видео%></li>
+                                </ul>
+                            </div>
+                            <div id="qosmodedesc" class="tab-content" style="margin-bottom:25px;">
+                                <p><%:В автоматическом режиме маршрутизатор будет динамически корректировать распределение полосы пропускания в соответствии с текущим использованием сети, чтобы обеспечить бесперебойную работу сети.%></p>
+                                <p><%:В режиме приоритета маршрутизатор будет динамически регулировать распределение полосы пропускания, чтобы обеспечить бесперебойную работу в сети для устройств с более высоким приоритетом.%></p>
+                                <p><%:В ручном режиме маршрутизатор настроит распределение полосы пропускания в соответствии с установленной вами скоростью.%></p>
+                                <p><%:Система автоматически регулирует скорость сети в соответствии с потребностями оборудования.%></p>
+                                <p><%:Приоритет скорости для игровых устроствам..%></p>
+                                <p><%:Приоритет скорости для устройств просмотра веб-страниц.%></p>
+                                <p><%:Приоритет скорости для устройств просмотра видео.%></p>
+                            </div>
+                            <hr></hr>
+                        </div>
+                        <%end%>
+
+                        <div class="settings">
+                            <h4><%:Ограничение скорости WiFi%> <i class="ico ico-refresh" id="refresh"></i></h4>
+                            <div class="table-devices" id="tableauto" style="display:none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <!--<th width="180" class="center"><%:Ограничение%></th>-->
+                                            <th width="180"><%:Ограничения%></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="devlistauto"></tbody>
+                                </table>
+                                <div class="btns-edit">
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="0"><span><%:Изменить%></span></a>
+                                </div>
+                            </div>
+                            <div id="tablepriority" class="table-devices" style="display:none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <th width="180" class="center"><%:Приоритет%></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="devlistpriority"></tbody>
+                                </table>
+                                <div class="btns-edit">
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="1"><span><%:Изменить%></span></a>
+                                </div>
+                            </div>
+                            <div class="table-devices" id="tablecustom" style="display:none">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th width="270"><%:Устройство%></th>
+                                            <th width="270"><%:Адрес%></th>
+                                            <th><%:Скорость%></th>
+                                            <th width="180"><%:Ограничения%></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="devlistcustom"></tbody>
+                                </table>
+                                <div class="btns-edit">
+                                    <a href="#" class="btn btn-dft btn-l btnEditQos" data-mode="2"><span><%:Изменить%></span></a>
+                                </div>
+                            </div>
+                            <hr></hr>
+                        </div>
+
+                        <%if hardware ~= "d01" then%>
+                        <div id="guest-limit" >
+                            <script type="tmpl/html" id="guest-limit-script">
+                            <div class="mod-qos-speedtest settings">
+                                <h4 class="tit"><%:Ограничение скорости гостевого WiFi%></h4>
+                                <div class="mod-speed-result" style="padding-top:0px;">
+                                    <ul class="clearfix">
+                                        <li class="first">
+                                            <span class="num">{$up}</span>
+                                            <span class="con">
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость загрузки%>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="num">{$down}</span>
+                                            <span class="con">
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость отдачи%>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <div class="btns-edit">
+                                        <a href="#" class="btn-limit btn btn-dft" data-mode="guest" data-up="{$up}" data-down="{$down}">
+                                            <span><%:Изменить%></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr></hr>
+                            </div>
+                            </script>
+                        </div>
+                        <%end%>
+
+                        <%if hardware ~= "d01" then%>
+                        <div id="local-limit">
+                        <script type="tmpl/html" id="local-limit-script">
+                        <%if (hardware ~= "r4" and hardware ~= "r1cl" and hardware ~= "r4c" and hardware ~= "r4cm" and hardware ~= "r3a" and hardware ~= "r3l" and hardware ~= "r4ac") then%>
+
+                            <div class="mod-qos-speedtest settings">
+                                <h4 class="tit"><%:Ограничение скорости маршрутизатора%>:</h4>
+                                <div class="mod-speed-result" style="padding-top:0px;">
+                                    <ul class="clearfix">
+                                        <li class="first">
+                                            <span class="num">{$up}</span>
+                                            <span class="con">
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость загрузки%>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span class="num">{$down}</span>
+                                            <span class="con">
+                                                 КБ/Сек<br>
+                                                <%:Максимальная скорость отдачи%>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <div class="btns-edit">
+                                        <a href="#" class="btn-limit btn btn-dft" data-mode="local" data-up="{$up}" data-down="{$down}">
+                                            <span><%:Изменить%></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                             <%end%>
+                             </script>
+                        </div>
+                        <%end%>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%include( "web/inc/footer")%>
+</div>
+<%include( "web/inc/g.js")%>
+<%include( "web/inc/speedtest.js")%>
+<script type="tmpl/html" id="limit-set-tpl">
+    <div class="speedset" id="customset">
+        <form class="form form-horizontal form-qos" name="bandwidth" id="limit-form">
+            <div class="form-item form-item-input">
+                <label class="k"><%:Загрузка%></label>
+                <span class="v">
+                    <input type="text" id="limit-up-input" reqMsg="<%:Максимальная скорость загрузки%>" datatype="n-6.2" minValue="0.01" maxValue="" class="ipt-text" value="{$up}">
+                </span>
+                <em class="t"> КБ/Сек</em>
+            </div>
+            <div class="form-item form-item-input">
+                <label class="k"><%:Отдача%></label>
+                <span class="v">
+                    <input type="text" id="limit-down-input" reqMsg="<%:Максимальная скорость отдачи%>" datatype="n-6.2" minValue="8" maxValue="" class="ipt-text" value="{$down}">
+                </span>
+                <em class="t"> КБ/Сек</em>
+            </div>
+            <div class="form-contral">
+                <button type="button" id="limit-submit-button" class="btn btn-primary btn-l"><span><%:Сохранить%></span></button>
+            </div>
+        </form>
+    </div>
+</script>
+<script type="tmpl/html" id="tpldevlist1-back">
+<tr>
+    <td>{$devname}</td>
+    <td class="con">{$ip} <br> {$mac}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con center"><%:Автоматически%></td>
+</tr>
+</script>
+<script type="tmpl/html" id="tpldevlist">
+<tr data-mac="{$mac}">
+    <td>{$devname}</td>
+    <td class="con">{$ip} <br> {$mac}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:Нет%>{else}{$upmax} КБ/Сек{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:Нет%>{else}{$downmax} КБ/Сек{/if}</td>
+</tr>
+</script>
+<script type="tmpl/html" id="tpldevlist2">
+<tr data-mac="{$mac}">
+    <td>{$devname}</td>
+    <td class="con">{$ip} <br> {$mac}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="center">
+        {$levelvalue}
+    </td>
+</tr>
+</script>
+<script type="tmpl/html" id="tpldevlist3">
+<tr data-mac="{$mac}">
+    <td>{$devname}</td>
+    <td class="con">{$ip} <br> {$mac}</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {$upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$downspeed}/Сек</td>
+    <td class="con"><i class="ico ico-upspeed"></i> {if($upmax == 0)}<%:Нет%>{else}{$upmax} КБ/Сек{/if} <br><i class="ico ico-downspeed"></i> {if($downmax == 0)}<%:Нет%>{else}{$downmax} КБ/Сек{/if}</td>
+</tr>
+</script>
+<script type="tmpl/html" id="tplqoseditform0">
+<div class="form-qos-set" id="qosEditForm">
+    <form name="qoseditform" id="qoseditform">
+    <table class="table table-devices form-table">
+        <thead>
+            <tr>
+                <th width="270"><%:Устройство%></th>
+                <th width="200"><%:Адрес%></th>
+                <th width="110"><%:Скорость%></th>
+                <th class="center"><%:Загрузка%></th>
+                <th class="center"><%:Отдача%></th>
+            </tr>
+        </thead>
+        <tbody>
+        {for(var i = 0,len = $devlist.length; i<len; i++)}
+            <tr data-mac="{$devlist[i].mac}">
+                <td>{$devlist[i].devname}</td>
+                <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
+                <td class="center form-item">
+                    <input class="ipt-text" reqMsg="<%:Загрузка%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> КБ/Сек <em></em>
+                </td>
+                <td class="center form-item">
+                    <input class="ipt-text" reqMsg="<%:Отдача%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> КБ/Сек <em></em>
+                </td>
+            </tr>
+        {/for}
+        </tbody>
+    </table>
+    <div class="btns">
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
+    </div>
+    </form>
+</div>
+</script>
+<script type="tmpl/html" id="tplqoseditform1">
+<div class="form-qos-set" id="qosEditForm">
+    <form name="qoseditform" id="qoseditform">
+    <table class="table table-devices form-table">
+        <thead>
+            <tr>
+                <th width="270"><%:Устройство%></th>
+                <th width="270"><%:Адрес%></th>
+                <th width="250"><%:Скорость%></th>
+                <th class="center"><%:Приоритет%></th>
+            </tr>
+        </thead>
+        <tbody>
+        {for(var i=0,len=$devlist.length;i<len;i++)}
+            <tr class="form-item" data-mac="{$devlist[i].mac}">
+                <td>{$devlist[i].devname}</td>
+                <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
+                <td class="center">
+                    <select name="level">
+                        <option value="1" {if($devlist[i].level == 1)}selected="selected"{/if}><%:Низкий%></option>
+                        <option value="2" {if($devlist[i].level == 2 || $level == 0)}selected="selected"{/if}><%:Средний%></option>
+                        <option value="3" {if($devlist[i].level == 3)}selected="selected"{/if}><%:Высокий%></option>
+                    </select>
+                </td>
+            </tr>
+        {/for}
+        </tbody>
+    </table>
+    <div class="btns">
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
+    </div>
+    </form>
+</div>
+</script>
+<script type="tmpl/html" id="tplqoseditform2">
+<div class="form-qos-set" id="qosEditForm">
+    <form name="qoseditform" id="qoseditform">
+    <table class="table table-devices form-table">
+        <thead>
+            <tr>
+                <th width="270"><%:Устройство%></th>
+                <th width="200"><%:Адрес%></th>
+                <th width="110"><%:Скорость%></th>
+                <th class="center"><%:Загрузка%></th>
+                <th class="center"><%:Отдача%></th>
+            </tr>
+        </thead>
+        <tbody>
+        {for(var i = 0,len = $devlist.length; i<len; i++)}
+            <tr data-mac="{$devlist[i].mac}">
+                <td>{$devlist[i].devname}</td>
+                <td class="con">{$devlist[i].ip} <br> {$devlist[i].mac}</td>
+                <td class="con"><i class="ico ico-upspeed"></i> {$devlist[i].upspeed}/Сек <br><i class="ico ico-downspeed"></i> {$devlist[i].downspeed}/Сек</td>
+                <td class="center form-item">
+                    <input class="ipt-text" reqMsg="<%:Загрузка%>" datatype="n-10.2" minValue="0" name="upmax" value="{$devlist[i].upmax}"> КБ/Сек <em></em>
+                </td>
+                <td class="center form-item">
+                    <input class="ipt-text" reqMsg="<%:Отдача%>" datatype="n-10.2" minValue="0"  name="downmax" value="{$devlist[i].downmax}"> КБ/Сек <em></em>
+                </td>
+            </tr>
+        {/for}
+        </tbody>
+    </table>
+    <div class="btns">
+        <button type="button" id="btnSaveQosSet" class="btn btn-primary btn-l" data-mode="{$mode}"><span><%:Сохранить%></span></button>
+    </div>
+    </form>
+</div>
+</script>
+<script>
+var modelQos = (function(){
+
+    var cookie = {
+        set:function(key,val,time){//设置cookie方法
+            var date=new Date();
+            var expiresDays=time;  //将date设置为n天以后的时间
+            date.setTime(date.getTime()+expiresDays*24*3600*1000);
+            document.cookie=key + "=" + val +";expires="+date.toGMTString();
+        },
+        get:function(key){//获取cookie方法
+            var arr=document.cookie.split('; ');
+            for(var i=0;i<arr[i].length;i++){
+              var arr2=arr[i].split('=');
+              if(arr2[0]==key){
+                return arr2[1];
+              }
+              return '';
+            }
+        }
+    }
+
+    function setDefaultMode(){
+        $.pub('loading:start');
+        $.getJSON( '<%=luci.dispatcher.build_url("api", "misystem", "qos_mode")%>', { mode: 3 }, function( rsp ){
+            $.pub('loading:stop');
+            if(rsp.code==0){
+                //window.location.reload();
+                qosStatus();
+            }else{
+                arguments.callee();
+            }
+        });
+    }
+    // get Qos status
+    function qosStatus(){
+        $.pub('loading:start');
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_info")%>', { }, function(rsp){
+            $.pub('loading:stop');
+            $('#qosset').show();
+            if (rsp.code == 0) {
+                if(rsp.status.mode<3 && rsp.status.on==1){
+                    $.pub('loading:start');
+                    setDefaultMode();
+                    return;
+                }
+                modeGlobal = rsp.status.mode;
+                qosLimit(rsp);
+                var btnqos = $('#btnqos')[0],
+                    listqos = $('#qosset'),
+                    listqosoff = $('#qosoff');
+                if (rsp.status.on === 0) {
+                    btnqos.className = 'btn-switch btn-switch-off';
+                    listqos.hide();
+                    listqosoff.show();
+                }else{
+                    btnqos.className = 'btn-switch btn-switch-on';
+                    listqos.show();
+                    listqosoff.hide();
+                }
+                var model,
+                    upband = rsp.band.upload,
+                    downband = rsp.band.download;
+
+                if ( downband > 50 ) {
+                    $( '.mod-qos-alert' ).show();
+                } else {
+                    $( '.mod-qos-alert' ).hide();
+                }
+
+                if ( downband  == 0 ) {
+                    $('.mod-bandwidth .nospeed').show();
+                    $('.mod-bandwidth .hasspeed').hide();
+                    $('.result-tip').show();
+                    var st = cookie.get("qosbtn");
+                    if( st == 1){
+                        dlgSpeed = $.dialog({
+                            title: '<%:Ручная установка пропускной способности внешней сети%>',
+                            content: $('#tplbandsetform').html().tmpl({
+                                upband: '',
+                                downband: ''
+                            }),
+                            lock: true
+                        });
+                        setTimeout(function(){
+                            $.formInit();
+                        }, 100);
+                    }
+
+                    return;
+                }
+                $('.mod-bandwidth .nospeed').hide();
+                $('.mod-bandwidth .hasspeed').show();
+                $('.result-tip').hide();
+
+                var tpl2 = $( '#tmplBandResult2' ).html();
+                var result2 = tpl2.tmpl({
+                    downband: parseFloat(downband/8).toFixed(2),
+                    upband: parseFloat(upband/8).toFixed(2)
+                });
+                $('#speedresult').html( result2 );
+
+                if ( rsp.status.on === 1 ) {
+                    model = rsp.status.mode;
+                    //var idx = [0,1,2][model];
+                    var idx = model;
+                    $('#qosmode li').removeClass('active');
+                    $('#qosmodedesc p').hide();
+
+                    $('#qosmode li').eq(idx).addClass( 'active' );
+                    $('#qosmodedesc p').eq(idx).show();
+                    // rander devlists
+                    var tpldata = randerDevlist( rsp );
+                    randerMode( tpldata );
+                }
+            }
+        });
+    }
+
+
+    function guestWifiSwitch(){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misns", "wifi_share_info")%>', { }, function(rsp){
+            if(!rsp.info&&rsp.info.guest){
+                $('#guest-limit').hide();
+            }
+        })
+    }
+
+    function qosLimit(rspBand){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_info")%>', { }, function(rsp){
+            var htmlGuest = $('#guest-limit-script').html();
+            var htmlLocal = $('#local-limit-script').html();
+            var outbandUp = rspBand.band.upload * 1024 / 8;
+            var outbandDown = rspBand.band.download * 1024 / 8;
+            $('#guest-limit').html(htmlGuest.tmpl({'up':(rsp.guest.percent_up*outbandUp).toFixed(2),'down':(rsp.guest.percent*outbandDown).toFixed(2)}));
+            $('#local-limit').html(htmlLocal.tmpl({'up':(rsp.local.percent_up*outbandUp).toFixed(2),'down':(rsp.local.percent*outbandDown).toFixed(2)}));
+
+
+            // guest wifi switch
+            guestWifiSwitch();
+            $('#local-limit').hide();
+
+            if(rsp.guest.percent_up == 0){
+                $('#guest-limit li:first .num').text('Нет').addClass('txt');
+                $('#guest-limit li:first .con').hide();
+            }
+            if(rsp.guest.percent == 0){
+                $('#guest-limit li:last .num').text('Нет').addClass('txt');
+                $('#guest-limit li:last .con').hide();
+            }
+            if(rsp.local.percent_up == 0){
+                $('#local-limit li:first .num').text('Нет').addClass('txt');
+                $('#local-limit li:first .con').hide();
+            }
+            if(rsp.local.percent == 0){
+                $('#local-limit li:last .num').text('Нет').addClass('txt');
+                $('#local-limit li:last .con').hide();
+            }
+            $('body').delegate( '.btn-limit', 'click', function( e ){
+                e.preventDefault();
+                var self = this;
+                var mode = $(self).data('mode');
+                if(mode == 'local'){
+                    var title = '<%:Ограничение скорости маршрутизатора%>';
+                }else{
+                    title = '<%:Ограничение скорости гостевого WiFi%>';
+                }
+                var up = $(this).data('up'),
+                    down = $(this).data('down');
+                $.dialog({
+                    title: title,
+                    content: $('#limit-set-tpl').html().tmpl({
+                        up: up,
+                        down: down
+                    }),
+                    lock: true
+                });
+                $('#limit-up-input').attr('maxValue', outbandUp);
+                $('#limit-down-input').attr('maxValue', outbandDown);
+                $('#limit-submit-button').bind('click',function(){
+
+                    if($('#limit-form .form-item-err').length != 0){
+                        return;
+                    }
+
+                //   var validator = Valid.checkAll($('#limit-form')[0]);
+                //   if(!validator){
+                //       return;
+                //   }
+                    if(mode == 'guest'){
+                        var requestUrl = '<%=luci.dispatcher.build_url("api", "misystem", "qos_guest")%>';
+                    }else if(mode == 'local'){
+                        var requestUrl = '<%=luci.dispatcher.build_url("api", "misystem", "qos_xq")%>';
+                    }
+                    var limitUp = $('#limit-up-input').val();
+                    var limitDown = $('#limit-down-input').val();
+                    limitUp = limitUp / outbandUp;
+                    limitDown = limitDown / outbandDown;
+                    $.pub('loading:start');
+                    $.getJSON(requestUrl, {'percent':limitDown, 'percent_up':limitUp}, function(rsp){
+                        $.pub('loading:stop');
+                        if(rsp.code == 0){
+                            window.location.reload();
+                        }else{
+                            $.alert('<%:Системная ошибка%>');
+                        }
+                    });
+                });
+                /*
+                setTimeout(function(){
+                    $.formInit();
+                }, 100);
+                */
+            });
+        });
+    }
+    function randerMode1( tpldata ){
+        var tpl = $('#tpldevlist1').html();
+        var arrHtml = [];
+        if ( tpldata.length == 0 ) {
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
+            return;
+        }
+        for (var i = 0; i < tpldata.length; i++) {
+            arrHtml.push( tpl.tmpl(tpldata[i]) );
+        }
+        $('#devlistauto').html( arrHtml.join('') );
+        $('.table-devices').hide();
+        $('#tableauto').show();
+    }
+
+    function randerMode2( tpldata ){
+        var tpl = $('#tpldevlist2').html();
+        var arrHtml = [];
+        if ( tpldata.length == 0 ) {
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
+            return;
+        }
+        for (var i = 0; i < tpldata.length; i++) {
+            arrHtml.push( tpl.tmpl(tpldata[i]) );
+        }
+        $('#devlistpriority').html( arrHtml.join('') );
+        $('.table-devices').hide();
+        $('#tablepriority').show();
+    }
+
+    function randerMode3( tpldata ){
+        var tpl = $('#tpldevlist3').html();
+        var arrHtml = [];
+        if ( tpldata.length == 0 ) {
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
+            return;
+        }
+        for (var i = 0; i < tpldata.length; i++) {
+            arrHtml.push( tpl.tmpl(tpldata[i]) );
+        }
+        $('#devlistcustom').html( arrHtml.join('') );
+        $('.table-devices').hide();
+        $('#tablecustom').show();
+    }
+
+    //var randerMode = [randerMode1, randerMode2, randerMode3];
+    function randerMode(tpldata){
+        var tpl = $('#tpldevlist').html();
+        var arrHtml = [];
+        if ( tpldata.length == 0 ) {
+            $('#devlistcustom').html( '<tr><td colspan="4"><%:Устройство недоступно%></td></tr>' );
+            return;
+        }
+        for (var i = 0; i < tpldata.length; i++) {
+            arrHtml.push( tpl.tmpl(tpldata[i]) );
+        }
+        $('#devlistcustom').html( arrHtml.join('') );
+        $('.table-devices').hide();
+        $('#tablecustom').show();
+    }
+
+    function randerModeEdit( tpldata, mode ){
+        var tpl = [$('#tplqoseditform0'), $('#tplqoseditform1'), $('#tplqoseditform2')][mode].html();
+        return tpl.tmpl({ devlist: tpldata, mode: mode});
+    }
+
+    // rander devices list DOM
+    function randerDevlist( rsp, callback ){
+        var devlist = rsp.list,
+            devdata = [];
+        for (var i = 0; i < devlist.length; i++) {
+            //访客wifi设备不需要单独展示
+            if (devlist[i].port != 3) {
+                var index = i,
+                upspeed = byteFormat(devlist[i].statistics.upspeed, 100),
+                downspeed = byteFormat(devlist[i].statistics.downspeed, 100),
+                upmax = devlist[i].qos.upmax,
+                downmax = devlist[i].qos.downmax,
+                upmaxper = devlist[i].qos.upmaxper,
+                maxdownper = devlist[i].qos.maxdownper,
+                level = devlist[i].qos.level,
+                ip = devlist[i].ip,
+                mac = devlist[i].mac,
+                dname = devlist[i]['name'],
+                tpldata = {
+                    index: index,
+                    devname: dname,
+                    ip: ip,
+                    mac: mac,
+                    upspeed: upspeed,
+                    downspeed: downspeed,
+                    upmax: parseFloat(upmax).toFixed(2),
+                    downmax: parseFloat(downmax).toFixed(2),
+                    upmaxper: upmaxper,
+                    downmaxper: maxdownper,
+                    level: level,
+                    levelvalue: ['<%:Нет%>','<%:Иизкий%>','<%:Средний%>','<%:Высокий%>'][level]
+                };
+            devdata.push( tpldata );
+            }
+
+        }
+        return devdata;
+    }
+
+    // switch QoS status
+    function qosSwitch(){
+        var btnqos = $('#btnqos');
+        btnqos.on('click', function(e){
+            e.preventDefault();
+            var st = $(this).hasClass('btn-switch-on') ? 0 : 1,
+                btn = this;
+                cookie.set("qosbtn", st, 24);
+                $.pub( 'qos:test',{st:st,cb:function(){
+                    $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_switch")%>', {'on': st}, function(rsp){
+                                if (rsp.code == 0) {
+                                    location.reload(1);
+                                }
+                            });
+                }});
+
+        });
+    }
+
+    // add Event
+    function addEvent(){
+
+        $( '#qosmode li' ).on( 'click', function( e ){
+            var checked = $( this ).hasClass( 'active' );
+            if ( !checked ) {
+                var self = this;
+                $.pub( 'loading:start' );
+                var val = $( this ).attr('data-value');
+                $.getJSON( '<%=luci.dispatcher.build_url("api","misystem","qos_mode")%>', { mode: val }, function( rsp ){
+                    $.pub( 'loading:stop' );
+                    if ( rsp.code === 0 ) {
+                       // window.location.reload();
+//                        qosStatus();
+                        $($('#qosmode li')[0]).parent().children().removeClass('active');
+                        $(self).addClass('active');
+                        var idx = $(self).data('value');
+                        $('#qosmodedesc p').hide().eq(idx).show();
+                    } else {
+                        $.alert( rsp.msg );
+                    }
+                } );
+            }
+        } );
+
+        $('body').delegate( '.btn-editqos', 'click', function( e ){
+            e.preventDefault();
+            var root = $( e.target ).parents( 'tr' );
+            root.find('td').each(function(){
+                $(this).addClass('toedit');
+            });
+        });
+
+        $('body').delegate( '.btn-cancel-qoslimit', 'click', function( e ){
+            e.preventDefault();
+            var root = $( e.target ).parents( 'tr' );
+            var formObj = document.appqos;
+            root.find('td').each(function(){
+                $(this).removeClass('toedit');
+            });
+            Valid.resetAll( formObj );
+        });
+
+        $('body').delegate( '.btn-del-qoslimit', 'click', function( e) {
+            e.preventDefault();
+
+            var delqos = (function ( evt ){
+                var e = evt;
+                return function() {
+                    var root = $( e.target ).parents( 'tr' ),
+                        mac = root.attr('data-mac');
+                    $.getJSON(  '<%=luci.dispatcher.build_url("api","misystem","qos_offlimit")%>', {mac: mac}, function( rsp ){
+                        if ( rsp.code == 0 ) {
+                            qosStatus();
+                        } else {
+                            alert( rsp.msg );
+                        }
+                    });
+                }
+            })( e );
+
+            $.confirm( '<%:Вы уверены, что хотите очистить конфигурацию QoS?%>', delqos );
+
+        } );
+
+        $( '#refresh' ).on( 'click', function( e ){
+            e.preventDefault();
+            $( '#devloading' ).show();
+            qosStatus();
+        } );
+
+        $('body').delegate( '.btnEditQos', 'click', function( e ){
+            e.preventDefault();
+            $.pub('loading:start');
+            var mode = $(this).attr('data-mode');
+            mode = parseInt(mode, 10);
+            $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_info")%>', {}, function(rsp){
+                $.pub('loading:stop');
+                var tpldata = randerDevlist( rsp );
+                var deveditform = randerModeEdit( tpldata, mode );
+                $.dialog({
+                    title: '<%:Настройка скорости%>',
+                    content : deveditform,
+                    width: 930,
+                    lock: true,
+                    fixed: false
+                });
+            });
+        } );
+
+        $('body').delegate('#btnSaveQosSet', 'click', function(e){
+            e.preventDefault();
+            var formdata = [];
+            $('#qosEditForm tbody tr').each(function(){
+                var that  = this,
+                    $this = $( this ),
+                    mac = $this.attr('data-mac'),
+                    level = $this.find('[name=level]').val(),
+                    $maxup = $this.find('[name=upmax]'),
+                    maxup = $maxup.val(),
+                    $maxdown = $this.find('[name=downmax]'),
+                    maxdown = $maxdown.val();
+/*
+                if ( mode == 1) {
+                    maxup = level;
+                    maxdown = level;
+                }
+                */
+
+                formdata.push({
+                    mac: mac,
+                    maxup: maxup,
+                    maxdown: maxdown
+                });
+
+            });
+
+            var validator = Valid.checkAll($('#qoseditform')[0]);
+            if ( validator ) {
+                $.pub( 'loading:start' );
+                $.ajax({
+                    url: '<%=luci.dispatcher.build_url("api","misystem","qos_limits")%>',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {data: ObjectH.stringify( formdata )}
+                }).done(function( rsp ){
+                    if ( rsp.code == 0 ) {
+                    $.getJSON( '<%=luci.dispatcher.build_url("api", "misystem", "qos_mode")%>', { mode: modeGlobal }, function( rsp ){
+                        location.reload( 1 );
+                    });
+                    } else {
+                        $.pub( 'loading:stop' );
+                        $.alert( rsp.msg );
+                    }
+                }).fail(function(){
+                    $.alert( '<%:Системная ошибка%>' );
+                    setTimeout(function(){
+                        location.reload( 1 );
+                    }, 1000);
+                    $.pub( 'loading:sop' );
+                });
+            }
+        });
+    }
+
+    return {
+        init : function(){
+            qosStatus();
+            qosSwitch();
+            addEvent();
+        }
+    }
+}());
+$(function(){
+    modelQos.init();
+});
+</script>
+<%include("web/inc/qosapp.js")%>

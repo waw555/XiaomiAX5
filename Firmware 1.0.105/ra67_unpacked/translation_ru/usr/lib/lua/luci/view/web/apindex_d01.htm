@@ -1,0 +1,366 @@
+<%
+    local XQVersion = require "xiaoqiang.XQVersion"
+    local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+    local XQWifiUtil = require "xiaoqiang.util.XQWifiUtil"
+    local xqlanwanutil = require "xiaoqiang.util.XQLanWanUtil"
+    local XQFunction = require "xiaoqiang.common.XQFunction"
+    local ver = XQVersion.webVersion
+    local wifi24Status = XQWifiUtil.getWifiStatus(1).up
+    local wifi50Status = XQWifiUtil.getWifiStatus(2).up
+    local remote_addr = luci.http.getenv("REMOTE_ADDR")
+    local mac = luci.sys.net.ip4mac(remote_addr or " ")
+    local MAC = string.upper(mac)
+    local macdefault = string.upper(xqlanwanutil.getDefaultMacAddress())
+    local hardwareVersion = XQSysUtil.getHardware()
+    local romVersion = XQSysUtil.getRomVersion()
+    local sysInfo = XQSysUtil.getSysInfo()
+    local encode4HtmlValue = XQFunction.encode4HtmlValue
+    local router_name = XQSysUtil.getRouterName()
+    local router_local = XQSysUtil.getRouterLocale()
+    router_name = encode4HtmlValue(router_name) .."(".. encode4HtmlValue(router_local) ..")"
+    local netmod = XQFunction.getNetModeType()
+    local hardware = string.lower( XQSysUtil.getHardware() )
+    local color = XQSysUtil.getColor()
+    local _hardware = hardware
+    if hardware == "r1cl" then
+        _hardware = "r1cm"
+    end
+    local routerSrc = "router_".._hardware.."_".. color..".png"
+    local routerSrcOn = "router_".._hardware.."_".. color.."_on.png"
+    local features = require("xiaoqiang.XQFeatures").FEATURES
+    local wifi50IsSupport = features["wifi"]["wifi50"]
+
+    local vendorInfo = XQSysUtil.getVendorInfo()
+    local vendorInfo_ip = 0
+    local vendorInfoRouterSrc = ''
+    if vendorInfo.ip and vendorInfo.ip ~= "" and vendorInfo.hardware and vendorInfo.hardware ~= ""  and vendorInfo.color and vendorInfo.color ~= "" then
+        vendorInfo_ip = vendorInfo.ip
+        vendorInfoRouterSrc = "router_"..string.lower(vendorInfo.hardware).."_"..vendorInfo.color..".png"
+    end
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/index.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include("web/inc/header")%>
+    <div class="mod-netmap">
+        <div class="inner clearfix">
+            <div class="devices">
+                <div class="img"></div>
+                <p><%:Устройства%></p>
+                <!-- <div class="status status-devices" id="statusDevices"><b class="devcountonline">--</b><%:台%></div> -->
+            </div>
+            <div id="devline" class="line line-ok"></div>
+            <div class="router active">
+                <div class="img">
+                    <img class="on" src="<%=resource%>/web/img/icons/<%=routerSrcOn%>">
+                    <img class="off" src="<%=resource%>/web/img/icons/<%=routerSrc%>">
+                </div>
+                <p><%=router_name%> | <%:Дом%></p>
+                <table class="status-wifi" id="statusWifi">
+                <%if wifi50IsSupport == "1" then%>
+                    <tr>
+                        <td class="l">
+                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>2.4G: </span><b id="ssid24val">--</b></div>
+                        </td>
+                        <td class="c">|</td>
+                        <td class="r">
+                            <div class="status"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
+                        </td>
+                    </tr>
+                <%else%>
+                    <tr>
+                        <td style="border-radius:24px;" colspan="3">
+                            <div class="status"><i id="ssid24status" class="ico ico-wifi-on"></i><span>Wi-Fi: </span><b id="ssid24val">--</b></div>
+                            <div class="status" style="display:none;"><i id="ssid50status" class="ico ico-wifi-on"></i><span>5G: </span><b id="ssid50val">--</b></div>
+                        </td>
+                    </tr>
+                <%end%>
+                </table>
+            </div>
+            <div id="netline" class="line line-ok"></div>
+
+            <div class="linetext-aplink">
+               <!--  <%:netmod apindexd01=%><%=netmod%> -->
+                <%if netmod == 1 then%>
+                    <%:Усилитель%>
+                <%elseif netmod == 2 then%>
+                    <%:Точка доступа%>
+                <%elseif netmod == 3 then%>
+                    <%:Сеть Mesh%>
+                <%end%>
+            </div>
+
+            <div class="internet">
+            <%if vendorInfo_ip ~= 0 then%>
+                <a href="http://<%=vendorInfo_ip%>" target="_blank">
+                <img src="<%=resource%>/web/img/icons/<%=vendorInfoRouterSrc%>">
+                </a>
+            <%else%>
+                <img src="<%=resource%>/web/img/icons/router_other.png">
+            <%end%>
+                <p><%:Основной маршрутизатор%></p>
+                 <%if netmod == 1 or  netmod == 2 then%>
+                <div class="status status-internet" id="statusInternet">
+                    <i class="ico ico-wifi-on"></i><b id="ssidval">--</b>
+                </div>
+                 <%end%>
+            </div>
+        </div>
+    </div>
+    <div id="bd">
+        <%if netmod == 1 then%>
+        <div class="mod-apquality">
+            <div class="inner" id="apqualityval"></div>
+        </div>
+        <%end%>
+
+        <!--add  Информация о маршрутизаторе -->
+        <div class="mod-routerstatus nav-tab-content clearfix">
+            <div class="routerinfo">
+                <div class="hd">
+                    <h3><%:Информация о маршрутизаторе%></h3>
+                </div>
+                <div class="bd">
+                    <table>
+                        <tr>
+                            <td id="routermodel">--</td>
+                            <td id="routerversion">--</td>
+                            <td id="routermac">--</td>
+                            <td id="routersn">--</td>
+                        </tr>
+                        <tr>
+                            <th><%:Модель %></th>
+                            <th><%:Версия прошивки %></th>
+                            <th><%:MAC адрес %></th>
+                            <th><%:Серийный номер %></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="mod-routerstatus nav-tab-content clearfix">
+
+            <div class="status-panel status-panel-first">
+                <div class="hd">
+                    <h3><%:Нагрузка на процессор%></h3>
+                    <p><%:Нагрузка на процессор：%><b id="cpuused">--</b></p>
+                </div>
+                <div class="bd">
+                    <div class="canvas" id="cpuChart"></div>
+                </div>
+                <div class="ft">
+                    <%:Количество ядер%>: <span class="val" id="cpucore">--</span> <i class="div">|</i> <%:Частота процессора%>: <span class="val" id="cpuhz">--</span>
+                </div>
+            </div>
+            <div class="status-panel">
+                <div class="hd">
+                    <h3><%:Состояние памяти%></h3>
+                    <p><%:Используется：%><b id="memused">--</b></p>
+                </div>
+                <div class="bd">
+                    <div class="canvas" id="memChart"></div>
+                </div>
+                <div class="ft">
+                    <%:Объем памяти%>: <span class="val" id="memtotal">--</span> <i class="div">|</i> <%:Тип памяти%>: <span class="val" id="memtype">--</span> <i class="div">|</i> <%:Частота памяти%>: <span class="val" id="memhz">--</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <%include("web/inc/footer")%>
+</div>
+<%include("web/inc/g.js")%>
+<script src="<%=resource%>/web/js/class.linechart.js"></script>
+<script>
+$.sub( 'wifi:get', function( evt, data ){
+    var apiGetWiFi = '<%=luci.dispatcher.build_url("api","xqnetwork","wifi_detail_all")%>',
+        apiGetWiFiData = {};
+    $.getJSON( apiGetWiFi, apiGetWiFiData, function( rsp ){
+        if ( rsp.code === 0 ) {
+            wifiInfo = rsp.info;
+            var wifi24status = wifiInfo[0].status;
+            var wifi50status = wifiInfo[1] && wifiInfo[1].status;
+            var wifi24ssid = wifiInfo[0].ssid;
+            var wifi50ssid = wifiInfo[1] && wifiInfo[1].ssid;
+            $('#ssid24status')[0].className = wifi24status == 0 ? 'ico ico-wifi-off' : 'ico ico-wifi-on';
+            $('#ssid50status')[0].className = wifi50status == 0 ? 'ico ico-wifi-off' : 'ico ico-wifi-on';
+            $('#ssid24val').text(wifi24ssid);
+            $('#ssid50val').text(wifi50ssid);
+        }
+    });
+} );
+
+$.sub('status:get', function(){
+    var apiSysstatus = '<%=luci.dispatcher.build_url("api","misystem","status")%>',
+        apiSysstatusData = {};
+
+    function getCpu( data ){
+        $('#cpuused').text( (data.load * 100).toFixed(2) + '%' );
+        $('#cpucore').text( data.core );
+        $('#cpuhz').text( data.hz );
+    }
+    function getMem( data ){
+        $('#memused').text( (data.usage * 100).toFixed(2) + '%' );
+        $('#memtotal').text( data.total );
+        $('#memhz').text( data.hz );
+        $('#memtype').text( data.type );
+    }
+    function getDev(data){
+
+        $('#devcountall').text(data.devcountall);
+        $('.devcountonline').text(data.devcountonline);
+    }
+    $.getJSON(apiSysstatus, apiSysstatusData, function(rsp){
+        if ( rsp.code == 0 ) {
+            getHardware(rsp.hardware)
+            getCpu(rsp.cpu);
+            getMem(rsp.mem);
+            getDev({
+                devcountall: rsp.count.all,
+                devcountonline: rsp.count.online
+            });
+            $.pub('chart:cpuUpdate', rsp.cpu);
+            $.pub('chart:memUpdate', rsp.mem);
+        }
+    });
+
+    //add Информация о маршрутизаторе
+    function getHardware(data){
+        var mapChannel, mapModel;
+        mapChannel = {
+            'current': '<%:Бета%>',
+            'release': '<%:Релиз%>',
+            'stable': '<%:Альфа%>'
+        },
+        mapModel = {
+            'R1D': '<%:Router Xiaomi%>',
+            'R2D': '<%:Mi Router 2%>',
+            'R3D': '<%:Mi Router HD%>',
+            'R1CM': '<%:Router Xiaomi MINI%>',
+            'R1CL': '<%:Mi Router Youth Edition%>',
+            'R3': '<%:Mi Router 3%>',
+            'R3L': '<%:Mi Router 3C%>',
+            'R3P': '<%:Mi Router 3 Pro%>',
+            'R3A': '<%:Mi Router 3A%>',
+            'R3G': '<%:Mi Router 3G%>',
+            'R4': '<%:Mi Router 4%>',
+            'R4C': '<%:Mi Router 4Q%>',
+            'R4CM': '<%:Mi Router 4C%>',
+            'D01': '<%:Xiaomi router Mesh%>',
+            'R4AC': '<%:Mi Router 4A%>',
+            'R4A': '<%:Mi Router 4 v2%>',
+            'R3Gv2': '<%:Mi Router 3G%>',
+            'R2600': '<%:Mi Router 2600%>',
+            'R2100': '<%:Mi Router AC2100%>',
+            'R1500': '<%:Mi Router 1500%>',
+            'R3600': '<%:Router Xiaomi AIoT AX3600%>',
+            'RM1800': '<%:Router Xiaomi AX1800%>',
+            'RA67': '<%:Redmi Xiaomi AX5%>'
+        };
+
+        $('#routermodel').text(mapModel[data.platform] + '('+ data.platform +')');
+        $('#routerversion').text('MiWiFi ' + mapChannel[data.channel] + ' ' + data.version);
+        $('#routermac').text(data.mac);
+        $('#routersn').text(data.sn);
+    }
+
+});
+
+$.sub('chart:lineInit',function(evt, data){
+    $.chartLineCpuDB = [0,0,0,0,0,0,0,0,0,0];
+    $.chartLineCpu = new Linechart({
+        container: document.getElementById('cpuChart'),
+        width: 489,
+        height: 200,
+        maxYval: 100,
+        maxYnum: 5,
+        labelUnit: '%'
+    });
+
+    $.chartLineMemDB = [0,0,0,0,0,0,0,0,0,0];
+    $.chartLineMem = new Linechart({
+        container: document.getElementById('memChart'),
+        width: 489,
+        height: 200,
+        maxYval: 100,
+        maxYnum: 5,
+        labelUnit: '%'
+    });
+});
+
+$.sub('chart:cpuUpdate',function(evt, data){
+    var cpu = parseFloat(data.load) * 100;
+    $.chartLineCpuDB.push(cpu);
+    var _linedata = $.chartLineCpuDB.slice(-10);
+    $.chartLineCpu.update( _linedata );
+});
+$.sub('chart:memUpdate',function(evt, data){
+    var mem = parseFloat(data.usage) * 100;
+    $.chartLineMemDB.push(mem);
+    var _linedata = $.chartLineMemDB.slice(-10);
+    $.chartLineMem.update( _linedata );
+});
+
+
+$.sub( 'wifisignel', function(){
+    var getSignelText = function( signal ){
+        signal = parseInt( signal, 10);
+        if ( isNaN( signal ) ) {
+            signal = 0;
+        }
+        if ( signal > 80) {
+            return '<%:Высокий%>';
+        } else if ( signal > 30 ) {
+            return '<%:Средний%>';
+        } else {
+            return '<%:Низкий%>';
+        }
+    };
+    $.getJSON('<%=luci.dispatcher.build_url("api", "xqnetwork", "wifiap_signal")%>', {}, function( rsp ){
+        if ( rsp.code == 0 ) {
+            var apsingallv = (function( signal ){
+                var s = parseInt( signal, 10 );
+                if ( isNaN( signal ) ) {
+                    signal = 0;
+                }
+                if ( signal > 80) {
+                    return 3;
+                } else if ( signal > 30 ) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            })( rsp.signal );
+
+            if ( rsp.ssid != '') {
+                $('#ssidval').text( 'SSID:' + rsp.ssid );
+            }
+
+            $('#apqualityval').html( '<%:Уровень сигнала%><b class="lv-{$lv}">{$quality}</b>'.tmpl({
+                quality: getSignelText( rsp.signal ),
+                lv: apsingallv
+            }) );
+        }
+    });
+} );
+
+$(function(){
+    $.pub('wifi:get');
+    $.pub('chart:lineInit');
+    $.pub('status:get');
+<%if netmod == 1 then%>
+    $.pub( 'wifisignel' );
+<%end%>
+    window.setInterval(function(){
+        $.pub('status:get');
+    }, 10000);
+});
+</script>
+</body>
+</html>

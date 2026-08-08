@@ -1,0 +1,74 @@
+<%
+--[[
+    Информация о QoS
+]]--
+local ver = require("xiaoqiang.XQVersion").webVersion
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/qos.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include( "web/inc/header")%>
+    <div id="bd">
+        <!--  -->
+        <div class="mod-set mod-qos">
+            <div class="hd">
+                <h3><%:Настройка скорости%></h3>
+                <div class="switch">
+                    <a data-enable="1" class="btn-switch btn-switch-on" id="btnqos" href="#"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <p><%:QoS - это интеллектуальная функция распределения полосы пропускания, которая может помочь вам автоматически установить ограничение скорости для каждого устройства, чтобы онлайн-видео и онлайн-игры могли получать необходимую скорость!%></p>
+            </div>
+        </div>
+    </div>
+    <%include( "web/inc/footer")%>
+</div>
+<%include( "web/inc/g.js")%>
+<script>
+var modelQos = (function(){
+    // get Qos status
+    function qosStatus(){
+        $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_info")%>', {}, function(rsp){
+            if (rsp.code == 0) {
+                var btnqos = $('#btnqos')[0];
+                if (rsp.status.on === 0) {
+                    btnqos.className = 'btn-switch btn-switch-off';
+                }else{
+                    btnqos.className = 'btn-switch btn-switch-on';
+                }
+            }
+        });
+    }
+
+    // switch QoS status
+    function qosSwitch(){
+        var btnqos = $('#btnqos');
+        btnqos.on('click', function(e){
+            e.preventDefault();
+            var st = $(this).hasClass('btn-switch-on') ? 0 : 1,
+                btn = this;
+            $.getJSON('<%=luci.dispatcher.build_url("api", "misystem", "qos_switch")%>', {'on': st}, function(rsp){
+                if (rsp.code == 0) {
+                    location.reload(1);
+                }
+            });
+        });
+    }
+
+    return {
+        init : function(){
+            qosStatus();
+            qosSwitch();
+        }
+    }
+}());
+$(function(){
+    modelQos.init();
+});
+</script>

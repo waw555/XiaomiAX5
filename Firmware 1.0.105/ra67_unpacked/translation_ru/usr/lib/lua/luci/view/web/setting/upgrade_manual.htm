@@ -1,0 +1,151 @@
+<%
+local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+local uploadUrl
+if XQSysUtil.isRecoveryModel() then
+    uploadUrl = luci.dispatcher.build_url("api", "xqsystem","upload_rom")
+else
+    uploadUrl = "/uploadfile"..luci.dispatcher.build_url("api", "xqsystem","upload_rom")
+end
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/upgrademanual.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include("web/inc/header")%>
+    <div id="bd">
+        <div class="mod-upgrade-manual">
+            <div class="hd">
+                <h3> <%:Обновление прошивки%></h3>
+            </div>
+            <div class="bd">
+                <div class="mod-set-upgread-manual">
+                    <div class="info">
+                        <p> <%:Если обновление прошивки по воздуху невозможно, или вам необходимо перейти на более раннюю версию программного обеспечения маршрутизатора, вы можете загрузить и установить прошивку вручную.%></p>
+                        <p> <%:Примечание: Не отключайте питание маршрутизатора во время процесса обновления, иначе маршрутизатор будет поврежден и станет непригодным для использования; после завершения обновления маршрутизатор автоматически перезагрузится.%></p>
+                    </div>
+                    <form class="form" name="uploadForm" id="uploadForm" method="post" enctype="multipart/form-data" >
+                        <div class="item">
+                            <label class="k"> <%:Выбрать:%></label>
+                            <span class="v">
+                                <input type="file" name="image" id="image" />
+                            </span>
+                            <em class="t"></em>
+                        </div>
+                        <div class="item item-control">
+                            <button type="button" class="btn btn-primary" id="uploadFormBtn"><span> <%:Загрузить и установить%></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%include('web/inc/g.js')%>
+<%include("web/inc/reboot.js")%>
+<%include("web/inc/upgrade.js")%>
+<script>
+$.fn.ajaxUpload = function(options){
+    var d = new Date().getTime(),
+        iframeName = 'iframeUpload' + d,
+        iframeContents,
+        iframe = $('<iframe name="'+iframeName+'" id="'+iframeName+'" style="display: none" />');
+    $("body").append(iframe);
+
+    var form = $(this);
+    form.attr("action", options.url);
+    form.attr("method", "post");
+    form.attr("enctype", "multipart/form-data");
+    form.attr("encoding", "multipart/form-data");
+    form.attr("target", iframeName);
+    form.submit();
+
+    $(document.getElementById(iframeName))
+        .load(function () {
+            iframeContents = document.getElementById(iframeName).contentWindow.document.body.innerHTML;
+            var rsp = iframeContents.match(/^\{.*?\}/);
+            rsp = $.parseJSON(rsp[0]);
+            options.success(rsp);
+        })
+        .error(function(){
+            options.error();
+        });
+    return false;
+};
+
+$.sub('start_up', function(){
+    var dlgFlashStart = $.dialog({width: 400,title:'Обновить прошивку',content:'Прошивка маршрутизатора обновляется, подождите ...'}).lock();
+    var request_date = {
+        custom: 1
+    };
+    $.getJSON('<%=luci.dispatcher.build_url("api","xqsystem","flash_rom")%>',request_date,function(rsp){
+        if(rsp.code == 0){
+            $.pub('upgread:flashCheck');
+            dlgFlashStart.close();
+        } else {
+            setTimeout("window.top.location.reload();", 3000);
+            dlgFlashStart.content(rsp.msg).time(1.5*1000);
+        }
+        $.pub('done');
+    });
+});
+
+$.sub('wait', function(evt, data){
+    $('#uploadFormBtn').prop('disabled', true).find('span').html('Загрузка файла ...');
+    $('#image').prop('disabled', true);
+});
+$.sub('done', function(evt, data){
+    $('#uploadFormBtn').prop('disabled', false).find('span').html('Загрузить и установить');
+    $('#image').prop('disabled', false);
+});
+
+$('#uploadFormBtn').click(function(){
+    var image = $('#image');
+    var err = $('#uploadForm .t');
+    var item = $('#uploadForm .item').eq(0);
+    if (image.val() == '') {
+        err.html('Выберите файл').show();
+        item.addClass('item-err');
+        return false;
+    }
+    var val = image.val();
+    var ext = val.substring(val.lastIndexOf('.') + 1);
+    ext = $.trim(ext);
+    var validExt = ext == 'bin' || ext == 'BIN';
+    if (!validExt) {
+        err.html('Ошибка формата файла').show();
+        item.addClass('item-err');
+        return false;
+    }
+    err.hide();
+    item.removeClass('item-err');
+    var options = {
+        type: 'post',
+        dataType:"json",
+        url: '<%=uploadUrl%>',
+        success: function(rsp) {
+            if (rsp.code == 0) {
+                $.pub('start_up');
+            }else{
+                if (rsp.code == 403) {
+                    window.top.location.reload(true);
+                    return;
+                }
+                $.pub('done');
+                alert(rsp.msg);
+            }
+        },
+        error: function() {
+            $.pub('done');
+            alert('Системная ошибка');
+        }
+    };
+    $('#uploadForm').ajaxUpload(options);
+    $.pub('wait');
+    return false;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<script>
+var Modelupgrade = (function(){
+    var checkOffline = false,
+        offline = false,
+        dlgwait,
+        isoffline = function() {
+            checkOffline = true;
+            pingRouter( function(){}, function(){
+                offline = true;
+            });
+        },
+        showPercent = function( num ) {
+            $( '#persent' ).html( num );
+            $( '#persentWidth' ).css( 'width', num + "%" );
+        },
+        flashCheck = function() {
+            var timer = window.setInterval(function(){
+                var requestURL = '<%=luci.dispatcher.build_url("api", "xqsystem","upgrade_status")%>';
+                var xhr = $.getJSON( requestURL, {}, function( rsp ){
+                    if ( rsp.code == 0 ) {
+                        var status = rsp.status;
+                        if ( status == 3 ) {
+                            $( '#btnCancel' ).show();
+                        } else {
+                            $( '#btnCancel' ).hide();
+                        }
+                        if (/(3|5|11|12)/.test(status)) {
+                            showPercent( rsp.percent );
+                        }
+                        //flash fail
+                        if( /(7|8|9|10)/.test( status ) ){
+                            window.clearInterval( timer );
+                            flashfail( status );
+                        }
+                        // flash rom ing
+                        if ( /(5|12)/.test( status ) ) {
+                            showPercent( 100 );
+                            if ( checkOffline ) {
+                                return;
+                            }
+                            flashstart();
+                            isoffline();
+                        }
+                        // flash success
+                        if ( status == 11 || offline ) {
+                            window.clearInterval(timer);
+                            flashdone();
+                        }
+                    }
+                });
+
+                xhr.fail(function(){
+                    if ( checkOffline ) {
+                        if ( offline ) {
+                            window.clearInterval(timer);
+                            flashdone();
+                        }
+                        return;
+                    }
+                    isoffline();
+                    $( '#flashstatus' ).html( 'Устанавливается прошивка. <span style="color:red">Пожалуйста, не отключайте питание маршрутизатора</span>' );
+                });
+
+            }, 1500);
+        },
+        flashstart = function(){
+            $( '#flashstatus' ).html( 'Устанавливается прошивка. <span style="color:red">Пожалуйста, не отключайте питание маршрутизатора</span>' );
+        },
+        flashfail = function( status ){
+            var msg = {
+                7: 'Недостаточно памяти',
+                8: 'Ошибка загрузки',
+                9: 'Ошибка пакета обновления',
+                10: 'Ошибка прошивки'
+            };
+            $( '#flashstatus' ).html( msg[status] + 'Не удалось установить прошивку.' );
+            alert( 'Ошибка обновления' );
+            window.setTimeout('self.location.reload(1)', 2 * 1000);
+        },
+        flashdone = function(){
+            rebootWait({
+                action : 'Обновить',
+                refresh : true
+            });
+        };
+    return {
+        flashCheck: flashCheck
+    }
+}());
+</script>

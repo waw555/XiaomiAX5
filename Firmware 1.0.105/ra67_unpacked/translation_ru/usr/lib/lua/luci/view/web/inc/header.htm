@@ -1,0 +1,382 @@
+<%
+    local XQSysUtil = require "xiaoqiang.util.XQSysUtil"
+    local XQTopology = require("xiaoqiang.module.XQTopology")
+    local homeUrl = '/'
+    if XQSysUtil.getInitInfo() then
+        homeUrl = luci.dispatcher.build_url("web", "home")
+    end
+    local XQFunction = require("xiaoqiang.common.XQFunction")
+    local router_name = XQFunction.getRouterName()
+    -- ap model
+    local netMode = 0
+    local MeshType = 0
+    local mode = XQFunction.getNetMode()
+    if mode == "lanapmode" then
+        netMode = 2
+    elseif mode == "wifiapmode" then
+        netMode = 1
+    elseif mode == "whc_cap" then
+        -- Основной mesh
+        netMode = 0
+    elseif mode == "whc_re" then
+         --Дополнительный mesh
+        netMode = 3
+    end
+    local hardware = string.lower( XQSysUtil.getHardware() )
+    local features = require("xiaoqiang.XQFeatures").FEATURES
+    local usbIsSupport = features["hardware"]["usb"]
+    local showTopoLink = 0
+    local netmod = 0
+    local netmod = XQFunction.getnetmode()
+    --4 Основной mesh  whc_cap
+    --3 Дополнительный mesh  whc_re
+    --0 router
+    local topo = XQTopology.topologicalGraph()
+    local leafs = topo["leafs"]
+    if leafs and #leafs > 0 then
+        showTopoLink = 1
+    end
+
+%>
+<noscript>
+<div class="noscript"><%:В Вашем браузере отключена функция Javascript, что делает невозможным использование системы для управления маршрутизатором. Пожалуйста, включите Javascript.%></div>
+</noscript>
+<script>
+var GLOBALHEADER = true;
+</script>
+<div id="hd">
+    <div class="inner">
+        <div class="mod-head clearfix">
+            <h1 id="logo"><a href="<%=homeUrl%>"><img src="<%=resource%>/web/img/logo.png?v=<%=ver%>" alt="<%:Redmi Xiaomi AX5%>"></a></h1>
+            <div id="nav">
+                <!-- <%:netMode header=%><%=netMode%> -->
+                <%if netMode == 0 then%>
+                <ul>
+                    <li <%if string.find(REQUEST_URI, "/home") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "home")%>"><%:Статус%></a></li>
+                    <%if usbIsSupport == '1' then%>
+                    <li <%if string.find(REQUEST_URI, "/store") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "store")%>"><%:Диск%></a></li>
+                    <%end%>
+                    <li <%if string.find(REQUEST_URI, "/setting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>"><%:Настройки%></a></li>
+
+                    <li <%if string.find(REQUEST_URI, "/prosetting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web","prosetting","qos")%>"><%:Дополнительно%></a></li>
+
+                </ul>
+                <%elseif netMode==3 then%>
+                <ul>
+                    <li <%if string.find(REQUEST_URI, "/home") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "home")%>"><%:Состояние сети Mesh%></a></li>
+                    <li <%if string.find(REQUEST_URI, "/apsetting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>"><%:Устройство Mesh%></a></li>
+                </ul>
+                <%else%>
+                <ul>
+                    <li <%if string.find(REQUEST_URI, "/home") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "home")%>"><%:Режим маршрутизатора%></a></li>
+                    <li <%if string.find(REQUEST_URI, "/apsetting") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>"><%:Настройка маршрутизатора%></a></li>
+                </ul>
+                <%end%>
+            </div>
+            <div id="userbar">
+                <%if (hardware == "d01")then%>
+                    <span class="goto-topo"><a href="http://miwifi.com/" target="_blank"><%:Топология сети%></a></span>
+                <%end%>
+                <%if (showTopoLink==1 and hardware~="d01") then%>
+                    <span class="goto-topo"><a href="http://miwifi.com/" target="_blank"><%:Вся сеть%></a></span>
+                <%end%>
+                <%if (netmod == 4 or netmod == 0)then%>
+                   <span id="addMesh" style="cursor:pointer;margin-top:6px;margin-left:15px"><%:Добавить Mesh %></span>
+                <%end%>
+                <span id="sysmenu" class="name s-dropdown"><%=router_name%></span>
+                <span id="sysnotice" class="ico-notice"></span>
+            </div>
+        </div>
+
+        <%if string.find(REQUEST_URI, "/setting") then%>
+        <div class="mod-set-nav">
+            <ul class="clearfix li-5">
+                <li <%if string.find(REQUEST_URI, "/wifi") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "setting", "wifi")%>">
+                        <i class="ico ico-1"></i>
+                        <span><%:Wi-Fi%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/wan") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "setting", "wan")%>">
+                        <i class="ico ico-2"></i>
+                        <span><%:Интернет%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/safe") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "setting", "safe")%>">
+                        <i class="ico ico-3"></i>
+                        <span><%:Безопасность%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/lannetset") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "setting", "lannetset")%>">
+                        <i class="ico ico-4"></i>
+                        <span><%:LAN%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/upgrade") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "setting", "upgrade")%>">
+                        <i class="ico ico-5"></i>
+                        <span><%:Система%></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <%end%>
+
+        <%if string.find(REQUEST_URI, "/apsetting") then%>
+        <div class="mod-set-nav mod-ap-set-nav">
+            <%if hardware == "r3a" or hardware == "r3g" or hardware == "r4ac" then%>
+            <ul class="clearfix li-5">
+                <li <%if string.find(REQUEST_URI, "/wifi") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>">
+                        <i class="ico ico-1"></i>
+                        <span><%:Wi-Fi%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/wan") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "wan")%>">
+                        <i class="ico ico-2"></i>
+                        <span><%:Интернет%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/safe") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "safe")%>">
+                        <i class="ico ico-3"></i>
+                        <span><%:Безопасность%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/upgrade") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>">
+                        <i class="ico ico-5"></i>
+                        <span><%:Система%></span>
+                    </a>
+                </li>
+
+                <li <%if string.find(REQUEST_URI, "/roam") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "roam")%>">
+                        <i class="ico ico-7"></i>
+                        <span><%:Дополнительно%></span>
+                    </a>
+                </li>
+            </ul>
+             <%elseif (hardware == "d01" and netMode == 3 ) then%>
+             <ul class="clearfix li-1">
+              <li <%if string.find(REQUEST_URI, "/upgrade") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>">
+                        <i class="ico ico-5"></i>
+                        <span><%:Система%></span>
+                    </a>
+                </li>
+             </ul>
+            <%elseif (hardware == "ra67" and netmod == 3 ) then%>
+             <ul class="clearfix li-2">
+<!--                <li <%if string.find(REQUEST_URI, "/safe") then%>class="active"<%end%>>-->
+<!--                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "safe")%>">-->
+<!--                        <i class="ico ico-3"></i>-->
+<!--                        <span><%:安全中心%></span>-->
+<!--                    </a>-->
+<!--                </li>-->
+              <li <%if string.find(REQUEST_URI, "/upgrade") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>">
+                        <i class="ico ico-5"></i>
+                        <span><%:Система%></span>
+                    </a>
+                </li>
+             </ul>
+            <%else%>
+            <ul class="clearfix li-4">
+                <li <%if string.find(REQUEST_URI, "/wifi") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "wifi")%>">
+                        <i class="ico ico-1"></i>
+                        <span><%:Wi-Fi%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/wan") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "wan")%>">
+                        <i class="ico ico-2"></i>
+                        <span><%:Интернет%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/safe") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "safe")%>">
+                        <i class="ico ico-3"></i>
+                        <span><%:Безопасность%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/upgrade") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "apsetting", "upgrade")%>">
+                        <i class="ico ico-5"></i>
+                        <span><%:Система%></span>
+                    </a>
+                </li>
+            </ul>
+            <%end%>
+        </div>
+        <%end%>
+
+        <%if string.find(REQUEST_URI, "/prosetting") then%>
+        <div class="mod-set-nav mod-set-nav-pro">
+            <ul class="clearfix li-6">
+
+                <li <%if string.find(REQUEST_URI, "/qos")  then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web","prosetting","qos")%>">
+                        <i class="ico ico-6"></i>
+                        <span><%:QoS%></span>
+                    </a>
+                </li>
+
+                <li <%if string.find(REQUEST_URI, "/dhcpipmacband") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "prosetting", "dhcpipmacband")%>">
+                        <i class="ico ico-8"></i>
+                        <span><%:DHCP и IP%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/ddns") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "prosetting", "ddns")%>">
+                        <i class="ico ico-9"></i>
+                        <span><%:DDNS%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/nat")  then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "prosetting", "nat")%>">
+                        <i class="ico ico-10"></i>
+                        <span><%:Переадресация портов%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/vpn") then%>class="active"<%end%>>
+                    <a href="<%=luci.dispatcher.build_url("web", "prosetting", "vpn")%>">
+                        <i class="ico ico-11"></i>
+                        <span><%:VPN%></span>
+                    </a>
+                </li>
+                <li <%if string.find(REQUEST_URI, "/upnp") then%>class="active"<%end%>><a href="<%=luci.dispatcher.build_url("web","prosetting","upnp")%>">
+                        <i class="ico ico-7"></i>
+                       <span><%:UPnP%></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <%end%>
+
+        <%if string.find(REQUEST_URI, "/store") then%>
+            <%include("web/inc/storeheader")%>
+        <%end%>
+    </div>
+</div>
+
+<script type="tmpl/html" id="tmplMeshMode">
+<div class="netmode-switch-dialog-cont">
+    <div class="switch-step step-select" id="mesh-select" style="display:block;overflow:hidden">
+        <div class="mesh_title"><%:Добавление устройства Mesh%></div>
+        <div class="mesh_content">
+            1. Разместите Дополнительный маршрутизатор Mesh, рядом с основным маршрутизатором Mesh.<br/>
+            2. Расстояние от основного маршрутизатора Mesh - не более 3 метров.<br/>
+            3. Включите питание и дождитесь, пока индикатор маршрутизатора станет синим.
+        </div>
+        <button class="mesh_buttons" id="mesh_search">Начать</button>
+    </div>
+
+    <div id="mesh-overMaxLength" class="switch-step">
+         <div class="mesh_title"><%:Подсказка%></div>
+         <div class="mesh_content">
+              <p class="content">
+                Чтобы обеспечить удобство работы пользователей с сетью Mesh, в настоящее время к ней можно подключить до 4 маршрутизаторов Mesh. Рекомендуется, использовать большее количество маршрутизаторов Mesh для создания Mesh сети.
+              </p>
+          </div>
+           <button class="mesh_buttons" id="mesh-close-button">Понятно</button>
+    </div>
+
+     <div id="mesh-Off-5G" class="switch-step">
+         <div class="mesh_title"><%:Добавление устройства Mesh%></div>
+         <div class="mesh_content">
+              <p class="content">
+             При поиске и добавлении узла Mesh перейдите на страницу настроек Wi-Fi и включите 5G Wi-Fi.
+              </p>
+          </div>
+           <button class="mesh_buttons" id="setting-5G-button">Перейти</button>
+
+    </div>
+
+    <div class="switch-step step-search-loading" id="mesh-search-loading">
+        <div class="mesh_title"><%:Поиск Mesh устройств%></div>
+        <img id="loading_mesh" src="<%=resource%>/web/img/mesh_loading.png"/>
+        <div class="mesh_content" style="text-align:center">Выполняется поиск</div>
+        <button class="mesh_buttons" id="mesh_search_cancle">Отменить</button>
+    </div>
+
+
+    <div class="switch-step step-search-lists"  id="mesh-search-lists">
+        <div class="mesh_title"><%:Выберите устройство Mesh%></div>
+        <div class="list_box"></div>
+        <button class="mesh_Dbuttons mesh_add_Dbuttons " id="show_locate_select">Добавить</button>
+        <button class="mesh_Dbuttons mesh_research_Dbuttons" id="mesh-research-btn">Повторить</button>
+    </div>
+
+    <div id="mesh_list_length0"  class="switch-step">
+      <div class="mesh_title"><%:Устройства Mesh не найдены%></div>
+      <img class="fail_me" src="<%=resource%>/web/img/mesh_fail.png"/>
+      <div class="mesh_content">
+          <p class="content">
+          Не найдено ни одного Mesh устройства, выполните следующие действия:<br/>
+            1. Убедитесь, что добавляемое устройство поддерживает функцию Mesh.<br/>
+            2. Обновите Mesh устройства до последней версии.<br/>
+            3. Разместите Mesh устройства рядом.<br/>
+            4. Включите Mesh устройство.<br/>
+            5. Нажмите и удерживайте кнопку сброса, чтобы восстановить заводское состояние, и повторите попытку.
+          </p>
+      </div>
+      <button class="mesh_buttons" id="mesh_re_search">Повторить</button>
+    </div>
+
+
+    <div class="switch-step step-add-loading"  id="mesh-add-loading">
+        <div class="mesh_title"><%:Расширение Mesh сети%></div>
+        <img id="loading_mesh" src="<%=resource%>/web/img/mesh_loading.png"/>
+        <p class="head"><%:Подключение к основному Mesh устройству%></p>
+    </div>
+
+    <div class="switch-step step-add-success"  id="mesh-add-success">
+        <div class="mesh_title"><%:Mesh сеть успешно расширена%></div>
+        <img class="success_me" src="<%=resource%>/web/img/mesh_success.png"/>
+        <div class="mesh_content">
+             Поздравляем, покрытие Wi-Fi увеличено!<br/>
+            1. Поместите дополнительное Mesh устройство, в помещение, где необходимо расширить зону покрытия сети.<br/>
+            2. Через некоторое время дополнительное устройство появится в списке управления.<br/>
+            3. Информация о Wi-Fi недавно добавленных устройств Mesh остается такой же, как и раньше!
+        </div>
+        <button class="mesh_buttons" id="mesh_add_success"><%:Принять%></button>
+    </div>
+
+    <div class="switch-step step-add-failer"  id="mesh-add-failer">
+    <div class="mesh_title"><%:Ошибка расширения сети Mesh%></div>
+        <img class="fail_me" src="<%=resource%>/web/img/mesh_fail.png"/>
+        <div class="mesh_content">
+          <%:1. Разместите Mesh устройства рядом.%><br/>
+          <%:2. Посторите попытку подключения.%>
+        </div>
+        <button class="mesh_buttons" id="mesh_re_try">Повторить</button>
+    </div>
+    <div id="mesh-local" class="switch-step" style="display:none;">
+      <div class="mesh_title"><%:Выберите место для размещения%></div>
+      <div class="mesh_content">
+      <div class="form-item-select">
+        <select id="locateSelect" name="locateSelect" class="beautify">
+          <option selected value="Гостинная">Гостинная</option>
+          <option value="Спальная">Спальная</option>
+          <option value="Комната">Комната</option>
+          <option value="Кабинет">Кабинет</option>
+          <option value="Кухня">Кухня</option>
+          <option value="Офис">Офис</option>
+          <option value="Подвал">Подвал</option>
+          <option value="Туалет">Туалет</option>
+          <option value="Чердак">Чердак</option>
+          <option value="Коридор">Коридор</option>
+          <option value="Ресторан">Ресторан</option>
+        </select>
+      </div>
+      </div>
+      <button class="mesh_buttons" id="mesh_search_add">Сохранить</button>
+    </div>
+</div>
+</script>

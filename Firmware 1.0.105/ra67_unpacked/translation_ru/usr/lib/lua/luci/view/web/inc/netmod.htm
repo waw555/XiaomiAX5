@@ -1,0 +1,244 @@
+<%
+-- r1c netmod.html
+-- ap model
+local XQFunction = require("xiaoqiang.common.XQFunction")
+local encode4HtmlValue = XQFunction.encode4HtmlValue
+local XQSysUtil = require("xiaoqiang.util.XQSysUtil")
+local netMode = 0
+local mode = XQFunction.getNetMode()
+if mode == "lanapmode" then
+    netMode = 2
+elseif mode == "wifiapmode" then
+    netMode = 1
+end
+
+local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
+local allWifiInfo = wifiUtil.getAllWifiInfo()
+local uci = require("luci.model.uci").cursor()
+local features = require("xiaoqiang.XQFeatures").FEATURES
+local hardware = string.lower( XQSysUtil.getHardware() )
+%>
+<div class="mod-set mod-netmode">
+    <div class="hd">
+        <h3><%:Режим работы%></h3>
+    </div>
+    <div class="bd">
+        <p><%:Выбор режима работы маршрутизатора.%></p>
+        <p><%:Режим: Маршрутизатор - В режиме маршрутизатора устройство может создавать доступ к одному проводному подключению к Интернет для нескольких клиентов. В этом случае будет использоваться один порт WAN. Данный режим поддерживает несколько типов подключения, такие как Динамический IP/Статический IP/PPPoE/L2TP).%></p>
+        <p><%:Режим: Точка доступа - Режим точки доступа предназначен для преобразования проводного подключения в беспроводное. В данном случае устройство работает как коммутатор. Обычно он подключается за маршрутизатором. Если вы находитесь в офисе, отеле или местах, где доступно только проводное подключение, или, к примеру, на вечеринке, где играют в сетевые игры, на небольшом совещании или в прочих условиях, где необходимо временно подключение к беспроводной сети, пожалуйста, используйте режим точки доступа.%></p>
+        <p><%:Режим: Усилитель Wi-Fi - Режим усилителя используется для увеличения зоны покрытия беспроводного сигнала с использованием одного SSID (имени беспроводной сети) и пароля. Вы можете использовать режим усилителя в том случае, если у вас уже имеется беспроводная сеть, и вам необходимо увеличить покрытие в определённой зоне. При использовании режима усилителя будет использоваться один SSID, но ваши устройства смогут получить доступ к сети в данной зоне. %></p>
+        <a href="#" type="submit" id="btnNetmodSwitch" class="btn btn-primary btn-l"><span><%:Переключить%></span></a>
+        <%if netMode == 0 then%>
+            <input type="hidden" value="0" id="currentnetmode" />
+        <%elseif netMode == 1 then%>
+            <input type="hidden" value="1" id="currentnetmode" />
+        <%else%>
+            <input type="hidden" value="2" id="currentnetmode" />
+        <%end%>
+        <%for k,v in pairs(allWifiInfo) do%>
+            <input type="hidden" id="currentssid<%=k%>" value="<%=encode4HtmlValue(v["ssid"])%>" data-status="<%=v["status"]%>" />
+        <%end%>
+    </div>
+</div>
+
+<script type="tmpl/html" id="tmplNetMode">
+<div class="netmode-switch-dialog-cont">
+    <div class="switch-step step-select" style="display:block;">
+        <p class="tit"><%:Выберите режим работы маршрутизатора%></p>
+        <div id="modeSelect" class="mode-select clearfix">
+            <div class="mode-option" data-mode="0">
+                <div>
+                    <p><%:Режим - Маршрутизатор%></p>
+                    <span class="icon normal"></span>
+                </div>
+            </div>
+            <%if features["apmode"]["wifiapmode"] == "1" then%>
+            <div <%if netMode == 2 then%>class="mode-option hide"<%else%>class="mode-option"<%end%> data-mode="1">
+                <div>
+                    <p><%:Режим - Усилитель Wi-Fi%></p>
+                    <span class="icon wifiap"></span>
+                </div>
+            </div>
+            <%end%>
+            <div <%if netMode == 1 then%>class="mode-option hide"<%else%>class="mode-option"<%end%> data-mode="2">
+                <div>
+                    <p><%:Режим - Точка доступа%></p>
+                    <span class="icon lanap"></span>
+                </div>
+            </div>
+        </div>
+        <%if netMode ~= 0 then%>
+            <p class="mode-select-tip"><%:Текущий рабочий режим можно переключить только в режим маршрутизатора.%></p>
+        <%end%>
+        <a id="modeSelectBtn" href="#" class="btn btn-primary btn-primary-disabled btn-l"><span><%:Далее%></span></a>
+    </div>
+    <div class="switch-step step-setting">
+        <p><%:Настройка, подождите ...%><br /><%:Пожалуйста, не закрывайте браузер и не отключайте маршрутизатор%></p>
+        <span class="loading"></span>
+    </div>
+
+    <div class="switch-step step-wds">
+        <p class="tit"><%:Пожалуйста, выберите беспроводную сеть, чтобы расширить диапазон%></p>
+        <form id="wds" name="wds" class="form clearfix" action="/">
+            <div class="form-item-out toggle-element flag-is-select ssid-select-relative" id="ssidSelectDiv">
+                <div class="form-item-select">
+                    <label class="k"><%:Выберите сеть%></label>
+                    <span class="v">
+                         <select id="ssidselect" name="ssidselect" class="beautify" >
+                            <option value=""><%:Поиск Wi-Fi сетей%></option>
+                        </select>
+                    </span>
+                    <em class="t"></em>
+                </div>
+                <span id="btnFreshenWIFI" class="icon-freshen"></span>
+            </div>
+            <div class="form-item-out toggle-element hide">
+                <div class="form-item">
+                    <label class="k"><%:Имя сети%></label>
+                    <span class="v"><input reqMsg="<%:Имя сети%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinput" type="text" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <div class="form-item-out toggle-element">
+                <div class="form-item" id="wdsWifiInputDivForSelect">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input reqMsg="<%:Пароль%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordforselect" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+                <div class="form-item" id="wdsWifiInputDivForSelectWep" style="display:none;">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input reqMsg="<%:Пароль%>" datatype="weppassword" minlength="5" maxlength="32" name="passwordforselectwep" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <div class="form-item-out toggle-element hide">
+                <div class="form-item" id="wdsWifiInputDivForInput">
+                    <label class="k"><%:Введите пароль%></label>
+                    <span class="v"><input name="passwordforinput" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                    <em class="t"></em>
+                </div>
+            </div>
+            <p class="change-select-type"><a class="a1" href="#" id="changeSelectType"><%:Ввести имя сети вручную%></a></p>
+            <div class="form-new-ssid">
+            <div class="contral" style="display:none;">
+                <label for="newssidtextInnetmod">
+                    <input type="checkbox" id="newssidtextInnetmod" checked="checked" />
+                    <span><%:Имя и пароль беспроводной сети такие же, как у основного маршрутизатора.%></span>
+                </label>
+            </div>
+                <div class="contral-div hide" id="newssiddivInnetmod">
+                    <p class="title"><%:Установите имя и пароль WiFi%></p>
+                    <div class="form-item">
+                        <label class="k"><%:Имя WiFi%></label>
+                        <span class="v"><input reqMsg="<%:Имя WiFi%>" datatype="ssid" minlength="1" maxlength="31" name="ssidinputfornewssid" type="text" class="ipt-text" autocomplete="off"></span>
+                        <em class="t"></em>
+                    </div>
+                    <div class="form-item-select">
+                        <label class="k"><%:Защита сети%></label>
+                        <span class="v">
+                            <select name="encryptionkey" id="encryptionkeyInnetmod" class="beautify" >
+                                <option value="mixed-psk"><%:WPA/WPA2%></option>
+                                <option value="psk2"><%:WPA2%></option>
+                                <option value="none"><%:Без защиты%></option>
+                            </select>
+                        </span>
+                        <em class="t"></em>
+                    </div>
+                    <div class="form-item" id="newssidpassitemInnetmod">
+                        <label class="k"><%:Пароль WiFi%></label>
+                        <span class="v"><input reqMsg="<%:Пароль WiFi%>" datatype="wifipassword" minlength="8" maxlength="63" name="passwordfornewssid" data-type="password"  type="password" class="ipt-text" autocomplete="off"></span>
+                        <em class="t"></em>
+                    </div>
+                </div>
+            </div>
+            <div class="tip-div">
+                <span class="text"><%:Не удалось найти сеть для расширения%></span><span class="ico-tip"></span>
+                <div class="tip-wrap hide">
+                    <div class="arrow"></div>
+                    <div class="inner">
+                        <%:Убедитесь, что Wi-Fi основного маршрутизатора и маршрутизатора усилителя включены.%>
+                    </div>
+                </div>
+            </div>
+            <div class="form-contral">
+                <button class="btn btn-primary btn-l" type="submit"><span><%:Беспроводная сеть с едиными параметрами%></span></button>
+            </div>
+        </form>
+    </div>
+    <div class="switch-step step-succ">
+        <h3><%:Поздравляем, настройка сети с едиными параметрами выполнена успешно!%></h3>
+        <p class="text"><%:1. Текущее имя беспроводной сети%>： </p>
+        <p class="center"><span id="newssid"></span></p>
+        <p class="text"><%:2. IP-адрес текущего маршрутизатора%>： </p>
+        <p class="center"><span id="newip"></span></p>
+        <a id="btnSucc" href="#" class="btn btn-primary btn-l"><span><%:Хорошо%></span></a>
+    </div>
+    <div class="switch-step step-repeat2normal">
+        <p><%:Переключение текущего рабочего режима на режим маршрутизатора восстановит все настройки предыдущего режима маршрутизатора.%> <br /><%:Вы уверены, что переключите режим маршрутизатора?%></p>
+        <div class="btns">
+            <a href="#" class="btn btn-primary" id="repeattonormal"><span><%:Хорошо%></span></a>
+            <a href="#" class="btn btn-dft" id="unrepeattonormal"><span><%:Отмена%></span></a>
+        </div>
+    </div>
+    <div class="switch-step step-succ-repeat2normal">
+        <h3><%:Поздравляем, маршрутизатор успешно перешел в штатный режим работы маршрутизатора!%></h3>
+        <p class="text"><%:1. Текущее имя беспроводной сети%>： </p>
+        <p class="center"><span id="normalssid"></span></p>
+        <p class="text"><%:2. IP-адрес текущего маршрутизатора%>： </p>
+        <p class="center"><span id="normalip"></span></p>
+        <p class="text"><%:3. Адрес Панели управления маршрутизатором miwifi.com.%></p>
+        <a id="btnSuccRepeat2normal" href="#" class="btn btn-primary btn-l"><span><%:Принять%></span></a>
+    </div>
+
+    <div class="switch-step step-lanap">
+        <p class="tit"><%:Режима работы Точка доступа%></p>
+        <div class="lanap-mode-tip">
+            <p ><%:1. Убедитесь, что WAN порт маршрутизатора подключен к старому маршрутизатору через сетевой кабель.%></p>
+            <p ><%:2. Старый марщрутизатор и текущий марщрутизатор находятся в одной локальной сети и могут связываться друг с другом.%></p>
+            <p ><%:3. Некоторые функции и плагины будут заблокированы в режиме Точка доступа.%></p>
+        </div>
+        <form id="lanapform" name="lanapform" class="form clearfix" action="/">
+            <div class="form-contral">
+                <button class="btn btn-primary btn-l" type="submit"><span><%:Далее%></span></button>
+            </div>
+        </form>
+    </div>
+    <div class="switch-step step-succ-lanap">
+        <h3><%:Поздравляем, режим Точка доступа успешно установлен!%></h3>
+        <p class="text wifi-on-text"><%:Новое имя беспроводной сети%></p>
+        <p class="center"><span id="lanapssid24"></span></p>
+        <p class="center"><span id="lanapssid50"></span></p>
+        <p class="text"><%:IP адрес Панели управления%></p>
+        <p class="center"><span id="lanapip"></span></p>
+        <p class="text"><%:Внимание: некоторые функции и плагины в режиме Точка доступа будут заблокированы%></p>
+        <a id="btnSuccLanap" href="#" class="btn btn-primary btn-l"><span><%:Хорошо%></span></a>
+    </div>
+    <div class="switch-step step-lanap2normal">
+        <p><%:Переключение текущего рабочего режима на режим маршрутизатора восстановит все настройки предыдущего режима маршрутизатора.%> <br /><%:Вы уверены, что переключите режим маршрутизатора?%></p>
+        <div class="btns">
+            <a href="#" class="btn btn-primary" id="lanaptonormal"><span><%:Хорошо%></span></a>
+            <a href="#" class="btn btn-dft" id="unlanaptonormal"><span><%:Отмена%></span></a>
+        </div>
+    </div>
+    <div class="switch-step step-succ-lanap2normal">
+        <h3><%:Поздравляем, маршрутизатор перешел в штатный режим работы маршрутизатора!%></h3>
+        <p class="text"><%:1. Текущее имя беспроводной сети%>：</p>
+        <p class="center"><span id="lanap2normalssid"></span></p>
+        <p class="text"><%:2. IP адрес Панели управления%>：</p>
+        <p class="center"><span id="lanap2normalip"></span></p>
+        <p class="text"><%:3. Адрес Панели управления маршрутизатором miwifi.com.%></p>
+        <a id="btnSuccLanap2normal" href="#" class="btn btn-primary btn-l"><span><%:Хорошо%></span></a>
+    </div>
+
+</div>
+</script>
+
+<script type="tmpl/html" id="tmplnowanlinktip">
+<div class='nowanlinktip'>
+    <p><%:Система обнаружила, что ваш маршрутизатор не подключен к сетевому кабелю, подключите сетевой кабель и продолжайте%></p>
+    <div class="btns">
+        <a id="isconnectedwan" class="btn btn-primary" href="#"><span><%:Я подключил сетевой кабель, продолжить%></span></a>
+        <a id="abandonlanap" class="btn btn-dft" href="#"><span><%:Отмена%></span></a>
+    </div>
+</div>
+</script>

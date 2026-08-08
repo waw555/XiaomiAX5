@@ -1,0 +1,34 @@
+<div class="mod-nav-disk mod-nav-disk-r1c">
+    <ul class="nav-disk-ul clearfix">
+        <li class="nav-disk-li active nav-disk-1">
+            <div class="disk-area clearfix">
+                <div class="img-area">
+                    <img src="<%=resource%>/web/img/icons/notharddisc.png" alt="" />
+                    <h2><%:Подключите USB диск к маршрутизатору.%></h2>
+                </div>
+            </div>
+        </li>
+        <li class="nav-disk-li nav-disk-2" style="display:none;">
+            <div class="disk-area clearfix">
+                <div class="img-area">
+                    <img class="off" src="<%=resource%>/web/img/icons/USB.png" alt="" />
+                    <img class="on" src="<%=resource%>/web/img/icons/USB_on.png" alt="" />
+                </div>
+                <div class="cnt-area">
+                    <h2><%:USB Диск%></h2>
+                    <h3><%:Используется%><span class="disk-used"></span> / <%:Общий объем%><span class="disk-all"></span></h3>
+                    <div class="bar-area clearfix">
+                        <span class="b1 isIndexingimg" id="extDiskUsed"></span>
+                    </div>
+                    <div class="txt-area">
+                        <ul class="clearfix">
+                            <!-- <li id="extDiskIndexinghdLi"><%:Индексирование ...%></li> -->
+                            <li><%:Файловая система%> :<em class="value val-fs">---</em></li>
+                            <li><%:Интерфейс жесткого диска%> :<em class="value val-if">---</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,931 @@
+<%
+--[[
+    Информация о настройках Wi-Fi маршрутизатора
+]]--
+local ver = require("xiaoqiang.XQVersion").webVersion
+local wifiUtil = require("xiaoqiang.util.XQWifiUtil")
+local LuciJson = require("luci.json")
+local XQFunction = require("xiaoqiang.common.XQFunction")
+local XQSysUtil = require("xiaoqiang.util.XQSysUtil")
+
+local remote_addr = luci.http.getenv("REMOTE_ADDR")
+local mac = luci.sys.net.ip4mac(remote_addr)
+
+local channel1 = wifiUtil.getDefaultWifiChannels(1)
+local channel2 = wifiUtil.getDefaultWifiChannels(2)
+local wifi_pddk = LuciJson.encode(channel1)
+local wifi5_pddk = LuciJson.encode(channel2)
+
+local active_apcli = XQFunction.get_active_apcli()
+local romChannel = XQSysUtil.getChannel()
+local uci = require("luci.model.uci").cursor()
+local features = require("xiaoqiang.XQFeatures").FEATURES
+local hardware = string.lower( XQSysUtil.getHardware() )
+%>
+<%include("web/inc/head")%>
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link href="<%=resource%>/web/css/bc.css?v=<%=ver%>" rel="stylesheet">
+<link href="<%=resource%>/web/css/wifi.css?v=<%=ver%>" rel="stylesheet">
+</head>
+<body>
+<div id="doc">
+    <%include("web/inc/header")%>
+    <div id="bd">
+    <%if features["wifi"]["wifimerge"] == "1" and hardware ~= "r1cl" then%>
+        <div class="mod-set mod-wifi">
+            <div class="hd">
+                <h3><%:Двухчастотный Wi-Fi в одном%></h3>
+                <div class="switch">
+                    <a href="#" id="bsdswitch" class="btn-switch btn-switch-off" data-on="0"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <p><%:После включения, сети WiFi 2.4G и WiFi 5G, будут использовать одно и то же имя, и маршрутизатор будет автоматически выбирать лучшую сеть WiFi, для подключенных устройств. Если устройство находится близко к маршрутизатору, устройство переключится на сеть WiFi 5G, в противном случае устройство переключится на сеть WiFi 2.4G. Обратите внимание: Из-за различий в оборудовании устройств, могут возникнуть такие проблемы, как кратковременное прерывание сети или частое отключение при автоматическом переключении источников сигнала.%></p>
+            </div>
+        </div>
+    <%end%>
+        <div class="mod-set mod-wifi mod-wifi24">
+            <div class="hd">
+                <h3><%:2.4G Wi-Fi%></h3>
+            </div>
+            <div class="bd">
+                <form class="form form-horizontal" id="wifiset24" name="wifiset24"  action="<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi")%>" autocomplete="off">
+                </form>
+            </div>
+        </div>
+        <%if features["wifi"]["wifi50"] == "1" then%>
+        <div class="mod-set mod-wifi mod-wifi50">
+            <div class="hd">
+                <h3><%:5G Wi-Fi%></h3>
+            </div>
+            <div class="bd">
+                <form class="form form-horizontal" id="wifiset50" name="wifiset50" action="<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi")%>" autocomplete="off">
+                </form>
+            </div>
+        </div>
+        <%end%>
+        <div class="mod-set mod-wifi">
+            <div class="hd">
+                <h3><%:Режим Wi-Fi 6 (802.11ax)%></h3>
+                <div class="switch">
+                    <a href="#WIFI6switch" id="WIFI6switch" class="btn-switch btn-switch-on" data-on="1"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <p><%:Wi-Fi 6 - это новое поколение технологии Wi-Fi, которая поддерживает несколько новых функций, таких как OFDMA, которые могут улучшить работу Wi-Fi. Однако после включения этой функции, некоторые старые устройства могут не обнаружить сеть Wi-Fi или подключиться к сети Wi-Fi.
+                %></p>
+            </div>
+        </div>
+
+        <div class="mod-set mod-wifi">
+            <div class="hd">
+                <h3><%:MU-MIMO%></h3>
+                <div class="switch">
+                    <a href="#txbfswitch" id="txbfswitch" class="btn-switch btn-switch-on" data-on="1"></a>
+                </div>
+            </div>
+            <div class="bd">
+                <p><%:Технология MU-MIMO: «Многопользовательский доступ», позволяет маршрутизатору обмениваться данными с несколькими устройствами одновременно, значительно повышая эффективность использования беспроводных сетей и улучшая возможности Wi-Fi. Чтобы данная функция работала корректно, эта функция должна поддерживаться как маршрутизатором, так и устройством.
+                %></p>
+            </div>
+        </div>
+    </div>
+
+    <%include("web/inc/footer")%>
+
+</div>
+<%include("web/inc/g.js")%>
+<script type="text/tmpl" id="tplbsdWrap">
+    <form class="form form-horizontal" id="wifisetbsd">
+        <div id="wifisetbsdtop">
+        </div>
+        <div id="wifiset24" class="form" style="clear:both;display:none;">
+        </div>
+        <div id="wifiset50">
+        </div>
+    </form>
+</script>
+<script type="text/tmpl" id="tplWifiBsdTop">
+    <div class="item">
+        <span class="k"><%:Выключить%></span>
+        <span class="v">
+            <%:Не выключать в режиме WiFi%>
+        </span>
+    </div>
+    <div class="form-item">
+        <label class="k"><%:Имя%></label>
+        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Имя Wi-Fi%>" /></span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item">
+        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:Скрытая сеть%></span></label>
+    </div>
+    <div class="form-item-select">
+        <label class="k"><%:Защита сети%></label>
+        <span class="v">
+            <select name="encryption" class="beautify encryption" >
+                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:WPA3%></option>
+                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:WPA3/WPA2%></option>
+                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:WPA2%></option>
+                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:WPA/WPA2%></option>
+                <option value="none"{if ($encryption == "none")} selected{/if}><%:Без защиты%></option>
+            </select>
+        </span>
+        <em class="t0">
+           {if ($encryption == "ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
+           {/if}
+           {if ($encryption == "psk2+ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
+           {/if}
+        </em>
+    </div>
+    <div class="form-item" {if($encryption == "none")} style="display:none;"{/if}>
+        <label class="k"><%:Пароль%></label>
+        <span class="v">
+            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Пароль Wi-Fi%>" />
+        </span>
+        <em class="t"></em>
+    </div>
+</script>
+<script type="text/tmpl" id="tplWifiBsd">
+   <!--  {if ($relayWifi == 0)} -->
+        <input type="hidden" name="channel" value="{$channel}">
+        <input type="hidden" name="bandwidth" value="{$bandwidth}">
+        <input type="hidden" name="txpwr" value="{$txpwr}">
+    <!-- {else} -->
+  <!--   <div class="form-item-select">
+        <label class="k"><%:Канал%></label>
+        <span class="v">
+        <select name="channel" class="beautify channel"  data-id="{$wifitype}">
+            {for(var i=0, len=$channels.length; i<len; i++)}
+                <option value="{$channels[i]['c']}" {if ($channel==$channels[i]['c'])}selected{/if}>
+                {if ($channels[i]['c']==0)}<%:Автоматический%>
+                    {if ($channelInfo["channel"] != "0")}
+                        ({$channelInfo["channel"]})
+                    {/if}
+                {else}
+                    {$channels[i]['c']}
+                {/if}
+                </option>
+            {/for}
+        </select>
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item-select itemBandwidth" {if ($channel == "0")}style="display:none;"{/if}>
+        <label class="k"><%:Пропускная способность%></label>
+        <span class="v">
+            {if ($channel == "0")}
+            <select name="bandwidth" class="beautify" id="bandwidth" >
+                <option value="0"><%:Автоматический%></option>
+            </select>
+            {else}
+            <select name="bandwidth" class="beautify" >
+                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:Автоматический%></option>
+                {for(var i=0, len=$channelInfo["bandList"].length; i<len; i++)}
+                    <option value="{$channelInfo["bandList"][i]}" {if ($channelInfo["bandList"][i] == $bandwidth)}selected="selected"{/if}>{$channelInfo["bandList"][i]}M</option>
+                {/for}
+            </select>
+            {/if}
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item-select">
+        <label class="k"><%:Уровень сигнала%></label>
+        <span class="v">
+            <select name="txpwr" class="beautify txpwr">
+                <option value="max"{if ($txpwr == "max")} selected{/if}><%:Высокий%></option>
+                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:Средний%></option>
+                <option value="min"{if ($txpwr == "min")} selected{/if}><%:Низкий%></option>
+            </select>
+        </span>
+        <em class="t"></em>
+    </div> -->
+    <div class="form-contral">
+        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
+    </div>
+    <!-- {/if} -->
+</script>
+<script type="text/tmpl" id="tplWifi">
+    <input type="hidden" value="{$wifiIndex}" name="wifiIndex">
+    <div class="item">
+        <span class="k"><%:Выключить%></span>
+        <span class="v">
+        {if ($relayWifi == 0)}
+            <%:Не закрывать в сетевом режиме%>
+        {else}
+            <label><input type="radio" name="on" value="1"{if ($status == 1)} checked{/if}> <span><%:Включить%></span></label>
+            <label><input type="radio" name="on" value="0"{if ($status == 0)} checked{/if}> <span><%:Выключить%></span></label>
+        {/if}
+        </span>
+    </div>
+    <div class="form-item">
+        <label class="k"><%:Имя%></label>
+        <span class="v"><input type="text" name="ssid" value="{$ssid}" class="ipt-text" autocomplete="off" datatype="ssid" maxLength="31" minLength="1" reqMsg="<%:Имя Wi-Fi%>" /></span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item">
+        <label for="hidessid{$wifitype}"> <input type="checkbox" id="hidessid{$wifitype}" name="hidden" value="1" {if ($hidden == 1)}checked{/if}> <span><%:Скрыть сеть%></span></label>
+    </div>
+    <div class="form-item-select">
+        <label class="k"><%:Защита сети%></label>
+        <span class="v">
+            <select name="encryption" class="beautify encryption" >
+                <option value="ccmp"{if ($encryption == "ccmp")} selected{/if}><%:WPA3%></option>
+                <option value="psk2+ccmp"{if ($encryption == "psk2+ccmp")} selected{/if}><%:WPA3/WPA2%></option>
+
+                <option value="psk2"{if ($encryption == "psk2")} selected{/if}><%:WPA2%></option>
+                <option value="mixed-psk"{if ($encryption == "mixed-psk")} selected{/if}><%:WPA/WPA2%></option>
+                <option value="none"{if ($encryption == "none")} selected{/if}><%:Без защиты%></option>
+            </select>
+        </span>
+        <em class="t0">
+        {if ($encryption == "ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
+        {/if}
+        {if ($encryption == "psk2+ccmp")} <%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>
+        {/if}
+        </em>
+    </div>
+    <div class="form-item" {if($encryption == "none")} style="display:none;"{/if}>
+        <label class="k"><%:Пароль%></label>
+        <span class="v">
+            <input type="password" data-type="password" name="pwd" value="{$password}" class="ipt-text" autocomplete="off" datatype="wifipassword" minLength="8" maxLength="63" reqMsg="<%:Пароль Wi-Fi%>" />
+        </span>
+        <em class="t"></em>
+    </div>
+    {if ($relayWifi == 0)}
+        <input type="hidden" name="channel" value="{$channel}">
+        <input type="hidden" name="bandwidth" value="{$bandwidth}">
+        <input type="hidden" name="txpwr" value="{$txpwr}">
+    {else}
+    <div  class="form-item-select">
+        <label class="k"><%:Канал%></label>
+        <span class="v">
+        <select name="channel" class="beautify channel"  data-id="{$wifitype}">
+            {for(var i=0, len=$channels.length; i<len; i++)}
+                <option value="{$channels[i]['c']}" {if ($channel==$channels[i]['c'])}selected{/if}>
+                {if ($channels[i]['c']==0)}<%:Автоматически%>
+                    {if ($channelInfo["channel"] != "0")}
+                        ({$channelInfo["channel"]})
+                    {/if}
+                {else}
+                    {$channels[i]['c']}
+                {/if}
+                </option>
+            {/for}
+        </select>
+        </span>
+        <em class="t"></em>
+    </div>
+    <div class="form-item-select itemBandwidth" {if ($channel == "0")}style="display:none;"{/if}>
+        <label class="k"><%:Пропускная способность%></label>
+        <span class="v">
+            {if ($channel == "0")}
+            <select name="bandwidth" class="beautify" id="bandwidth" >
+                <option value="0"><%:Автоматически%></option>
+            </select>
+            {else}
+            <select name="bandwidth" class="beautify" >
+                <option value="0" {if ("0" == $bandwidth)}selected="selected"{/if}><%:Автоматически%></option>
+                {for(var i=0, len=$channelInfo["bandList"].length; i<len; i++)}
+                    <option value="{$channelInfo["bandList"][i]}" {if ($channelInfo["bandList"][i] == $bandwidth)}selected="selected"{/if}>{$channelInfo["bandList"][i]}M</option>
+                {/for}
+            </select>
+            {/if}
+        </span>
+        <em class="t"></em>
+    </div>
+    {/if}
+    <div class="form-item-select">
+        <label class="k"><%:Уровень сигнала%></label>
+        <span class="v">
+
+            <select name="txpwr" class="beautify txpwr" >
+                <option value="max"{if ($txpwr == "max")} selected{/if}><%:Высокий%></option>
+                <option value="mid"{if ($txpwr == "mid")} selected{/if}><%:Средний%></option>
+                <option value="min"{if ($txpwr == "min")} selected{/if}><%:Низкий%></option>
+            </select>
+        </span>
+        <em class="t"></em>
+    </div>
+
+    <div class="form-contral">
+        <button type="submit" class="btn btn-primary btn-l hidden"><span><%:Сохранить%></span></button>
+    </div>
+</script>
+
+<script>
+(function(){
+    var global = {};
+    var generateMixed = function (n) {
+         var res = "";
+         var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+         for(var i = 0; i < n ; i ++) {
+             var id = Math.ceil(Math.random()*35);
+             res += chars[id];
+         }
+         return res;
+    }
+    function onControlFocus() {
+        $(this).parents('form').find('.btn-primary').removeClass('hidden');
+    }
+    $.sub( 'wifi:init', function(evt, data){
+        global.wifi = {
+            configs: [],
+            pddk: {
+                '1': '<%=wifi_pddk%>',
+                '2': '<%=wifi5_pddk%>'
+            }
+        };
+
+        // get wifi and rander html
+        var containers = ['wifiset24', 'wifiset50', 'wifisetguest'],
+            tpl = $('#tplWifi').html();
+        $.getJSON('<%=luci.dispatcher.build_url("api","xqnetwork","wifi_detail_all")%>')
+        .done(function( rsp ){
+            if ( rsp.code == 0 ) {
+                if( rsp.bsd == 1 ){
+                    $('#bsdswitch')
+                    .removeClass('btn-switch-off')
+                    .addClass('btn-switch-on')
+                    .attr('data-on', '1');
+                    $('.mod-wifi24 .hd h3').text('<%:Wi-Fi%>');
+                    $('.mod-wifi24 .bd').html( $('#tplbsdWrap').html() );
+                    $('.mod-wifi50').remove();
+                    $('#wifisetbsd').delegate('input[type=text], input[type=checkbox], input[type=radio]', 'click', onControlFocus)
+                        .delegate('.ipt-text', 'click', onControlFocus);
+                    tpl = $('#tplWifiBsd').html();
+                }
+                var wifiinfo = rsp.info;
+                var haswifi50 = $('#wifiset50').length > 0 ? true : false;
+                //wifi6
+                if ( wifiinfo[0].ax == 0 || wifiinfo[0].ax == "0") {
+                         $('#WIFI6switch')
+                        .removeClass('btn-switch-on')
+                        .addClass('btn-switch-off')
+                        .attr('data-on', '0');
+                }
+
+
+                for(var i = 0, len = wifiinfo.length; i < len; i ++){
+                    var id = containers[i];
+                    var container = $(document.getElementById(id));
+                    var wifiitem = wifiinfo[i];
+                    var password = wifiitem.password;
+                    var encryption = wifiitem.encryption;
+                    var type = '<%=active_apcli%>';// new:wl11 ----2.4G 中继;wl12------5.G 中继
+                    var relayWifi = 1;
+
+                    if ( encryption == 'none' ) {
+                        password = '';
+                    }
+                     if ( i == 0 && type == 'wl11') { //new:wl11 ----2.4G 中继;wl12------5.G 中继
+                             relayWifi = 0;//yincang
+                          }
+
+                    if (haswifi50 && i == 1) {
+                        if ( wifiinfo[i].txbf == 0 || wifiinfo[i].txbf == "0") {
+                            $('#txbfswitch')
+                            .removeClass('btn-switch-on')
+                            .addClass('btn-switch-off')
+                            .attr('data-on', '0');
+
+                        }
+                         if (type == 'wl12') { //new:wl11 ----2.4G 中继;wl12------5.G 中继
+                            relayWifi = 0;
+                     }
+                    }
+                    var tplData = {
+                        relayWifi: relayWifi,
+                        wifitype: i,
+                        wifiIndex: i+1,
+                        status: wifiitem.status,
+                        ssid: StringH.encode4HtmlValue(wifiitem.ssid),
+                        password: StringH.encode4HtmlValue(password),
+                        encryption: wifiitem.encryption,
+                        channels: $.parseJSON(global.wifi.pddk[i+1]),
+                        channel: wifiitem.channel,
+                        bandwidth: wifiitem.bandwidth,
+                        channelInfo: wifiitem.channelInfo,
+                        hidden: wifiitem.hidden,
+                        txpwr: wifiitem.txpwr,
+                        enabled: wifiitem.enabled
+                    };
+                    if( i == 0 && rsp.bsd == 1 ){
+                        $('#wifisetbsdtop').html( $('#tplWifiBsdTop').html().tmpl(tplData) );
+                    }
+                    if ( i < 2 ) {
+                        container.html( tpl.tmpl(tplData) );
+                        global.wifi.configs[i+1] = tplData;
+                    }
+                }
+            }
+            setTimeout( function(){
+                $.selectBeautify();
+                $.formInit();
+                $.pub('wifi:bindEventEncryption');
+                $.pub('wifi:bindEventChannel');
+            }, 100 );
+        });
+    });
+
+    $.sub( 'wifi:bindEventEncryption', function(){
+        $( '.encryption' ).on( 'change', function( e ){
+            var val = $( this ).val(),
+                root = $( this ).parents('form'),
+                pwd = root.find('.form-item-pwd'),
+                tips = $(this.parentNode).next('.t0');
+            if ( val === 'none' ) {
+                pwd.hide();
+            } else {
+                pwd.show();
+            }
+            if (val === 'psk2') {
+                tips.html('<%:Устройства, поддерживающие только шифрование WPA, не смогут подключиться%>').show();
+            }else if(val == 'ccmp'||val == 'psk2+ccmp'){
+                tips.html('<%:WPA3 - это технология шифрования нового поколения, которая может значительно повысить безопасность, но у некоторых старых устройств могут быть проблемы с подключением.%>').show();
+            }else{
+                tips.html('');
+            }
+        } );
+    });
+
+    $.sub( 'wifi:bindEventChannel', function(){
+        $( '.channel' ).on( 'change', function( e ){
+            var channelVal = this.value,
+                that = this,
+                id = $(this).attr('data-id'),
+                id = parseInt(id, 10) + 1,
+                root = $( this ).parents('form'),
+                pwd = root.find('.form-item-pwd'),
+                $bandwidth = $( this ).closest('.form').find('[name=bandwidth]'),
+                $itemBandwidth = $( this ).closest('.form').find('.itemBandwidth'),
+                tips = $(this.parentNode).next('.t'),
+                pddk,
+                item = '<option value="0"><%:Автоматически%></option>',
+                bdlist = [];
+                var wifiname = $( this ).closest('.form').attr('id');
+
+
+            if ( channelVal === '0' ) {
+                $itemBandwidth.hide();
+                return;
+            }
+
+            pddk = $.parseJSON( global.wifi.pddk[id] );
+            for (var i = 0; i < pddk.length; i++) {
+                var _c = pddk[i]['c'];
+                if ( _c == channelVal ) {
+                    bdlist = pddk[i]['b'];
+                    break;
+                }
+            }
+            for ( var i = 0; i <  bdlist.length; i++ ) {
+                item += '<option value="'+bdlist[i]+'">'+ bdlist[i] +'M</option>';
+            }
+
+            if(wifiname === 'wifiset24'){
+                $bandwidth.html( item ).val( '20' );
+                $itemBandwidth
+                    .find( '.dummy' )
+                    .text("<%:20 M%>");
+            }else{
+                 $bandwidth.html( item );
+                 $itemBandwidth
+                    .find( '.dummy' )
+                    .text("<%:Автоматически%>");
+            }
+
+            $itemBandwidth.show();
+
+            var channelIsBad = /36|40|44|48|52|56|60|64/.test( channelVal );
+
+            if ( channelIsBad ) {
+                tips.html('<%:Текущий канал, который вы выбрали вручную, может привести к тому, что некоторые старые устройства не смогут подключиться.%>');
+            } else {
+                tips.html('');
+            }
+
+        });
+    } );
+
+    $.sub( 'wifi:bindEvent', function( evt, data ){
+
+        function wifiSubmitHandler(e){
+            e.preventDefault();
+            var formOjb = this,
+                formAction = this.action,
+                validator = Valid.checkAll(formOjb);
+            if ( validator) {
+                var wifiIndex = $( 'input[name=wifiIndex]', formOjb ).val(),
+                    on = $( 'input[name=on]:checked', formOjb ).val(),
+                    pwd =  $( 'input[name=pwd]', formOjb ).val(),
+                    ssid = $( 'input[name=ssid]', formOjb ).val(),
+                    encryption = $( 'select[name=encryption]', formOjb ).val(),
+                    channel = $( 'select[name=channel]', formOjb ).val(),
+                    bandwidth = $( 'select[name=bandwidth]', formOjb ).val(),
+                    txpwr = $( 'select[name=txpwr]', formOjb ).val(),
+                    hidden = $('input[name=hidden]', formOjb ).prop('checked') ? '1' : '0';
+                    pwd = $.pwddecode( pwd );
+
+                var requestData = {
+                    wifiIndex: wifiIndex,
+                    on: on,
+                    ssid: ssid,
+                    pwd: pwd,
+                    encryption: encryption,
+                    channel: channel,
+                    bandwidth: bandwidth,
+                    hidden: hidden,
+                    txpwr: txpwr
+                };
+
+                $.pub( 'wifi:confirm', {
+                    ok : function(){
+                        $.pub( 'wifi:modify', {
+                            requestData : requestData,
+                            url : formAction
+                        } );
+                    },
+                    cancel : function(){}
+                } );
+            }
+        }
+
+        function wifiGuestSubmitHandler(e){
+            e.preventDefault();
+            e.preventDefault();
+            var formOjb = this,
+                formAction = this.action,
+                validator = Valid.checkAll(formOjb);
+            if ( validator) {
+                var wifiIndex = $( 'input[name=wifiIndex]', formOjb ).val(),
+                    on = $( 'input[name=on]:checked', formOjb ).val(),
+                    pwd =  $( 'input[name=pwd]', formOjb ).val(),
+                    ssid = $( 'input[name=ssid]', formOjb ).val(),
+                    encryption = $( 'select[name=encryption]', formOjb ).val();
+                    pwd = $.pwddecode( pwd );
+
+                var ssid24 = global.wifi.configs[1].ssid;
+                if ( ssid == ssid24 ) {
+                    Valid.fail( $( 'input[name=ssid]', formOjb )[0], '<%:Гостевой SSID и SSID 2.4G не могут совпадать%>', true);
+                    return;
+                }
+                var requestData = {
+                    wifiIndex: wifiIndex,
+                    on: on,
+                    ssid: ssid,
+                    pwd: pwd,
+                    encryption: encryption
+                };
+
+                $.pub( 'wifi:confirm', {
+                    ok : function(){
+                        $.pub( 'wifi:modify', {
+                            requestData : requestData,
+                            url : formAction
+                        } );
+                    },
+                    cancel : function(){}
+                } );
+            }
+        }
+
+        function bsdWiFiSubmitHandler(e){
+            e && e.preventDefault();
+            var bsd = $('#bsdswitch').attr('data-on') == 1 ? 1 : 0;
+            var topContainer = $('#wifisetbsdtop');
+            var form1 = $('#wifiset24');
+            var form2 = $('#wifiset50');
+            var on1 = 1,
+                ssid1 = $( 'input[name=ssid]', topContainer ).val(),
+                pwd1 =  $( 'input[name=pwd]', topContainer ).val(),
+                encryption1 = $( 'select[name=encryption]', topContainer ).val(),
+                hidden1 = $('input[name=hidden]', topContainer ).prop('checked') ? '1' : '0';
+                channel1 = $( 'input[name=channel]', form1 ).val(),
+                bandwidth1 = $( 'input[name=bandwidth]', form1 ).val(),
+                txpwr1 = $( 'input[name=txpwr]', form1 ).val(),
+                pwd1 = $.pwddecode( pwd1 ),
+
+                on2 = on1,
+                ssid2 = ssid1,
+                pwd2 = pwd1,
+                encryption2 = encryption1,
+                hidden2 = hidden1,
+                channel2 = $( 'select[name=channel]', form2 ).val(),
+                bandwidth2 = $( 'select[name=bandwidth]', form2 ).val(),
+                txpwr2 = $( 'select[name=txpwr]', form2 ).val();                ;
+            var requestData = {
+                bsd: bsd,
+                on1: on1,
+                ssid1: ssid1,
+                encryption1: encryption1,
+                channel1: channel1,
+                bandwidth1: bandwidth1,
+                hidden1: hidden1,
+                txpwr1: txpwr1,
+                pwd1: pwd1,
+                on2: on2,
+                ssid2: ssid2,
+                encryption2: encryption2,
+                channel2: channel2,
+                bandwidth2: bandwidth2,
+                hidden2: hidden2,
+                txpwr2: txpwr2,
+                pwd2: pwd2
+            };
+            $.ajax({
+                url: '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_all_wifi")%>',
+                dataType: 'json',
+                timeout: 5000,
+                type: 'POST',
+                data: requestData,
+                success: function( rsp ){
+                    if( rsp.code === 0 ){
+                        $.pub( 'wifi:success' );
+                    } else {
+                        if ( rsp.code !== 401) {
+                            var msg = StringH.encode4Html( rsp.msg );
+                            $.alert( msg ).lock();
+                        }
+                    }
+                },
+                error: function() {
+                    $.alert( '<%:Ошибка сети%>' );
+                }
+            });
+        }
+
+        $('#wifiset24').delegate('[name=on]', 'click', function(e){
+            var val = $(this).val();
+            if( global.wifi.configs[3] && global.wifi.configs[3].status ){
+                var wifigueststatus = global.wifi.configs[3].status;
+                var netModeType = parseInt('<%=XQFunction.getNetModeType()%>');
+                if ( val != wifigueststatus) {
+                    if ( val == 0 && netModeType !== 2) {
+                        $.alert('<%:Отключение 2.4G Wi-Fi также отключит гостевой Wi-Fi.%>').time(3000);
+                    }
+                }
+            }
+        });
+
+        $('body').delegate('#wifisetbsd input[name=on]', 'click', function(e){
+            var val = $(this).val();
+            if( global.wifi.configs[3] && global.wifi.configs[3].status ){
+                var wifigueststatus = global.wifi.configs[3].status;
+                var netModeType = parseInt('<%=XQFunction.getNetModeType()%>');
+                if ( val != wifigueststatus) {
+                    if ( val == 0 && netModeType !== 2) {
+                        $.alert('<%:Отключение Wi-Fi также отключит гостевой Wi-Fi.%>').time(3000);
+                    }
+                }
+            }
+        });
+
+        $('#wifisetguest').delegate('[name=on]', 'click', function(e){
+            var val = $(this).val();
+            var wifi24status = global.wifi.configs[1].status;
+            if ( val != wifi24status ) {
+                if ( val == 1 ) {
+                    $.alert('<%:При включении гостевого Wi-Fi также включается Wi-Fi 2,4G.%>').time(3000);
+                }
+            }
+        });
+
+        $('#wifiset24').on('submit', wifiSubmitHandler);
+        $('#wifiset50').on('submit', wifiSubmitHandler);
+        $('#wifisetguest').on('submit', wifiGuestSubmitHandler);
+        $('body').delegate('#wifisetbsd', 'submit', bsdWiFiSubmitHandler);
+
+        $('body').delegate('input[name=ssid]' ,'blur', function(e){
+            var tar = e.currentTarget;
+            if ( escape(tar.value).indexOf("%u") >= 0 ) {
+                $(tar.parentNode).next('.t').text('<%:Этот SSID приведет к плохой поддержке некоторых устройств.%>').show();
+            }
+        });
+
+        $('#wifiset24, #wifiset50, #wifisetguest').delegate('input[type=text], input[type=checkbox], input[type=radio]', 'click', onControlFocus)
+                .delegate('.ipt-text', 'click', onControlFocus);
+
+          $('#WIFI6switch').on('click', function(e){
+            e.preventDefault();
+            var ax = $(this).attr('data-on') == 1 ? 0 : 1;
+            var self = this;
+
+            var requestData = {
+                ax: ax
+            };
+            $.ajax({
+                url: '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi_ax")%>',
+                dataType: 'json',
+                timeout: 5000,
+                type: 'POST',
+                data: requestData,
+                success: function( rsp ){
+                    if( rsp.code === 0 ){
+                        if(ax == 0) {
+                            $(self)
+                            .removeClass('btn-switch-on')
+                            .addClass('btn-switch-off')
+                            .attr('data-on', '0');
+                        }else {
+                            $(self)
+                            .removeClass('btn-switch-off')
+                            .addClass('btn-switch-on')
+                            .attr('data-on', '1');
+                            }
+
+                        $.pub( 'wifi:success' );
+                    } else {
+                        if ( rsp.code !== 401) {
+                            var msg = StringH.encode4Html( rsp.msg );
+                            $.alert( msg ).lock();
+                        }
+                    }
+                },
+                error: function() {
+                    $.alert( '<%:Ошибка сети%>' );
+                }
+            });
+
+        });
+
+        $('#txbfswitch').on('click', function(e){
+            e.preventDefault();
+            var txbf = $(this).attr('data-on') == 1 ? 0 : 3;
+            var self = this;
+
+            var requestData = {
+                wifiIndex: 2,
+                txbf: txbf
+            };
+            $.pub( 'wifi:confirm', {
+                    ok : function(){
+                        $.ajax({
+                                url: '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_wifi")%>',
+                                dataType: 'json',
+                                timeout: 5000,
+                                type: 'POST',
+                                data: requestData,
+                                success: function( rsp ){
+                                    if( rsp.code === 0 ){
+                                        if(txbf == 0) {
+                                            $(self)
+                                            .removeClass('btn-switch-on')
+                                            .addClass('btn-switch-off')
+                                            .attr('data-on', '0');
+                                        }else {
+                                            $(self)
+                                            .removeClass('btn-switch-off')
+                                            .addClass('btn-switch-on')
+                                            .attr('data-on', '1');
+                                            }
+
+                                        $.pub( 'wifi:success' );
+                                    } else {
+                                        if ( rsp.code !== 401) {
+                                            var msg = StringH.encode4Html( rsp.msg );
+                                            $.alert( msg ).lock();
+                                        }
+                                    }
+                                },
+                                error: function() {
+                                    $.alert( '<%:Ошибка сети%>' );
+                                }
+                            });
+                    },
+                    cancel : function(){}
+                } );
+
+        });
+
+        $('#bsdswitch').on('click', function(e){
+            e.preventDefault();
+            var on = $(this).attr('data-on');
+            var self = this;
+            if( on == 0 ){
+                var formOjb = $('#wifiset24');
+                // var on1 = $( 'input[name=on]:checked', formOjb ).val(),
+                var on1 = 1,
+                    ssid1 = $( 'input[name=ssid]', formOjb ).val(),
+                    pwd1 =  $( 'input[name=pwd]', formOjb ).val(),
+                    encryption1 = $( 'select[name=encryption]', formOjb ).val(),
+                    channel1 = $( 'input[name=channel]', formOjb ).val(),
+                    bandwidth1 = $( 'input[name=bandwidth]', formOjb ).val(),
+                    hidden1 = $('input[name=hidden]', formOjb ).prop('checked') ? '1' : '0',
+                    txpwr1 = $( 'input[name=txpwr]', formOjb ).val(),
+                    pwd1 = $.pwddecode( pwd1 );
+                var requestData = {
+                    bsd: 1,
+                    on1: on1,
+                    ssid1: ssid1,
+                    encryption1: encryption1,
+                    channel1: channel1,
+                    bandwidth1: bandwidth1,
+                    hidden1: hidden1,
+                    txpwr1: txpwr1,
+                    pwd1: pwd1
+                };
+                $.ajax({
+                    url: '<%=luci.dispatcher.build_url("api", "xqnetwork", "set_all_wifi")%>',
+                    dataType: 'json',
+                    timeout: 5000,
+                    type: 'POST',
+                    data: requestData,
+                    success: function( rsp ){
+                        if( rsp.code === 0 ){
+                            $(self)
+                            .removeClass('btn-switch-off')
+                            .addClass('btn-switch-on')
+                            .attr('data-on', '1');
+                            $.pub( 'wifi:success' );
+                        } else {
+                            if ( rsp.code !== 401) {
+                                var msg = StringH.encode4Html( rsp.msg );
+                                $.alert( msg ).lock();
+                            }
+                        }
+                    },
+                    error: function() {
+                        $.alert( '<%:Ошибка сети%>' );
+                    }
+                });
+            }else{
+                $.dialog({
+                    width: 390,
+                    title : "<%:Примечание%>",
+                    content : '<%:Когда двухдиапазонный Wi-Fi отключен, 5G будет использовать то же имя сети 2.4G (плюс суффикс _5G) и пароль по умолчанию. Если вам нужно установить другое значение, измените его.%>',
+                    ok: function(){
+                        $(self)
+                        .removeClass('btn-switch-on')
+                        .addClass('btn-switch-off')
+                        .attr('data-on', '0');
+                        setTimeout(function(){
+                            bsdWiFiSubmitHandler();
+                        }, 0);
+                    }
+                });
+            }
+        });
+    });
+
+    $.sub( 'wifi:success', function( evt, data ){
+        $.loadingDialog({
+            title : '<%:Настройка Wi-Fi%>',
+            content : '<%:Настройка выполнена успешно, выполняется перезагрузка, подождите 30 секунд...%>',
+            cancel: false
+        }).lock().time( 30*1000 );
+        setTimeout( function(){
+            window.location.reload( true );
+        }, 30*1000 );
+    } );
+
+    $.sub( 'wifi:confirm', function( evt, data ){
+        var ok = data.ok || function(){},
+            cancel = data.cancel || function(){};
+
+        $.dialog({
+            id : "confirm",
+            width: 390,
+            title : "<%:Настройка Wi-Fi%>",
+            content : '<%:Эта операция перезапустит Wi-Fi и приведет к потере соединения на всех устройствах с Wi-Fi. Вы действительно хотите внести изменения?%>',
+            ok: function(){
+                ok();
+            },
+            cancel: function () {
+                cancel();
+            }
+        }).lock();
+    } );
+
+    $.sub( 'wifi:modify', function( evt, data ){
+        var requestData =  data.requestData;
+        var url = data.url;
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            timeout: 5000,
+            type: "POST",
+            data: requestData,
+            success: function( rsp ) {
+                if( rsp.code === 0 ){
+                    $.pub( 'wifi:success' );
+                } else {
+                    if ( rsp.code !== 401) {
+                        var msg = StringH.encode4Html( rsp.msg );
+                        $.alert( msg ).lock();
+                    }
+                }
+            },
+            error: function() {
+                $.alert( '<%:Ошибка сети%>' );
+            }
+        });
+    });
+
+    $(function(){
+        $.pub( 'wifi:init' );
+        $.pub( 'wifi:bindEvent' );
+    });
+}());
+</script>

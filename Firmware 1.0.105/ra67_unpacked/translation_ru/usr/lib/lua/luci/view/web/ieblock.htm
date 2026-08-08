@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<%
+    local ver = require("xiaoqiang.XQVersion").webVersion
+%>
+<!--[if lt IE 7]><html class="ie6 oldie" lang="ru"><![endif]-->
+<!--[if IE 7]><html class="ie7 oldie" lang="ru"><![endif]-->
+<!--[if IE 8]><html class="ie8 oldie" lang="ru"><![endif]-->
+<!--[if gt IE 8]><!--> <html lang="ru"> <!--<![endif]-->
+<head>
+<meta http-equiv="X-UA-Compatible" content="edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="renderer" content="webkit">
+<title><%:Redmi Xiaomi AX5%></title>
+<meta name="viewport" content="width=1200">
+<link rel="stylesheet" href="<%=resource%>/web/css/bc.css?v=<%=ver%>">
+<link rel="stylesheet" href="<%=resource%>/diagnosis/css/neterr.css?v=<%=ver%>">
+</head>
+<body>
+<div id="doc">
+    <div class="logo">
+        <img src="<%=resource%>/diagnosis/img/logo.png">
+    </div>
+    <div class="mod-neterr">
+        <div class="hd">
+            <img src="<%=resource%>/diagnosis/img/ico_warn.png">
+            <p><%:К сожалению, маршрутизатор не поддерживает браузер версии IE6.%></p>
+        </div>
+        <div class="bd">
+            <p class="last"><%:Пожалуйста, обновите браузер %><a target="_blank" href="https://www.microsoft.com/ru-ru/download/internet-explorer.aspx"><%:Internet Explorer%></a>，<%:Или используйте другой браузер, например %> <a target="_blank" href="https://www.google.com/chrome/">Google Chrome</a> или <a target="_blank" href="https://www.mozilla.org/">Firefox</a> <p>
+        </div>
+        <div class="ft">
+            &copy; <%:Redmi Xiaomi AX5%>
+        </div>
+    </div>
+</div>
+</body>
+</html>
